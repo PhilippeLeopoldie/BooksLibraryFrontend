@@ -67,6 +67,8 @@ namespace myApi.Controllers
                 opinionById.Value.Like=opinionUpdate.Like;
                 opinionById.Value.UserId=opinionUpdate.UserId;
                 opinionById.Value.BookId=opinionUpdate.BookId;
+                opinionById.Value.View=opinionUpdate.View;
+                opinionById.Value.userName=opinionUpdate.userName;
                 _context.Entry(opinionById.Value).State = EntityState.Modified;
             }
 
@@ -86,7 +88,7 @@ namespace myApi.Controllers
                 }
             }
 
-            return NoContent();
+            return Ok();
         }
 
         // POST: api/Opinion
@@ -100,7 +102,10 @@ namespace myApi.Controllers
           }
           
             _context.Opinions.Add(new Opinion{
-                Like= opinion.Like
+                Like= opinion.Like,
+                BookId= opinion.BookId,
+                View = opinion.View,
+                userName = opinion.userName
             });
             await _context.SaveChangesAsync();
 
@@ -115,6 +120,7 @@ namespace myApi.Controllers
             {
                 return NotFound();
             }
+            
             var opinion = await _context.Opinions.FindAsync(id);
             if (opinion == null)
             {

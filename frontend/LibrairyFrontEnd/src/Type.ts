@@ -1,14 +1,14 @@
 export type BookType = {
-    bookId : number,
+    bookId : number
 
-    title :string,
-    author :string,
+    title :string
+    author :string
 
-    userId :number,
-    borrowed:boolean,
-    borrowedTime: Date,
-    bivenBack :boolean,
-    bivenBackTime:Date,
+    userId :number
+    borrowed:boolean
+    borrowedTime: Date
+    bivenBack :boolean
+    bivenBackTime:Date
 
 }
 
@@ -16,6 +16,8 @@ export type OpinionType = {
     opinionId : number
     like : boolean
     bookId : number
+    view:string
+    userName:string
     userId : number
 }
 

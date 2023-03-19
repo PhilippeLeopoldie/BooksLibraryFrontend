@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using myApi.Models;
+using myApi.DTO;
 
 
 
@@ -85,18 +86,21 @@ namespace myApi.Controllers
         // POST: api/Book
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Book>> PostBook(Book book)
+        public async Task<ActionResult<Book>> PostBook(BookAddRequest book)
         {
           if (_context.Books == null)
           {
               return Problem("Entity set 'myApiContext.Book'  is null.");
           }
           
-          
-            _context.Books.Add(book);
+           var newBook= _context.Books.Add(new Book{
+                Author= book.Author,
+                Title = book.Title
+            }).Entity;
             await _context.SaveChangesAsync();
+            
 
-            return CreatedAtAction("GetBook", new { id = book.BookId }, book);
+            return CreatedAtAction("GetBook", new { id = newBook.BookId}, newBook);
         }
 
         // DELETE: api/Book/5
@@ -107,7 +111,7 @@ namespace myApi.Controllers
             {
                 return NotFound();
             }
-            var book = await _context.Books.FindAsync(id);
+            var book =  _context.Books.Include(x=>x.Opinions).FirstOrDefault(x => x.BookId==id);
             if (book == null)
             {
                 return NotFound();

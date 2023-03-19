@@ -13,6 +13,17 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+.bookcontainer{
+  border: 1px whitesmoke solid
+}
+.bookcard{
+  border: 1px white solid
+}
+
+.opinion{
+  border: 1px white solid
+}
+
 
 a {
   font-weight: 500;

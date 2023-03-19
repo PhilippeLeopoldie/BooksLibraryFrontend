@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace myApi.Migrations
 {
     [DbContext(typeof(myApiContext))]
-    partial class myApiContextModelSnapshot : ModelSnapshot
+    [Migration("20230316201720_ViewFieldToOpinion")]
+    partial class ViewFieldToOpinion
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -73,9 +76,6 @@ namespace myApi.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("View")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("userName")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("OpinionId");

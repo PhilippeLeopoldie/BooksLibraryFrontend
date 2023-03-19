@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import FetchApi from '../FetchApi'
 
 
 type BookType = {
@@ -7,38 +8,44 @@ type BookType = {
 type Opinion = {
     like : boolean
     bookId: number
+    view : string
+
     //userId: number
 }
 
 function PostOpinion(props:BookType) {
 
-    const[like, setLike]= useState<boolean>()
-    const[opinion, setOpinion]= useState<Opinion>(Object)
-    
+    const [Opinions, setOpinions] = useState<Opinion[]>()
 
     const PostOpinion = () => {
         const requestOptions = {
             method : 'POST',
-            header: {
-                'accept': 'text/plain',
+            headers: {
                 "Content-Type" : 'application/json',
             },
             body : JSON.stringify({bookId: props.bookId,like : true})
         };
         console.log(requestOptions);
         fetch("http://localhost:5133/api/Opinions",requestOptions)
-        
+
+        const [Opinions, setOpinions] = useState<Opinion[]>()
+    useEffect(()=> {
+        FetchApi('http://localhost:5133/api/Opinions').then(opinions => setOpinions(opinions))
+        console.log('',Opinions)
+    },[])
     }
+    const opinion= Opinions?.filter(opinion => opinion.bookId == props.bookId)
+    
+    const DeleteOpinion=async() => {fetch(`http://localhost:5133/api/Opinions/${opinion?.at(0)?.bookId}`, {method: 'DELETE'})}
+
+
 
   return (
     <>
     <div>PostOpinion</div>
-    <button onClick={PostOpinion}>Like</button>
     </>
   )
 }
 
 export default PostOpinion
-
-
 

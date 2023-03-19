@@ -15,7 +15,7 @@ public class Book
     public DateTime? GivenBackTime {get; set;}
 
     public int OpinionId { get; set; }
-    public List<Opinion>? Opinions { get; set; }
+    public virtual List<Opinion>? Opinions { get; set; }
 
     //public int? UserId { get; set; }
     
