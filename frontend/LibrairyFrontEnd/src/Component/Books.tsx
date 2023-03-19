@@ -3,6 +3,7 @@ import React, {useEffect, useState} from 'react'
  import FetchApi from '../FetchApi'
 import PostOpinion from './PostOpinion'
 import { FetchOpinions } from './FetchOpinion'
+import trash from '../trash.png'
 
 
 
@@ -27,16 +28,17 @@ function Books () {
     return (
         
         <div className='bookcontainer'>
-            <h2>Suggestion of the day</h2>
+            <h2>Recommandation of the day</h2>
         <h3>{random?.title}</h3>
         {
             books?.map((book, index)=>(
-                <p className='opinion' key={index}>{book.title}{book.author}
+                <p className='opinion' key={index}>{book.title}  {book.author}
                 <button type='submit' onClick={async()=>{
-                    console.log('book contente',{book})
+                    
                     
                     DeleteBook(book.bookId)
-                   }}>delete</button>
+                    window.location.reload()
+                   }}><img src={trash}/></button>
                 
                 <FetchOpinions bookId ={book.bookId}/>
                 </p>

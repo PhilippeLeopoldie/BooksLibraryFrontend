@@ -34,13 +34,13 @@ namespace myApi.Controllers
 
         // GET: api/Opinion/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Opinion>> GetOpinionById(int id)
+        public  ActionResult<Opinion> GetOpinionById(int id)
         {
           if (_context.Opinions == null)
           {
               return NotFound();
           }
-            var opinion = await _context.Opinions.FindAsync(id);
+            var opinion = _context.Opinions.Include(x=> x.Book).FirstOrDefault(x=>x.OpinionId==id);
 
             if (opinion == null)
             {
@@ -59,7 +59,7 @@ namespace myApi.Controllers
             {
                 return BadRequest();
             } */
-            var opinionById = await GetOpinionById(id);
+            var opinionById =  GetOpinionById(id);
             
             
             if(opinionById.Value != null)
@@ -69,11 +69,12 @@ namespace myApi.Controllers
                 opinionById.Value.BookId=opinionUpdate.BookId;
                 opinionById.Value.View=opinionUpdate.View;
                 opinionById.Value.userName=opinionUpdate.userName;
-                _context.Entry(opinionById.Value).State = EntityState.Modified;
+                //_context.Entry(opinionById.Value).State = EntityState.Modified;
             }
 
             try
             {
+                _context.Opinions.Update(opinionById.Value!);
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
