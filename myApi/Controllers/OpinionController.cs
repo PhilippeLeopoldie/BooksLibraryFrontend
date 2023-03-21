@@ -123,7 +123,8 @@ namespace myApi.Controllers
                 return NotFound();
             }
             
-            var opinion = await _context.Opinions.FindAsync(id);
+            //var opinion = await _context.Opinions.FindAsync(id);
+            var opinion = _context.Opinions.FirstOrDefault(x =>x.OpinionId==id);
             if (opinion == null)
             {
                 return NotFound();

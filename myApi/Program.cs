@@ -21,7 +21,7 @@ if (app.Environment.IsDevelopment())
 
     app.UseSwaggerUI();
     app.UseCors(opt =>{
-        opt.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://127.0.0.1:5173");
+        opt.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://127.0.0.1:5174");
 
     } );
 }

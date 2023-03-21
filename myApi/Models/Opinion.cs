@@ -13,6 +13,8 @@ public class Opinion{
 
     
     public virtual Book? Book { get; set; }
+
+    
     public int? UserId { get; set; }
     public virtual User? user { get; set; }
 }

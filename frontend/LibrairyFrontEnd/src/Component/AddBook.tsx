@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import PostOpinion from './PostOpinion';
 import { BookType } from '../Type'
 import FetchApi from '../FetchApi'
 import like from '../like.png'

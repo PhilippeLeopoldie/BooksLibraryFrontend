@@ -29,7 +29,7 @@ export function FetchOpinions(props: BookType) {
         {
           OppinionFiltered?.map((opinion, index) => (
             <>
-              <p key={index}><div>{opinion.view}   </div> <div> {opinion.userName}</div>
+              <p key={index}><div>{opinion.view}  </div> <div> {opinion.userName}</div>
                 {!opinion.like && <img src={sad} alt="sad" />} {opinion.like && <img src={like} alt="like" />}
               </p>
               <button onClick={activationForm} ><img src={write}></img></button>
