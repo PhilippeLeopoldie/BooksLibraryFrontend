@@ -9,7 +9,7 @@ on:
     branches:
       - master
        paths:
-      -app1/**
+      - app1/**
       - api1/**
       - https://github.com/PhilippeLeopoldie/BooksLibraryProject/blob/master/.github/workflows/azure-static-web-apps-green-flower-0ba5fcf03.yml
 
