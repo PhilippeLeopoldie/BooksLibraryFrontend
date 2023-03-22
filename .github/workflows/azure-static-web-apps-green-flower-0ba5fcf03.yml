@@ -8,11 +8,8 @@ on:
     types: [opened, synchronize, reopened, closed]
     branches:
       - master
-       paths:
-      - frontend/**
-      - .github/workflows/azure-static-web-apps-green-flower-0ba5fcf03.yml
-    pull_request:
-    types: [opened, synchronize, reopened, closed]
+  
+    
     
 jobs:
   build_and_deploy_job:

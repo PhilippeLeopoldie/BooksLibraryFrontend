@@ -7,11 +7,9 @@ on:
   push:
     branches:
       - master
-      paths:
-      - myApi/**
-      - .github/workflows/master_bookslibrary.yml
-    pull_request:
-    types: [opened, synchronize, reopened, closed]
+   
+    
+  
     
 
   workflow_dispatch:
