@@ -14,6 +14,10 @@ on:
       - https://github.com/PhilippeLeopoldie/BooksLibraryProject/blob/master/.github/workflows/azure-static-web-apps-green-flower-0ba5fcf03.yml
     pull_request:
     types: [opened, synchronize, reopened, closed]
+    paths:
+      - frontend/**
+      - myApi/**
+      - https://github.com/PhilippeLeopoldie/BooksLibraryProject/blob/master/.github/workflows/master_bookslibrary.yml
 jobs:
   build_and_deploy_job:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')

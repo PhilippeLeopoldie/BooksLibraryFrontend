@@ -13,6 +13,11 @@ on:
       - https://github.com/PhilippeLeopoldie/BooksLibraryProject/blob/master/.github/workflows/master_bookslibrary.yml
     pull_request:
     types: [opened, synchronize, reopened, closed]
+    paths:
+      - frontend/**
+      - myApi/**
+      - https://github.com/PhilippeLeopoldie/BooksLibraryProject/blob/master/.github/workflows/azure-static-web-apps-green-flower-0ba5fcf03.yml
+   
 
   workflow_dispatch:
 
