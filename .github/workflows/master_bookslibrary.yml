@@ -7,6 +7,10 @@ on:
   push:
     branches:
       - master
+      paths:
+      -app1/**
+      - api1/**
+      - https://github.com/PhilippeLeopoldie/BooksLibraryProject/blob/master/.github/workflows/master_bookslibrary.yml
   workflow_dispatch:
 
 jobs:
