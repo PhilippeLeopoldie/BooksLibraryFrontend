@@ -8,16 +8,11 @@ on:
     branches:
       - master
       paths:
-      - frontend/**
       - myApi/**
-      - https://github.com/PhilippeLeopoldie/BooksLibraryProject/blob/master/.github/workflows/master_bookslibrary.yml
+      - .github/workflows/master_bookslibrary.yml
     pull_request:
     types: [opened, synchronize, reopened, closed]
-    paths:
-      - frontend/**
-      - myApi/**
-      - https://github.com/PhilippeLeopoldie/BooksLibraryProject/blob/master/.github/workflows/azure-static-web-apps-green-flower-0ba5fcf03.yml
-   
+    
 
   workflow_dispatch:
 
@@ -35,10 +30,10 @@ jobs:
           include-prerelease: true
 
       - name: Build with dotnet
-        run: dotnet build --configuration Release
+        run: dotnet build myApi --configuration Release
 
       - name: dotnet publish
-        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
+        run: dotnet publish myApi -c Release -o ${{env.DOTNET_ROOT}}/myapp
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
