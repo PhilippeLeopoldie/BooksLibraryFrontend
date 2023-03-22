@@ -8,9 +8,12 @@ on:
     branches:
       - master
       paths:
-      - app1/**
-      - api1/**
+      - frontend/**
+      - myApi/**
       - https://github.com/PhilippeLeopoldie/BooksLibraryProject/blob/master/.github/workflows/master_bookslibrary.yml
+    pull_request:
+    types: [opened, synchronize, reopened, closed]
+
   workflow_dispatch:
 
 jobs:
