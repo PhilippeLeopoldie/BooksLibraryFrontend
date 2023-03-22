@@ -18,15 +18,16 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
 
-   
-
     app.UseSwaggerUI();
     app.UseCors(opt =>{
-        opt.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://127.0.0.1:5174");
+        opt.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
 
     } );
 }
+   app.UseCors(opt =>{
+        opt.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
 
+    } );
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
