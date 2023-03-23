@@ -11,7 +11,8 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: MyAllowSpecificOrigins,
                       policy  =>
                       {
-                          policy.WithOrigins("https://green-flower-0ba5fcf03.2.azurestaticapps.net");
+                          policy.WithOrigins("https://green-flower-0ba5fcf03.2.azurestaticapps.net",
+                          "https://bookslibrary.azurewebsites.net/");
                       });
 });
 // Add services to the container.
