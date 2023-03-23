@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 var builder = WebApplication.CreateBuilder(args);
+
 builder.Services.AddDbContext<myApiContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("booklibraryConnectionString") ?? throw new InvalidOperationException("Connection string 'myApiContext' not found.")));
 
@@ -21,9 +22,11 @@ builder.Services.AddDbContext<myApiContext>(options =>
 }); */
 // Add services to the container.
 
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+
 builder.Services.AddSwaggerGen();
 
     
