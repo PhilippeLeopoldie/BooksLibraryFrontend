@@ -113,7 +113,8 @@ namespace myApi.Controllers
                 return NotFound();
             }
             //var book =  _context.Books.Include(x=>x.Opinions).FirstOrDefault(x => x.BookId==id);
-            var book = await _context.Books.FindAsync(id);
+            //var book = await _context.Books.FindAsync(id);
+            var book = _context.Books.FirstOrDefault(book => book.BookId == id);
             if (book == null)
             {
                 return NotFound();
