@@ -6,6 +6,14 @@ builder.Services.AddDbContext<myApiContext>(options =>
 
 var  MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+                      policy  =>
+                      {
+                          policy.WithOrigins("https://green-flower-0ba5fcf03.2.azurestaticapps.net");
+                      });
+});
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -36,14 +44,7 @@ if (app.Environment.IsProduction())
 
     } );
 }
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy(name: MyAllowSpecificOrigins,
-                      policy  =>
-                      {
-                          policy.WithOrigins("https://green-flower-0ba5fcf03.2.azurestaticapps.net");
-                      });
-});
+
 
 app.UseHttpsRedirection();
 
