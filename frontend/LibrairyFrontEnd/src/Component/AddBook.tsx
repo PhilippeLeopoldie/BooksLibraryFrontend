@@ -22,7 +22,7 @@ function AddBook() {
       },
       body: JSON.stringify({ title: title, author: Author })
     };
-    const body = await (await fetch("http://localhost:5133/api/Books", requestOptions)).json();
+    const body = await (await fetch("https://bookslibrary.azurewebsites.net/api/Books", requestOptions)).json();
     books?.push(body)
     setBooks(books)
     return body;
@@ -31,7 +31,7 @@ function AddBook() {
 
 
   useEffect(() => {
-    FetchApi('http://localhost:5133/api/Books').then(books => setBooks(books))
+    FetchApi('https://bookslibrary.azurewebsites.net/api/Books').then(books => setBooks(books))
 
 
   }, [])
@@ -53,14 +53,14 @@ function AddBook() {
       body: JSON.stringify({ bookId, like: opinion, view: View, userName: userName })
     };
     console.log('post opinion:', requestOptions);
-    const newOpinion = await (await fetch("http://localhost:5133/api/Opinions", requestOptions)).json()
+    const newOpinion = await (await fetch("https://bookslibrary.azurewebsites.net/api/Opinions", requestOptions)).json()
   }
 
 
 
   return (
     <>
-      <form onSubmit={(e) => e.preventDefault()} action='http://localhost:5133/api/Books' method='POST' className='bookform'>
+      <form onSubmit={(e) => e.preventDefault()} action='https://bookslibrary.azurewebsites.net/api/Books' method='POST' className='bookform'>
         <input placeholder='Title' onChange={(e) => setTitle(e.target.value)} />
         <input placeholder='Author' onChange={(e) => setAuthor(e.target.value)} />
         <input placeholder='View' onChange={(e) => setView(e.target.value)} />

@@ -16,7 +16,7 @@ export function FetchOpinions(props: BookType) {
   const [Opinions, setOpinions] = useState<OpinionType[]>()
   useEffect(() => {
 
-    FetchApi('http://localhost:5133/api/Opinions').then(opinions => setOpinions(opinions))
+    FetchApi('https://bookslibrary.azurewebsites.net/api/Opinions').then(opinions => setOpinions(opinions))
   }, [])
   const OppinionFiltered = Opinions?.filter(opinion => opinion.bookId == props.bookId)
   const activationForm = () => {

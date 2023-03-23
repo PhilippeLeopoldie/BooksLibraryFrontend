@@ -25,7 +25,7 @@ function OpinionUpdate(props: opinion) {
             body: JSON.stringify({ "view": view, "userName": props.userName, "like": props.like, "bookId": props.bookId, })
 
         };
-        fetch(`http://localhost:5133/api/Opinions/${props.opinionId}`, requestOptions)
+        fetch(`https://bookslibrary.azurewebsites.net/api/Opinions/${props.opinionId}`, requestOptions)
             .then(response => {
                 response.json();
 

@@ -13,8 +13,8 @@ function Books () {
     const [books, setBooks] = useState<BookType[]>()
 
     useEffect(() =>{
-        FetchApi('http://localhost:5133/api/Books').then(books => setBooks(books))
-        FetchApi('http://localhost:5133/api/Opinions').then(opinions => setOpinions(opinions))
+        FetchApi('https://bookslibrary.azurewebsites.net/api/Books').then(books => setBooks(books))
+        FetchApi('https://bookslibrary.azurewebsites.net/api/Opinions').then(opinions => setOpinions(opinions))
     },[])
  //console.log(books?.at(Math.floor(Math.random()*books.length)))
 
@@ -22,9 +22,9 @@ function Books () {
  const OpinionIdToDelete =(bookId:number)=> {Opinions?.filter(opinion => opinion.bookId== bookId).at(0)?.bookId.toString()} 
  console.log('OpinionId to delete :',{OpinionIdToDelete})
  
- const DeleteOpinion= async (bookId:number)=>{fetch(`http://localhost:5133/api/Opinions/${bookId}`, {method: 'DELETE'})}
+ const DeleteOpinion= async (bookId:number)=>{fetch(`https://bookslibrary.azurewebsites.net/api/Opinions/${bookId}`, {method: 'DELETE'})}
  
- const DeleteBook= async (bookId:number) => {fetch(`http://localhost:5133/api/Books/${bookId}`, {method: 'DELETE'})}
+ const DeleteBook= async (bookId:number) => {fetch(`https://bookslibrary.azurewebsites.net/api/Books/${bookId}`, {method: 'DELETE'})}
 
 
     return (
