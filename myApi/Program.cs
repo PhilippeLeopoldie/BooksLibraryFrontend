@@ -4,17 +4,21 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<myApiContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("booklibraryConnectionString") ?? throw new InvalidOperationException("Connection string 'myApiContext' not found.")));
 
-var  MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+//var  MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
-builder.Services.AddCors(options =>
+/* builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: MyAllowSpecificOrigins,
                       policy  =>
                       {
                           policy.WithOrigins("https://green-flower-0ba5fcf03.2.azurestaticapps.net",
-                          "https://bookslibrary.azurewebsites.net/api/Opinions","https://bookslibrary.azurewebsites.net/api/Books").AllowAnyHeader().AllowAnyMethod();
+                          "https://bookslibrary.azurewebsites.net/api/Opinions","https://bookslibrary.azurewebsites.net/api/Books")
+                          .AllowAnyHeader()
+                          .AllowAnyMethod()
+                          .SetIsOriginAllowed((host) => true)
+                        .AllowCredentials();
                       });
-});
+}); */
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -31,25 +35,25 @@ if (app.Environment.IsDevelopment())
 {
 
     app.UseSwaggerUI();
-    app.UseCors(opt =>{
+    /* app.UseCors(opt =>{
         opt.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
 
-    } );
+    } ); */
 }
 if (app.Environment.IsProduction())
 {
 
     app.UseSwaggerUI();
-    app.UseCors(opt =>{
+    /* app.UseCors(opt =>{
         opt.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
 
-    } );
+    } ); */
 }
 
 app.UseHttpsRedirection();
-app.UseRouting();
+//app.UseRouting();
 
-app.UseCors(MyAllowSpecificOrigins);
+//app.UseCors(MyAllowSpecificOrigins);
 
 app.UseAuthorization();
 
