@@ -12,7 +12,7 @@ builder.Services.AddCors(options =>
                       policy  =>
                       {
                           policy.WithOrigins("https://green-flower-0ba5fcf03.2.azurestaticapps.net",
-                          "https://bookslibrary.azurewebsites.net/");
+                          "https://bookslibrary.azurewebsites.net/").AllowAnyHeader().AllowAnyMethod();
                       });
 });
 // Add services to the container.
@@ -46,8 +46,8 @@ if (app.Environment.IsProduction())
     } );
 }
 
-
 app.UseHttpsRedirection();
+app.UseRouting();
 
 app.UseCors(MyAllowSpecificOrigins);
 
