@@ -12,7 +12,7 @@ builder.Services.AddCors(options =>
                       policy  =>
                       {
                           policy.WithOrigins("https://green-flower-0ba5fcf03.2.azurestaticapps.net",
-                          "https://bookslibrary.azurewebsites.net/").AllowAnyHeader().AllowAnyMethod();
+                          "https://bookslibrary.azurewebsites.net/api/Opinions","https://bookslibrary.azurewebsites.net/api/Books").AllowAnyHeader().AllowAnyMethod();
                       });
 });
 // Add services to the container.
