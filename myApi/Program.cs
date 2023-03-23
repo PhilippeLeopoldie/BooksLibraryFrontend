@@ -35,7 +35,10 @@ if (app.Environment.IsProduction())
 
     } );
 }
+app.UseCors(opt =>{
+        opt.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
 
+    } );
 
 app.UseHttpsRedirection();
 
