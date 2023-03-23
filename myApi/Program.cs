@@ -4,6 +4,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<myApiContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("booklibraryConnectionString") ?? throw new InvalidOperationException("Connection string 'myApiContext' not found.")));
 
+var  MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
 // Add services to the container.
 
@@ -35,10 +36,14 @@ if (app.Environment.IsProduction())
 
     } );
 }
-app.UseCors(opt =>{
-        opt.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
-
-    } );
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+                      policy  =>
+                      {
+                          policy.WithOrigins("https://green-flower-0ba5fcf03.2.azurestaticapps.net");
+                      });
+});
 
 app.UseHttpsRedirection();
 
