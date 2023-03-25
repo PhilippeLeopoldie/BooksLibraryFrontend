@@ -4,7 +4,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<myApiContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("booklibraryConnectionString") ?? throw new InvalidOperationException("Connection string 'myApiContext' not found.")));
-                                                                    
+                                                                                                           
 //var  MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
 /* builder.Services.AddCors(options =>

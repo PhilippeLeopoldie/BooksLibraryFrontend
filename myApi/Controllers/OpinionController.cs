@@ -66,7 +66,7 @@ namespace myApi.Controllers
             if(opinionById.Value != null)
             {
                 opinionById.Value.Like=opinionUpdate.Like;
-                opinionById.Value.UserId=opinionUpdate.UserId;
+                //opinionById.Value.UserId=opinionUpdate.UserId;
                 opinionById.Value.BookId=opinionUpdate.BookId;
                 opinionById.Value.View=opinionUpdate.View;
                 opinionById.Value.userName=opinionUpdate.userName;
