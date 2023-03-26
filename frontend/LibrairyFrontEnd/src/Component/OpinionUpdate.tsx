@@ -13,7 +13,7 @@ type opinion = {
 
 function OpinionUpdate(props: opinion) {
     const [view, setView] = useState<string>(props.view)
-
+    const [userName,setUserName] = useState<string>(props.userName)
 
     const updateOpinion = (e: SyntheticEvent) => {
         e.preventDefault()
@@ -22,13 +22,12 @@ function OpinionUpdate(props: opinion) {
             headers: {
                 "Content-Type": 'application/json '
             },
-            body: JSON.stringify({ "view": view, "userName": props.userName, "like": props.like, "bookId": props.bookId, })
+            body: JSON.stringify({ "view": view, "userName": userName, "like": props.like, "bookId": props.bookId, })
 
         };
         fetch(`https://bookslibrary.azurewebsites.net/api/Opinions/${props.opinionId}`, requestOptions)
             .then(response => {
                 response.json();
-
             });
     }
 
@@ -38,8 +37,13 @@ function OpinionUpdate(props: opinion) {
 
     return (
         <>
-            <form>
-                <input placeholder='View' value={view} onChange={(e) => setView(e.target.value)} />
+            <form className="opinioncard">
+                <label>view:  
+                    <input placeholder='View' value={view} onChange={(e) => setView(e.target.value)} />
+                </label>
+                <label>UserName: 
+                    <input placeholder='Username' value= {userName} onChange={(e)=> setUserName(e.target.value)}/>
+                </label>
                 <button onClick={updateOpinion}><img src={check} /></button>
             </form>
         </>

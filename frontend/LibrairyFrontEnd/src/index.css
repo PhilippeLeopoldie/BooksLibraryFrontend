@@ -1,22 +1,47 @@
-:root {
+* {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  color:black;
   color-scheme: light dark;
-  background-color: #242424;
+  background-color: white;
 }
-.bookcontainer{
-  border: 1px whitesmoke solid
-}
-.bookcard{
-  border: 1px white solid;
-  display: flex;
-  justify-content: space-between;
+
+.bookform--inputs{
+  display: grid;
   
   
 }
 
-.opinion{
-  border: 1px white solid
-  
+.bookcontainer{
+  border: 1px blue solid;
+  display:flex;
+  gap: 1%;
+}
+
+.bookcard{
+  border: 1px blue solid;
+  display:grid;
+}
+
+.booktitlebutton{
+  display: flex;
+ flex-direction: column-reverse;
+}
+
+.booktitle{
+  font-size: x-large;
+  font-weight:bold;
+}
+
+.booktitle--button{
+ 
+  width:30px ;
+  height: 30px;
+}
+
+
+
+.review{
+  border: 1px blue solid;
 }
 
 
@@ -27,12 +52,11 @@ body {
 }
 
 
-
 button {
   border-radius: 8px;
   border: 1px solid transparent;
   border-color: #484b86;
-  background-color: #242424;
+  background-color: white;
   cursor: pointer;
   transition: border-color 0.25s;
 }
