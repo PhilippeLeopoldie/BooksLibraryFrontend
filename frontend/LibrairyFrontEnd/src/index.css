@@ -7,19 +7,27 @@
 
 .bookform--inputs{
   display: grid;
-  
-  
+  gap:1%;
+  grid-template-rows:1fr 1fr 3fr 1fr ; 
+}
+
+.bookform--view{
+  color: blue;
+ text-align:left;
 }
 
 .bookcontainer{
-  border: 1px blue solid;
-  display:flex;
+ 
+  display:grid;
+  grid-template-columns: 1fr;
+  
   gap: 1%;
 }
 
 .bookcard{
-  border: 1px blue solid;
+  border: 1px gray solid;
   display:grid;
+  border-radius: 5px;
 }
 
 .booktitlebutton{
@@ -41,7 +49,7 @@
 
 
 .review{
-  border: 1px blue solid;
+ 
 }
 
 
@@ -64,4 +72,14 @@ button:hover {
   border: #4b54ff 2px solid;
 }
 
+@media screen and (min-width: 481px) {
+  .bookcontainer{
+    grid-template-columns: 1fr 1fr;
+  }
+}
 
+@media screen and (min-width: 769px) {
+  .bookcontainer{
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}

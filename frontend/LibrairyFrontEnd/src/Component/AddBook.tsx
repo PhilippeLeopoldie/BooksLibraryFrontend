@@ -84,7 +84,7 @@ function AddBook() {
             placeholder="Author"
             onChange={(e) => setAuthor(e.target.value)}
           />
-          <input placeholder="View" onChange={(e) => setView(e.target.value)} />
+          <input className="bookform--view" placeholder="View" onChange={(e) => setView(e.target.value)} />
           <input
             placeholder="UserName"
             onChange={(e) => setUserName(e.target.value)}
