@@ -5,9 +5,6 @@ import FetchApi from "../FetchApi";
 import { FetchOpinions } from "./FetchOpinion";
 import trash from "../media/delete.svg";
 
-type Opinion = {
-    view:string
-}
 
 function Books() {
   const [Opinions, setOpinions] = useState<OpinionType[]>();
@@ -53,12 +50,9 @@ function Books() {
       <div className="bookcontainer">
         {books?.map((book, index) => (
           <div className="bookcard">
-            <div className="booktitlebutton">
-              <div className="booktitle" key={index}>
-                {book.title} {book.author}
-              </div>
+            <div className="booktitletrashbutton">
               <button
-                className="booktitle--trashbutton"
+                className=" button booktitle--trashbutton"
                 type="submit"
                 onClick={async () => {
                   //await DeleteOpinion(book.bookId)
@@ -68,12 +62,18 @@ function Books() {
                   // window.location.reload()
                 }}
               >
-                <img src={trash} />
+                <img className="icone iconeTrash" src={trash} />
               </button>
+              <h2 className="booktitle" key={index}>
+                {book.title} 
+              </h2>
+              <h3 className="bookauthor" key={index}>
+                by: {book.author}
+                </h3>
             </div>
-            <div className="review">
+            
               <FetchOpinions bookId={book.bookId} />
-            </div>
+            
           </div>
         ))}
       </div>

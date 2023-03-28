@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { render } from 'react-dom';
+import { render } from "react-dom";
 import { BookType } from "../Type";
 import Books from "./Books";
 import FetchApi from "../FetchApi";
@@ -14,7 +14,7 @@ function AddBook() {
 
   const [books, setBooks] = useState<BookType[]>();
   const [bookTitle, setBookTitle] = useState<BookType[]>();
- let count:number = 0;
+  let count: number = 0;
 
   const PostBook = async () => {
     const requestOptions = {
@@ -33,8 +33,8 @@ function AddBook() {
     books?.push(body);
     setBooks(books);
     count++;
-    console.log('count:',count)
-   
+    console.log("count:", count);
+
     return body;
   };
 
@@ -43,7 +43,6 @@ function AddBook() {
       setBooks(books)
     );
   }, [count]);
-
 
   useEffect(() => {
     setBookTitle(books?.filter((book) => book.title == title));
@@ -69,8 +68,11 @@ function AddBook() {
         "https://bookslibrary.azurewebsites.net/api/Opinions",
         requestOptions
       )
-    ).json().then(()=>{window.location.reload();});
-
+    )
+      .json()
+      .then(() => {
+        window.location.reload();
+      });
   };
 
   return (
@@ -90,7 +92,11 @@ function AddBook() {
             placeholder="Author"
             onChange={(e) => setAuthor(e.target.value)}
           />
-          <input className="bookform--view" placeholder="View" onChange={(e) => setView(e.target.value)} />
+          <input
+            className="bookform--view"
+            placeholder="View"
+            onChange={(e) => setView(e.target.value)}
+          />
           <input
             placeholder="UserName"
             onChange={(e) => setUserName(e.target.value)}
@@ -98,23 +104,22 @@ function AddBook() {
         </div>
 
         <div>
-          <button
+          <button className="button"
             onClick={async () => {
-
               PostOpinion((await PostBook()).bookId, false);
-              
             }}
           >
-            <img src={sad} />
+            <img className="icone iconeSad" src={sad} />
           </button>
           <button
+            className="button"
             type="submit"
             onClick={async () => {
               PostOpinion((await PostBook()).bookId, true);
-             // window.location.reload();
+              // window.location.reload();
             }}
           >
-            <img src={like} />
+            <img className="icone iconeLike" src={like} />
           </button>
         </div>
       </form>

@@ -29,14 +29,14 @@ export function FetchOpinions(props: BookType) {
     <>
       <div className="opinioncard">
         {OppinionFiltered?.map((opinion, index) => (
-          <div>
+          <div >
             <div key={index}>
-              <div>{opinion.view} </div> <div> {opinion.userName}</div>
+              <div className="opinioncard--view">{opinion.view} </div>
               {!opinion.like && <img src={sad} alt="sad" />}{" "}
               {opinion.like && <img src={like} alt="like" />}
             </div>
-            <button onClick={activationForm}>
-              <img src={write}></img>
+            <button className="button buttonModify"  onClick={activationForm}>
+              <img className="icone iconeModify" src={write}></img>
             </button>
             {form && (
               <OpinionUpdate

@@ -1,54 +1,72 @@
 * {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  color:black;
+  color: black;
   color-scheme: light dark;
-  background-color: white;
+  background-color: rgb(253, 229, 187);
 }
 
-.bookform--inputs{
+.bookform--inputs {
   display: grid;
-  gap:1%;
-  grid-template-rows:1fr 1fr 3fr 1fr ; 
+  gap: 1%;
+  grid-template-rows: 1fr 1fr 3fr 1fr;
 }
 
-.bookform--view{
+.bookform--view {
   color: blue;
- text-align:left;
+  text-align: left;
 }
 
-.bookcontainer{
- 
-  display:grid;
+.bookcontainer {
+  display: grid;
   grid-template-columns: 1fr;
-  
   gap: 1%;
 }
 
-.bookcard{
+.bookcard {
   border: 1px gray solid;
+  border-radius:  3%;
   display:grid;
-  border-radius: 5px;
+  grid-template-rows: 2fr 3fr;
+  
 }
 
-.booktitlebutton{
-  display: flex;
- flex-direction: column-reverse;
+.opinioncard{
+  border-radius: 5%;
+  margin: 4%;
 }
 
-.booktitle{
+.booktitletrashbutton {
+  border-radius: 10%;
+
+}
+
+.booktitle {
   font-size: x-large;
-  font-weight:bold;
+  font-weight: bold;
 }
 
-.booktitle--trashbutton{
- 
- justify-content: left;
-
-  width:40px ;
+.booktitle--trashbutton {
+  display: flex;
+  width: 40px;
   height: 40px;
+  
+}
+
+.icone,.button{
+  background-color: #b7e4ff;
 }
 
 
+
+/* .review{
+  border-radius: 10%;
+  margin: 1% 4%;
+  
+} */
+
+.opinioncard--view{
+  text-align: justify;
+}
 
 body {
   margin: 0;
@@ -56,12 +74,11 @@ body {
   place-items: center;
 }
 
-
 button {
   border-radius: 8px;
   border: 1px solid transparent;
   border-color: #484b86;
-  background-color: white;
+
   cursor: pointer;
   transition: border-color 0.25s;
 }
@@ -70,13 +87,13 @@ button:hover {
 }
 
 @media screen and (min-width: 481px) {
-  .bookcontainer{
+  .bookcontainer {
     grid-template-columns: 1fr 1fr;
   }
 }
 
 @media screen and (min-width: 769px) {
-  .bookcontainer{
+  .bookcontainer {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
