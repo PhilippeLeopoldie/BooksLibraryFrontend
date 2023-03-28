@@ -1,6 +1,6 @@
 import React, { SyntheticEvent, useEffect, useState } from 'react'
 import FetchApi from '../FetchApi'
-import check from '../check.png'
+import check from '../media/check.png'
 
 type opinion = {
     opinionId: number
@@ -15,7 +15,7 @@ function OpinionUpdate(props: opinion) {
     const [view, setView] = useState<string>(props.view)
     const [userName,setUserName] = useState<string>(props.userName)
 
-    const updateOpinion = (e: SyntheticEvent) => {
+    const updateOpinion = async (e: SyntheticEvent) => {
         e.preventDefault()
         const requestOptions = {
             method: 'PUT',
@@ -25,15 +25,13 @@ function OpinionUpdate(props: opinion) {
             body: JSON.stringify({ "view": view, "userName": userName, "like": props.like, "bookId": props.bookId, })
 
         };
-        fetch(`https://bookslibrary.azurewebsites.net/api/Opinions/${props.opinionId}`, requestOptions)
+       await fetch(`https://bookslibrary.azurewebsites.net/api/Opinions/${props.opinionId}`, requestOptions)
             .then(response => {
-                response.json();
+                response.json().then(()=> {
+                    window.location.reload();
+                });
             });
     }
-
-
-
-
 
     return (
         <>

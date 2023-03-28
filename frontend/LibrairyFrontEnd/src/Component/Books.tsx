@@ -3,11 +3,16 @@ import { BookType, OpinionType } from "../Type";
 import FetchApi from "../FetchApi";
 
 import { FetchOpinions } from "./FetchOpinion";
-import trash from "../trash.png";
+import trash from "../media/delete.svg";
+
+type Opinion = {
+    view:string
+}
 
 function Books() {
   const [Opinions, setOpinions] = useState<OpinionType[]>();
   const [books, setBooks] = useState<BookType[]>();
+ 
 
   useEffect(() => {
     FetchApi("https://bookslibrary.azurewebsites.net/api/Books").then((books) =>
@@ -34,8 +39,10 @@ function Books() {
   };
 
   const DeleteBook = async (bookId: number) => {
-    fetch(`https://bookslibrary.azurewebsites.net/api/Books/${bookId}`, {
+    await fetch(`https://bookslibrary.azurewebsites.net/api/Books/${bookId}`, {
       method: "DELETE",
+    }).then(()=>{
+        window.location.reload();
     });
   };
 
@@ -51,7 +58,7 @@ function Books() {
                 {book.title} {book.author}
               </div>
               <button
-                className="booktitle--button"
+                className="booktitle--trashbutton"
                 type="submit"
                 onClick={async () => {
                   //await DeleteOpinion(book.bookId)

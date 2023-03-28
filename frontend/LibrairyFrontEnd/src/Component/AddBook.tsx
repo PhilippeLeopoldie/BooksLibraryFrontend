@@ -1,17 +1,20 @@
 import React, { useEffect, useState } from "react";
+import { render } from 'react-dom';
 import { BookType } from "../Type";
+import Books from "./Books";
 import FetchApi from "../FetchApi";
-import like from "../like.png";
-import sad from "../sad.png";
+import like from "../media/like.png";
+import sad from "../media/sad.png";
 
 function AddBook() {
   const [title, setTitle] = useState<string>("");
-  const [Author, setAuthor] = useState<string>("");
-  const [View, setView] = useState<string>("");
+  const [author, setAuthor] = useState<string>("");
+  const [view, setView] = useState<string>("");
   const [userName, setUserName] = useState<string>("");
 
   const [books, setBooks] = useState<BookType[]>();
   const [bookTitle, setBookTitle] = useState<BookType[]>();
+ let count:number = 0;
 
   const PostBook = async () => {
     const requestOptions = {
@@ -19,7 +22,7 @@ function AddBook() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ title: title, author: Author }),
+      body: JSON.stringify({ title: title, author: author }),
     };
     const body = await (
       await fetch(
@@ -29,6 +32,9 @@ function AddBook() {
     ).json();
     books?.push(body);
     setBooks(books);
+    count++;
+    console.log('count:',count)
+   
     return body;
   };
 
@@ -36,8 +42,8 @@ function AddBook() {
     FetchApi("https://bookslibrary.azurewebsites.net/api/Books").then((books) =>
       setBooks(books)
     );
-  }, []);
-  console.log("list books:", books);
+  }, [count]);
+
 
   useEffect(() => {
     setBookTitle(books?.filter((book) => book.title == title));
@@ -54,17 +60,17 @@ function AddBook() {
       body: JSON.stringify({
         bookId,
         like: opinion,
-        view: View,
+        view: view,
         userName: userName,
       }),
     };
-    console.log("post opinion:", requestOptions);
     const newOpinion = await (
       await fetch(
         "https://bookslibrary.azurewebsites.net/api/Opinions",
         requestOptions
       )
-    ).json();
+    ).json().then(()=>{window.location.reload();});
+
   };
 
   return (
@@ -94,8 +100,9 @@ function AddBook() {
         <div>
           <button
             onClick={async () => {
-              PostOpinion((await PostBook()).bookId, true);
-              window.location.reload();
+
+              PostOpinion((await PostBook()).bookId, false);
+              
             }}
           >
             <img src={sad} />
@@ -103,14 +110,15 @@ function AddBook() {
           <button
             type="submit"
             onClick={async () => {
-              PostOpinion((await PostBook()).bookId, false);
-              window.location.reload();
+              PostOpinion((await PostBook()).bookId, true);
+             // window.location.reload();
             }}
           >
             <img src={like} />
           </button>
         </div>
       </form>
+      <Books />
     </>
   );
 }

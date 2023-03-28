@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { OpinionType } from "../Type";
 import FetchApi from "../FetchApi";
-import like from "../like.png";
-import sad from "../sad.png";
-import write from "../write.png";
+import like from "../media/like.png";
+import sad from "../media/sad.png";
+import write from "../media/write.png";
 import OpinionUpdate from "./OpinionUpdate";
 
 type BookType = {

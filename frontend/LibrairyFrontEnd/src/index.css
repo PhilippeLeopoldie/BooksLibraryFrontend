@@ -40,17 +40,14 @@
   font-weight:bold;
 }
 
-.booktitle--button{
+.booktitle--trashbutton{
  
-  width:30px ;
-  height: 30px;
+ justify-content: left;
+
+  width:40px ;
+  height: 40px;
 }
 
-
-
-.review{
- 
-}
 
 
 body {
