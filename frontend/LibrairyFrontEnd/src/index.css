@@ -2,7 +2,19 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   color: black;
   color-scheme: light dark;
-  background-color: rgb(253, 229, 187);
+  background-color: white;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  border-color: #484b86;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:hover {
+  border: #4b54ff 2px solid;
 }
 
 .bookform--inputs {
@@ -11,79 +23,102 @@
   grid-template-rows: 1fr 1fr 3fr 1fr;
 }
 
-.bookform--view {
-  color: blue;
-  text-align: left;
-}
 
 .bookcontainer {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1%;
+  gap: 2%;
 }
 
 .bookcard {
+  background-color: rgb(253, 229, 187);
   border: 1px gray solid;
-  border-radius:  3%;
-  display:grid;
+  border-radius: 3%;
+  display: grid;
   grid-template-rows: 2fr 3fr;
-  
+  border-radius: 20px 16px 12px 32px;
+  background-image: linear-gradient(to right,  rgb(113, 73, 2) 10%, rgb(253, 229, 187) 10%);
 }
 
-.opinioncard{
-  border-radius: 5%;
-  margin: 4%;
+.bookcard--header {
+  border-top-right-radius: 5%;
+  border-top-left-radius: 5%;
+  background-color: transparent;
+  padding-left: 10%;
 }
 
-.booktitletrashbutton {
-  border-radius: 10%;
-
-}
 
 .booktitle {
+  background-color: transparent;
   font-size: x-large;
   font-weight: bold;
+  color: rgb(173, 150, 19);
+}
+
+.bookauthor {
+  background-color: transparent;
 }
 
 .booktitle--trashbutton {
   display: flex;
   width: 40px;
   height: 40px;
+  margin: 2%;
   
 }
 
-.icone,.button{
+.iconeTrash{
+  border-radius: 20%;
+}
+
+
+
+.opinioncontainer {
+  background-color: transparent;
+  border-bottom-right-radius: 5%;
+  border-bottom-left-radius: 5%;
+  padding-left: 12%;
+  padding-right: 3%;
+  display: flex;
+}
+
+.opinioncontainer--card {
+  display: grid;
+  border-bottom-right-radius: 5%;
+  
+}
+
+.opinionCardItems,
+.img {
+  background-color: rgb(253, 229, 187);
+}
+
+.opinioncard--footer {
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  border-bottom-right-radius: 10%;
+
+}
+
+.icone,
+.button {
   background-color: #b7e4ff;
 }
 
-
-
-/* .review{
-  border-radius: 10%;
-  margin: 1% 4%;
-  
-} */
-
-.opinioncard--view{
+.opinioncard--view {
   text-align: justify;
 }
+
+.buttonmodify {
+  margin-bottom:2% ;
+}
+
 
 body {
   margin: 0;
   display: flex;
   place-items: center;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  border-color: #484b86;
-
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border: #4b54ff 2px solid;
 }
 
 @media screen and (min-width: 481px) {

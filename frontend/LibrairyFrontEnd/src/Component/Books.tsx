@@ -50,7 +50,7 @@ function Books() {
       <div className="bookcontainer">
         {books?.map((book, index) => (
           <div className="bookcard">
-            <div className="booktitletrashbutton">
+            <div className="bookcard--header">
               <button
                 className=" button booktitle--trashbutton"
                 type="submit"

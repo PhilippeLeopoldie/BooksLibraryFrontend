@@ -3,7 +3,7 @@ import { OpinionType } from "../Type";
 import FetchApi from "../FetchApi";
 import like from "../media/like.png";
 import sad from "../media/sad.png";
-import write from "../media/write.png";
+import modify from "../media/write.svg";
 import OpinionUpdate from "./OpinionUpdate";
 
 type BookType = {
@@ -27,17 +27,24 @@ export function FetchOpinions(props: BookType) {
 
   return (
     <>
-      <div className="opinioncard">
+      <div className="opinioncontainer">
         {OppinionFiltered?.map((opinion, index) => (
-          <div >
-            <div key={index}>
-              <div className="opinioncard--view">{opinion.view} </div>
-              {!opinion.like && <img src={sad} alt="sad" />}{" "}
-              {opinion.like && <img src={like} alt="like" />}
+          <div className="opinioncontainer--card">
+            <div className="opinionCardItems" key={index}>
+              <div className="opinionCardItems opinioncard--view">
+                {opinion.view}{" "}
+              </div>
+              <div className="opinionCardItems">{opinion.userName}</div>
+              {!opinion.like && (
+                <img className="img" src={sad} alt="sad" />
+              )}{" "}
+              {opinion.like && <img className="img" src={like} alt="like" />}
             </div>
-            <button className="button buttonModify"  onClick={activationForm}>
-              <img className="icone iconeModify" src={write}></img>
-            </button>
+            <div className="opinionCardItems opinioncard--footer">
+              <button className="button buttonmodify" onClick={activationForm}>
+                <img className="icone iconeModify" src={modify}></img>modify
+              </button>
+            </div>
             {form && (
               <OpinionUpdate
                 opinionId={opinion.opinionId}
