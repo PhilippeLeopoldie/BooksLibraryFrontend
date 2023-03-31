@@ -34,6 +34,7 @@ button:hover {
   border-radius: 3%;
   display: grid;
   grid-template-rows: 2fr 3fr;
+  width:20rem;
   border-radius: 20px 16px 12px 32px;
   background-image: linear-gradient(
     to right,
@@ -47,7 +48,6 @@ button:hover {
   justify-content: end;
   margin-left: 2%;
   height: 52px;
-  
   bottom: 6px;
   right: 0px;
   background: white;
@@ -165,8 +165,13 @@ body {
     grid-template-columns: 1fr 1fr;
   }
 }
+@media screen and (min-width:px) {
+  .bookcontainer {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
 
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 1458px) {
   .bookcontainer {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
