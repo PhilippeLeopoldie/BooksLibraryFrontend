@@ -47,10 +47,10 @@ function AddBook() {
   useEffect(() => {
     setBookTitle(books?.filter((book) => book.title == title));
   }, []);
-  console.log("listBookTitle", bookTitle);
+  
 
   const PostOpinion = async (bookId: number, opinion: boolean) => {
-    console.log("My number brings all the opinions to the yard", bookId);
+    
     const requestOptions = {
       method: "POST",
       headers: {
@@ -88,22 +88,28 @@ function AddBook() {
             placeholder="Title"
             onChange={(e) => setTitle(e.target.value)}
           />
+          <tr></tr>
           <input
             placeholder="Author"
             onChange={(e) => setAuthor(e.target.value)}
           />
+          <tr></tr>
           <input
             className="bookform--view"
             placeholder="View"
             onChange={(e) => setView(e.target.value)}
           />
+          <tr></tr>
           <input
             placeholder="UserName"
             onChange={(e) => setUserName(e.target.value)}
           />
+          <tr></tr>
         </div>
+        
 
         <div>
+        
           <button className="button"
             onClick={async () => {
               PostOpinion((await PostBook()).bookId, false);

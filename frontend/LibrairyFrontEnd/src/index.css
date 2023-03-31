@@ -18,23 +18,29 @@ button:hover {
 }
 
 .bookform--inputs {
+  margin-top: 2%;
   display: grid;
-  gap: 1%;
-  grid-template-rows: 1fr 1fr 3fr 1fr;
+  grid-template-rows: 1fr 0.5fr 1fr 0.5fr 2fr 0.5fr 1fr;
+ 
 }
 
+
 .bookcontainer {
-  display: grid;
-  grid-template-columns: 1fr;
+
   gap: 2%;
+  display:grid;
+  justify-items: center;
 }
 
 .bookcard {
+  
   border: 1px gray solid;
   border-radius: 3%;
   display: grid;
+  
+
   grid-template-rows: 2fr 3fr;
-  width:20rem;
+  height: 30rem;
   border-radius: 20px 16px 12px 32px;
   background-image: linear-gradient(
     to right,
@@ -44,7 +50,7 @@ button:hover {
 }
 
 .bookcard:after {
-  display:flex;
+  display: flex;
   justify-content: end;
   margin-left: 2%;
   height: 52px;
@@ -80,8 +86,8 @@ button:hover {
     #a69650 48px,
     transparent 50px
   );
-  content: ""; 
-  position:relative;
+  content: "";
+  position: relative;
 }
 
 .bookcard--header {
@@ -160,13 +166,25 @@ body {
   place-items: center;
 }
 
-@media screen and (min-width: 481px) {
+@media screen and (min-width: 395px) {
+  .bookcard {
+    width: 20rem;
+  }
+}
+
+@media screen and (min-width: 698px) {
   .bookcontainer {
     grid-template-columns: 1fr 1fr;
   }
+
+  .bookcard {
+    width: 20rem;
+  }
 }
-@media screen and (min-width:px) {
+@media screen and (min-width: 1042px) {
   .bookcontainer {
+  
+    
     grid-template-columns: 1fr 1fr 1fr;
   }
 }

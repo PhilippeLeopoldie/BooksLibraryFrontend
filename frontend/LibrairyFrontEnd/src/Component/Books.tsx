@@ -9,6 +9,7 @@ import trash from "../media/delete.svg";
 function Books() {
   const [Opinions, setOpinions] = useState<OpinionType[]>();
   const [books, setBooks] = useState<BookType[]>();
+  const random = books?.at(Math.floor(Math.random() * books.length));
  
 
   useEffect(() => {
@@ -21,14 +22,14 @@ function Books() {
   }, []);
   //console.log(books?.at(Math.floor(Math.random()*books.length)))
 
-  let random = books?.at(Math.floor(Math.random() * books.length));
+ 
   const OpinionIdToDelete = (bookId: number) => {
     Opinions?.filter((opinion) => opinion.bookId == bookId)
       .at(0)
       ?.bookId.toString();
   };
   console.log("OpinionId to delete :", { OpinionIdToDelete });
-
+  
   const DeleteOpinion = async (bookId: number) => {
     fetch(`https://bookslibrary.azurewebsites.net/api/Opinions/${bookId}`, {
       method: "DELETE",
