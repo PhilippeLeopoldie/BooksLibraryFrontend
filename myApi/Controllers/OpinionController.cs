@@ -105,7 +105,7 @@ namespace myApi.Controllers
           
             _context.Opinions.Add(new Opinion{
                 Like= opinion.Like,
-                
+                BookId= opinion.BookId,
                 View = opinion.View,
                 userName = opinion.userName
             });
