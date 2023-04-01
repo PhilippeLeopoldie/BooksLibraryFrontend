@@ -179,9 +179,7 @@ body {
     grid-template-columns: 1fr 1fr;
   }
 
-  .bookcard {
-    width: 20rem;
-  }
+  
 }
 @media screen and (min-width: 1042px) {
   .bookcontainer {
