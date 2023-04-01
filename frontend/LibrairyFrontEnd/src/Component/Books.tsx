@@ -39,8 +39,6 @@ function Books() {
   const DeleteBook = async (bookId: number) => {
     await fetch(`https://bookslibrary.azurewebsites.net/api/Books/${bookId}`, {
       method: "DELETE",
-    }).then(()=>{
-        window.location.reload();
     });
   };
 

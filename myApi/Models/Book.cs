@@ -15,10 +15,11 @@ public class Book
     //public DateTime? GivenBackTime {get; set;}
 
    
-    public virtual List<Opinion>? Opinions { get; set; }
+    public List<Opinion>? Opinions { get; set; }
 
     //public int? UserId { get; set; }
     
     //public virtual User? User{get; set;}
     
 }
+

@@ -9,10 +9,10 @@ public class Opinion{
     public string? View { get; set; }
     public string? userName { get; set; }
 
-    public int? BookId { get; set; }
+    //public int? BookId { get; set; }
 
-    
-    public virtual Book? Book { get; set; }
+    [Required]
+    public Book? Book { get; set; }
 
     
     //public int? UserId { get; set; }

@@ -8,9 +8,9 @@ public class User
     public string? FirstName { get; set; }
     public string? LastName { get; set; }
 
-    public int OpinionId { get; set; }
+   
     public List<Opinion>? Opinions { get; set; }
 
     //public int? BookId { get; set; }
-    //public List<Book>? Books { get; set; }
+    public List<Book>? Books { get; set; }
 }
