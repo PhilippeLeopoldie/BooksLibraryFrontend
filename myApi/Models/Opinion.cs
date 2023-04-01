@@ -5,7 +5,9 @@ public class Opinion{
     [Key]
     public int OpinionId { get; set; }
 
-    public bool? Like { get; set; }=true;
+    public int? Like { get; set; }=1;
+    
+    [StringLength(360,ErrorMessage ="Please do not enter values over 360 characters")]
     public string? View { get; set; }
     public string? userName { get; set; }
 

@@ -4,7 +4,7 @@ namespace myApi.DTO;
 public class OpinionAddRequest{
     [JsonIgnore]
     public int OpinionId { get; set; }
-    public bool Like { get; set; }=true;
+    public int Like { get; set; }=1;
 
     public string? View { get; set; }
     public string? userName { get; set; }
