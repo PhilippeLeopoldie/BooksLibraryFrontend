@@ -96,7 +96,7 @@ namespace myApi.Controllers
           
            var newBook= _context.Books.Add(new Book{
                 Author= book.Author,
-                Title = book.Title
+                Title = book.Title,
             }).Entity;
             await _context.SaveChangesAsync();
             

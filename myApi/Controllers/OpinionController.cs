@@ -67,7 +67,7 @@ namespace myApi.Controllers
             {
                 opinionById.Value.Like=opinionUpdate.Like;
                 //opinionById.Value.UserId=opinionUpdate.UserId;
-               
+                opinionById.Value.BookId=opinionUpdate.BookId;
                 opinionById.Value.View=opinionUpdate.View;
                 opinionById.Value.userName=opinionUpdate.userName;
                 //_context.Entry(opinionById.Value).State = EntityState.Modified;
