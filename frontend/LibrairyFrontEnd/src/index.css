@@ -30,6 +30,7 @@ button:hover {
   gap: 2%;
   display:grid;
   justify-items: center;
+
 }
 
 .bookcard {
@@ -40,6 +41,7 @@ button:hover {
   
 
   grid-template-rows: 2fr 3fr;
+  width: 20rem;
   height: 30rem;
   border-radius: 20px 16px 12px 32px;
   background-image: linear-gradient(

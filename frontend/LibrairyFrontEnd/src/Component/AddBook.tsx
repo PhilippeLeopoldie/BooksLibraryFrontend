@@ -49,7 +49,7 @@ function AddBook() {
   }, []);
   
 
-  const PostOpinion = async (bookId: number, opinion: boolean) => {
+  const PostOpinion = async (bookId: number, opinion: number) => {
     
     const requestOptions = {
       method: "POST",
@@ -71,7 +71,7 @@ function AddBook() {
     )
       .json()
       .then(() => {
-        window.location.reload();
+        //window.location.reload();
       });
   };
 
@@ -112,7 +112,7 @@ function AddBook() {
         
           <button className="button"
             onClick={async () => {
-              PostOpinion((await PostBook()).bookId, false);
+              PostOpinion((await PostBook()).bookId, 0);
             }}
           >
             <img className="icone iconeSad" src={sad} />
@@ -121,7 +121,7 @@ function AddBook() {
             className="button"
             type="submit"
             onClick={async () => {
-              PostOpinion((await PostBook()).bookId, true);
+              PostOpinion((await PostBook()).bookId, 1);
               // window.location.reload();
             }}
           >
