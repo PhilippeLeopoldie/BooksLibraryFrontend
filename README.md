@@ -10,7 +10,7 @@ Initialy I had three tables user,Books and Opinions.For that assignment I have d
 
 SqlServer
 
-EntityFramework
+Entity framework code first approach
 
 ASP.NET Core Web APIs
 
