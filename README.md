@@ -7,7 +7,7 @@ I decided to create a simple application for users to share with others the book
 
 Initialy I had three tables user,Books and Opinions.For that assignment I have decided to have focus on the one to many relation between Books and Opinions first and managing the corresponding CRUD operations before going further with the User table.
 
-so for every review added a virtual book is generated with the related review informations it looks like this:
+so for every review added a virtual book is generated with the related review informations and so far it looks like this:
 
 ![my image](presentation_image.png)
 
