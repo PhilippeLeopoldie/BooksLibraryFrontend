@@ -9,6 +9,7 @@ Initialy I had three tables user,Books and Opinions.For that assignment I have d
 
 so for every review added a virtual book is generated with the related review informations it looks like this:
 
+![my image](presentation_image.png)
 
 
 
