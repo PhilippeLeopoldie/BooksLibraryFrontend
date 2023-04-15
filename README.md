@@ -34,6 +34,8 @@ the application is still in development but deployed on azure cloud service,  th
 
   -Azure cloud
 
+NB: Due to Azure cold storage strategy there is few seconds of loading after some moment of inactivity for the first connection.
+
 here is the deploying link:
 
 https://green-flower-0ba5fcf03.2.azurestaticapps.net/
