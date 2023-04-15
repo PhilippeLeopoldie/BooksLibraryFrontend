@@ -48,14 +48,18 @@ function OpinionUpdate() {
         <label>
           view:
           <input
+          className="opinioncard___view--overflow"
+            type="text"
             placeholder="View"
             value={view}
             onChange={(e) => setView(e.target.value)}
           />
         </label>
+        <tr></tr>
         <label>
           UserName:
           <input
+            
             placeholder="Username"
             value={userName}
             onChange={(e) => setUserName(e.target.value)}

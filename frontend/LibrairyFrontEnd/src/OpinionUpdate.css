@@ -1,0 +1,5 @@
+.opinioncard___view--overflow{
+ height: 100px;
+ width: 100px;
+ overflow-x: scroll;
+}

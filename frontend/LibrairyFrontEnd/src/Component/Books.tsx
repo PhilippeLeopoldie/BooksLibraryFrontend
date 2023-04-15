@@ -32,7 +32,7 @@ function Books() {
 
   return (
     <div className="books">
-      <h2>Recommandation of the day</h2>
+      <h2>Recommendation of the day</h2>
       <h3>{random?.title}</h3>
       <div className="bookcontainer">
         {books?.map((book, index) => (
