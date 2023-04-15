@@ -7,7 +7,7 @@ I decided to create a simple application for users to share with others the book
 
 Initialy I had three tables user,Books and Opinions.For that assignment I have decided to have focus on the one to many relation between Books and Opinions first and managing the corresponding CRUD operations before going further with the User table.
 
-so for every review added a virtual book is generated with the related review informations and so far it looks like this:
+So for every review added a virtual book is generated with the related review informations and so far it looks like this:
 
 ![my image](presentation_image.png)
 
@@ -27,9 +27,12 @@ React (Typescript)
 
 # deploying link:
 the application is still in development but deployed on azure cloud service,  that allow me to work with:
--the migration tool provided by EF core,
--the deployement process throw github actions
--on azure cloud.
+
+  -the migration tool provided by EF core
+
+  -the deployement process throw github actions
+
+  -on azure cloud
 
 here is the deploying link:
 
