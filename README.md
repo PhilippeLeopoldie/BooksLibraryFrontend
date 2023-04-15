@@ -32,7 +32,7 @@ the application is still in development but deployed on azure cloud service,  th
 
   -the deployement process throw github actions
 
-  -on azure cloud
+  -Azure cloud
 
 here is the deploying link:
 
