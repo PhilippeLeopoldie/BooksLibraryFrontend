@@ -1,16 +1,21 @@
-import React, { useEffect, useState } from "react";
-import { OpinionType } from "../Type";
+import React, { useEffect, useState, useContext } from "react";
+import { BrowserRouter, useNavigate } from "react-router-dom";
+import Home from "./Home";
+import { OpinionType, OpinionUpdateType } from "../Type";
 import FetchApi from "../FetchApi";
-import like from "../media/like.png";
+import love from "../media/love.png";
 import sad from "../media/sad.png";
 import modify from "../media/write.svg";
 import OpinionUpdate from "./OpinionUpdate";
+import { OpinionContext } from "../Context";
 
 type BookType = {
   bookId: number;
 };
 
-export function FetchOpinions(props: BookType) {
+export function FetchOpinions(prop: BookType) {
+  const opinionToUpdate = useContext(OpinionContext);
+  const navigate = useNavigate();
   const [form, setForm] = useState<boolean>(false);
   const [Opinions, setOpinions] = useState<OpinionType[]>();
   useEffect(() => {
@@ -19,8 +24,9 @@ export function FetchOpinions(props: BookType) {
     );
   }, []);
   const OppinionFiltered = Opinions?.filter(
-    (opinion) => opinion.bookId == props.bookId
+    (opinion) => opinion.bookId == prop.bookId
   );
+
   const activationForm = () => {
     setForm(true);
   };
@@ -38,22 +44,35 @@ export function FetchOpinions(props: BookType) {
               {!opinion.like && (
                 <img className="img" src={sad} alt="sad" />
               )}{" "}
-              {opinion.like && <img className="img" src={like} alt="like" />}
+              {opinion.like && <img className="img" src={love} alt="like" />}
             </div>
             <div className="opinionCardItems opinioncard--footer">
-              <button className="button buttonmodify" onClick={activationForm}>
+              <button
+                className="button buttonmodify"
+                onClick={() => {
+                  (opinionToUpdate!.bookId = opinion.bookId),
+                    (opinionToUpdate!.opinionId = opinion.opinionId),
+                    (opinionToUpdate!.userName = opinion.userName),
+                    (opinionToUpdate!.view = opinion.view),
+                    (opinionToUpdate!.like = opinion.like);
+
+                  navigate("/viewUpdate");
+
+                  /* setForm(true);
+                  {form && (
+                    <OpinionUpdate
+                      opinionId={opinion.opinionId}
+                      view={opinion.view}
+                      userName={opinion.userName}
+                      like={opinion.like}
+                      bookId={opinion.bookId}
+                    />
+                  )} */
+                }}
+              >
                 <img className="icone iconeModify" src={modify}></img>modify
               </button>
             </div>
-            {form && (
-              <OpinionUpdate
-                opinionId={opinion.opinionId}
-                view={opinion.view}
-                userName={opinion.userName}
-                like={opinion.like}
-                bookId={opinion.bookId}
-              />
-            )}
           </div>
         ))}
       </div>

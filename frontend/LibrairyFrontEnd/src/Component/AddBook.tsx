@@ -3,7 +3,7 @@ import { render } from "react-dom";
 import { BookType } from "../Type";
 import Books from "./Books";
 import FetchApi from "../FetchApi";
-import like from "../media/like.png";
+import love from "../media/love.png";
 import sad from "../media/sad.png";
 
 function AddBook() {
@@ -113,6 +113,7 @@ function AddBook() {
           <button className="button"
             onClick={async () => {
               PostOpinion((await PostBook()).bookId, 0);
+              
             }}
           >
             <img className="icone iconeSad" src={sad} />
@@ -122,14 +123,14 @@ function AddBook() {
             type="submit"
             onClick={async () => {
               PostOpinion((await PostBook()).bookId, 1);
-              // window.location.reload();
+              
             }}
           >
-            <img className="icone iconeLike" src={like} />
+            <img className="icone iconeLike" src={love} />
           </button>
         </div>
       </form>
-      <Books />
+      {/* <Books /> */}
     </>
   );
 }

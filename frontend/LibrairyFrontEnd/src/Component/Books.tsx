@@ -20,25 +20,13 @@ function Books() {
       (opinions) => setOpinions(opinions)
     );
   }, []);
-  //console.log(books?.at(Math.floor(Math.random()*books.length)))
-
  
-  const OpinionIdToDelete = (bookId: number) => {
-    Opinions?.filter((opinion) => opinion.bookId == bookId)
-      .at(0)
-      ?.bookId.toString();
-  };
-  console.log("OpinionId to delete :", { OpinionIdToDelete });
-  
-  const DeleteOpinion = async (bookId: number) => {
-    fetch(`https://bookslibrary.azurewebsites.net/api/Opinions/${bookId}`, {
-      method: "DELETE",
-    });
-  };
 
   const DeleteBook = async (bookId: number) => {
     await fetch(`https://bookslibrary.azurewebsites.net/api/Books/${bookId}`, {
       method: "DELETE",
+    }).then(()=>{
+      window.location.reload();
     });
   };
 

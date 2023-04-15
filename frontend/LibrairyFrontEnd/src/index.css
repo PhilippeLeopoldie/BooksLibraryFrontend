@@ -21,24 +21,18 @@ button:hover {
   margin-top: 2%;
   display: grid;
   grid-template-rows: 1fr 0.5fr 1fr 0.5fr 2fr 0.5fr 1fr;
- 
 }
 
-
 .bookcontainer {
-
   gap: 2%;
-  display:grid;
+  display: grid;
   justify-items: center;
-
 }
 
 .bookcard {
-  
   border: 1px gray solid;
   border-radius: 3%;
   display: grid;
-  
 
   grid-template-rows: 2fr 3fr;
   width: 20rem;
@@ -178,13 +172,10 @@ body {
   .bookcontainer {
     grid-template-columns: 1fr 1fr;
   }
-
-  
 }
+
 @media screen and (min-width: 1042px) {
   .bookcontainer {
-  
-    
     grid-template-columns: 1fr 1fr 1fr;
   }
 }

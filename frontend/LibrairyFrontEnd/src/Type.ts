@@ -1,9 +1,7 @@
 export type BookType = {
     bookId : number
-
     title :string
     author :string
-
     userId :number
     borrowed:boolean
     borrowedTime: Date
@@ -14,11 +12,15 @@ export type BookType = {
 
 export type OpinionType = {
     opinionId : number
-    like : boolean
+    like : number
     bookId : number
     view:string
     userName:string
-    userId : number
+    
+}
+
+export type OpinionUpdateType = {
+    bookId:number
 }
 
 

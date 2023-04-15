@@ -1,19 +1,26 @@
-import React, { SyntheticEvent, useEffect, useState } from 'react'
+import React, { SyntheticEvent, useEffect, useState, useContext } from 'react'
+import { useNavigate } from 'react-router'
+import { OpinionContext } from '../Context'
 import FetchApi from '../FetchApi'
 import check from '../media/check.png'
+
+
+
 
 type opinion = {
     opinionId: number
     view: string
     userName: string
-    like: boolean
-    bookId: number
+    like: number
+    bookId: number | undefined
 
 }
 
-function OpinionUpdate(props: opinion) {
-    const [view, setView] = useState<string>(props.view)
-    const [userName,setUserName] = useState<string>(props.userName)
+function OpinionUpdate() {
+    const opinionUpdated= useContext(OpinionContext);
+    
+    const [view, setView] = useState<string>(opinionUpdated.view)
+    const [userName,setUserName] = useState<string>(opinionUpdated.userName)
 
     const updateOpinion = async (e: SyntheticEvent) => {
         e.preventDefault()
@@ -22,10 +29,10 @@ function OpinionUpdate(props: opinion) {
             headers: {
                 "Content-Type": 'application/json '
             },
-            body: JSON.stringify({ "view": view, "userName": userName, "like": props.like, "bookId": props.bookId, })
+            body: JSON.stringify({ "view": view, "userName": userName, "like": opinionUpdated.like, "bookId": opinionUpdated.bookId, })
 
         };
-       await fetch(`https://bookslibrary.azurewebsites.net/api/Opinions/${props.opinionId}`, requestOptions)
+       await fetch(`https://bookslibrary.azurewebsites.net/api/Opinions/${opinionUpdated.opinionId}`, requestOptions)
             .then(response => {
                 response.json().then(()=> {
                     window.location.reload();
