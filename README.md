@@ -16,7 +16,7 @@ So for every review added a virtual book is generated with the related review in
 
 # Technologies
 
-SqlServer
+Azure Sql Database
 
 Entity framework code first approach
 
