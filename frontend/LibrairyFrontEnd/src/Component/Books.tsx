@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { BookType, OpinionType } from "../Type";
 import FetchApi from "../FetchApi";
 
@@ -43,7 +43,7 @@ function Books() {
                   await DeleteBook(book.bookId);
                 }}
               >
-                <img className="icone iconeTrash" src={trash} />
+                <img className="icone bookcard--iconeTrash" src={trash} />
               </button>
               <h2 className="booktitle" key={index}>
                 {book.title}

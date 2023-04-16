@@ -1,0 +1,5 @@
+.bookform--inputs {
+  margin-top: 2%;
+  display: grid;
+  grid-template-rows: 1fr 0.5fr 1fr 0.5fr 2fr 0.5fr 1fr;
+}

@@ -108,7 +108,7 @@ function AddBook() {
 
         <div>
         
-          <button className="button"
+          <button className="button bookform--button"
             onClick={async () => {
               PostOpinion((await PostBook()).bookId, 0);
               
@@ -117,7 +117,7 @@ function AddBook() {
             <img className="icone iconeSad" src={sad} />
           </button>
           <button
-            className="button"
+            className="button bookform--button"
             type="submit"
             onClick={async () => {
               PostOpinion((await PostBook()).bookId, 1);

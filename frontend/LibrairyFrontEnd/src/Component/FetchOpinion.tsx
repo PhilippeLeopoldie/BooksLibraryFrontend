@@ -42,7 +42,7 @@ export function FetchOpinions(prop: BookType) {
             </div>
             <div className="opinionCardItems opinioncard--footer">
               <button
-                className="button buttonmodify"
+                className="button opinioncard--buttonmodify"
                 onClick={() => {
                   (opinionToUpdate!.bookId = opinion.bookId),
                     (opinionToUpdate!.opinionId = opinion.opinionId),
