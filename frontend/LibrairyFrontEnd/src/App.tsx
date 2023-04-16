@@ -1,14 +1,10 @@
-import { useState, useContext, createContext, useEffect } from "react";
+import { useContext } from "react";
 import { Routes, BrowserRouter, Route, Link } from "react-router-dom";
 import { OpinionContext } from "./Context";
-import reactLogo from "./assets/react.svg";
 import "./App.css";
-import Books from "./Component/Books";
-import { FetchOpinions } from "./Component/FetchOpinion";
 import AddBook from "./Component/AddBook";
 import OpinionUpdate from "./Component/OpinionUpdate";
 import Home from "./Component/Home";
-import { BookType, OpinionType } from "./Type";
 
 function App() {
   const initialContext = useContext(OpinionContext);
@@ -37,7 +33,6 @@ function App() {
               </div>
             }
           ></Route>
-          
         </Routes>
       </BrowserRouter>
     </div>

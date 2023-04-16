@@ -5,12 +5,11 @@ import FetchApi from "../FetchApi";
 import { FetchOpinions } from "./FetchOpinion";
 import trash from "../media/delete.svg";
 
-
 function Books() {
+  
   const [Opinions, setOpinions] = useState<OpinionType[]>();
   const [books, setBooks] = useState<BookType[]>();
   const random = books?.at(Math.floor(Math.random() * books.length));
- 
 
   useEffect(() => {
     FetchApi("https://bookslibrary.azurewebsites.net/api/Books").then((books) =>
@@ -20,12 +19,11 @@ function Books() {
       (opinions) => setOpinions(opinions)
     );
   }, []);
- 
 
   const DeleteBook = async (bookId: number) => {
     await fetch(`https://bookslibrary.azurewebsites.net/api/Books/${bookId}`, {
       method: "DELETE",
-    }).then(()=>{
+    }).then(() => {
       window.location.reload();
     });
   };
@@ -42,25 +40,20 @@ function Books() {
                 className=" button booktitle--trashbutton"
                 type="submit"
                 onClick={async () => {
-                  //await DeleteOpinion(book.bookId)
-
                   await DeleteBook(book.bookId);
-
-                  // window.location.reload()
                 }}
               >
                 <img className="icone iconeTrash" src={trash} />
               </button>
               <h2 className="booktitle" key={index}>
-                {book.title} 
+                {book.title}
               </h2>
               <h3 className="bookauthor" key={index}>
                 by: {book.author}
-                </h3>
+              </h3>
             </div>
-            
-              <FetchOpinions bookId={book.bookId} />
-            
+
+            <FetchOpinions bookId={book.bookId} />
           </div>
         ))}
       </div>

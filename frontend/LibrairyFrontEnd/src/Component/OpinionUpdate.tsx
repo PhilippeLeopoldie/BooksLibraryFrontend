@@ -1,16 +1,6 @@
-import React, { SyntheticEvent, useEffect, useState, useContext } from "react";
-import { useNavigate } from "react-router";
+import { SyntheticEvent, useState, useContext } from "react";
 import { OpinionContext } from "../Context";
-import FetchApi from "../FetchApi";
 import check from "../media/check.png";
-
-type opinion = {
-  opinionId: number;
-  view: string;
-  userName: string;
-  like: number;
-  bookId: number | undefined;
-};
 
 function OpinionUpdate() {
   const opinionUpdated = useContext(OpinionContext);

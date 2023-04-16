@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { render } from "react-dom";
+import { useEffect, useState } from "react";
 import { BookType } from "../Type";
-import Books from "./Books";
 import FetchApi from "../FetchApi";
 import love from "../media/love.png";
 import sad from "../media/sad.png";
@@ -71,7 +69,7 @@ function AddBook() {
     )
       .json()
       .then(() => {
-        //window.location.reload();
+        window.location.reload();
       });
   };
 
