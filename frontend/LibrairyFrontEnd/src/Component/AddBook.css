@@ -16,6 +16,7 @@
 }
 
 .bookform {
+  margin-top: 5rem;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -23,7 +24,7 @@
     0 0 300px 25px rgba(222, 198, 122, 0.7) inset;
   width: 100%;
   height: 350px;
-  padding: 24px;
+  padding: 1rem;
   position: relative;
 }
 

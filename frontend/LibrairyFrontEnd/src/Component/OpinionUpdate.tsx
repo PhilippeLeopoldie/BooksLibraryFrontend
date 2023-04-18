@@ -1,7 +1,7 @@
 import { SyntheticEvent, useState, useContext } from "react";
 import { OpinionContext } from "../Context";
 import check from "../media/check.png";
-import './OpinionUpdate.css'
+
 
 function OpinionUpdate() {
   const opinionUpdated = useContext(OpinionContext);
