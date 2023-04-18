@@ -109,9 +109,7 @@ function AddBook() {
           <button
             className="button bookform__button"
             onClick={async () => {
-              PostOpinion((await PostBook()).bookId, 0).then(()=>{
-                window.location.reload();
-              });
+              PostOpinion((await PostBook()).bookId, 0)
             }}
           >
             Add
