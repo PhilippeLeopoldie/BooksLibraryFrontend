@@ -13,7 +13,7 @@ function App() {
     <div className="App">
       
       <BrowserRouter>
-      <nav className="nav">
+      <div className="nav">
       <ul>
           <dl >
             <Link className="nav__element home" to="/">Home</Link>
@@ -23,7 +23,7 @@ function App() {
           </dl>
         </ul>
 
-      </nav>
+      </div>
         
         <Routes>
           <Route path="/" element={<Home />}></Route>
