@@ -19,6 +19,11 @@
 
 .opinioncard--view {
   text-align: justify;
+  font-style: italic;
+  width: 17rem;
+  height: 6rem;
+  border-color: transparent;
+  resize: none;
 }
 
 .opinioncard--footer {

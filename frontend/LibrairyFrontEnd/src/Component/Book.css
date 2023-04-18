@@ -8,7 +8,6 @@
   border: 1px gray solid;
   border-radius: 3%;
   display: grid;
-
   grid-template-rows: 2fr 3fr;
   width: 20rem;
   height: 30rem;
@@ -79,6 +78,10 @@
 
 .bookauthor {
   background-color: transparent;
+}
+
+.bookform--view{
+  resize: none;
 }
 
 .booktitle--trashbutton {

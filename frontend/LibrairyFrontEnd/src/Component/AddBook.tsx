@@ -3,6 +3,7 @@ import { BookType } from "../Type";
 import FetchApi from "../FetchApi";
 import love from "../media/love.png";
 import sad from "../media/sad.png";
+import './Book.css'
 
 function AddBook() {
   const [title, setTitle] = useState<string>("");
@@ -45,10 +46,8 @@ function AddBook() {
   useEffect(() => {
     setBookTitle(books?.filter((book) => book.title == title));
   }, []);
-  
 
   const PostOpinion = async (bookId: number, opinion: number) => {
-    
     const requestOptions = {
       method: "POST",
       headers: {
@@ -81,49 +80,52 @@ function AddBook() {
         method="POST"
         className="bookform"
       >
-        <div className="bookform--inputs">
+        <div className="bookform__inputs">
           <input
+            className="input"
             placeholder="Title"
             onChange={(e) => setTitle(e.target.value)}
           />
-          <tr></tr>
+          
           <input
+            className="input"
             placeholder="Author"
             onChange={(e) => setAuthor(e.target.value)}
           />
-          <tr></tr>
-          <input
-            className="bookform--view"
+          
+          <textarea
+            className="bookform__view input"
             placeholder="View"
             onChange={(e) => setView(e.target.value)}
           />
-          <tr></tr>
+          
           <input
+            className="input"
             placeholder="UserName"
             onChange={(e) => setUserName(e.target.value)}
           />
-          <tr></tr>
+          
         </div>
-        
 
         <div>
-        
-          <button className="button bookform--button"
+          <button
+            className="button bookform__button"
             onClick={async () => {
               PostOpinion((await PostBook()).bookId, 0);
-              
             }}
           >
+            Add
             <img className="icone iconeSad" src={sad} />
           </button>
+
           <button
-            className="button bookform--button"
+            className="button bookform__button"
             type="submit"
             onClick={async () => {
               PostOpinion((await PostBook()).bookId, 1);
-              
             }}
           >
+            Add
             <img className="icone iconeLike" src={love} />
           </button>
         </div>

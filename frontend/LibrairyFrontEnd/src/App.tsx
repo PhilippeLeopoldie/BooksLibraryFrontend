@@ -11,15 +11,20 @@ function App() {
 
   return (
     <div className="App">
+      
       <BrowserRouter>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/addBook">Add a review</Link>
-          </li>
+      <nav className="nav">
+      <ul>
+          <dl >
+            <Link className="nav__element home" to="/">Home</Link>
+          </dl>
+          <dl >
+            <Link  className="nav__element" to="/addBook">Add a review</Link>
+          </dl>
         </ul>
+
+      </nav>
+        
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/addBook" element={<AddBook />}></Route>
@@ -35,6 +40,9 @@ function App() {
           ></Route>
         </Routes>
       </BrowserRouter>
+
+      
+      
     </div>
   );
 }

@@ -31,9 +31,10 @@ export function FetchOpinions(prop: BookType) {
         {OpinionFiltered?.map((opinion, index) => (
           <div className="opinioncontainer--card">
             <div className="opinionCardItems" key={index}>
-              <div className="opinionCardItems opinioncard--view">
-                {opinion.view}{" "}
-              </div>
+              <textarea className="opinionCardItems opinioncard--view"
+                value={opinion.view}
+                readOnly
+              />
               <div className="opinionCardItems">{opinion.userName}</div>
               {!opinion.like && (
                 <img className="img" src={sad} alt="sad" />

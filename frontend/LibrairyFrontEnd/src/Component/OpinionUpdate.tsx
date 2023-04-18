@@ -1,6 +1,7 @@
 import { SyntheticEvent, useState, useContext } from "react";
 import { OpinionContext } from "../Context";
 import check from "../media/check.png";
+import './OpinionUpdate.css'
 
 function OpinionUpdate() {
   const opinionUpdated = useContext(OpinionContext);
@@ -35,28 +36,27 @@ function OpinionUpdate() {
   return (
     <>
       <form className="opinioncard">
-        <label>
-          view:
-          <input
+        
+          
+          <textarea
           className="opinioncard___view--overflow"
-            type="text"
+            autoFocus
             placeholder="View"
             value={view}
             onChange={(e) => setView(e.target.value)}
           />
-        </label>
-        <tr></tr>
-        <label>
-          UserName:
+        
+        
+        
           <input
-            
+            className="opinioncard__username"
             placeholder="Username"
             value={userName}
             onChange={(e) => setUserName(e.target.value)}
           />
-        </label>
-        <button onClick={updateOpinion}>
-          <img src={check} />
+        
+        <button className="button" onClick={updateOpinion}>
+          Validation<img className="icone" src={check} />
         </button>
       </form>
     </>

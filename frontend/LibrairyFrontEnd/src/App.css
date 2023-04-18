@@ -2,3 +2,15 @@
   margin: 0 auto;
   text-align: center;
 }
+
+.nav {
+  font-size: x-large;
+}
+
+.nav__element {
+  color: blue;
+}
+
+.nav__element:hover {
+  font-size: xx-large;
+}
