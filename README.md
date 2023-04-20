@@ -29,7 +29,7 @@ React (Typescript)
 
 2023/04/20 08:30AM (GMT+2): due to technical issues whith azure subscription the link is temporarily not available.
 
-the application is still in development but deployed on azure cloud service,  that allow me to work with:
+the application is still in development but deployed on azure cloud service,  that allow me to train with:
 
   -the migration tool provided by EF core
 
