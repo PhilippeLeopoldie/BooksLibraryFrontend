@@ -54,7 +54,7 @@ jobs:
           export_default_credentials: true
 
       - name: List files in directory
-        run: ls /home/runner/work/BooksLibraryProject/BooksLibraryProject/myApi
+        run: ls -R /home/runner/work/BooksLibraryProject/BooksLibraryProject/myApi
 
       
       - name: Deploy to App Engine
