@@ -53,7 +53,9 @@ jobs:
           service_account_key: ${{ secrets.GCLOUD_AUTH }}
           export_default_credentials: true
 
-      
+      - name: list files
+        run: ls ${{env.DOTNET_ROOT}}
+        
       - name: Deploy to App Engine
         
         run: gcloud app deploy ./.github/workflows/app.yaml --project ${{ secrets.GCLOUD_PROJECT_ID }}
