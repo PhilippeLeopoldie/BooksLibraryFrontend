@@ -53,6 +53,10 @@ jobs:
           service_account_key: ${{ secrets.GCLOUD_AUTH }}
           export_default_credentials: true
 
+      - name: List files in directory
+        run: ls -R ${{ github.workspace }}
+
+      
       - name: Deploy to App Engine
         run: gcloud app deploy ./myApi/app.yaml --project ${{ secrets.GCLOUD_PROJECT_ID }}
         working-directory: ${{ github.workspace }}
