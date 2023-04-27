@@ -55,5 +55,5 @@ jobs:
 
       
       - name: Deploy to App Engine
-        run: gcloud app deploy app.yaml --project ${{ secrets.GCLOUD_PROJECT_ID }}
+        run: gcloud app deploy ./app.yaml --project ${{ secrets.GCLOUD_PROJECT_ID }}
         
