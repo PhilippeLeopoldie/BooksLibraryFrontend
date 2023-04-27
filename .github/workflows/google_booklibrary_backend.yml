@@ -54,7 +54,7 @@ jobs:
           export_default_credentials: true
 
       - name: List files in directory
-        run: ls -R https://github.com/PhilippeLeopoldie/BooksLibraryProject
+        run: pwd
 
       
       - name: Deploy to App Engine
