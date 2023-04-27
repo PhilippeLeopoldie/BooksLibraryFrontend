@@ -53,7 +53,7 @@ jobs:
           name: .net-app
           
       - name: Setup Google Cloud SDK
-        uses: google-github-actions/setup-gcloud@master
+        uses: google-github-actions/setup-gcloud@v0.2.0
         with:
           project_id: fifth-winter-384812
           service_account_key: ${{ secrets.GCLOUD_AUTH }}
