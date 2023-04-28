@@ -12,16 +12,16 @@ function Books() {
   const random = books?.at(Math.floor(Math.random() * books.length));
 
   useEffect(() => {
-    FetchApi("https://bookslibrary.azurewebsites.net/api/Books").then((books) =>
+    FetchApi("http://localhost:5133/api/Books").then((books) =>
       setBooks(books)
     );
-    FetchApi("https://bookslibrary.azurewebsites.net/api/Opinions").then(
+    FetchApi("http://localhost:5133/api/Opinions").then(
       (opinions) => setOpinions(opinions)
     );
   }, []);
 
   const DeleteBook = async (bookId: number) => {
-    await fetch(`https://bookslibrary.azurewebsites.net/api/Books/${bookId}`, {
+    await fetch(`http://localhost:5133/api/Books/${bookId}`, {
       method: "DELETE",
     }).then(() => {
       window.location.reload();
