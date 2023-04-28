@@ -25,7 +25,7 @@ function AddBook() {
     };
     const body = await (
       await fetch(
-        "https://bookslibrary.azurewebsites.net/api/Books",
+        "http://localhost:5133/api/Books",
         requestOptions
       )
     ).json();
@@ -38,7 +38,7 @@ function AddBook() {
   };
 
   useEffect(() => {
-    FetchApi("https://bookslibrary.azurewebsites.net/api/Books").then((books) =>
+    FetchApi("http://localhost:5133/api/Books").then((books) =>
       setBooks(books)
     );
   }, [count]);
@@ -62,7 +62,7 @@ function AddBook() {
     };
     const newOpinion = await (
       await fetch(
-        "https://bookslibrary.azurewebsites.net/api/Opinions",
+        "http://localhost:5133/api/Opinions",
         requestOptions
       )
     )
@@ -74,7 +74,7 @@ function AddBook() {
     <>
       <form
         onSubmit={(e) => e.preventDefault()}
-        action="https://bookslibrary.azurewebsites.net/api/Books"
+        action="http://localhost:5133/api/Books"
         method="POST"
         className="bookform"
       >

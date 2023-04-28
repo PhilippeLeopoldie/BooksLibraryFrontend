@@ -25,7 +25,7 @@ function OpinionUpdate() {
       }),
     };
     await fetch(
-      `https://bookslibrary.azurewebsites.net/api/Opinions/${opinionUpdated.opinionId}`,
+      `http://localhost:5133/api/Opinions/${opinionUpdated.opinionId}`,
       requestOptions
     ).then((response) => {
       response.json().then(() => {

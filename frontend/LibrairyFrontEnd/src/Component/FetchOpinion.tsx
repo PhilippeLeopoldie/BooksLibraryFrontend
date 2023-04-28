@@ -17,7 +17,7 @@ export function FetchOpinions(prop: BookType) {
   const navigate = useNavigate();
   const [Opinions, setOpinions] = useState<OpinionType[]>();
   useEffect(() => {
-    FetchApi("https://bookslibrary.azurewebsites.net/api/Opinions").then(
+    FetchApi("http://localhost:5133/api/Opinions").then(
       (opinions) => setOpinions(opinions)
     );
   }, []);
