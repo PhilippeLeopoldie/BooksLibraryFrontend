@@ -2,15 +2,25 @@
   margin: 0 auto;
   text-align: center;
 }
+.liste {
+  margin: 0;
+  padding: 0;
+}
 
 .nav {
   font-size: x-large;
+  display: grid;
 }
 
-.nav__element {
-  color: blue;
+.nav-link {
+  color: black;
+  background-color:#d4af37;
 }
 
-.nav__element:hover {
+.nav-linkt:hover {
   font-size: xx-large;
+}
+
+.nav-data{
+  background-color:#d4af37;
 }

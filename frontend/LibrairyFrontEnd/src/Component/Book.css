@@ -1,7 +1,7 @@
 .bookcontainer {
   gap: 2%;
   display: grid;
-  justify-items: center;
+  justify-content: center;
 }
 
 .bookcard {

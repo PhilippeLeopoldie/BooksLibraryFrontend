@@ -9,6 +9,7 @@ function OpinionUpdate() {
   const [view, setView] = useState<string>(opinionUpdated.view);
   const [userName, setUserName] = useState<string>(opinionUpdated.userName);
 
+
   const updateOpinion = async (e: SyntheticEvent) => {
     e.preventDefault();
     const requestOptions = {
@@ -55,7 +56,7 @@ function OpinionUpdate() {
             onChange={(e) => setUserName(e.target.value)}
           />
         
-        <button className="button" onClick={updateOpinion}>
+        <button className="button validation" onClick={updateOpinion} type="submit" onSubmit={()=>{<p>validated!</p>}}>
           Validation<img className="icone" src={check} />
         </button>
       </form>

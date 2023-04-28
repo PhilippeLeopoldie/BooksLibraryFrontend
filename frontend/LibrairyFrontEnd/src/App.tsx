@@ -14,12 +14,12 @@ function App() {
       
       <BrowserRouter>
       <div className="nav">
-      <ul>
-          <dl >
-            <Link className="nav__element home" to="/">Home</Link>
+      <ul className="liste">
+          <dl className="nav-data">
+            <Link className="nav-link home" to="/">Home</Link>
           </dl>
-          <dl >
-            <Link  className="nav__element" to="/addBook">Add a review</Link>
+          <dl className="nav-data">
+            <Link  className="nav-link" to="/addBook">Add a review</Link>
           </dl>
         </ul>
 
