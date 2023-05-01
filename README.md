@@ -27,21 +27,8 @@ React (Typescript)
 
 # deploying link:
 
-2023/04/20 08:30AM (GMT+2): due to technical issues whith azure subscription the link is temporarily not available.
+2023/04/20 08:30AM (GMT+2): due to the end of my azure subscription I have switch to an in memory database and working to deploy it on google platform instead
 
-the application is still in development but deployed on azure cloud service,  that allow me to train with:
-
-  -the migration tool provided by EF core
-
-  -the deployement process throw github actions
-
-  -Azure cloud
-
-NB: Due to Azure cold storage strategy there is few seconds of loading after some moment of inactivity for the first connection.
-
-here is the link:
-
-https://green-flower-0ba5fcf03.2.azurestaticapps.net/
 
 
 
