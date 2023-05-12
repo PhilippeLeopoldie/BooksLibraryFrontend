@@ -27,7 +27,7 @@ React (Typescript)
 
 # deploying link:
 
-2023/04/20 08:30AM (GMT+2): due to the end of my azure subscription I have switched to an in memory database and curently working to deploy it on google platform instead
+2023/04/20 08:30AM (GMT+2): due to the end of my azure subscription I have switched to an in memory database
 
 
 
