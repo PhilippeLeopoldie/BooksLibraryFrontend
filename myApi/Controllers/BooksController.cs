@@ -26,13 +26,14 @@ namespace myApi.Controllers
 
     // GET: api/Book
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Book>>> GetBook()
+    public async Task<ActionResult<IEnumerable<Book>>> GetBooks()
     {
       if (_context.Books == null)
       {
         return NotFound();
       }
       return await _context.Books.ToListAsync();
+      
     }
 
     // GET: api/Book/5
@@ -44,7 +45,7 @@ namespace myApi.Controllers
         return NotFound();
       }
       var book = await _context.Books.FindAsync(id);
-
+     
       if (book == null)
       {
         return NotFound();
@@ -87,22 +88,23 @@ namespace myApi.Controllers
     // POST: api/Book
     // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
     [HttpPost]
-    public async Task<ActionResult<Book>> PostBook(BookAddRequest book)
+    public async Task<ActionResult<Book>> PostBook(Book book)
     {
       if (_context.Books == null)
       {
         return Problem("Entity set 'myApiContext.Book'  is null.");
       }
 
-      var newBook = _context.Books.Add(new Book
+      /* var newBook = _context.Books.Add(new Book
       {
         Author = book.Author,
         Title = book.Title,
-      }).Entity;
+      }).Entity; */
+      _context.Books.Add(book);
       await _context.SaveChangesAsync();
 
 
-      return CreatedAtAction("GetBook", new { id = newBook.BookId }, newBook);
+      return CreatedAtAction("GetBook", new { id = book.BookId }, book);
     }
 
     // DELETE: api/Book/5
