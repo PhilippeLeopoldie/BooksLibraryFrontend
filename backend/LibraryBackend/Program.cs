@@ -2,8 +2,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 var builder = WebApplication.CreateBuilder(args);
 
+// Add database context and connection string
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<MyLibraryContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("myLibraryContext")));
+    options.UseNpgsql(connectionString));
 
 // Add services to the container.
 
