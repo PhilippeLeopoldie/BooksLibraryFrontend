@@ -1,8 +1,9 @@
 namespace LibraryBackend.Models;
+using System.ComponentModel.DataAnnotations;
 
 public class Book
 {
-  [key]
+  [Key]
   public int BookId {get; set;}
   public string ? Title {get;set;}
   public string ? Author {get; set;}

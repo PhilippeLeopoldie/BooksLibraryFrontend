@@ -1,8 +1,9 @@
 namespace LibraryBackend.Models;
+using System.ComponentModel.DataAnnotations;
 
 public class Opinion
 {
-  [key]
+  [Key]
 
   public int OpinionId {get; set;}
 
@@ -14,7 +15,7 @@ public class Opinion
 
   public int? BookId {get;set;}
 
-  [required]
+  [Required]
   public Book? Book {get; set;}
 
 
