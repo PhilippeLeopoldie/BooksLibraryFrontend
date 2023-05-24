@@ -24,7 +24,10 @@ namespace LibraryBackend.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Book>>> GetBook()
         {
-            if(_context.Book== null) NotFound();
+            if(_context.Book== null)
+            {
+                return NotFound();
+            } 
             
             return await _context.Book.ToListAsync();
         }
