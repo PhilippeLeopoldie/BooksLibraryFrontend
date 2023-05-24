@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using LibraryBackend.Models;
+using LibraryBackend.Dto;
 
 namespace LibraryBackend.Controllers
 {
@@ -75,9 +76,14 @@ namespace LibraryBackend.Controllers
         // POST: api/Opinion
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Opinion>> PostOpinion(Opinion opinion)
+        public async Task<ActionResult<Opinion>> PostOpinion(OpinionAddRequest opinion)
         {
-            _context.Opinion.Add(opinion);
+            _context.Opinion.Add(new Opinion{
+                Like = opinion.Like,
+                BookId = opinion.BookId,
+                View = opinion.View,
+                userName = opinion.userName
+            });
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetOpinion", new { id = opinion.OpinionId }, opinion);
