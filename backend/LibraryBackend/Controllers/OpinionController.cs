@@ -29,9 +29,9 @@ namespace LibraryBackend.Controllers
 
         // GET: api/Opinion/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Opinion>> GetOpinion(int id)
+        public ActionResult<Opinion> GetOpinionById(int id)
         {
-            var opinion = await _context.Opinion.FindAsync(id);
+            var opinion = _context.Opinion.Include(x => x.Book).FirstOrDefault(x => x.OpinionId == id);
 
             if (opinion == null)
             {

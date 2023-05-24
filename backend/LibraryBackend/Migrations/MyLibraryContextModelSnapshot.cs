@@ -37,7 +37,7 @@ namespace LibraryBackend.Migrations
 
                     b.HasKey("BookId");
 
-                    b.ToTable("Book");
+                    b.ToTable("Book", (string)null);
                 });
 
             modelBuilder.Entity("LibraryBackend.Models.Opinion", b =>
@@ -65,7 +65,7 @@ namespace LibraryBackend.Migrations
 
                     b.HasIndex("BookId");
 
-                    b.ToTable("Opinion");
+                    b.ToTable("Opinion", (string)null);
                 });
 
             modelBuilder.Entity("LibraryBackend.Models.Opinion", b =>
