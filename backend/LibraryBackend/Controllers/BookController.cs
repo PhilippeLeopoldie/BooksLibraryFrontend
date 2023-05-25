@@ -24,7 +24,7 @@ namespace LibraryBackend.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Book>>> GetBook()
         {
-            if(_context.Book== null)
+            if(_context.Book== null || !_context.Book.Any())
             {
                 return NotFound();
             } 

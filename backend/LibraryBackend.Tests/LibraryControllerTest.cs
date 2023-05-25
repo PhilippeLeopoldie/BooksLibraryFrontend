@@ -49,8 +49,14 @@ public abstract class LibraryControllerTest
         Title = "bookThree title",
         Author = "bookThree author"
       };
+      var bookFour = new Book
+      {
 
-      context.AddRange(bookOne, bookTwo, bookThree);
+        Title = "bookFour title",
+        Author = "bookFour author"
+      };
+
+      context.AddRange(bookOne, bookTwo, bookThree, bookFour);
       context.SaveChanges();
     }
 
@@ -62,12 +68,14 @@ public abstract class LibraryControllerTest
   {
     using (var context = new MyLibraryContext(ContextOptions))
     {
+      //Arrange
       var controller = new BookController(context);
 
+      //Act
       var books = await controller.GetBook();
 
-
-      Assert.Equal(3, books?.Value?.Count());
+      // Assert
+      Assert.Equal(4, books?.Value?.Count());
       Assert.Equal(1, books?.Value?.ElementAt(0).BookId);
       Assert.Equal("bookTwo author", books?.Value?.ElementAt(1).Author);
       Assert.Equal("bookThree title", books?.Value?.ElementAt(2).Title);
@@ -80,9 +88,48 @@ public abstract class LibraryControllerTest
   [Fact]
   public async void GetBook_should_return_ok()
   {
+    //act
     var response = await _client.GetAsync(GetAllBooks_URL);
 
+    //Assert
     Assert.Equal(HttpStatusCode.OK, response.StatusCode);
   }
 
+  [Fact]
+  public async void GetBook_Empty_should_return_ok()
+  {
+    //arrange
+    using (var context = new MyLibraryContext(ContextOptions))
+    {
+      var controller = new BookController(context);
+       var booksList = await context.Book.ToListAsync();
+      context.Book.RemoveRange(booksList);
+      context.SaveChanges();
+      //act
+      var response = await _client.GetAsync(GetAllBooks_URL);
+      var books = await controller.GetBook();
+      
+
+      // Assert
+      Assert.Null(books?.Value?.Count());
+      Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+
+    }
+
+  }
+
+  [Fact]
+    public async Task errornous_url_returns_notFound()
+    {
+      // act
+      var response = await _client.GetAsync("/api");
+
+      // assert
+      Assert.Equal(HttpStatusCode.NotFound,response.StatusCode);
+      
+    }
 }
+  
+
+
+
