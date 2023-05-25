@@ -8,6 +8,21 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<MyLibraryContext>(options =>
     options.UseNpgsql(connectionString));
 
+    var  MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
+ builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+                      policy  =>
+                      {
+                          policy
+                          .AllowAnyHeader()
+                          .AllowAnyMethod()
+                          .SetIsOriginAllowed((host) => true)
+                        .AllowCredentials();
+                      });
+}); 
+
 // Add services to the container.
 
 builder.Services.AddControllers();
