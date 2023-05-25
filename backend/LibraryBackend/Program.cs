@@ -8,20 +8,20 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<MyLibraryContext>(options =>
     options.UseNpgsql(connectionString));
 
-    var  MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
- builder.Services.AddCors(options =>
+builder.Services.AddCors(options =>
 {
-    options.AddPolicy(name: MyAllowSpecificOrigins,
-                      policy  =>
-                      {
-                          policy.WithOrigins("books-library-project.vercel.app","https://books-library-project-git-master-philippeleopoldie.vercel.app","https://books-library-project-philippeleopoldie.vercel.app")
-                          .AllowAnyHeader()
-                          .AllowAnyMethod()
-                          .SetIsOriginAllowed((host) => true)
-                        .AllowCredentials();
-                      });
-}); 
+  options.AddPolicy(name: MyAllowSpecificOrigins,
+                     policy =>
+                     {
+                       policy.WithOrigins("books-library-project.vercel.app/", "https://books-library-project-git-master-philippeleopoldie.vercel.app/", "https://books-library-project-philippeleopoldie.vercel.app/")
+                       .AllowAnyHeader()
+                       .AllowAnyMethod()
+                       .SetIsOriginAllowed((host) => true)
+                     .AllowCredentials();
+                     });
+});
 
 // Add services to the container.
 
@@ -37,8 +37,8 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+  app.UseSwagger();
+  app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();
