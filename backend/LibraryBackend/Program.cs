@@ -15,7 +15,7 @@ builder.Services.AddDbContext<MyLibraryContext>(options =>
     options.AddPolicy(name: MyAllowSpecificOrigins,
                       policy  =>
                       {
-                          policy.WithOrigins("https://books-library-project-backend.vercel.app/")
+                          policy.WithOrigins("books-library-project.vercel.app","https://books-library-project-git-master-philippeleopoldie.vercel.app","https://books-library-project-philippeleopoldie.vercel.app")
                           .AllowAnyHeader()
                           .AllowAnyMethod()
                           .SetIsOriginAllowed((host) => true)
