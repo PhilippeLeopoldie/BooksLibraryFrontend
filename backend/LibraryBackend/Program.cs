@@ -15,7 +15,10 @@ builder.Services.AddCors(options =>
   options.AddPolicy(name: MyAllowSpecificOrigins,
                      policy =>
                      {
-                       policy.WithOrigins("books-library-project.vercel.app/", "https://books-library-project-git-master-philippeleopoldie.vercel.app/", "https://books-library-project-philippeleopoldie.vercel.app/")
+                       policy.WithOrigins("books-library-project.vercel.app/",
+                        "https://books-library-project-git-master-philippeleopoldie.vercel.app/",
+                         "https://books-library-project-philippeleopoldie.vercel.app/",
+                         "https://backend-sepia-eight.vercel.app/")
                        .AllowAnyHeader()
                        .AllowAnyMethod()
                        .SetIsOriginAllowed((host) => true)
