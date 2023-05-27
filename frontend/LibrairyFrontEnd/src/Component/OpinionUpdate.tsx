@@ -25,7 +25,7 @@ function OpinionUpdate() {
       }),
     };
     await fetch(
-      `http://localhost:5133/api/Opinions/${opinionUpdated.opinionId}`,
+      `https://booklibray-backend.herokuapp.com/api/Opinion/${opinionUpdated.opinionId}`,
       requestOptions
     ).then((response) => {
       response.json().then(() => {

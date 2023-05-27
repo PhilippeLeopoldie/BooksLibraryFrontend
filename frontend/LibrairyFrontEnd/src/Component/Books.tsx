@@ -12,16 +12,16 @@ function Books() {
   const random = books?.at(Math.floor(Math.random() * books.length));
 
   useEffect(() => {
-    FetchApi("http://localhost:5133/api/Books").then((books) =>
+    FetchApi("https://booklibray-backend.herokuapp.com/api/Book").then((books) =>
       setBooks(books)
     );
-    FetchApi("http://localhost:5133/api/Opinions").then(
+    FetchApi("https://booklibray-backend.herokuapp.com/api/Opinion").then(
       (opinions) => setOpinions(opinions)
     );
   }, []);
 
   const DeleteBook = async (bookId: number) => {
-    await fetch(`http://localhost:5133/api/Books/${bookId}`, {
+    await fetch(`https://booklibray-backend.herokuapp.com/api/Book/${bookId}`, {
       method: "DELETE",
     }).then(() => {
       window.location.reload();

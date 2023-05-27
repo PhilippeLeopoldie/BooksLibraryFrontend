@@ -17,7 +17,7 @@ export function FetchOpinions(prop: BookType) {
   const navigate = useNavigate();
   const [Opinions, setOpinions] = useState<OpinionType[]>();
   useEffect(() => {
-    FetchApi("http://localhost:5133/api/Opinions").then(
+    FetchApi("https://booklibray-backend.herokuapp.com/api/Opinion").then(
       (opinions) => setOpinions(opinions)
     );
   }, []);

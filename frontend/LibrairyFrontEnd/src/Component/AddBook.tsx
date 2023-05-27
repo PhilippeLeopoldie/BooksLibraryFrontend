@@ -25,7 +25,7 @@ function AddBook() {
     };
     const body = await (
       await fetch(
-        "http://localhost:5133/api/Books",
+        "https://booklibray-backend.herokuapp.com/api/Book",
         requestOptions
       )
     ).json();
@@ -38,7 +38,7 @@ function AddBook() {
   };
 
   useEffect(() => {
-    FetchApi("http://localhost:5133/api/Books").then((books) =>
+    FetchApi("https://booklibray-backend.herokuapp.com/api/Book").then((books) =>
       setBooks(books)
     );
   }, [count]);
@@ -62,7 +62,7 @@ function AddBook() {
     };
     const newOpinion = await (
       await fetch(
-        "http://localhost:5133/api/Opinions",
+        "https://booklibray-backend.herokuapp.com/api/Opinion",
         requestOptions
       )
     )
@@ -74,7 +74,7 @@ function AddBook() {
     <>
       <form
         onSubmit={(e) => e.preventDefault()}
-        action="http://localhost:5133/api/Books"
+        action="https://booklibray-backend.herokuapp.com/api/Book"
         method="POST"
         className="bookform"
       >
