@@ -35,7 +35,9 @@ Test driven development :
   
   Integration tests coming...
 
-React (Typescript) : https://github.com/PhilippeLeopoldie/BooksLibraryProject/tree/master/frontend/LibrairyFrontEnd
+React: https://github.com/PhilippeLeopoldie/BooksLibraryProject/tree/master/frontend/LibrairyFrontEnd
+
+TypeScript
 
 CSS
 
