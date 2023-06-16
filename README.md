@@ -37,6 +37,10 @@ Test driven development :
 
 React (Typescript) : https://github.com/PhilippeLeopoldie/BooksLibraryProject/tree/master/frontend/LibrairyFrontEnd
 
+CSS
+
+HTML
+
 
 # deploying link:
 
