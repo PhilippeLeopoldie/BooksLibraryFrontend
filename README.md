@@ -19,7 +19,7 @@ So for every review added a virtual book is generated with the related review in
 # Technologies
 .Net: New backend in developpement for improvement and good practise : https://github.com/PhilippeLeopoldie/bookLibraryBackend
 
-Azure Sql Database
+Azure Sql Database : due to the end of my azure subscription I have switched temporaly to an in memory database
 
 Entity framework code first approach
 
@@ -39,7 +39,6 @@ React (Typescript) : https://github.com/PhilippeLeopoldie/BooksLibraryProject/tr
 
 
 # deploying link:
-2023/04/20 08:30AM (GMT+2): due to the end of my azure subscription I have switched to an in memory database
 
 2023/06/16 new backend in developpement deployed on heroku platform: https://leopoldie-booklibrary-backend.herokuapp.com/
 
