@@ -27,7 +27,7 @@ ASP.NET Core Web APIs
 database : postGres
 server: Vercel
 
-Test driven developpement : XunitTest on going, integration tests coming...
+Test driven development : XunitTest on going, integration tests coming...
 
 React (Typescript)
 
