@@ -12,6 +12,8 @@ So for every review added a virtual book is generated with the related review in
 ![my image](presentation_image.png)
 
 
+New backend on developpement for improvement and good practise : https://github.com/PhilippeLeopoldie/bookLibraryBackend
+
 
 
 # Technologies
@@ -22,12 +24,20 @@ Entity framework code first approach
 
 ASP.NET Core Web APIs
 
+database : postGres
+server: Vercel
+
+Test driven developpement : XunitTest on going, integration tests coming...
+
 React (Typescript)
 
 
 # deploying link:
-
 2023/04/20 08:30AM (GMT+2): due to the end of my azure subscription I have switched to an in memory database
+
+2023/06/16 new backend in developpement deployed on heroku platform: https://leopoldie-booklibrary-backend.herokuapp.com/
+
+
 
 
 
