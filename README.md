@@ -35,7 +35,8 @@ React (Typescript)
 # deploying link:
 2023/04/20 08:30AM (GMT+2): due to the end of my azure subscription I have switched to an in memory database
 
-2023/06/16 new backend in developpement deployed on heroku platform: https://leopoldie-booklibrary-backend.herokuapp.com/
+2023/06/16 new backend in developpement deployed on heroku platform: https://leopoldie-booklibrary-backend.herokuapp.com/api/book
+
 
 
 
