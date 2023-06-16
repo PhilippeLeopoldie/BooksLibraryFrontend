@@ -12,9 +12,9 @@ So for every review added a virtual book is generated with the related review in
 ![my image](presentation_image.png)
 
 
+
+
 New backend in developpement for improvement and good practise : https://github.com/PhilippeLeopoldie/bookLibraryBackend
-
-
 
 # Technologies
 
@@ -27,7 +27,8 @@ ASP.NET Core Web APIs
 database : postGres
 server: Vercel
 
-Test driven development : XunitTest on going, integration tests coming...
+Test driven development : XunitTest on going: https://github.com/PhilippeLeopoldie/bookLibraryBackend/blob/main/LibraryBackend.Tests/UnitTest.cs
+integration tests coming...
 
 React (Typescript)
 
