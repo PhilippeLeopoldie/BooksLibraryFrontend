@@ -26,7 +26,7 @@ ASP.NET Core Web APIs
 
 Database : postGres
 
-Server: Vercel
+Database platform: Vercel
 
 Test driven development : 
 
