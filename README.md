@@ -12,7 +12,7 @@ So for every review added a virtual book is generated with the related review in
 ![my image](presentation_image.png)
 
 
-New backend on developpement for improvement and good practise : https://github.com/PhilippeLeopoldie/bookLibraryBackend
+New backend in developpement for improvement and good practise : https://github.com/PhilippeLeopoldie/bookLibraryBackend
 
 
 
