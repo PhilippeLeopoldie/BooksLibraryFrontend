@@ -14,9 +14,10 @@ So for every review added a virtual book is generated with the related review in
 
 
 
-New backend in developpement for improvement and good practise : https://github.com/PhilippeLeopoldie/bookLibraryBackend
+
 
 # Technologies
+.Net: New backend in developpement for improvement and good practise : https://github.com/PhilippeLeopoldie/bookLibraryBackend
 
 Azure Sql Database
 
@@ -34,7 +35,7 @@ Test driven development :
   
   Integration tests coming...
 
-React (Typescript)
+React (Typescript) : https://github.com/PhilippeLeopoldie/BooksLibraryProject/tree/master/frontend/LibrairyFrontEnd
 
 
 # deploying link:
