@@ -40,7 +40,7 @@ React (Typescript) : https://github.com/PhilippeLeopoldie/BooksLibraryProject/tr
 
 # deploying link:
 
-2023/06/16 new backend in developpement deployed on heroku platform: https://leopoldie-booklibrary-backend.herokuapp.com/
+new backend in developpement deployed on heroku platform: https://leopoldie-booklibrary-backend.herokuapp.com/
 
 Example of end points getBooks: https://leopoldie-booklibrary-backend.herokuapp.com/api/book
 
