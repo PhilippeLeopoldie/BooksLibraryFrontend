@@ -19,7 +19,7 @@ So for every review added a virtual book is generated with the related review in
 # Technologies
 .Net: New backend in developpement for improvement and good practise : https://github.com/PhilippeLeopoldie/bookLibraryBackend
 
-Azure Sql Database : due to the end of my azure subscription I have switched temporaly to an in memory database
+Azure Sql Database : due to the end of my azure subscription I have switched temporaly to an in memory database then to Vercel platform using postGres database
 
 Entity framework code first approach
 
