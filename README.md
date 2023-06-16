@@ -24,8 +24,8 @@ Entity framework code first approach
 
 ASP.NET Core Web APIs
 
-database : postGres
-server: Vercel
+Database : postGres
+Server: Vercel
 
 Test driven development : 
 
