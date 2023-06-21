@@ -15,23 +15,33 @@ export function FetchOpinions(prop: BookType) {
   const { bookId } = prop;
   const opinionToUpdate = useContext(OpinionContext);
   const navigate = useNavigate();
-  const [Opinions, setOpinions] = useState<OpinionType[]>();
+  const [Opinions, setOpinions] = useState<OpinionType[]>([]);
   useEffect(() => {
-    FetchApi("https://booklibray-backend.herokuapp.com/api/Opinion").then(
-      (opinions) => setOpinions(opinions)
-    );
+    FetchApi("https://leopoldie-booklibrary-backend.herokuapp.com/api/Opinion")
+      .then((response) => {
+        console.log("Opinions response:", response);
+        setOpinions(response.$values);
+      })
+      .catch((error) => {
+        console.error("Opinions error:", error);
+      });
   }, []);
-  const OpinionFiltered = Opinions?.filter(
-    (opinion) => opinion.bookId == bookId
+  const opinionFiltered = Opinions?.filter(
+    (opinion) => opinion.bookId === bookId
   );
+
+  console.log("Opinions",{Opinions});
+  console.log("bookId",{bookId});
+  console.log("FilteredOpinions:", {opinionFiltered});
 
   return (
     <>
       <div className="opinioncontainer">
-        {OpinionFiltered?.map((opinion, index) => (
+        {opinionFiltered?.map((opinion,index) => (
           <div className="opinioncontainer--card">
-            <div className="opinionCardItems" key={index}>
-              <textarea className="opinionCardItems opinioncard--view"
+            <div className="opinionCardItems" key={opinion.bookId}>
+              <textarea
+                className="opinionCardItems opinioncard--view"
                 value={opinion.view}
                 readOnly
               />
