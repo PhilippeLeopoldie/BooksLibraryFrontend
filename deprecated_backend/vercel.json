@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "backend/LibraryBackend/**", "use": "@vercel/next-build" },
+    { "src": "backend/LibraryBackend/Program.cs", "use": "dotnet" }
+  ],
+  "routes": [
+    { "src": "/api/(.*)", "dest": "backend/LibraryBackend/api/$1" },
+    { "src": "/(.*)", "dest": "backend/LibraryBackend/$1" }
+  ]
+}

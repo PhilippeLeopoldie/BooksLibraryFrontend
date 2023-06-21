@@ -2,13 +2,11 @@ import { SyntheticEvent, useState, useContext } from "react";
 import { OpinionContext } from "../Context";
 import check from "../media/check.png";
 
-
 function OpinionUpdate() {
-  const opinionUpdated = useContext(OpinionContext);
+  const opinion = useContext(OpinionContext);
 
-  const [view, setView] = useState<string>(opinionUpdated.view);
-  const [userName, setUserName] = useState<string>(opinionUpdated.userName);
-
+  const [view, setView] = useState<string>(opinion.view);
+  const [userName, setUserName] = useState<string>(opinion.userName);
 
   const updateOpinion = async (e: SyntheticEvent) => {
     e.preventDefault();
@@ -20,44 +18,52 @@ function OpinionUpdate() {
       body: JSON.stringify({
         view: view,
         userName: userName,
-        like: opinionUpdated.like,
-        bookId: opinionUpdated.bookId,
+        like: opinion.like,
+        bookId: opinion.bookId,
       }),
     };
+    console.log("opinionId:", `${opinion.opinionId}`);
+    console.log("view:", `${opinion.view}`);
+    console.log("userName:", `${opinion.userName}`);
     await fetch(
-      `https://booklibray-backend.herokuapp.com/api/Opinion/${opinionUpdated.opinionId}`,
+      `https://leopoldie-booklibrary-backend.herokuapp.com/api/Opinion/${opinion.opinionId}`,
       requestOptions
     ).then((response) => {
-      response.json().then(() => {
-        window.location.reload();
-      });
+      console.log("response", `${response}`);
+      console.log("requestOption", { requestOptions });
+      response.json().then(() => {});
     });
   };
-
+  console.log("opinion object", { opinion });
   return (
     <>
       <form className="opinioncard">
-        
-          
-          <textarea
+        <textarea
           className="opinioncard___view--overflow"
-            autoFocus
-            placeholder="View"
-            value={view}
-            onChange={(e) => setView(e.target.value)}
-          />
-        
-        
-        
-          <input
-            className="opinioncard__username"
-            placeholder="Username"
-            value={userName}
-            onChange={(e) => setUserName(e.target.value)}
-          />
-        
-        <button className="button validation" onClick={updateOpinion} type="submit" onSubmit={()=>{<p>validated!</p>}}>
-          Validation<img className="icone" src={check} />
+          autoFocus
+          placeholder="View"
+          value={view}
+          onChange={(e) => setView(e.target.value)}
+        />
+
+        <input
+          className="opinioncard__username"
+          placeholder="Username"
+          value={userName}
+          onChange={(e) => setUserName(e.target.value)}
+        />
+
+        <button
+          className="button validation"
+          onClick={updateOpinion}
+          type="submit"
+          onSubmit={() => {
+            <p>validated!</p>;
+          }}
+          
+        >
+          Validation
+          <img className="icone" src={check} />
         </button>
       </form>
     </>
