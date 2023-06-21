@@ -7,12 +7,9 @@ I decided to create a simple application for users to share with others the book
 
 Initialy I had three tables user,Books and Opinions.For that assignment I have decided to have focus on the one to many relation between Books and Opinions first and managing the corresponding CRUD operations before going further with the User table.
 
-So for every review added a virtual book is generated with the related review informations and so far it looks like this:
+So for every review added a digital book is generated with the related review informations and so far it looks like this:
 
 ![my image](presentation_image.png)
-
-
-
 
 
 
@@ -25,6 +22,8 @@ Entity framework code first approach
 
 ASP.NET Core Web APIs
 
+API platform: Heroku
+
 Database : postGres
 
 Database platform: Vercel
@@ -35,7 +34,7 @@ Test driven development :
   
   Integration tests coming...
 
-React: https://github.com/PhilippeLeopoldie/BooksLibraryProject/tree/master/frontend/LibrairyFrontEnd
+React
 
 TypeScript
 
@@ -43,8 +42,14 @@ CSS
 
 HTML
 
+Frontend platform: Vercel
+
 
 # deploying link:
+
+frontend:
+
+https://books-library-philippe-leopoldie.vercel.app/
 
 Backend:
 
