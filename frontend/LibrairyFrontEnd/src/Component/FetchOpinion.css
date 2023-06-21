@@ -36,3 +36,7 @@
 .opinioncard--buttonmodify {
   margin-bottom: 5%;
 }
+.opinioncard--buttonmodify:disabled{
+  opacity: 0.5;
+  cursor: not-allowed;
+}

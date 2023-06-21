@@ -62,9 +62,9 @@ export function FetchOpinions(prop: BookType) {
                     (opinionToUpdate!.like = opinion.like);
 
                   navigate("/viewUpdate");
-                }}
+                }} disabled
               >
-                <img className="icone iconeModify" src={modify}></img>modify
+                <img className="icone iconeModify" src={modify}></img>disabled modify 
               </button>
             </div>
           </div>
