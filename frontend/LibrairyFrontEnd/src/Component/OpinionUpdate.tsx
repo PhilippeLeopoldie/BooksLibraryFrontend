@@ -60,7 +60,6 @@ function OpinionUpdate() {
           onSubmit={() => {
             <p>validated!</p>;
           }}
-          
         >
           Validation
           <img className="icone" src={check} />
