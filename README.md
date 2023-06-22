@@ -1,7 +1,7 @@
 # BookLibrairyProject
 In development:
 
-My very first full stack app, using Sql server (Azure DataStudion v1.41.2) , Entity framework code first approach,.Net 7.0 , React and css as frontend, this app is an assignment from Salt bootcamp where I had 24 hours to build a fullstack CRUD application  and being responsive design.
+My very first full stack app, using Sql server (Azure DataStudion v1.41.2) , Entity framework code first approach,.Net 7.0 , React and css as frontend,initialy this app was an assignment from Salt bootcamp where I had 24 hours to build a fullstack CRUD application  and being responsive design.
 
 I decided to create a simple application for users to share with others the books and stories they had read and share their opinion about them. As it is often difficult to choose which book to read, the application propose a book to read among the various books already published in the application.
 
@@ -14,7 +14,7 @@ So for every review added a digital book is generated with the related review in
 
 
 # Technologies
-.Net: New backend in developpement for improvement and good practise : https://github.com/PhilippeLeopoldie/bookLibraryBackend
+.Net: New backend in developpement: https://github.com/PhilippeLeopoldie/bookLibraryBackend
 
 Azure Sql Database : due to the end of my azure subscription I have switched temporaly to an in memory database and finally to Vercel platform using postGres database
 
@@ -47,14 +47,10 @@ Frontend platform: Vercel
 
 # deploying link:
 
-frontend:
-
+Frontend:
 https://books-library-philippe-leopoldie.vercel.app/
 
 Backend:
-
-new backend in developpement deployed on heroku platform: https://leopoldie-booklibrary-backend.herokuapp.com/
-
 Example of end points getBooks: https://leopoldie-booklibrary-backend.herokuapp.com/api/book
 
 
