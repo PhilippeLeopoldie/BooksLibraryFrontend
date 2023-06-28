@@ -22,11 +22,11 @@ function OpinionUpdate() {
         bookId: opinion.bookId,
       }),
     };
-    console.log("opinionId:", `${opinion.opinionId}`);
+    console.log("opinionId:", `${opinion.id}`);
     console.log("view:", `${opinion.view}`);
     console.log("userName:", `${opinion.userName}`);
     await fetch(
-      `https://leopoldie-booklibrary-backend.herokuapp.com/api/Opinion/${opinion.opinionId}`,
+      `https://leopoldie-booklibrary-backend.herokuapp.com/api/Opinion/${opinion.id}`,
       requestOptions
     ).then((response) => {
       console.log("response", `${response}`);

@@ -1,5 +1,5 @@
 export type BookType = {
-    bookId : number
+    id : number
     title :string
     author :string
     userId :number
@@ -11,7 +11,7 @@ export type BookType = {
 }
 
 export type OpinionType = {
-    opinionId : number
+    id : number
     like : number
     bookId : number
     view:string
@@ -20,7 +20,7 @@ export type OpinionType = {
 }
 
 export type OpinionUpdateType = {
-    bookId:number
+    id:number
 }
 
 

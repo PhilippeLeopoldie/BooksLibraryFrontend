@@ -45,13 +45,13 @@ function Books() {
       <div className="bookcontainer">
         {books &&
           books.map((book, index) => (
-            <div className="bookcard" key={book.bookId}>
+            <div className="bookcard" key={book.id}>
               <div className="bookcard--header">
                 <button
                   className=" button booktitle--trashbutton"
                   type="submit"
                   onClick={async () => {
-                    await DeleteBook(book.bookId);
+                    await DeleteBook(book.id);
                   }}
                 >
                   <img className="icone bookcard--iconeTrash" src={trash} />
@@ -64,7 +64,7 @@ function Books() {
                 </h3>
               </div>
 
-              <FetchOpinions bookId={book.bookId} />
+              <FetchOpinions bookId={book.id} />
             </div>
           ))}
       </div>

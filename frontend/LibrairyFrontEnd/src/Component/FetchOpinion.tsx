@@ -56,7 +56,7 @@ export function FetchOpinions(prop: BookType) {
                 className="button opinioncard--buttonmodify"
                 onClick={() => {
                   (opinionToUpdate!.bookId = opinion.bookId),
-                    (opinionToUpdate!.opinionId = opinion.opinionId),
+                    (opinionToUpdate!.id = opinion.id),
                     (opinionToUpdate!.userName = opinion.userName),
                     (opinionToUpdate!.view = opinion.view),
                     (opinionToUpdate!.like = opinion.like);
