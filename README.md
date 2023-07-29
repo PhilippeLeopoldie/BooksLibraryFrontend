@@ -28,12 +28,6 @@ Database : postGres
 
 Database platform: Vercel
 
-Test driven development : 
-
-  XunitTest on going: https://github.com/PhilippeLeopoldie/bookLibraryBackend/blob/main/LibraryBackend.Tests/UnitTest.cs
-  
-  Integration tests coming...
-
 React
 
 TypeScript
@@ -44,6 +38,11 @@ HTML
 
 Frontend platform: Vercel
 
+Test driven development : 
+
+  XunitTest on going: https://github.com/PhilippeLeopoldie/bookLibraryBackend/blob/main/LibraryBackend.Tests/UnitTest.cs
+  
+  Integration tests coming...
 
 # deploying link:
 
