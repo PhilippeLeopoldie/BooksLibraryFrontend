@@ -40,9 +40,9 @@ Frontend platform: Vercel
 
 Test driven development : 
 
-  XunitTest on going: https://github.com/PhilippeLeopoldie/bookLibraryBackend/blob/main/LibraryBackend.Tests/UnitTest.cs
+  XunitTest ongoing: https://github.com/PhilippeLeopoldie/bookLibraryBackend/blob/main/LibraryBackend.Tests/UnitTest.cs
   
-  Integration tests
+  Integration tests: implementation ongoing 
 
 # deploying link:
 
