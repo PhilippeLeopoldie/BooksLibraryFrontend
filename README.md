@@ -42,7 +42,7 @@ Test driven development :
 
   XunitTest on going: https://github.com/PhilippeLeopoldie/bookLibraryBackend/blob/main/LibraryBackend.Tests/UnitTest.cs
   
-  Integration tests coming...
+  Integration tests
 
 # deploying link:
 
