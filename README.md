@@ -1,7 +1,7 @@
 # BookLibrairyProject
 In development:
 
-My very first full stack app, using Sql server (Azure DataStudion v1.41.2) , Entity framework code first approach,.Net 7.0 , React and css as frontend,initialy this app was an assignment from Salt bootcamp where I had 24 hours to build a fullstack CRUD application  and being responsive design.
+This is the frontend of my very first full stack application, using , Entity framework code first approach,.Net 7.0 , React and css as frontend,initialy this app was an assignment from Salt bootcamp where I had 24 hours to build a fullstack CRUD application  and being responsive design.
 
 I decided to create a simple application for users to share with others the books and stories they had read and share their opinion about them. As it is often difficult to choose which book to read, the application propose a book to read among the various books already published in the application.
 
