@@ -1,6 +1,7 @@
 import { SyntheticEvent, useState, useContext } from "react";
 import { OpinionContext } from "../Context";
 import check from "../media/check.png";
+import url from "../Url";
 
 function OpinionUpdate() {
   const opinion = useContext(OpinionContext);
@@ -26,7 +27,7 @@ function OpinionUpdate() {
     console.log("view:", `${opinion.view}`);
     console.log("userName:", `${opinion.userName}`);
     await fetch(
-      `https://leopoldie-booklibrary-backend.herokuapp.com/api/Opinion/${opinion.id}`,
+      url+`api/Opinion/${opinion.id}`,
       requestOptions
     ).then((response) => {
       console.log("response", `${response}`);

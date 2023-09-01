@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { BookType } from "../Type";
 import FetchApi from "../FetchApi";
+import url from "../Url";
 import love from "../media/love.png";
 import sad from "../media/sad.png";
 import "./Book.css";
@@ -24,7 +25,7 @@ function AddBook() {
       }),
     };
     const response = await fetch(
-      "https://leopoldie-booklibrary-backend.herokuapp.com/api/Book",
+      url+"api/Book",
       requestOptions
     );
     const body = await response.json();
@@ -38,7 +39,7 @@ function AddBook() {
     const fetchBooks = async () => {
       try {
         const booksData = await FetchApi(
-          "https://leopoldie-booklibrary-backend.herokuapp.com/api/Book"
+          url+"api/Book"
         );
         setBooks(booksData.$values);
       } catch (error) {
@@ -63,7 +64,7 @@ function AddBook() {
     };
     const newOpinion = await (
       await fetch(
-        "https://leopoldie-booklibrary-backend.herokuapp.com/api/Opinion",
+        url+"api/Opinion",
         requestOptions
       )
     ).json();
@@ -73,7 +74,7 @@ function AddBook() {
     <>
       <form
         onSubmit={(e) => e.preventDefault()}
-        action="https://leopoldie-booklibrary-backend.herokuapp.com/api/Book"
+        action={url+"api/Book"}
         method="POST"
         className="bookform"
       >

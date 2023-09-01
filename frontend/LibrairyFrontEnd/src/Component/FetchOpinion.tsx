@@ -2,12 +2,14 @@ import { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { OpinionType } from "../Type";
 import FetchApi from "../FetchApi";
+import url from "../Url";
 import love from "../media/love.png";
 import sad from "../media/sad.png";
 import modify from "../media/write.svg";
 import { OpinionContext } from "../Context";
 
 type BookType = {
+  
   bookId: number;
 };
 
@@ -17,7 +19,7 @@ export function FetchOpinions(prop: BookType) {
   const navigate = useNavigate();
   const [Opinions, setOpinions] = useState<OpinionType[]>([]);
   useEffect(() => {
-    FetchApi("https://leopoldie-booklibrary-backend.herokuapp.com/api/Opinion")
+    FetchApi(url+"api/Opinion")
       .then((response) => {
         console.log("Opinions response:", response);
         setOpinions(response.$values);
