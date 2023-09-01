@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { BookType, OpinionType } from "../Type";
 import FetchApi from "../FetchApi";
-
+import url from "../Url";
 import { FetchOpinions } from "./FetchOpinion";
 import trash from "../media/delete.svg";
 
@@ -14,7 +14,7 @@ function Books() {
   useEffect(() => {
     const fetchBooks = async () => {
       try {
-        const booksData = await FetchApi("https://leopoldie-booklibrary-backend.herokuapp.com/api/Book");
+        const booksData = await FetchApi(url+"api/Book");
         setBooks(booksData.$values);
       } catch (error) {
         console.error("Error fetching books:", error);
@@ -23,13 +23,13 @@ function Books() {
   
     fetchBooks();
     FetchApi(
-      "https://leopoldie-booklibrary-backend.herokuapp.com/api/Opinion"
+      url+"api/Opinion"
     ).then((opinions) => setOpinions(opinions));
   }, []);
 
   const DeleteBook = async (bookId: number) => {
     await fetch(
-      `https://leopoldie-booklibrary-backend.herokuapp.com/api/Book/${bookId}`,
+      url+`api/Book/${bookId}`,
       {
         method: "DELETE",
       }
@@ -41,30 +41,30 @@ function Books() {
   return (
     <div className="books">
       <h2>Recommendation of the day</h2>
-      <h3>{random?.title}</h3>
+      <h3>{random?.book.title}</h3>
       <div className="bookcontainer">
         {books &&
-          books.map((book, index) => (
-            <div className="bookcard" key={book.id}>
+          books.map((bookDetail, index) => (
+            <div className="bookcard" key={bookDetail.book.id}>
               <div className="bookcard--header">
                 <button
                   className=" button booktitle--trashbutton"
                   type="submit"
                   onClick={async () => {
-                    await DeleteBook(book.id);
+                    await DeleteBook(bookDetail.book.id);
                   }}
                 >
                   <img className="icone bookcard--iconeTrash" src={trash} />
                 </button>
                 <h2 className="booktitle" >
-                  {book.title}
+                  {bookDetail.book.title}
                 </h2>
                 <h3 className="bookauthor">
-                  by: {book.author}
+                  by: {bookDetail.book.author}
                 </h3>
               </div>
 
-              <FetchOpinions bookId={book.id} />
+              <FetchOpinions bookId={bookDetail.book.id} />
             </div>
           ))}
       </div>
