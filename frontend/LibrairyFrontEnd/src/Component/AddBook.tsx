@@ -49,7 +49,7 @@ function AddBook() {
     fetchBooks;
   }, []);
 
-  const PostOpinion = async (bookId: number, opinion: number) => {
+  const PostOpinion = async (bookId: number, rate: number) => {
     const requestOptions = {
       method: "POST",
       headers: {
@@ -57,7 +57,7 @@ function AddBook() {
       },
       body: JSON.stringify({
         bookId,
-        like: opinion,
+        rate: rate,
         view: view,
         userName: userName,
       }),
@@ -116,7 +116,7 @@ function AddBook() {
             }}
           >
             Add
-            <img className="icone iconeSad" src={sad} />
+            <img className="icone iconeRate" src={sad} />
           </button>
 
           <button
@@ -127,7 +127,7 @@ function AddBook() {
             }}
           >
             Add
-            <img className="icone iconeLike" src={love} />
+            <img className="icone iconeRate" src={love} />
           </button>
         </div>
       </form>

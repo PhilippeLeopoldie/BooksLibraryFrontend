@@ -5,6 +5,6 @@ export const OpinionContext = createContext<OpinionType >({
   bookId:0,
   id:0,
   view:"initialView",
-  like:0,
+  rate:0,
   userName:""
 });

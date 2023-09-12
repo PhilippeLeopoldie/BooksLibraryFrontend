@@ -14,7 +14,7 @@ export type BookType = {
 
 export type OpinionType = {
   id: number;
-  like: number;
+  rate: number;
   bookId: number;
   view: string;
   userName: string;

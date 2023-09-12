@@ -19,7 +19,7 @@ function OpinionUpdate() {
       body: JSON.stringify({
         view: view,
         userName: userName,
-        like: opinion.like,
+        rate: opinion.rate,
         bookId: opinion.bookId,
       }),
     };

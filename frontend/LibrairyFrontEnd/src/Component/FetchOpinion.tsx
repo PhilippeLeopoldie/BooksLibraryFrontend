@@ -48,10 +48,10 @@ export function FetchOpinions(prop: BookType) {
                 readOnly
               />
               <div className="opinionCardItems">{opinion.userName}</div>
-              {!opinion.like && (
+              {!opinion.rate && (
                 <img className="img" src={sad} alt="sad" />
               )}{" "}
-              {opinion.like && <img className="img" src={love} alt="like" />}
+              {opinion.rate && <img className="img" src={love} alt="rate" />}
             </div>
             <div className="opinionCardItems opinioncard--footer">
               <button
@@ -61,7 +61,7 @@ export function FetchOpinions(prop: BookType) {
                     (opinionToUpdate!.id = opinion.id),
                     (opinionToUpdate!.userName = opinion.userName),
                     (opinionToUpdate!.view = opinion.view),
-                    (opinionToUpdate!.like = opinion.like);
+                    (opinionToUpdate!.rate = opinion.rate);
 
                   navigate("/viewUpdate");
                 }} disabled
