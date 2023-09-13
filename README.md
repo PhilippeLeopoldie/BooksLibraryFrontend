@@ -14,7 +14,7 @@ So for every review added a digital book is generated with the related review in
 
 
 # Technologies
-.Net: New backend in developpement: https://github.com/PhilippeLeopoldie/bookLibraryBackend
+.Net: backend in developpement: https://github.com/PhilippeLeopoldie/bookLibraryBackend
 
 Azure Sql Database : due to the end of my azure subscription I have switched temporaly to an in memory database and finally to Vercel platform using postGres database
 
@@ -40,9 +40,9 @@ Frontend platform: Vercel
 
 Test driven development : 
 
-  XunitTest ongoing: https://github.com/PhilippeLeopoldie/bookLibraryBackend/blob/main/LibraryBackend.Tests/UnitTest.cs
+  Backend using Moq library and xUnit framework for UnitTest: https://github.com/PhilippeLeopoldie/bookLibraryBackend/blob/main/LibraryBackend.Tests/UnitTest.cs
   
-  Integration tests: implementation ongoing 
+   
 
 # deploying link:
 
