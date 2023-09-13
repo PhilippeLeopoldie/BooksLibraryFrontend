@@ -9,7 +9,6 @@ import modify from "../media/write.svg";
 import { OpinionContext } from "../Context";
 
 type BookType = {
-  
   bookId: number;
 };
 
@@ -19,27 +18,24 @@ export function FetchOpinions(prop: BookType) {
   const navigate = useNavigate();
   const [Opinions, setOpinions] = useState<OpinionType[]>([]);
   useEffect(() => {
-    FetchApi(url+"api/Opinion")
+    FetchApi(url + "api/Opinion/" + bookId)
       .then((response) => {
         console.log("Opinions response:", response);
+
         setOpinions(response.$values);
       })
       .catch((error) => {
         console.error("Opinions error:", error);
       });
   }, []);
-  const opinionFiltered = Opinions?.filter(
-    (opinion) => opinion.bookId === bookId
-  );
 
-  console.log("Opinions",{Opinions});
-  console.log("bookId",{bookId});
-  console.log("FilteredOpinions:", {opinionFiltered});
+  console.log("Opinions", { Opinions });
+  console.log("bookId", { bookId });
 
   return (
     <>
       <div className="opinioncontainer">
-        {opinionFiltered?.map((opinion,index) => (
+        {Opinions?.map((opinion, index) => (
           <div className="opinioncontainer--card">
             <div className="opinionCardItems" key={opinion.bookId}>
               <textarea
@@ -58,15 +54,17 @@ export function FetchOpinions(prop: BookType) {
                 className="button opinioncard--buttonmodify"
                 onClick={() => {
                   (opinionToUpdate!.bookId = opinion.bookId),
-                    (opinionToUpdate!.id = opinion.id),
-                    (opinionToUpdate!.userName = opinion.userName),
-                    (opinionToUpdate!.view = opinion.view),
-                    (opinionToUpdate!.rate = opinion.rate);
+                  (opinionToUpdate!.id = opinion.id),
+                  (opinionToUpdate!.userName = opinion.userName),
+                  (opinionToUpdate!.view = opinion.view),
+                  (opinionToUpdate!.rate = opinion.rate);
 
                   navigate("/viewUpdate");
-                }} disabled
+                }}
+                disabled
               >
-                <img className="icone iconeModify" src={modify}></img>disabled modify 
+                <img className="icone iconeModify" src={modify}></img>disabled
+                modify
               </button>
             </div>
           </div>
