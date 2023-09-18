@@ -50,7 +50,7 @@ Frontend:
 https://books-library-philippe-leopoldie.vercel.app/
 
 Backend:
-Example of end points getBooks: https://leopoldie-booklibrary-backend.herokuapp.com/api/book
+Example of end points getBooks: https://booklibrary-backend-20f7a19cecb2.herokuapp.com/api/book
 
 
 
