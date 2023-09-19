@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter,Routes,Route,Link, useNavigate } from 'react-router-dom'
-import Books from './Books'
-import AddBook from './AddBook'
+import Books from './Book/Books'
+import AddBook from './Book/AddBook'
 
 function Home() {
   

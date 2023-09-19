@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { BookType } from "../Type";
-import FetchApi from "../FetchApi";
-import url from "../Url";
-import love from "../media/love.png";
-import sad from "../media/sad.png";
+import { BookType } from "../../Type";
+import FetchApi from "../../FetchApi";
+import url from "../../Url";
+import love from "../../media/love.png";
+import sad from "../../media/sad.png";
 import "./Book.css";
 
 function AddBook() {

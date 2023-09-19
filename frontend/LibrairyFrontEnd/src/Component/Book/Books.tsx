@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { BookType, OpinionType } from "../Type";
-import FetchApi from "../FetchApi";
-import url from "../Url";
-import { FetchOpinions } from "./FetchOpinion";
-import trash from "../media/delete.svg";
+import { BookType, OpinionType } from "../../Type";
+import FetchApi from "../../FetchApi";
+import url from "../../Url";
+import { FetchOpinions } from "../Opinion/FetchOpinion";
+import trash from "../../media/delete.svg";
+
 
 function Books() {
   const [opinions, setOpinions] = useState<OpinionType[]>();

@@ -2,8 +2,8 @@ import { useContext } from "react";
 import { Routes, BrowserRouter, Route, Link } from "react-router-dom";
 import { OpinionContext } from "./Context";
 import "./App.css";
-import AddBook from "./Component/AddBook";
-import OpinionUpdate from "./Component/OpinionUpdate";
+import AddBook from "./Component/Book/AddBook";
+import OpinionUpdate from "./Component/Opinion/OpinionUpdate";
 import Home from "./Component/Home";
 
 function App() {

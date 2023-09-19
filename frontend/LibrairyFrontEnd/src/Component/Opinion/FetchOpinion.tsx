@@ -1,12 +1,12 @@
 import { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { OpinionType } from "../Type";
-import FetchApi from "../FetchApi";
-import url from "../Url";
-import love from "../media/love.png";
-import sad from "../media/sad.png";
-import modify from "../media/write.svg";
-import { OpinionContext } from "../Context";
+import { OpinionType } from "../../Type";
+import FetchApi from "../../FetchApi";
+import url from "../../Url";
+import love from "../../media/love.png";
+import sad from "../../media/sad.png";
+import modify from "../../media/write.svg";
+import { OpinionContext } from "../../Context";
 
 type BookType = {
   bookId: number;
@@ -61,9 +61,9 @@ export function FetchOpinions(prop: BookType) {
 
                   navigate("/viewUpdate");
                 }}
-                disabled
+                /*disabled*/
               >
-                <img className="icone iconeModify" src={modify}></img>disabled
+                <img className="icone iconeModify" src={modify}></img>
                 modify
               </button>
             </div>

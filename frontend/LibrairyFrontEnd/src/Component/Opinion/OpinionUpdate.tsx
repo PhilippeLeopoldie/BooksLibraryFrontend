@@ -1,7 +1,7 @@
 import { SyntheticEvent, useState, useContext } from "react";
-import { OpinionContext } from "../Context";
-import check from "../media/check.png";
-import url from "../Url";
+import { OpinionContext } from "../../Context";
+import check from "../../media/check.png";
+import url from "../../Url";
 
 function OpinionUpdate() {
   const opinion = useContext(OpinionContext);
