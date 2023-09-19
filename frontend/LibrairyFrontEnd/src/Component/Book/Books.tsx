@@ -55,7 +55,7 @@ function Books() {
                     await DeleteBook(bookDetail.book.id);
                   }}
                 >
-                  <img className="icone bookcard--iconeTrash" src={trash} />
+                  <img className="icone bookcard--iconeTrash" src={trash} alt="delete" />
                 </button>
                 <h2 className="booktitle" >
                   {bookDetail.book.title}
