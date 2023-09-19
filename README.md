@@ -14,7 +14,7 @@ So for every review added a digital book is generated with the related review in
 
 
 # Technologies
-.Net: backend in developpement: https://github.com/PhilippeLeopoldie/bookLibraryBackend
+.Net 7.0.203: backend: https://github.com/PhilippeLeopoldie/bookLibraryBackend
 
 Azure Sql Database : due to the end of my azure subscription I have moved to Vercel platform using postGres database
 
@@ -28,7 +28,7 @@ Database : postGres
 
 Database platform: Vercel
 
-React
+React 18.2.0
 
 TypeScript
 
