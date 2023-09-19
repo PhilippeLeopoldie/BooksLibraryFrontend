@@ -12,8 +12,7 @@ type BookType = {
   bookId: number;
 };
 
-export function FetchOpinions(prop: BookType) {
-  const { bookId } = prop;
+export function FetchOpinions({bookId}: BookType) {
   const opinionToUpdate = useContext(OpinionContext);
   const navigate = useNavigate();
   const [Opinions, setOpinions] = useState<OpinionType[]>([]);
