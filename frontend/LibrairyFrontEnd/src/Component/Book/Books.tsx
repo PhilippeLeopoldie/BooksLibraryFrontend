@@ -29,14 +29,19 @@ function Books() {
   }, []);
 
   const DeleteBook = async (bookId: number) => {
-    await fetch(
+    try {
+      await fetch(
       url+`api/Book/${bookId}`,
       {
         method: "DELETE",
       }
-    ).then(() => {
-      window.location.reload();
-    });
+    );
+    setBooks(books => books.filter(book => book.book.id !== bookId))
+
+    } catch (error) {
+      console.error("Error deleting book:", error);
+    }
+    
   };
 
   return (
