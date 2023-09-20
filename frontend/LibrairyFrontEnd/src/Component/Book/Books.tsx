@@ -5,43 +5,34 @@ import url from "../../Url";
 import { FetchOpinions } from "../Opinion/FetchOpinion";
 import trash from "../../media/delete.svg";
 
-
 function Books() {
   const [opinions, setOpinions] = useState<OpinionType[]>();
   const [books, setBooks] = useState<BookType[]>([]);
   const random = books?.at(Math.floor(Math.random() * books.length));
- 
 
   useEffect(() => {
     const fetchBooks = async () => {
       try {
-        const booksData = await FetchApi(url+"api/Book");
+        const booksData = await FetchApi(url + "api/Book");
         setBooks(booksData.$values);
       } catch (error) {
         console.error("Error fetching books:", error);
       }
     };
-  
+
     fetchBooks();
-    FetchApi(
-      url+"api/Opinion"
-    ).then((opinions) => setOpinions(opinions));
+    FetchApi(url + "api/Opinion").then((opinions) => setOpinions(opinions));
   }, []);
 
   const DeleteBook = async (bookId: number) => {
     try {
-      await fetch(
-      url+`api/Book/${bookId}`,
-      {
+      await fetch(url + `api/Book/${bookId}`, {
         method: "DELETE",
-      }
-    );
-    setBooks(books => books.filter(book => book.book.id !== bookId))
-
+      });
+      setBooks((books) => books.filter((book) => book.book.id !== bookId));
     } catch (error) {
       console.error("Error deleting book:", error);
     }
-    
   };
 
   return (
@@ -60,14 +51,14 @@ function Books() {
                     await DeleteBook(bookDetail.book.id);
                   }}
                 >
-                  <img className="icone bookcard--iconeTrash" src={trash} alt="delete" />
+                  <img
+                    className="icone bookcard--iconeTrash"
+                    src={trash}
+                    alt="delete"
+                  />
                 </button>
-                <h2 className="booktitle" >
-                  {bookDetail.book.title}
-                </h2>
-                <h3 className="bookauthor">
-                  by: {bookDetail.book.author}
-                </h3>
+                <h2 className="booktitle">{bookDetail.book.title}</h2>
+                <h3 className="bookauthor">by: {bookDetail.book.author}</h3>
               </div>
 
               <FetchOpinions bookId={bookDetail.book.id} />
