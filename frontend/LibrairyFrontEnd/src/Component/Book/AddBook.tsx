@@ -7,10 +7,14 @@ import sad from "../../media/sad.png";
 import "./Book.css";
 
 function AddBook() {
-  const [title, setTitle] = useState<string>("");
-  const [author, setAuthor] = useState<string>("");
-  const [view, setView] = useState<string>("");
-  const [userName, setUserName] = useState<string>("");
+  
+
+  const [formData, setFormData] = useState({
+    title: "",
+    author: "",
+    view: "",
+    userName: ""
+  })
   const [books, setBooks] = useState<BookType[]>([]);
 
   const PostBook = async () => {
@@ -20,14 +24,11 @@ function AddBook() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        title: title,
-        author: author,
+        title: formData.title,
+        author: formData.author,
       }),
     };
-    const response = await fetch(
-      url+"api/Book",
-      requestOptions
-    );
+    const response = await fetch(url+"api/Book",requestOptions);
     const body = await response.json();
     books?.push(body);
     setBooks(books);
@@ -58,8 +59,8 @@ function AddBook() {
       body: JSON.stringify({
         bookId,
         rate: rate,
-        view: view,
-        userName: userName,
+        view: formData.view,
+        userName: formData.userName,
       }),
     };
     const newOpinion = await (
@@ -82,29 +83,37 @@ function AddBook() {
           <input
             className="input"
             placeholder="Title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
+            value={formData.title}
+            onChange={(e) => 
+              setFormData({...formData ,title: e.target.value})
+            }
           />
 
           <input
             className="input"
             placeholder="Author"
-            value={author}
-            onChange={(e) => setAuthor(e.target.value)}
+            value={formData.author}
+            onChange={(e) =>
+              setFormData({...formData ,author: e.target.value})
+            }
           />
 
           <textarea
             className="bookform__view input"
             placeholder="View"
-            value={view}
-            onChange={(e) => setView(e.target.value)}
+            value={formData.view}
+            onChange={(e) => 
+              setFormData({...formData, view :e.target.value})
+            }
           />
 
           <input
             className="input"
             placeholder="UserName"
-            value={userName}
-            onChange={(e) => setUserName(e.target.value)}
+            value={formData.userName}
+            onChange={(e) => 
+              setFormData({...formData, userName:e.target.value})
+            }
           />
         </div>
 
