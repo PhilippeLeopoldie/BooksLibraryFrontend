@@ -30,9 +30,7 @@ function AddBook() {
     };
     const response = await fetch(url+"api/Book",requestOptions);
     const body = await response.json();
-    books?.push(body);
-    setBooks(books);
-
+    setBooks(books => [...books, body]);
     return body;
   };
 
