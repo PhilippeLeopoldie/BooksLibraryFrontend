@@ -33,19 +33,17 @@ function AddBook() {
     setBooks(books => [...books, body]);
     return body;
   };
+  const fetchBooks = async () => {
+    try {
+      const booksData = await FetchApi(url+"api/Book");
+      setBooks(booksData.$values);
+    } catch (error) {
+      console.error("error fetching books:", error);
+    }
+  };
 
-  useEffect(() => {
-    const fetchBooks = async () => {
-      try {
-        const booksData = await FetchApi(
-          url+"api/Book"
-        );
-        setBooks(booksData.$values);
-      } catch (error) {
-        console.error("error fetching books:", error);
-      }
-    };
-    fetchBooks;
+  useEffect(() => { 
+    fetchBooks();
   }, []);
 
   const PostOpinion = async (bookId: number, rate: number) => {
