@@ -123,7 +123,7 @@ function AddBook() {
           <button
             className="button bookform__button"
             onClick={async () => {
-              PostOpinion((await PostBook()).bookId, 0);
+              PostOpinion((await PostBook()).id, 0);
             }}
           >
             Add
@@ -134,7 +134,7 @@ function AddBook() {
             className="button bookform__button"
             type="submit"
             onClick={async () => {
-              PostOpinion((await PostBook()).bookId, 1);
+              PostOpinion((await PostBook()).id, 1);
             }}
           >
             Add
