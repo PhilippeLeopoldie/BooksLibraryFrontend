@@ -30,6 +30,7 @@ function AddBook() {
     };
     const response = await fetch(url+"api/Book",requestOptions);
     const body = await response.json();
+    console.log("postBook bodyId:",body.id)
     setBooks(books => [...books, body]);
     return body;
   };
@@ -53,15 +54,23 @@ function AddBook() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        bookId,
+        bookId:bookId, 
         rate: rate,
         view: formData.view,
         userName: formData.userName,
       }),
     };
     const OpinionResponse = await fetch(url+"api/Opinion",requestOptions);
-    const newOpinion = await OpinionResponse.json(); 
+    const newOpinion = await OpinionResponse.json(); // to use in messsage feedback for user
     
+    // clear the form fields after submitting
+    setFormData({
+      title: "",
+      author: "",
+      view: "",
+      userName: "",
+    });
+    console.log("formData:",formData)
   };
 
   return (
