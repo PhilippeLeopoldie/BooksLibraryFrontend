@@ -59,12 +59,9 @@ function AddBook() {
         userName: formData.userName,
       }),
     };
-    const newOpinion = await (
-      await fetch(
-        url+"api/Opinion",
-        requestOptions
-      )
-    ).json();
+    const OpinionResponse = await fetch(url+"api/Opinion",requestOptions);
+    const newOpinion = await OpinionResponse.json(); 
+    
   };
 
   return (
