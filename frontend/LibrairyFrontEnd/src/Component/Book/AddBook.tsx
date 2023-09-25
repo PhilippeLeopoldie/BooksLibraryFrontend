@@ -7,8 +7,6 @@ import sad from "../../media/sad.png";
 import "./Book.css";
 
 function AddBook() {
-  
-
   const [formData, setFormData] = useState({
     title: "",
     author: "",
@@ -16,6 +14,7 @@ function AddBook() {
     userName: ""
   })
   const [books, setBooks] = useState<BookType[]>([]);
+  const [bookCreatedMessage, setBookCreatedMessage] = useState<boolean>(false);
 
   const PostBook = async () => {
     const requestOptions = {
@@ -54,7 +53,7 @@ function AddBook() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        bookId:bookId, 
+        bookId, 
         rate: rate,
         view: formData.view,
         userName: formData.userName,
@@ -70,8 +69,13 @@ function AddBook() {
       view: "",
       userName: "",
     });
-    console.log("formData:",formData)
+    setBookCreatedMessage(true);
+    return newOpinion;
   };
+  const HideBookCreatedMessage = () => {
+    setBookCreatedMessage(false);
+  }
+  
 
   return (
     <>
@@ -86,36 +90,40 @@ function AddBook() {
             className="input"
             placeholder="Title"
             value={formData.title}
-            onChange={(e) => 
-              setFormData({...formData ,title: e.target.value})
-            }
+            onChange={(e) => {
+              setFormData({...formData ,title: e.target.value});
+              bookCreatedMessage && (HideBookCreatedMessage())
+            }}
           />
 
           <input
             className="input"
             placeholder="Author"
             value={formData.author}
-            onChange={(e) =>
+            onChange={(e) => {
               setFormData({...formData ,author: e.target.value})
-            }
+              bookCreatedMessage && (HideBookCreatedMessage())
+            }}
           />
 
           <textarea
             className="bookform__view input"
             placeholder="View"
             value={formData.view}
-            onChange={(e) => 
+            onChange={(e) =>{ 
               setFormData({...formData, view :e.target.value})
-            }
+              bookCreatedMessage && (HideBookCreatedMessage())
+            }}
           />
 
           <input
             className="input"
             placeholder="UserName"
             value={formData.userName}
-            onChange={(e) => 
+            onChange={(e) => {
               setFormData({...formData, userName:e.target.value})
-            }
+              bookCreatedMessage && (HideBookCreatedMessage())
+            }}
           />
         </div>
 
@@ -135,11 +143,15 @@ function AddBook() {
             type="submit"
             onClick={async () => {
               PostOpinion((await PostBook()).id, 1);
-            }}
+
+            }} 
           >
             Add
             <img className="icone iconeRate" src={love} />
           </button>
+        </div>
+        <div className="bookform__output">
+          {bookCreatedMessage && (<p>book created!</p>)}
         </div>
       </form>
       {/* <Books /> */}
