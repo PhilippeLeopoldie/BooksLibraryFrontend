@@ -12,6 +12,7 @@ function AddBook() {
     author: "",
     view: "",
     userName: "",
+    rate:""
   });
   const [books, setBooks] = useState<BookType[]>([]);
   const [bookCreatedMessage, setBookCreatedMessage] = useState<boolean>(false);
@@ -46,7 +47,7 @@ function AddBook() {
     fetchBooks();
   }, []);
 
-  const PostOpinion = async (bookId: number, rate: number) => {
+  const PostOpinion = async (bookId: number) => {
     const requestOptions = {
       method: "POST",
       headers: {
@@ -54,7 +55,7 @@ function AddBook() {
       },
       body: JSON.stringify({
         bookId,
-        rate,
+        rate:formData.rate,
         view: formData.view,
         userName: formData.userName,
       }),
@@ -68,6 +69,7 @@ function AddBook() {
       author: "",
       view: "",
       userName: "",
+      rate:""
     });
     setBookCreatedMessage(true);
     return newOpinion;
@@ -124,13 +126,22 @@ function AddBook() {
             value={formData.userName}
             onChange={(e) => HandleInputChange(e)}
           />
+
+          <input
+            type="number"
+            className="input"
+            placeholder ="Rate"
+            name="rate"
+            value={formData.rate}
+            onChange={(e) => HandleInputChange(e)}
+          />
         </div>
 
         <div>
           <button
             className="button bookform__button"
             onClick={async () => {
-              PostOpinion((await PostBook()).id, 0);
+              PostOpinion((await PostBook()).id);
             }}
           >
             <img className="icone iconeRate" src={sad} />
@@ -141,7 +152,7 @@ function AddBook() {
             className="button bookform__button"
             type="submit"
             onClick={async () => {
-              PostOpinion((await PostBook()).id, 1);
+              PostOpinion((await PostBook()).id);
             }}
           >
             <img className="icone iconeRate" src={love} />
