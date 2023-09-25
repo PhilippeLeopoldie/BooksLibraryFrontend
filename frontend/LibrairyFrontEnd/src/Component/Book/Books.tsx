@@ -40,7 +40,9 @@ function Books() {
       <h3>{random?.book.title}</h3>
       <div className="bookcontainer">
         {books &&
-          books.map((bookDetail, index) => (
+          books
+          .sort((a,b) => b.book.id - a.book.id)
+          .map((bookDetail, index) => (
             <div className="bookcard" key={bookDetail.book.id}>
               <div className="bookcard--header">
                 <button
