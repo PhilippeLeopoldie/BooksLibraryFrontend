@@ -28,4 +28,9 @@
   position: relative;
 }
 
+.bookform__output {
+  background-color:transparent;
+  color: green;
+}
+
 
