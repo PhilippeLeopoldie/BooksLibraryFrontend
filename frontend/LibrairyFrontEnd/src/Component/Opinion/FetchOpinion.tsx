@@ -7,6 +7,7 @@ import love from "../../media/love.png";
 import sad from "../../media/sad.png";
 import modify from "../../media/write.svg";
 import { OpinionContext } from "../../Context";
+import { Rate } from "./Rate";
 
 type BookType = {
   bookId: number;
@@ -43,8 +44,8 @@ export function FetchOpinions({bookId}: BookType) {
                 readOnly
               />
               <div className="opinionCardItems">{opinion.userName}</div>
-              {opinion.rate == 0 && <img className="img" src={sad} alt="sad" />}
-              {opinion.rate == 1 && <img className="img" src={love} alt="rate" />}
+              
+              <Rate rate= {opinion.rate}/>
             </div>
             <div className="opinionCardItems opinioncard--footer">
               <button
