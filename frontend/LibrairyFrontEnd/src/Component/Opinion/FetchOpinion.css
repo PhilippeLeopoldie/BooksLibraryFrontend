@@ -24,6 +24,7 @@
   height: 6rem;
   border-color: transparent;
   resize: none;
+  overflow-x: hidden;
 }
 
 .opinioncard--footer {
