@@ -10,8 +10,7 @@ function Books() {
   const [books, setBooks] = useState<BookType[]>([]);
   const random = books?.at(Math.floor(Math.random() * books.length));
 
-  useEffect(() => {
-    const fetchBooks = async () => {
+  const fetchBooks = async () => {
       try {
         const booksData = await FetchApi(url + "api/Book");
         setBooks(booksData.$values);
@@ -19,7 +18,7 @@ function Books() {
         console.error("Error fetching books:", error);
       }
     };
-
+  useEffect(() => {
     fetchBooks();
     FetchApi(url + "api/Opinion").then((opinions) => setOpinions(opinions));
   }, []);
