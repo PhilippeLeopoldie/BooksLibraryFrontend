@@ -8,6 +8,7 @@ function OpinionUpdate() {
 
   const [view, setView] = useState<string>(opinion.view);
   const [userName, setUserName] = useState<string>(opinion.userName);
+  const [rate, setRate] = useState<number>(opinion.rate)
 
   const updateOpinion = async (e: SyntheticEvent) => {
     e.preventDefault();
@@ -19,7 +20,7 @@ function OpinionUpdate() {
       body: JSON.stringify({
         view: view,
         userName: userName,
-        rate: opinion.rate,
+        rate: rate,
         bookId: opinion.bookId,
       }),
     };
@@ -52,6 +53,12 @@ function OpinionUpdate() {
           placeholder="Username"
           value={userName}
           onChange={(e) => setUserName(e.target.value)}
+        />
+        <input
+          className="opinioncard__rate"
+          placeholder = "rate"
+          value = {rate}
+          onChange={(e) => setRate(Number(e.target.value))}
         />
 
         <button
