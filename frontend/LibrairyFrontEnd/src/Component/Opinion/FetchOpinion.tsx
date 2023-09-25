@@ -43,10 +43,8 @@ export function FetchOpinions({bookId}: BookType) {
                 readOnly
               />
               <div className="opinionCardItems">{opinion.userName}</div>
-              {!opinion.rate && (
-                <img className="img" src={sad} alt="sad" />
-              )}{" "}
-              {opinion.rate && <img className="img" src={love} alt="rate" />}
+              {opinion.rate == 0 && <img className="img" src={sad} alt="sad" />}
+              {opinion.rate == 1 && <img className="img" src={love} alt="rate" />}
             </div>
             <div className="opinionCardItems opinioncard--footer">
               <button
