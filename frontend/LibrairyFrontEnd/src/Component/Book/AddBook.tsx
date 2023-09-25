@@ -11,8 +11,8 @@ function AddBook() {
     title: "",
     author: "",
     view: "",
-    userName: ""
-  })
+    userName: "",
+  });
   const [books, setBooks] = useState<BookType[]>([]);
   const [bookCreatedMessage, setBookCreatedMessage] = useState<boolean>(false);
 
@@ -27,22 +27,22 @@ function AddBook() {
         author: formData.author,
       }),
     };
-    const response = await fetch(url+"api/Book",requestOptions);
+    const response = await fetch(url + "api/Book", requestOptions);
     const body = await response.json();
-    console.log("postBook bodyId:",body.id)
-    setBooks(books => [...books, body]);
+    console.log("postBook bodyId:", body.id);
+    setBooks((books) => [...books, body]);
     return body;
   };
   const fetchBooks = async () => {
     try {
-      const booksData = await FetchApi(url+"api/Book");
+      const booksData = await FetchApi(url + "api/Book");
       setBooks(booksData.$values);
     } catch (error) {
       console.error("error fetching books:", error);
     }
   };
 
-  useEffect(() => { 
+  useEffect(() => {
     fetchBooks();
   }, []);
 
@@ -53,15 +53,15 @@ function AddBook() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        bookId, 
-        rate: rate,
+        bookId,
+        rate,
         view: formData.view,
         userName: formData.userName,
       }),
     };
-    const OpinionResponse = await fetch(url+"api/Opinion",requestOptions);
-    const newOpinion = await OpinionResponse.json(); // to use in messsage feedback for user
-    
+    const OpinionResponse = await fetch(url + "api/Opinion", requestOptions);
+    const newOpinion = await OpinionResponse.json();
+
     // clear the form fields after submitting
     setFormData({
       title: "",
@@ -74,17 +74,21 @@ function AddBook() {
   };
   const HideBookCreatedMessage = () => {
     setBookCreatedMessage(false);
-  }
-  const HandleInputChange = (e:React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => {
-    setFormData({...formData ,[e.target.name]: e.target.value});
-    bookCreatedMessage && HideBookCreatedMessage()
-  }
+  };
+  const HandleInputChange = (
+    e:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLTextAreaElement>
+  ) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+    bookCreatedMessage && HideBookCreatedMessage();
+  };
 
   return (
     <>
       <form
         onSubmit={(e) => e.preventDefault()}
-        action={url+"api/Book"}
+        action={url + "api/Book"}
         method="POST"
         className="bookform"
       >
@@ -138,15 +142,14 @@ function AddBook() {
             type="submit"
             onClick={async () => {
               PostOpinion((await PostBook()).id, 1);
-
-            }} 
+            }}
           >
             Add
             <img className="icone iconeRate" src={love} />
           </button>
         </div>
         <div className="bookform__output">
-          {bookCreatedMessage && (<p>book created!</p>)}
+          {bookCreatedMessage && <p>Book created!</p>}
         </div>
       </form>
       {/* <Books /> */}
