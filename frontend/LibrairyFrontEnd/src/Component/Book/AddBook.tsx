@@ -75,7 +75,10 @@ function AddBook() {
   const HideBookCreatedMessage = () => {
     setBookCreatedMessage(false);
   }
-  
+  const HandleInputChange = (e:React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => {
+    setFormData({...formData ,[e.target.name]: e.target.value});
+    bookCreatedMessage && HideBookCreatedMessage()
+  }
 
   return (
     <>
@@ -89,36 +92,31 @@ function AddBook() {
           <input
             className="input"
             placeholder="Title"
+            name="title"
             value={formData.title}
-            onChange={(e) => {
-              setFormData({...formData ,title: e.target.value});
-              bookCreatedMessage && (HideBookCreatedMessage())
-            }}
+            onChange={(e) => HandleInputChange(e)}
           />
 
           <input
             className="input"
             placeholder="Author"
+            name="author"
             value={formData.author}
-            onChange={(e) => {
-              setFormData({...formData ,author: e.target.value})
-              bookCreatedMessage && (HideBookCreatedMessage())
-            }}
+            onChange={(e) => HandleInputChange(e)}
           />
 
           <textarea
             className="bookform__view input"
             placeholder="View"
+            name="view"
             value={formData.view}
-            onChange={(e) =>{ 
-              setFormData({...formData, view :e.target.value})
-              bookCreatedMessage && (HideBookCreatedMessage())
-            }}
+            onChange={(e) => HandleInputChange(e)}
           />
 
           <input
             className="input"
             placeholder="UserName"
+            name="userName"
             value={formData.userName}
             onChange={(e) => {
               setFormData({...formData, userName:e.target.value})
