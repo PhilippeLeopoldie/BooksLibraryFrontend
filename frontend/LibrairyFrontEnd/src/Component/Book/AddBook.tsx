@@ -133,8 +133,8 @@ function AddBook() {
               PostOpinion((await PostBook()).id, 0);
             }}
           >
-            Add
             <img className="icone iconeRate" src={sad} />
+            Dislike
           </button>
 
           <button
@@ -144,12 +144,12 @@ function AddBook() {
               PostOpinion((await PostBook()).id, 1);
             }}
           >
-            Add
             <img className="icone iconeRate" src={love} />
+            Like
           </button>
         </div>
         <div className="bookform__output">
-          {bookCreatedMessage && <p>Book created!</p>}
+          {bookCreatedMessage && <h1 className="bookform__output">Book created!</h1>}
         </div>
       </form>
       {/* <Books /> */}
