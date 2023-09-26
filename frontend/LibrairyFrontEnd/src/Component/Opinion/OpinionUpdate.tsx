@@ -2,13 +2,17 @@ import { SyntheticEvent, useState, useContext } from "react";
 import { OpinionContext } from "../../Context";
 import check from "../../media/check.png";
 import url from "../../Url";
+import { RateClick } from "./Rate/RateClick";
 
 function OpinionUpdate() {
-  const opinion = useContext(OpinionContext);
+  const opinionContext = useContext(OpinionContext);
+  const [updatedRate, setUpdatedRate] = useState<number>(opinionContext.rate)
+  const handleOpinionContextRate = (newRate: number) => {
+    setUpdatedRate(newRate)
+  }
 
-  const [view, setView] = useState<string>(opinion.view);
-  const [userName, setUserName] = useState<string>(opinion.userName);
-  const [rate, setRate] = useState<number>(opinion.rate)
+  const [view, setView] = useState<string>(opinionContext.view);
+  const [userName, setUserName] = useState<string>(opinionContext.userName);
 
   const updateOpinion = async (e: SyntheticEvent) => {
     e.preventDefault();
@@ -20,23 +24,18 @@ function OpinionUpdate() {
       body: JSON.stringify({
         view: view,
         userName: userName,
-        rate: rate,
-        bookId: opinion.bookId,
+        rate: updatedRate,
+        bookId: opinionContext.bookId,
       }),
     };
-    console.log("opinionId:", `${opinion.id}`);
-    console.log("view:", `${opinion.view}`);
-    console.log("userName:", `${opinion.userName}`);
     await fetch(
-      url+`api/Opinion/${opinion.id}`,
+      url+`api/Opinion/${opinionContext.id}`,
       requestOptions
     ).then((response) => {
-      console.log("response", `${response}`);
-      console.log("requestOption", { requestOptions });
       response.json().then(() => {});
     });
   };
-  console.log("opinion object", { opinion });
+  console.log("opinion object", { opinion: opinionContext });
   return (
     <>
       <form className="opinioncard">
@@ -54,12 +53,7 @@ function OpinionUpdate() {
           value={userName}
           onChange={(e) => setUserName(e.target.value)}
         />
-        <input
-          className="opinioncard__rate"
-          placeholder = "rate"
-          value = {rate}
-          onChange={(e) => setRate(Number(e.target.value))}
-        />
+        <RateClick rate={opinionContext.rate} OpinionContextRate={handleOpinionContextRate}/>
 
         <button
           className="button validation"
