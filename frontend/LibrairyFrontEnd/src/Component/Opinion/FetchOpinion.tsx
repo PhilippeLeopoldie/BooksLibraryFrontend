@@ -7,7 +7,7 @@ import love from "../../media/love.png";
 import sad from "../../media/sad.png";
 import modify from "../../media/write.svg";
 import { OpinionContext } from "../../Context";
-import { Rate } from "./Rate";
+import { Rate } from "./Rate/Rate";
 
 type BookType = {
   bookId: number;
