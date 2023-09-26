@@ -5,10 +5,12 @@
   background-color: transparent;
 }
 
-.rate_star {
+.rate_star, .filled {
   background-color: transparent;
   color: rgb(154, 131, 1);
   font-size:xx-large;
-  
-  
+}
+
+.empty {
+  color: black
 }
