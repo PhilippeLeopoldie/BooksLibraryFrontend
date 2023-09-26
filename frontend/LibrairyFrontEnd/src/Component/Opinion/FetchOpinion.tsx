@@ -3,8 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { OpinionType } from "../../Type";
 import FetchApi from "../../FetchApi";
 import url from "../../Url";
-import love from "../../media/love.png";
-import sad from "../../media/sad.png";
 import modify from "../../media/write.svg";
 import { OpinionContext } from "../../Context";
 import { Rate } from "./Rate/Rate";
@@ -20,17 +18,12 @@ export function FetchOpinions({bookId}: BookType) {
   useEffect(() => {
     FetchApi(url + "api/Opinion/" + bookId)
       .then((response) => {
-        console.log("Opinions response:", response);
-
         setOpinions(response.$values);
       })
       .catch((error) => {
         console.error("Opinions error:", error);
       });
   }, []);
-
-  console.log("Opinions", { Opinions });
-  console.log("bookId", { bookId });
 
   return (
     <>
@@ -44,7 +37,6 @@ export function FetchOpinions({bookId}: BookType) {
                 readOnly
               />
               <div className="opinionCardItems">{opinion.userName}</div>
-              
               <Rate rate= {opinion.rate}/>
             </div>
             <div className="opinionCardItems opinioncard--footer">
@@ -59,7 +51,6 @@ export function FetchOpinions({bookId}: BookType) {
 
                   navigate("/viewUpdate");
                 }}
-                /*disabled*/
               >
                 <img className="icone iconeModify" src={modify}></img>
                 modify
