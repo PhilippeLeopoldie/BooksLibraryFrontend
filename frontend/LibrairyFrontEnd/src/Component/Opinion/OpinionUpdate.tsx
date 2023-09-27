@@ -3,9 +3,11 @@ import { OpinionContext } from "../../Context";
 import check from "../../media/check.png";
 import url from "../../Url";
 import { RateClick } from "./Rate/RateClick";
+import { useNavigate } from "react-router";
 
 function OpinionUpdate() {
   const opinionContext = useContext(OpinionContext);
+  const navigate = useNavigate()
   const [updatedRate, setUpdatedRate] = useState<number>(opinionContext.rate)
   const handleOpinionContextRate = (newRate: number) => {
     setUpdatedRate(newRate)
@@ -57,11 +59,11 @@ function OpinionUpdate() {
 
         <button
           className="button validation"
-          onClick={updateOpinion}
-          type="submit"
-          onSubmit={() => {
-            <p>validated!</p>;
+          onClick={(e)=> {
+            updateOpinion(e);
+            navigate("/");
           }}
+          type="submit"
         >
           Validation
           <img className="icone" src={check} />
