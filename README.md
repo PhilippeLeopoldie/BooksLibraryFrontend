@@ -1,11 +1,24 @@
-# BookLibrairyProject
-In development:
+# BookLibraryProject
+This is a full stack application, this repository contains the [Frontend](https://github.com/PhilippeLeopoldie/BooksLibraryProject/tree/master/frontend/LibrairyFrontEnd) and the backend is [here](https://github.com/PhilippeLeopoldie/bookLibraryBackend)
 
-This is the frontend of my very first full stack application, using , Entity framework code first approach,.Net 7.0 , React and css as frontend,initialy this app was an assignment from Salt bootcamp where I had 24 hours to build a fullstack CRUD application  and being responsive design.
+## Story 
 
-I decided to create a simple application for users to share with others the books and stories they had read and share their opinion about them. As it is often difficult to choose which book to read, the application propose a book to read among the various books already published in the application.
+Initialy this app was a hack day assignment from Salt bootcamp  where I had 24 hours to build a fullstack CRUD application  that is responsive design.
 
-Initialy I had three tables user,Books and Opinions.For that assignment I have decided to have focus on the one to many relation between Books and Opinions first and managing the corresponding CRUD operations before going further with the User table.
+I decided to create a simple application for users to share with others the books that they had read and share their opinion about them.  
+As it could be challenging to choose which book to read, the application propose a book to read among the various books already published.
+
+Initialy I had three tables user, Books and Opinions.  
+For that assignment I have decided to have focus on the one to many relation between Books and Opinions first and managing the corresponding CRUD operations before going further with the User table.
+
+
+>Since I have deployed it the development process follows the <span style = "color: green"> [CI/CD](https://en.wikipedia.org/wiki/CI/CD) </span>principal.
+
+
+
+
+>[The backend](https://github.com/PhilippeLeopoldie/bookLibraryBackend) is implemented using <span style = "color: green">[Entity Framework code first approach](https://learn.microsoft.com/en-us/ef/ef6/get-started) </span> throw <span style = "color: green"> [TDD](https://en.wikipedia.org/wiki/Test-driven_development) </span> using <span style = "color: green">[xUnit](https://xunit.net/) </span>framework and <span style = "color: green">[Mock](https://github.com/devlooped/moq) </span>library.
+
 
 So for every review added a digital book is generated with the related review informations and so far it looks like this:
 
@@ -13,44 +26,41 @@ So for every review added a digital book is generated with the related review in
 
 
 
-# Technologies
-.Net 7.0.203: backend: https://github.com/PhilippeLeopoldie/bookLibraryBackend
+## Technologies
+- [backend](https://github.com/PhilippeLeopoldie/bookLibraryBackend)
+  - .Net 7.0.203
 
-Azure Sql Database : due to the end of my azure subscription I have moved to Vercel platform using postGres database
+  - ASP.NET Core Web APIs
 
-Entity framework code first approach
+  - API platform: Heroku
 
-ASP.NET Core Web APIs
+  - Database platform: Vercel
 
-API platform: Heroku
+    - Database : postGres
 
-Database : postGres
+- [Frontend](https://github.com/PhilippeLeopoldie/BooksLibraryProject/tree/master/frontend/LibrairyFrontEnd)
 
-Database platform: Vercel
+  - platform: Vercel
 
-React 18.2.0
+  - React 18.2.0
 
-TypeScript
+  - TypeScript
 
-CSS
+  - CSS
 
-HTML
+  - HTML
 
-Frontend platform: Vercel
 
-Test driven development : 
 
-  Backend using Moq library and xUnit framework for UnitTest: https://github.com/PhilippeLeopoldie/bookLibraryBackend/blob/main/LibraryBackend.Tests/UnitTest.cs
-  
-   
 
-# deploying link:
+## Deploying link
 
-Frontend:
-https://books-library-philippe-leopoldie.vercel.app/
+[Frontend](https://books-library-philippe-leopoldie.vercel.app/)
 
 Backend:
-Example of end points getBooks: https://booklibrary-backend-20f7a19cecb2.herokuapp.com/api/book
+  - Example of end points  
+    [getBooks](https://booklibrary-backend-20f7a19cecb2.herokuapp.com/api/book)  
+    [getOpinions](https://booklibrary-backend-20f7a19cecb2.herokuapp.com/api/Opinion)
 
 
 
