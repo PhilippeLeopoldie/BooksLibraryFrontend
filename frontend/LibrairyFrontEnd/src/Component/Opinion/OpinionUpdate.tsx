@@ -15,6 +15,7 @@ function OpinionUpdate() {
 
   const [view, setView] = useState<string>(opinionContext.view);
   const [userName, setUserName] = useState<string>(opinionContext.userName);
+   const [errorDetail, setErrorDetail] = useState<string>("");
 
   const updateOpinion = async (e: SyntheticEvent) => {
     e.preventDefault();
@@ -33,8 +34,10 @@ function OpinionUpdate() {
     await fetch(
       url+`api/Opinion/${opinionContext.id}`,
       requestOptions
-    ).then((response) => {
-      response.json().then(() => {});
+    ).then((response: Response) => {
+      response.json().then((response) => {
+        if(response.message) setErrorDetail(response.detail);
+      });
     });
   };
   console.log("opinion object", { opinion: opinionContext });
@@ -46,14 +49,20 @@ function OpinionUpdate() {
           autoFocus
           placeholder="View"
           value={view}
-          onChange={(e) => setView(e.target.value)}
+          onChange={(e) => {
+            setView(e.target.value);
+            setErrorDetail("");
+          }}
         />
 
         <input
           className="opinioncard__username"
           placeholder="Username"
           value={userName}
-          onChange={(e) => setUserName(e.target.value)}
+          onChange={(e) => {
+            setUserName(e.target.value);
+            setErrorDetail("")
+          }}
         />
         <RateClick rate={opinionContext.rate} OpinionContextRate={handleOpinionContextRate}/>
 
@@ -61,13 +70,16 @@ function OpinionUpdate() {
           className="button validation"
           onClick={(e)=> {
             updateOpinion(e);
-            navigate("/");
+            
           }}
           type="submit"
         >
           Validation
           <img className="icone" src={check} />
         </button>
+        { errorDetail && <div className="validation__message">{errorDetail}</div>
+          
+        }
       </form>
     </>
   );
