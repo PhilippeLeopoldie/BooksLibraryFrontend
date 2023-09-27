@@ -35,6 +35,7 @@ function OpinionUpdate() {
       url+`api/Opinion/${opinionContext.id}`,
       requestOptions
     ).then((response: Response) => {
+      if(response.ok) navigate("/");
       response.json().then((response) => {
         if(response.message) setErrorDetail(response.detail);
       });
