@@ -8,11 +8,11 @@ Initialy this app was a hack day assignment from Salt bootcamp  where I had 24 h
 I decided to create a simple application for users to share with others the books that they had read and share their opinion about them.  
 As it could be challenging to choose which book to read, the application propose a book to read among the various books already published.
 
-Initialy I had three tables user, Books and Opinions.  
+Initialy I had three tables: user, Books and Opinions.  
 For that assignment I have decided to have focus on the one to many relation between Books and Opinions first and managing the corresponding CRUD operations before going further with the User table.
 
 
->Since I have deployed it the development process follows the <span style = "color: green"> [CI/CD](https://en.wikipedia.org/wiki/CI/CD) </span>principal.
+>Since I have deployed it the development process follows the <span style = "color: green"> [CI/CD](https://en.wikipedia.org/wiki/CI/CD) </span>principle.
 
 
 
