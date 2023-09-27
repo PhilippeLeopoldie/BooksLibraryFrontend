@@ -15,7 +15,7 @@ function OpinionUpdate() {
 
   const [view, setView] = useState<string>(opinionContext.view);
   const [userName, setUserName] = useState<string>(opinionContext.userName);
-   const [errorDetail, setErrorDetail] = useState<string>("");
+  const [errorDetail, setErrorDetail] = useState<string>("");
 
   const updateOpinion = async (e: SyntheticEvent) => {
     e.preventDefault();
@@ -36,12 +36,11 @@ function OpinionUpdate() {
       requestOptions
     ).then((response: Response) => {
       if(response.ok) navigate("/");
-      response.json().then((response) => {
-        if(response.message) setErrorDetail(response.detail);
+      response.json().then((errorResponse) => {
+        if(errorResponse.detail) setErrorDetail(errorResponse.detail);
       });
     });
   };
-  console.log("opinion object", { opinion: opinionContext });
   return (
     <>
       <form className="opinioncard">
