@@ -53,7 +53,7 @@ So for every review added a digital book is generated with the related review in
 
 
 
-## Deploying link
+## Deploying links
 
 [Frontend](https://books-library-philippe-leopoldie.vercel.app/)
 
