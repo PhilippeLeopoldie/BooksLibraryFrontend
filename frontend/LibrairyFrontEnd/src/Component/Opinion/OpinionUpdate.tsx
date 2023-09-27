@@ -18,28 +18,32 @@ function OpinionUpdate() {
   const [errorDetail, setErrorDetail] = useState<string>("");
 
   const updateOpinion = async (e: SyntheticEvent) => {
-    e.preventDefault();
-    const requestOptions = {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json ",
-      },
-      body: JSON.stringify({
-        view: view,
-        userName: userName,
-        rate: updatedRate,
-        bookId: opinionContext.bookId,
-      }),
-    };
-    await fetch(
+    try {
+      e.preventDefault();
+      const requestOptions = {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json ",
+        },
+        body: JSON.stringify({
+          view: view,
+          userName: userName,
+          rate: updatedRate,
+          bookId: opinionContext.bookId,
+        }),
+      };
+      await fetch(
       url+`api/Opinion/${opinionContext.id}`,
-      requestOptions
-    ).then((response: Response) => {
-      if(response.ok) navigate("/");
-      response.json().then((errorResponse) => {
-        if(errorResponse.detail) setErrorDetail(errorResponse.detail);
+        requestOptions
+        ).then((response: Response) => {
+        if(response.ok) navigate("/");
+        response.json().then((errorResponse) => {
+          if(errorResponse.detail) setErrorDetail(errorResponse.detail);
+        });
       });
-    });
+    } catch (error) {
+        console.error("An error occurred:", error);
+    }
   };
   return (
     <>
