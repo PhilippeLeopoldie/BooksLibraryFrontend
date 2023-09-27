@@ -77,7 +77,7 @@ function OpinionUpdate() {
           Validation
           <img className="icone" src={check} />
         </button>
-        { errorDetail && <div className="validation__message">{errorDetail}</div>
+        { errorDetail && <div className="validation__errorMessage">{errorDetail}</div>
           
         }
       </form>
