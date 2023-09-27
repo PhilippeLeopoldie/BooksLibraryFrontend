@@ -19,9 +19,6 @@
 }
 
 .opinioncard{
-  
-  
-  
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -31,7 +28,9 @@
     height: 100%;
     padding: 2px;
     position: relative;
-  
-  
 }
 
+.validation__errorMessage{
+  color : red;
+  background-color: transparent;
+}
