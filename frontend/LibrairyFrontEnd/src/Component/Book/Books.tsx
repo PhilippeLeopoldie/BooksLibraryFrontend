@@ -6,7 +6,6 @@ import { FetchOpinions } from "../Opinion/FetchOpinion";
 import trash from "../../media/delete.svg";
 
 function Books() {
-  //const [opinions, setOpinions] = useState<OpinionType[]>();
   const [books, setBooks] = useState<BookType[]>([]);
   const random = books?.at(Math.floor(Math.random() * books.length));
 
@@ -18,14 +17,6 @@ function Books() {
       console.error("Error fetching books:", error);
     }
   };
-  /* const fetchOpinions = async () => {
-    try {
-      FetchApi(url + "api/Opinion").then((opinions) => setOpinions(opinions));
-    } catch (error) {
-      console.error("Error fetching Opinions:", error);
-      
-    }
-  } */
 
   useEffect(() => {
     fetchBooks();
