@@ -71,15 +71,16 @@ function OpinionUpdate() {
         <RateClick rate={opinionContext.rate} OpinionContextRate={handleOpinionContextRate}/>
 
         <button
-          className="button validation"
+          className="button updateButton"
           onClick={(e)=> {
+
             updateOpinion(e);
             
           }}
           type="submit"
         >
-          Validation
-          <img className="icone" src={check} />
+          <h2 className="updateButton__name">Save Changes</h2>
+          
         </button>
         { errorDetail && <div className="validation__errorMessage">{errorDetail}</div>
           
