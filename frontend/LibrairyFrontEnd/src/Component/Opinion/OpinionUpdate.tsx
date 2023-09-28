@@ -32,15 +32,14 @@ function OpinionUpdate() {
           bookId: opinionContext.bookId,
         }),
       };
-      await fetch(
-      url+`api/Opinion/${opinionContext.id}`,
-        requestOptions
-        ).then((response: Response) => {
-        if(response.ok) navigate("/");
-        response.json().then((errorResponse) => {
-          if(errorResponse.detail) setErrorDetail(errorResponse.detail);
-        });
-      });
+      const response : Response = await fetch(
+        url+`api/Opinion/${opinionContext.id}`,requestOptions);
+        if(response.status === 200) {
+           navigate("/");
+          } else if(response.status === 400){
+            const errorResponse = await response.json();
+            setErrorDetail(errorResponse.detail);
+          }
     } catch (error) {
         console.error("An error occurred:", error);
     }
