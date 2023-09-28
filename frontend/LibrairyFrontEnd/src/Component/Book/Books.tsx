@@ -6,21 +6,29 @@ import { FetchOpinions } from "../Opinion/FetchOpinion";
 import trash from "../../media/delete.svg";
 
 function Books() {
-  const [opinions, setOpinions] = useState<OpinionType[]>();
+  //const [opinions, setOpinions] = useState<OpinionType[]>();
   const [books, setBooks] = useState<BookType[]>([]);
   const random = books?.at(Math.floor(Math.random() * books.length));
 
   const fetchBooks = async () => {
-      try {
-        const booksData = await FetchApi(url + "api/Book");
-        setBooks(booksData.$values);
-      } catch (error) {
-        console.error("Error fetching books:", error);
-      }
-    };
+    try {
+      const booksData = await FetchApi(url + "api/Book");
+      setBooks(booksData.$values);
+    } catch (error) {
+      console.error("Error fetching books:", error);
+    }
+  };
+  /* const fetchOpinions = async () => {
+    try {
+      FetchApi(url + "api/Opinion").then((opinions) => setOpinions(opinions));
+    } catch (error) {
+      console.error("Error fetching Opinions:", error);
+      
+    }
+  } */
+
   useEffect(() => {
     fetchBooks();
-    FetchApi(url + "api/Opinion").then((opinions) => setOpinions(opinions));
   }, []);
 
   const DeleteBook = async (bookId: number) => {
