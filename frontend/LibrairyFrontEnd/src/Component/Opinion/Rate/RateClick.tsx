@@ -14,10 +14,9 @@ export const RateClick = ({ rate, OpinionContextRate }: RateType) => {
   );
 
   const toggleStar = (index: number) => {
-    const updatedStars = [...filledStars];
-    updatedStars[index] = updatedStars[index] === 1 ? 0 : 1;
+    const updatedStars : Array<number> = filledStars.map((star,i) => (i<=index ? 1:0));
     setFilledStars(updatedStars);
-    const newRate: number = updatedStars.reduce((a, b) => a + b, 0);
+    const newRate: number = updatedStars.reduce((a, b) => (a + b), 0);
     OpinionContextRate(newRate);
   };
 
@@ -28,7 +27,7 @@ export const RateClick = ({ rate, OpinionContextRate }: RateType) => {
           <div
             className={`rate_star ${isFilled ? "filled" : "empty"}`}
             key={index}
-            onClick={() => toggleStar(index)}
+            onClick={() => toggleStar(index)}           
           >
             &#9733;
           </div>
