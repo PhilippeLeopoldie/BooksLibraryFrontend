@@ -5,7 +5,7 @@ import url from "../../Url";
 import { FetchOpinions } from "../Opinion/FetchOpinion";
 import trash from "../../media/delete.svg";
 
-function Books() {
+export const Books = () => {
   const [books, setBooks] = useState<BookType[]>([]);
   const random = books?.at(Math.floor(Math.random() * books.length));
 
@@ -68,4 +68,3 @@ function Books() {
     </div>
   );
 }
-export default Books;

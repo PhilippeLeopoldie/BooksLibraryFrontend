@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 import "./Rate.css";
 
 type RateType = {
@@ -6,7 +6,7 @@ type RateType = {
   OpinionContextRate: Function;
 };
 
-export function RateClick({ rate, OpinionContextRate }: RateType) {
+export const RateClick = ({ rate, OpinionContextRate }: RateType) => {
   const numberOfStars: number = 5;
   const emptyStars = new Array<number>(numberOfStars).fill(0);
   const [filledStars, setFilledStars] = useState<number[]>(

@@ -5,7 +5,7 @@ import url from "../../Url";
 import { RateClick } from "./Rate/RateClick";
 import { useNavigate } from "react-router";
 
-function OpinionUpdate() {
+export const OpinionUpdate = () => {
   const opinionContext = useContext(OpinionContext);
   const navigate = useNavigate()
   const [updatedRate, setUpdatedRate] = useState<number>(opinionContext.rate)
@@ -89,5 +89,3 @@ function OpinionUpdate() {
     </>
   );
 }
-
-export default OpinionUpdate;

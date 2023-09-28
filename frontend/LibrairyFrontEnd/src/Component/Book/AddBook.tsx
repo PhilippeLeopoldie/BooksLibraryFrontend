@@ -6,7 +6,7 @@ import love from "../../media/love.png";
 import sad from "../../media/sad.png";
 import "./Book.css";
 
-function AddBook() {
+export const AddBook = () => {
   const [formData, setFormData] = useState({
     title: "",
     author: "",
@@ -167,5 +167,3 @@ function AddBook() {
     </>
   );
 }
-
-export default AddBook;

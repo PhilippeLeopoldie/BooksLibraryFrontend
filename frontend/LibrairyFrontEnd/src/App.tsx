@@ -2,19 +2,18 @@ import { useContext } from "react";
 import { Routes, BrowserRouter, Route, Link } from "react-router-dom";
 import { OpinionContext } from "./Context";
 import "./App.css";
-import AddBook from "./Component/Book/AddBook";
-import OpinionUpdate from "./Component/Opinion/OpinionUpdate";
-import Home from "./Component/Home";
+import {AddBook} from "./Component/Book/AddBook";
+import {OpinionUpdate} from "./Component/Opinion/OpinionUpdate";
+import {Home} from "./Component/Home";
 
-function App() {
+export const App = () => {
   const initialContext = useContext(OpinionContext);
 
   return (
-    <div className="App">
-      
+    <div className="App"> 
       <BrowserRouter>
       <div className="nav">
-      <ul className="liste">
+        <ul className="liste">
           <dl className="nav-data">
             <Link className="nav-link home" to="/">Home</Link>
           </dl>
@@ -22,7 +21,6 @@ function App() {
             <Link  className="nav-link" to="/addBook">Add a review</Link>
           </dl>
         </ul>
-
       </div>
         
         <Routes>
@@ -40,10 +38,6 @@ function App() {
           ></Route>
         </Routes>
       </BrowserRouter>
-
-      
-      
     </div>
   );
 }
-export default App;
