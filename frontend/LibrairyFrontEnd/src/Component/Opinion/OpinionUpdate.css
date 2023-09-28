@@ -34,3 +34,8 @@
   color : red;
   background-color: transparent;
 }
+
+.validationButton__name{
+  margin: 0;
+  background-color: transparent;
+}
