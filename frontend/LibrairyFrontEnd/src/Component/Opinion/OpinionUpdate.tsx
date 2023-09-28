@@ -37,11 +37,12 @@ function OpinionUpdate() {
         if(response.status === 200) {
            navigate("/");
           } else if(response.status === 400){
-            const errorResponse = await response.json();
-            setErrorDetail(errorResponse.detail);
+            const errorData = await response.json();
+            setErrorDetail(errorData.detail);
           }
-    } catch (error) {
-        console.error("An error occurred:", error);
+    } catch (error: any ) {
+        console.error("An error occurred:", error.message);
+        setErrorDetail(error.message);
     }
   };
   return (
