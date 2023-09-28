@@ -1,7 +1,6 @@
 import { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { OpinionType } from "../../Type";
-import FetchApi from "../../FetchApi";
 import url from "../../Url";
 import modify from "../../media/write.svg";
 import { OpinionContext } from "../../Context";
@@ -15,14 +14,24 @@ export function FetchOpinions({bookId}: BookType) {
   const opinionToUpdate = useContext(OpinionContext);
   const navigate = useNavigate();
   const [Opinions, setOpinions] = useState<OpinionType[]>([]);
+
+  const FetchOpinions = async (bookId :number) => {
+   try {
+    const response : Response = await fetch(url + "api/Opinion/" + bookId);
+    if(response.status === 200) {
+      const responseData = await response.json();
+        setOpinions(responseData.$values)
+    } else if (response.status === 404){
+      console.log(response)
+    }
+   } catch (error) {
+    console.error("An error occurred:", error);
+   }
+  } 
+
+
   useEffect(() => {
-    FetchApi(url + "api/Opinion/" + bookId)
-      .then((response) => {
-        setOpinions(response.$values);
-      })
-      .catch((error) => {
-        console.error("Opinions error:", error);
-      });
+    FetchOpinions(bookId);
   }, []);
 
   return (
