@@ -8,7 +8,7 @@ import { Rate } from "./Rate/Rate";
 
 type BookType = {
   bookId: number;
-  onEdit: Function
+  onEdit: () => void
 };
 
 export const FetchOpinions = ({bookId, onEdit}: BookType) => {

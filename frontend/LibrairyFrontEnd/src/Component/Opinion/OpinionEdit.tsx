@@ -6,7 +6,7 @@ import { RateClick } from "./Rate/RateClick";
 import { useNavigate } from "react-router";
 
 type EditOpinionHandler = {
-  onEdit: Function;
+  onEdit:()=> void;
 };
 
 export const OpinionEdit = ({ onEdit }: EditOpinionHandler) => {
