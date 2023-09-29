@@ -5,7 +5,7 @@ import url from "../../Url";
 import {Book} from "../Book/Book";
 
 
-export const Books = () => {
+export const BookList = () => {
   const [books, setBooks] = useState<BookType[]>([]);
   const random = books?.at(Math.floor(Math.random() * books.length));
 
