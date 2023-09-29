@@ -8,11 +8,11 @@ import { Rate } from "./Rate/Rate";
 
 type BookType = {
   bookId: number;
+  onEdit: Function
 };
 
-export const FetchOpinions = ({bookId}: BookType) => {
+export const FetchOpinions = ({bookId, onEdit}: BookType) => {
   const opinionToUpdate = useContext(OpinionContext);
-  const navigate = useNavigate();
   const [Opinions, setOpinions] = useState<OpinionType[]>([]);
 
   const FetchOpinions = async (bookId :number) => {
@@ -57,8 +57,7 @@ export const FetchOpinions = ({bookId}: BookType) => {
                   (opinionToUpdate!.userName = opinion.userName),
                   (opinionToUpdate!.view = opinion.view),
                   (opinionToUpdate!.rate = opinion.rate);
-
-                  navigate("/viewUpdate");
+                  onEdit();
                 }}
               >
                 <img className="icone iconeModify" src={modify}></img>
