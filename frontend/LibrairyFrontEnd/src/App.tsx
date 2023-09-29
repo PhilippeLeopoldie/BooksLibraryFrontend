@@ -3,7 +3,7 @@ import { Routes, BrowserRouter, Route, Link } from "react-router-dom";
 import { OpinionContext } from "./Context";
 import "./App.css";
 import {AddBook} from "./Component/Book/AddBook";
-import {OpinionUpdate} from "./Component/Opinion/OpinionUpdate";
+import {OpinionUpdate} from "./Component/Opinion/OpinionEdit";
 import {Home} from "./Component/Home";
 
 export const App = () => {
