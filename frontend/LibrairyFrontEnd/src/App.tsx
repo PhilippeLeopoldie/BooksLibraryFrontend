@@ -3,7 +3,7 @@ import { Routes, BrowserRouter, Route, Link } from "react-router-dom";
 import { OpinionContext } from "./Context";
 import "./App.css";
 import {AddBook} from "./Component/Book/AddBook";
-import {OpinionUpdate} from "./Component/Opinion/OpinionEdit";
+import {OpinionEdit} from "./Component/Opinion/OpinionEdit";
 import {Home} from "./Component/Home";
 
 export const App = () => {
@@ -31,7 +31,7 @@ export const App = () => {
             element={
               <div>
                 <OpinionContext.Provider value={initialContext}>
-                  <OpinionUpdate />
+                  <OpinionEdit />
                 </OpinionContext.Provider>
               </div>
             }
