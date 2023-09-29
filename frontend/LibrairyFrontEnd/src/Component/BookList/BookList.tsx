@@ -1,21 +1,22 @@
-import { useEffect, useState } from "react";
-import { BookType} from "../../Type";
+import { Book } from "../Book/Book";
+import { OpinionEdit } from "../Opinion/OpinionEdit";
+import { BookType } from "../../Type";
 import FetchApi from "../../FetchApi";
 import url from "../../Url";
-import {Book} from "../Book/Book";
-
+import { useEffect, useState } from "react";
+import React from "react";
 
 export const BookList = () => {
   const [books, setBooks] = useState<BookType[]>([]);
-  const random = books?.at(Math.floor(Math.random() * books.length));
 
-  const handleDeleteBook = (bookId : number) => {
-    setBooks((books) => books.filter((book) => book.book.id !== bookId))
-  }
+  const handleDeleteBook = (bookId: number) => {
+    setBooks((books) => books.filter((book) => book.book.id !== bookId));
+  };
+
   const fetchBooks = async () => {
     try {
       const booksData = await FetchApi(url + "api/Book");
-      setBooks(booksData.$values);  
+      setBooks(booksData.$values);
     } catch (error) {
       console.error("Error fetching books:", error);
     }
@@ -25,6 +26,7 @@ export const BookList = () => {
     fetchBooks();
   }, []);
 
+  const random = books?.at(Math.floor(Math.random() * books.length));
   return (
     <div className="books">
       <h2>Recommendation of the day</h2>
@@ -32,11 +34,11 @@ export const BookList = () => {
       <div className="bookcontainer">
         {books &&
           books
-          .sort((a,b) => b.book.id - a.book.id)
-          .map((bookDetail, index) => (
-            <Book book = {bookDetail.book} onDelete ={handleDeleteBook}/>
-          ))}
+            .sort((a, b) => b.book.id - a.book.id)
+            .map((bookDetail, index) => (
+              <Book book={bookDetail.book} onDelete={handleDeleteBook} />
+            ))}
       </div>
     </div>
   );
-}
+};
