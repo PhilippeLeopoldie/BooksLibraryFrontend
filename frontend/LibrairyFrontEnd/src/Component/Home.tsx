@@ -1,7 +1,6 @@
 import { useState } from 'react'
-import {Books} from './BookList/BookList'
-import { Parent } from './Book/Parent'
-import { EditChild } from './Book/EditChild'
+import {BookList} from './BookList/BookList'
+
 
 
 
@@ -10,9 +9,7 @@ export const Home = () => {
   
   return (
     <div>
-      
-      <Books/>
-      
+      <BookList/>
     </div>
   )
 }
