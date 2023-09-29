@@ -2,7 +2,7 @@ import { FetchOpinions } from "../Opinion/FetchOpinion";
 import url from "../../Url";
 import trash from "../../media/delete.svg";
 
-type handleDeleteType = {
+type BookWithDeletionHandler = {
   book : {
     id: number,
     title: string,
@@ -11,7 +11,7 @@ type handleDeleteType = {
   onDelete : Function
 }
 
-export const Book = ({ book, onDelete} : handleDeleteType) => {
+export const Book = ({ book, onDelete} : BookWithDeletionHandler) => {
   const DeleteBook = async (bookId: number) => {
     try {
       await fetch(url + `api/Book/${bookId}`, {
