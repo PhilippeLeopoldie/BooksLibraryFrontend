@@ -26,16 +26,6 @@ export const App = () => {
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/addBook" element={<AddBook />}></Route>
-          <Route
-            path="/viewUpdate"
-            element={
-              <div>
-                <OpinionContext.Provider value={initialContext}>
-                  <OpinionEdit />
-                </OpinionContext.Provider>
-              </div>
-            }
-          ></Route>
         </Routes>
       </BrowserRouter>
     </div>
