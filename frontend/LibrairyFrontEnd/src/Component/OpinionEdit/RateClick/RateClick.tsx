@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./Rate.css";
+import "../../Opinion/Rate/Rate.css";
 
 type RateType = {
   rate: number;
