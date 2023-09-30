@@ -1,11 +1,11 @@
 import { useContext } from "react";
 import { Routes, BrowserRouter, Route, Link } from "react-router-dom";
-import { OpinionContext } from "./Context";
+import { OpinionContext } from "../../Context";
 import "./App.css";
-import {AddBook} from "./Component/Book/AddBook";
-import {OpinionEdit} from "./Component/Opinion/OpinionEdit";
-import {Home} from "./Component/Home";
-import { BookList } from "./Component/BookList/BookList";
+import {AddBook} from "../AddBook/AddBook";
+import {OpinionEdit} from "../OpinionEdit/OpinionEdit";
+
+import { BookList } from "../BookList/BookList";
 
 export const App = () => {
   const initialContext = useContext(OpinionContext);
