@@ -1,11 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import {App} from './App'
+import {App} from './Component/App/App'
 import './index.css'
-import './Component/Opinion/OpinionEdit.css'
+import './Component/OpinionEdit/OpinionEdit.css'
 import './Component/Book/Book.css'
 import './Component/Opinion/Opinion.css'
-import './Component/Book/AddBook.css'
+import './Component/AddBook/AddBook.css'
 
 
 
