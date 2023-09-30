@@ -1,5 +1,5 @@
 import { Book } from "../Book/Book";
-import { OpinionEdit } from "../Opinion/OpinionEdit";
+import { OpinionEdit } from "../OpinionEdit/OpinionEdit";
 import { BookType } from "../../Type";
 import FetchApi from "../../FetchApi";
 import url from "../../Url";
@@ -36,7 +36,7 @@ export const BookList = () => {
           books
             .sort((a, b) => b.book.id - a.book.id)
             .map((bookDetail, index) => (
-              <Book book={bookDetail.book} onDelete={handleDeleteBook} />
+              <Book key={bookDetail.book.id} book={bookDetail.book} onDelete={handleDeleteBook} />
             ))}
       </div>
     </div>
