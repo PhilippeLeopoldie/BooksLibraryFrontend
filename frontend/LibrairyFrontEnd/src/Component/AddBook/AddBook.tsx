@@ -4,7 +4,7 @@ import FetchApi from "../../FetchApi";
 import url from "../../Url";
 import love from "../../media/love.png";
 import sad from "../../media/sad.png";
-import "./Book.css";
+import "../Book/Book.css";
 
 export const AddBook = () => {
   const [formData, setFormData] = useState({
