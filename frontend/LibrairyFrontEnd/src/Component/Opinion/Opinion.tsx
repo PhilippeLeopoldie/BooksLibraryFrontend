@@ -38,8 +38,8 @@ export const Opinion = ({bookId, onEdit}: BookType) => {
     <>
       <div className="opinioncontainer">
         {Opinions?.map((opinion, index) => (
-          <div className="opinioncontainer--card">
-            <div className="opinionCardItems" key={opinion.bookId}>
+          <div className="opinioncontainer--card" key={opinion.id}>
+            <div className="opinionCardItems" >
               <textarea
                 className="opinionCardItems opinioncard--view"
                 value={opinion.view}

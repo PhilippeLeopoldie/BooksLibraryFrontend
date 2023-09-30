@@ -2,7 +2,7 @@ import { Opinion } from "../Opinion/Opinion";
 import url from "../../Url";
 import trash from "../../media/delete.svg";
 import { useState } from "react";
-import { OpinionEdit } from "../Opinion/OpinionEdit";
+import { OpinionEdit } from "../OpinionEdit/OpinionEdit";
 
 type BookWithDeletionHandler = {
   book: {
