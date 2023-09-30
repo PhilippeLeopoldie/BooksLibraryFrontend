@@ -5,6 +5,7 @@ import "./App.css";
 import {AddBook} from "./Component/Book/AddBook";
 import {OpinionEdit} from "./Component/Opinion/OpinionEdit";
 import {Home} from "./Component/Home";
+import { BookList } from "./Component/BookList/BookList";
 
 export const App = () => {
   const initialContext = useContext(OpinionContext);
@@ -24,7 +25,7 @@ export const App = () => {
       </div>
         
         <Routes>
-          <Route path="/" element={<Home />}></Route>
+          <Route path="/" element={<BookList />}></Route>
           <Route path="/addBook" element={<AddBook />}></Route>
         </Routes>
       </BrowserRouter>
