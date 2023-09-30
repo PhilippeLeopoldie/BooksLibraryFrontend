@@ -1,4 +1,4 @@
-import { FetchOpinions } from "../Opinion/FetchOpinion";
+import { Opinion } from "../Opinion/Opinion";
 import url from "../../Url";
 import trash from "../../media/delete.svg";
 import { useState } from "react";
@@ -52,7 +52,7 @@ export const Book = ({ book, onDelete }: BookWithDeletionHandler) => {
             <h2 className="booktitle">{book.title}</h2>
             <h3 className="bookauthor">by: {book.author}</h3>
           </div>
-          <FetchOpinions bookId={book.id} onEdit={toggleEditOpinion} />
+          <Opinion bookId={book.id} onEdit={toggleEditOpinion} />
         </div>
       ) : (
         <OpinionEdit onEdit={toggleEditOpinion} />

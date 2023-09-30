@@ -11,7 +11,7 @@ type BookType = {
   onEdit: () => void
 };
 
-export const FetchOpinions = ({bookId, onEdit}: BookType) => {
+export const Opinion = ({bookId, onEdit}: BookType) => {
   const opinionToUpdate = useContext(OpinionContext);
   const [Opinions, setOpinions] = useState<OpinionType[]>([]);
 
