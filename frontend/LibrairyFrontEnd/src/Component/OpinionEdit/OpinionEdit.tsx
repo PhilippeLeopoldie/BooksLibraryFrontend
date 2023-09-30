@@ -1,9 +1,7 @@
 import { SyntheticEvent, useState, useContext } from "react";
 import { OpinionContext } from "../../Context";
-import check from "../../media/check.png";
 import url from "../../Url";
 import { RateClick } from "./RateClick/RateClick";
-import { useNavigate } from "react-router";
 
 type EditOpinionHandler = {
   onEdit:()=> void;
@@ -11,7 +9,6 @@ type EditOpinionHandler = {
 
 export const OpinionEdit = ({ onEdit }: EditOpinionHandler) => {
   const opinionContext = useContext(OpinionContext);
-  const navigate = useNavigate();
   const [updatedRate, setUpdatedRate] = useState<number>(opinionContext.rate);
   const handleOpinionContextRate = (newRate: number) => {
     setUpdatedRate(newRate);

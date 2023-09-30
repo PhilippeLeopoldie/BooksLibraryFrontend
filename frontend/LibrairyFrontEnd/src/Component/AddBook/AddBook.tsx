@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { BookType } from "../../Type";
-
 import url from "../../Url";
 import love from "../../media/love.png";
 import sad from "../../media/sad.png";
@@ -34,18 +33,6 @@ export const AddBook = () => {
     setBooks((books) => [...books, body]);
     return body;
   };
-  const fetchBooks = async () => {
-    try {
-      const booksData = await FetchApi(url + "api/Book");
-      setBooks(booksData.$values);
-    } catch (error) {
-      console.error("error fetching books:", error);
-    }
-  };
-
-  useEffect(() => {
-    fetchBooks();
-  }, []);
 
   const PostOpinion = async (bookId: number) => {
     const requestOptions = {
