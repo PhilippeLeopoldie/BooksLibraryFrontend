@@ -1,7 +1,6 @@
 import { Book } from "../Book/Book";
 import { OpinionEdit } from "../OpinionEdit/OpinionEdit";
 import { BookType } from "../../Type";
-import FetchApi from "../../FetchApi";
 import url from "../../Url";
 import { useEffect, useState } from "react";
 import React from "react";
@@ -15,8 +14,13 @@ export const BookList = () => {
 
   const fetchBooks = async () => {
     try {
-      const booksData = await FetchApi(url + "api/Book");
-      setBooks(booksData.$values);
+      const booksResponse : Response = (await fetch(url + "api/Book"));
+      if(booksResponse.status === 200) {
+        const booksResponseData  = await booksResponse.json();
+        setBooks(booksResponseData.$values);
+      } else if (booksResponse.status === 404) {
+        console.log(booksResponse);
+      }
     } catch (error) {
       console.error("Error fetching books:", error);
     }
