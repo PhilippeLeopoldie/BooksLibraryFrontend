@@ -42,7 +42,4 @@
   cursor: not-allowed;
 }
 
-.opinioncard--buttonmodify:hover > .opinioncontainer--card{
-    border: #4b54ff 2px solid;
-  }
 
