@@ -3,10 +3,10 @@ import "../../Opinion/Rate/Rate.css";
 
 type RateType = {
   rate: number;
-  OpinionContextRate: (newRate:number) => void;
+  HandleRate: (newRate:number) => void;
 };
 
-export const RateClick = ({ rate, OpinionContextRate }: RateType) => {
+export const RateClick = ({ rate, HandleRate: OpinionContextRate }: RateType) => {
   const numberOfStars: number = 5;
   const emptyStars = new Array<number>(numberOfStars).fill(0);
   const [filledStars, setFilledStars] = useState<number[]>(

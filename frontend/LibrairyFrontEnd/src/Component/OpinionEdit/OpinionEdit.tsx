@@ -73,7 +73,7 @@ export const OpinionEdit = ({ onEdit }: EditOpinionHandler) => {
         />
         <RateClick
           rate={opinionContext.rate}
-          OpinionContextRate={handleOpinionContextRate}
+          HandleRate={handleOpinionContextRate}
         />
 
         <button
