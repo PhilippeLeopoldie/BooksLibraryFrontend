@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { BookType } from "../../Type";
 import url from "../../Url";
-import love from "../../media/love.png";
-import sad from "../../media/sad.png";
 import "../Book/Book.css";
 
 export const AddBook = () => {
@@ -131,26 +129,13 @@ export const AddBook = () => {
               PostOpinion((await PostBook()).id);
             }}
           >
-            {/* <img className="icone iconeRate" src={sad} /> */}
             Post
           </button>
-
-          {/* <button
-            className="button bookform__button"
-            type="submit"
-            onClick={async () => {
-              PostOpinion((await PostBook()).id);
-            }}
-          >
-            <img className="icone iconeRate" src={love} />
-            Like
-          </button> */}
         </div>
         <div className="bookform__output">
           {bookCreatedMessage && <h1 className="bookform__output">Book created!</h1>}
         </div>
       </form>
-      {/* <Books /> */}
     </>
   );
 }
