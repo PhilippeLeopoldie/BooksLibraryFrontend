@@ -6,7 +6,7 @@ type RateType = {
   HandleRate: (newRate:number) => void;
 };
 
-export const RateClick = ({ rate, HandleRate: OpinionContextRate }: RateType) => {
+export const RateClick = ({ rate, HandleRate }: RateType) => {
   const numberOfStars: number = 5;
   const emptyStars = new Array<number>(numberOfStars).fill(0);
   const [filledStars, setFilledStars] = useState<number[]>(
@@ -17,7 +17,7 @@ export const RateClick = ({ rate, HandleRate: OpinionContextRate }: RateType) =>
     const updatedStars : Array<number> = filledStars.map((star,i) => (i<=index ? 1:0));
     setFilledStars(updatedStars);
     const newRate: number = updatedStars.reduce((a, b) => (a + b), 0);
-    OpinionContextRate(newRate);
+    HandleRate(newRate);
   };
 
   return (
