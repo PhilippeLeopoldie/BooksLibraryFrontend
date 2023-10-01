@@ -2,6 +2,7 @@ import { useState } from "react";
 import { BookType } from "../../Type";
 import url from "../../Url";
 import "../Book/Book.css";
+import { RateClick } from "../OpinionEdit/RateClick/RateClick";
 
 export const AddBook = () => {
   const [formData, setFormData] = useState({
@@ -9,8 +10,12 @@ export const AddBook = () => {
     author: "",
     view: "",
     userName: "",
-    rate:""
+    rate:0
   });
+
+  const HandleFormDataRate = (newRate : number) => {
+    setFormData({...formData, rate : newRate})
+  }
   const [books, setBooks] = useState<BookType[]>([]);
   const [bookCreatedMessage, setBookCreatedMessage] = useState<boolean>(false);
 
@@ -54,7 +59,7 @@ export const AddBook = () => {
       author: "",
       view: "",
       userName: "",
-      rate:""
+      rate:0
     });
     setBookCreatedMessage(true);
     return newOpinion;
@@ -121,6 +126,7 @@ export const AddBook = () => {
             onChange={(e) => HandleInputChange(e)}
           />
         </div>
+        <RateClick rate = {formData.rate} HandleRate={HandleFormDataRate}/>
 
         <div>
           <button
