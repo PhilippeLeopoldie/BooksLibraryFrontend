@@ -17,7 +17,7 @@ export const Opinion = ({bookId, onEdit}: BookType) => {
 
   const FetchOpinions = async (bookId :number) => {
    try {
-    const response : Response = await fetch(url + "api/Opinion/" + bookId);
+    const response : Response = await fetch(url + "api/Opinion/BookId=" + bookId);
     if(response.status === 200) {
       const responseData = await response.json();
         setOpinions(responseData.$values)
