@@ -18,6 +18,8 @@ export const AddBook = () => {
   }
   const [books, setBooks] = useState<BookType[]>([]);
   const [bookCreatedMessage, setBookCreatedMessage] = useState<boolean>(false);
+  const [error, setError] = useState<boolean>(false);
+  const [errorDetail, setErrorDetail] = useState<string>("");
 
   const PostBook = async () => {
     const requestOptions = {
@@ -30,8 +32,8 @@ export const AddBook = () => {
         author: formData.author,
       }),
     };
-    const response = await fetch(url + "api/Book", requestOptions);
-    const body = await response.json();
+    const bookResponse : Response = await fetch(url + "api/Book", requestOptions);
+    const body = await bookResponse.json();
     console.log("postBook bodyId:", body.id);
     setBooks((books) => [...books, body]);
     return body;
@@ -50,23 +52,35 @@ export const AddBook = () => {
         userName: formData.userName,
       }),
     };
-    const OpinionResponse = await fetch(url + "api/Opinion", requestOptions);
-    const newOpinion = await OpinionResponse.json();
-
-    // clear the form fields after submitting
-    setFormData({
-      title: "",
-      author: "",
-      view: "",
-      userName: "",
-      rate:0
-    });
-    setBookCreatedMessage(true);
-    return newOpinion;
+    const OpinionResponse :Response = await fetch(url + "api/Opinion", requestOptions);
+    if(OpinionResponse.status === 201) {
+      const newOpinion = await OpinionResponse.json();
+      
+      // clear the form fields after submitting
+      setFormData({
+        title: "",
+        author: "",
+        view: "",
+        userName: "",
+        rate:0
+      });
+      setBookCreatedMessage(true);
+      setError(false)
+      return newOpinion;
+    } else if (OpinionResponse.status === 400) {
+      const errorData = await OpinionResponse.json();
+      setBookCreatedMessage(false);
+      setError(true)
+      setErrorDetail(errorData.detail);
+    }
   };
+
   const HideBookCreatedMessage = () => {
     setBookCreatedMessage(false);
   };
+  const HideErrorDetail = () => {
+    setError(false);
+  }
   const HandleInputChange = (
     e:
       | React.ChangeEvent<HTMLInputElement>
@@ -74,6 +88,7 @@ export const AddBook = () => {
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     bookCreatedMessage && HideBookCreatedMessage();
+    error && HideErrorDetail();
   };
 
   return (
@@ -123,7 +138,7 @@ export const AddBook = () => {
           <button
             className="button bookform__button"
             onClick={async () => {
-              PostOpinion((await PostBook()).id);
+              PostOpinion((await PostBook()).id);              
             }}
           >
             Post
@@ -131,6 +146,9 @@ export const AddBook = () => {
         </div>
         <div className="bookform__output">
           {bookCreatedMessage && <h1 className="bookform__output">Book created!</h1>}
+          {error && (
+          <div className="validation__errorMessage">{errorDetail}</div>
+        )}
         </div>
       </form>
     </>
