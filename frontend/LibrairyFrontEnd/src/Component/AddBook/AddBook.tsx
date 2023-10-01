@@ -116,15 +116,6 @@ export const AddBook = () => {
             value={formData.userName}
             onChange={(e) => HandleInputChange(e)}
           />
-
-          <input
-            type="number"
-            className="input"
-            placeholder ="Rate"
-            name="rate"
-            value={formData.rate}
-            onChange={(e) => HandleInputChange(e)}
-          />
         </div>
         <RateClick rate = {formData.rate} HandleRate={HandleFormDataRate}/>
 
