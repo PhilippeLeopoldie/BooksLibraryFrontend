@@ -3,7 +3,7 @@ import "../../Opinion/Rate/Rate.css";
 
 type RateType = {
   rate: number;
-  OpinionContextRate: Function;
+  OpinionContextRate: (newRate:number) => void;
 };
 
 export const RateClick = ({ rate, OpinionContextRate }: RateType) => {
