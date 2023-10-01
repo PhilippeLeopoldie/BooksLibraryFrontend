@@ -131,11 +131,11 @@ export const AddBook = () => {
               PostOpinion((await PostBook()).id);
             }}
           >
-            <img className="icone iconeRate" src={sad} />
-            Dislike
+            {/* <img className="icone iconeRate" src={sad} /> */}
+            Post
           </button>
 
-          <button
+          {/* <button
             className="button bookform__button"
             type="submit"
             onClick={async () => {
@@ -144,7 +144,7 @@ export const AddBook = () => {
           >
             <img className="icone iconeRate" src={love} />
             Like
-          </button>
+          </button> */}
         </div>
         <div className="bookform__output">
           {bookCreatedMessage && <h1 className="bookform__output">Book created!</h1>}
