@@ -1,4 +1,5 @@
-import { useState } from "react";
+
+import { useEffect, useState } from "react";
 import "../../Opinion/Rate/Rate.css";
 
 type RateType = {
@@ -13,8 +14,14 @@ export const RateClick = ({ rate, HandleRate }: RateType) => {
     emptyStars.fill(1, 0, rate)
   );
 
+  useEffect(() => {
+    // Update filledStars when the rate prop changes
+    const updatedFilledStars : number[] = emptyStars.map((_, index) => (index < rate ? 1 : 0));
+    setFilledStars(updatedFilledStars);
+  }, [rate]);
+
   const toggleStar = (index: number) => {
-    const updatedStars : Array<number> = filledStars.map((star,i) => (i<=index ? 1:0));
+    const updatedStars : number[] = filledStars.map((star,i) => (i<=index ? 1:0));
     setFilledStars(updatedStars);
     const newRate: number = updatedStars.reduce((a, b) => (a + b), 0);
     HandleRate(newRate);
