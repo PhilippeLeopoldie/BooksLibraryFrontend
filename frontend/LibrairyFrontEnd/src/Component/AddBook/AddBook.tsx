@@ -26,8 +26,10 @@ export const AddBook = () => {
   }
   const [books, setBooks] = useState<BookType[]>([]);
   const [bookCreatedMessage, setBookCreatedMessage] = useState<boolean>(false);
-  const [error, setError] = useState<boolean>(false);
-  const [errorDetail, setErrorDetail] = useState<string>("");
+  const [errorBook, setErrorBook] = useState<Boolean>(false);
+  const [errorBookDetail, setErrorBookDetail] = useState<string>("");
+  const [errorOpinion, setErrorOpinion] = useState<boolean>(false);
+  const [errorOpinionDetail, setErrorOpinionDetail] = useState<string>("");
 
   const PostBook = async () => {
     const requestOptions = {
@@ -40,11 +42,21 @@ export const AddBook = () => {
         author: formData.author,
       }),
     };
-    const bookResponse : Response = await fetch(url + "api/Book", requestOptions);
-    const body = await bookResponse.json();
-    console.log("postBook bodyId:", body.id);
-    setBooks((books) => [...books, body]);
-    return body;
+    const bookResponse: Response = await fetch(
+      url + "api/Book",
+      requestOptions
+    );
+    if (bookResponse.status === 201) {
+      const body = await bookResponse.json();
+      console.log("postBook bodyId:", body.id);
+      setBooks((books) => [...books, body]);
+      setErrorBook(false);
+      return body;
+    } else if (bookResponse.status === 400) {
+      const errorData = await bookResponse.json();
+      setErrorBookDetail(errorData.detail);
+      setErrorBook(true);
+    }
   };
 
   const PostOpinion = async (bookId: number) => {
@@ -60,10 +72,13 @@ export const AddBook = () => {
         userName: formData.userName,
       }),
     };
-    const OpinionResponse :Response = await fetch(url + "api/Opinion", requestOptions);
-    if(OpinionResponse.status === 201) {
+    const OpinionResponse: Response = await fetch(
+      url + "api/Opinion",
+      requestOptions
+    );
+    if (OpinionResponse.status === 201) {
       const newOpinion = await OpinionResponse.json();
-      
+
       // clear the form fields after submitting
       setFormData({
         title: "",
@@ -73,13 +88,13 @@ export const AddBook = () => {
         rate:0
       });
       setBookCreatedMessage(true);
-      setError(false)
+      setErrorOpinion(false);
       return newOpinion;
     } else if (OpinionResponse.status === 400) {
       const errorData = await OpinionResponse.json();
       setBookCreatedMessage(false);
-      setError(true)
-      setErrorDetail(errorData.detail);
+      setErrorOpinion(true);
+      setErrorOpinionDetail(errorData.detail);
     }
   };
 
@@ -88,9 +103,9 @@ export const AddBook = () => {
   };
 
   const HideErrorDetail = () => {
-    setError(false);
-  }
-  
+    setErrorOpinion(false);
+  };
+
   const HandleInputChange = (
     e:
       | React.ChangeEvent<HTMLInputElement>
@@ -98,7 +113,7 @@ export const AddBook = () => {
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     bookCreatedMessage && HideBookCreatedMessage();
-    error && HideErrorDetail();
+    errorOpinion && HideErrorDetail();
   };
 
   return (
@@ -142,24 +157,24 @@ export const AddBook = () => {
             onChange={(e) => HandleInputChange(e)}
           />
         </div>
-        <RateClick rate = {formData.rate} HandleRate={HandleFormDataRate}/>
-
-        <div>
-          <button
-            className="button bookform__button"
-            onClick={async () => {
-              PostOpinion((await PostBook()).id);              
-            }}
-          >
-            Post
-          </button>
-        </div>
+        <RateClick rate={formData.rate} HandleRate={HandleFormDataRate} />
         <div className="bookform__output">
-          {bookCreatedMessage && <h1 className="bookform__output">Book created!</h1>}
-          {error && (
-          <div className="validation__errorMessage">{errorDetail}</div>
-        )}
+          {errorBook && (
+            <div className="validation__errorMessage">{errorBookDetail}</div>
+          )}
+          {errorOpinion && (
+            <div className="validation__errorMessage">{errorOpinionDetail}</div>
+          )}
         </div>
+        <button
+          className="button bookForm__postButton"
+          onClick={async () => {
+          PostOpinion((await PostBook()).id);
+          }}
+        >
+          Post
+        </button>
+        {bookCreatedMessage && <h1 className="bookform__output">Book created!</h1>}
       </form>
     </>
   );
