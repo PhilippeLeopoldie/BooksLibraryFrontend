@@ -33,9 +33,11 @@
   color: green;
 }
 
-.bookform__button{
+.bookForm__postButton{
   font-weight: bold;
   font-size: large;
+  padding: 0.5rem 2rem;
+  margin-top: 1rem;
 }
 
 
