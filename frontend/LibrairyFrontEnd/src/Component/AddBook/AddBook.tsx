@@ -4,8 +4,16 @@ import url from "../../Url";
 import "../Book/Book.css";
 import { RateClick } from "../OpinionEdit/RateClick/RateClick";
 
+type FormDataType = {
+  title: string,
+  author: string,
+  view: string,
+  userName: string,
+  rate:number
+}
+
 export const AddBook = () => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormDataType>({
     title: "",
     author: "",
     view: "",
@@ -78,9 +86,11 @@ export const AddBook = () => {
   const HideBookCreatedMessage = () => {
     setBookCreatedMessage(false);
   };
+
   const HideErrorDetail = () => {
     setError(false);
   }
+  
   const HandleInputChange = (
     e:
       | React.ChangeEvent<HTMLInputElement>
