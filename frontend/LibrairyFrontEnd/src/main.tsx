@@ -5,7 +5,7 @@ import './index.css'
 import './Component/OpinionEdit/OpinionEdit.css'
 import './Component/Book/Book.css'
 import './Component/Opinion/Opinion.css'
-import './Component/AddBook/AddBook.css'
+import './Component/BookCreate/BookCreate.css'
 
 
 
