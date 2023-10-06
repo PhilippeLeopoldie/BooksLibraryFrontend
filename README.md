@@ -1,5 +1,5 @@
 # BookLibraryProject
-This is a full stack application, this repository contains the [Frontend](https://github.com/PhilippeLeopoldie/BooksLibraryProject/tree/master/frontend/LibrairyFrontEnd) and the backend is [here](https://github.com/PhilippeLeopoldie/bookLibraryBackend)
+This is a full stack application, this repository contains the [Frontend](https://github.com/PhilippeLeopoldie/BooksLibraryProject/tree/master/frontend/LibraryFrontEnd) and the backend is [here](https://github.com/PhilippeLeopoldie/bookLibraryBackend)
 
 ## Story 
 
@@ -39,7 +39,7 @@ here is the components tree:
 
     - Database : postGres
 
-- [Frontend](https://github.com/PhilippeLeopoldie/BooksLibraryProject/tree/master/frontend/LibrairyFrontEnd)
+- [Frontend](https://github.com/PhilippeLeopoldie/BooksLibraryProject/tree/master/frontend/LibraryFrontEnd)
 
   - platform: Vercel
 
