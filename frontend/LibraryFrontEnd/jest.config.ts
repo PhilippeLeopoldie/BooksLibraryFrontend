@@ -26,6 +26,7 @@ const config: Config = {
   ],
   moduleNameMapper: {
     "\\.(css|less|scss)$": "identity-obj-proxy",
+    "\\.svg$" : "<rootDir>/src/Component/mocks/svg.ts"
   },
   testEnvironment: "jsdom",
  
