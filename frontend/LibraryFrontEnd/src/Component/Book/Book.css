@@ -1,4 +1,4 @@
-.bookcontainer {
+.booksContainer {
   gap: 2%;
   display: grid;
   justify-content: center;
@@ -102,19 +102,19 @@
 }
 
 @media screen and (min-width: 698px) {
-  .bookcontainer {
+  .booksContainer {
     grid-template-columns: 1fr 1fr;
   }
 }
 
 @media screen and (min-width: 1042px) {
-  .bookcontainer {
+  .booksContainer {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
 @media screen and (min-width: 1458px) {
-  .bookcontainer {
+  .booksContainer {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
