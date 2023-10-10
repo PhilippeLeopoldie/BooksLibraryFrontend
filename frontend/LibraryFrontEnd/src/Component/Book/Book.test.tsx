@@ -16,7 +16,7 @@ test("renders book title and author", () => {
   const titleElement = screen.getByText("The Great Gatsby");
   const authorElement = screen.getByText("by: F. Scott Fitzgerald");
 
-  // Assert
+  // Expect
   expect(titleElement).toBeInTheDocument();
   expect(authorElement).toBeInTheDocument();
   expect(titleElement).toHaveClass("booktitle");
@@ -33,7 +33,9 @@ test("renders delete img with the correct alt text and ClassName", () => {
   // Act
   const trashImage = getByAltText("delete");
 
-  //Assert
+  //Expect
   expect(trashImage).toBeInTheDocument();
   expect(trashImage).toHaveClass("bookcard--iconeTrash");
 });
+
+
