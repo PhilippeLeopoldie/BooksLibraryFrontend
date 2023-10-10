@@ -1,48 +1,39 @@
-import { render, screen, fireEvent, getByAltText } from '@testing-library/react';
-import {Book} from './Book';
-import '@testing-library/jest-dom';
-import trash from "../../media/delete.svg";
-//import { Trash } from '../mocks/Trash';
+import {render, screen,} from "@testing-library/react";
+import { Book } from "./Book";
+import "@testing-library/jest-dom";
 
-
-
-// Arrange : Define the actual book data for testing
 const actualBookData = {
   id: 1,
-  title: 'The Great Gatsby',
-  author: 'F. Scott Fitzgerald',
+  title: "The Great Gatsby",
+  author: "F. Scott Fitzgerald",
 };
 
-test('renders book title and author', () => {
-  
-    // Render the Book component with the actual book data
+test("renders book title and author", () => {
+  // Arrange
   render(<Book book={actualBookData} onDelete={() => {}} />);
 
-  // Act: Use screen.getByText to find elements by their text content
-  const titleElement = screen.getByText('The Great Gatsby');
-  const authorElement = screen.getByText('by: F. Scott Fitzgerald');
+  // Act
+  const titleElement = screen.getByText("The Great Gatsby");
+  const authorElement = screen.getByText("by: F. Scott Fitzgerald");
 
   // Assert
   expect(titleElement).toBeInTheDocument();
   expect(authorElement).toBeInTheDocument();
-  expect(titleElement).toHaveClass('booktitle');
-  expect(authorElement).toHaveClass('bookauthor');
+  expect(titleElement).toHaveClass("booktitle");
+  expect(authorElement).toHaveClass("bookauthor");
 });
 
-test('renders an Trash with the correct alt text and ClassName', ()=> {
+test("renders delete img with the correct alt text and ClassName", () => {
   // Arrange
-  const onDelete = jest.fn()
-
-  const {getByAltText, container} = render(<Book book={actualBookData} onDelete={onDelete} />);
-  
+  const onDelete = jest.fn();
+  const { getByAltText } = render(
+    <Book book={actualBookData} onDelete={onDelete} />
+  );
 
   // Act
-  const trashImage = getByAltText('delete');
-  
+  const trashImage = getByAltText("delete");
+
   //Assert
   expect(trashImage).toBeInTheDocument();
-  expect(trashImage).toHaveClass('bookcard--iconeTrash');
-  
-})
-
-
+  expect(trashImage).toHaveClass("bookcard--iconeTrash");
+});
