@@ -1,5 +1,4 @@
 import { useEffect, useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
 import { OpinionType } from "../../Type";
 import url from "../../Url";
 import modify from "../../media/write.svg";
@@ -13,7 +12,7 @@ type BookType = {
 
 export const Opinion = ({bookId, onEdit}: BookType) => {
   const opinionToUpdate = useContext(OpinionContext);
-  const [Opinions, setOpinions] = useState<OpinionType[]>([]);
+  const [Opinions, setOpinions] = useState<OpinionType[] | null >(null);
 
   const FetchOpinions = async (bookId :number) => {
    try {
@@ -34,10 +33,14 @@ export const Opinion = ({bookId, onEdit}: BookType) => {
     FetchOpinions(bookId);
   }, []);
 
+  if(!Opinions) {
+    return <h2 className="OpinionLoading">Loading...</h2>
+  }
+
   return (
     <>
       <div className="opinioncontainer">
-        {Opinions?.map((opinion, index) => (
+        {Opinions && Opinions.map((opinion, index) => (
           <div className="opinioncontainer--card" key={opinion.id}>
             <div className="opinionCardItems" >
               <textarea
