@@ -2,16 +2,23 @@ import { useEffect, useState, useContext } from "react";
 import { OpinionType } from "../../Type";
 import url from "../../Url";
 import modify from "../../media/write.svg";
-import { OpinionContext } from "../../Context";
 import { Rate } from "./Rate/Rate";
 
+
+type EditOpinion = {
+  id: number,
+  rate: number,
+  view: string,
+  userName: string,
+  bookId: number
+};
 type BookType = {
   bookId: number;
-  onEdit: () => void
+  onEdit: (opinionToUpdate:EditOpinion) => void
 };
 
+
 export const Opinion = ({bookId, onEdit}: BookType) => {
-  const opinionToUpdate = useContext(OpinionContext);
   const [Opinions, setOpinions] = useState<OpinionType[] | null >(null);
 
   const FetchOpinions = async (bookId :number) => {
@@ -55,12 +62,14 @@ export const Opinion = ({bookId, onEdit}: BookType) => {
               <button
                 className="button opinioncard--buttonmodify"
                 onClick={() => {
-                  (opinionToUpdate!.bookId = opinion.bookId),
-                  (opinionToUpdate!.id = opinion.id),
-                  (opinionToUpdate!.userName = opinion.userName),
-                  (opinionToUpdate!.view = opinion.view),
-                  (opinionToUpdate!.rate = opinion.rate);
-                  onEdit();
+                  const opinionToEdit:EditOpinion = {
+                    id:opinion.id,
+                    rate: opinion.rate,
+                    view: opinion.view,
+                    userName:opinion.userName,
+                    bookId:opinion.bookId
+                  }
+                  onEdit(opinionToEdit);
                 }}
               >
                 <img className="icone iconeModify" src={modify}></img>
