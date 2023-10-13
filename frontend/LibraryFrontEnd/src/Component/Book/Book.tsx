@@ -13,11 +13,30 @@ type BookWithDeletionHandler = {
   onDelete: Function;
 };
 
-export const Book = ({ book, onDelete }: BookWithDeletionHandler) => {
-  const [editHandling, setEditHandling] = useState<Boolean>(false);
+type EditOpinion = {
+  id: number,
+  rate: number,
+  view: string,
+  userName: string,
+  bookId: number
+}
 
-  const toggleEditOpinion = () => {
+export const Book = ({ book, onDelete }: BookWithDeletionHandler) => {
+  const initialeditopinion = {
+    id: 0,
+    rate: 0,
+    view: "",
+    userName: "",
+    bookId:0
+  }
+  const [editHandling, setEditHandling] = useState<Boolean>(false);
+  const [editOpinion, setEditOpinion] = useState<EditOpinion>(initialeditopinion);
+  
+  
+  const toggleEditOpinion = (opinionEdited:EditOpinion) => {
+    setEditOpinion(opinionEdited);
     setEditHandling(!editHandling);
+    
   };
 
   const DeleteBook = async (bookId: number) => {
@@ -52,10 +71,11 @@ export const Book = ({ book, onDelete }: BookWithDeletionHandler) => {
             <h2 className="booktitle">{book.title}</h2>
             <h3 className="bookauthor">by: {book.author}</h3>
           </div>
-          <Opinion bookId={book.id} onEdit={toggleEditOpinion} />
+          <Opinion bookId={book.id} onEdit={(editOpinion) =>toggleEditOpinion(editOpinion)} />
         </div>
       ) : (
-        <OpinionEdit onEdit={toggleEditOpinion} />
+        <OpinionEdit opinion={editOpinion} toEdit={(editOpinion) =>
+          toggleEditOpinion(editOpinion)} />
       )}
     </>
   );
