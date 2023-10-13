@@ -3,13 +3,12 @@ export type BookType = {
     id: number;
     title: string;
     author: string;
-    userId: number;
+   /* userId: number;
     borrowed: boolean;
     borrowedTime: Date;
     bivenBack: boolean;
-    bivenBackTime: Date;
+    bivenBackTime: Date;*/
   };
- 
 };
 
 export type OpinionType = {
