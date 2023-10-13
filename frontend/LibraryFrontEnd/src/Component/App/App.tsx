@@ -1,29 +1,26 @@
-import { useContext } from "react";
-import { Routes, BrowserRouter, Route, Link } from "react-router-dom";
-import { OpinionContext } from "../../Context";
 import "./App.css";
-import {AddBook} from "../BookCreate/BookCreate";
-import {OpinionEdit} from "../OpinionEdit/OpinionEdit";
-
+import { AddBook } from "../BookCreate/BookCreate";
 import { BookList } from "../BookList/BookList";
+import { Routes, BrowserRouter, Route, Link } from "react-router-dom";
 
 export const App = () => {
-  const initialContext = useContext(OpinionContext);
-
   return (
-    <div className="App"> 
+    <div className="App">
       <BrowserRouter>
-      <div className="nav">
-        <ul className="liste">
-          <dl className="nav-data">
-            <Link className="nav-link home" to="/">Home</Link>
-          </dl>
-          <dl className="nav-data">
-            <Link  className="nav-link" to="/addBook">Add a review</Link>
-          </dl>
-        </ul>
-      </div>
-        
+        <div className="nav">
+          <ul className="liste">
+            <dl className="nav-data">
+              <Link className="nav-link home" to="/">
+                Home
+              </Link>
+            </dl>
+            <dl className="nav-data">
+              <Link className="nav-link" to="/addBook">
+                Add a review
+              </Link>
+            </dl>
+          </ul>
+        </div>
         <Routes>
           <Route path="/" element={<BookList />}></Route>
           <Route path="/addBook" element={<AddBook />}></Route>
@@ -31,4 +28,4 @@ export const App = () => {
       </BrowserRouter>
     </div>
   );
-}
+};
