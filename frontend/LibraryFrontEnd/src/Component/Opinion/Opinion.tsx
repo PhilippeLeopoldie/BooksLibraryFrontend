@@ -30,6 +30,7 @@ type BookType = {
 
 export const Opinion = ({bookId, onEdit, toCreate}: BookType) => {
   const [opinions, setOpinions] = useState<OpinionType[] | null >(null);
+  const [fetching, setFething] = useState<boolean>(true);
   const [lastOpinion, setLastOpinion] = useState<Opinion | null>(null);
   const FetchOpinions = async (bookId :number) => {
    try {
@@ -37,8 +38,10 @@ export const Opinion = ({bookId, onEdit, toCreate}: BookType) => {
     if(response.status === 200) {
       const responseData = await response.json();
         setOpinions(responseData.$values)
+        setFething(false)
     } else if (response.status === 404){
-      console.log(response)
+      setFething(false)
+      console.log("404 response",response)
     }
    } catch (error) {
     console.error("An error occurred:", error);
@@ -53,7 +56,7 @@ export const Opinion = ({bookId, onEdit, toCreate}: BookType) => {
     opinions && opinions.length > 0 && setLastOpinion(opinions[opinions.length-1])
   },[opinions])
   
-  if(!opinions) {
+  if(fetching) {
     return <h2 className="OpinionLoading">Loading...</h2>
   }
 
