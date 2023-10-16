@@ -4,7 +4,12 @@ import { RateClick } from "../OpinionEdit/RateClick/RateClick";
 import "./OpinionCreate.css";
 
 type AddOpinionType = {
-  bookId?: number;
+  book?:{
+    id:number,
+    title:string,
+    author:string,
+
+  } ;
   toCreate: () => void;
 };
 
@@ -14,7 +19,7 @@ type FormDataType = {
   rate: number;
 };
 
-export const OpinionCreate = ({ bookId, toCreate }: AddOpinionType) => {
+export const OpinionCreate = ({ book, toCreate }: AddOpinionType) => {
   const [bookCreatedMessage, setBookCreatedMessage] = useState<boolean>(false);
   const [errorOpinion, setErrorOpinion] = useState<boolean>(false);
   const [errorOpinionDetail, setErrorOpinionDetail] = useState<string>("");
@@ -100,7 +105,7 @@ export const OpinionCreate = ({ bookId, toCreate }: AddOpinionType) => {
           <button
             className="button bookForm__postButton"
             onClick={async () => {
-              bookId && (await PostOpinion(bookId));
+              book && book.id && (await PostOpinion(book.id));
             }}
           >
             Post
