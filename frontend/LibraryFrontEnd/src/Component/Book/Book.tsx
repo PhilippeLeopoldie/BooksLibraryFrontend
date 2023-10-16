@@ -3,23 +3,24 @@ import url from "../../Url";
 import trash from "../../media/delete.svg";
 import { useState } from "react";
 import { OpinionEdit } from "../OpinionEdit/OpinionEdit";
+import OpinionCreate from "../OpinionCreate/OpinionCreate";
 
 type BookWithDeletionHandler = {
-  book: {
+  book?: {
     id: number;
     title: string;
     author: string;
   };
-  onDelete: Function;
+  onDelete?: Function;
 };
 
 type EditOpinion = {
-  id: number,
-  rate: number,
-  view: string,
-  userName: string,
-  bookId: number
-}
+  id: number;
+  rate: number;
+  view: string;
+  userName: string;
+  bookId: number;
+};
 
 export const Book = ({ book, onDelete }: BookWithDeletionHandler) => {
   const initialeditopinion = {
@@ -27,16 +28,21 @@ export const Book = ({ book, onDelete }: BookWithDeletionHandler) => {
     rate: 0,
     view: "",
     userName: "",
-    bookId:0
-  }
+    bookId: 0,
+  };
   const [editHandling, setEditHandling] = useState<Boolean>(false);
-  const [editOpinion, setEditOpinion] = useState<EditOpinion>(initialeditopinion);
-  
-  
-  const toggleEditOpinion = (opinionEdited:EditOpinion) => {
+  const [editOpinion, setEditOpinion] =
+    useState<EditOpinion>(initialeditopinion);
+  const [createOpinionHandling, setCreateOpinionHandling] =
+    useState<boolean>(false);
+
+  const toggleEditOpinion = (opinionEdited: EditOpinion) => {
     setEditOpinion(opinionEdited);
     setEditHandling(!editHandling);
-    
+  };
+
+  const toggleCreateOpinion = () => {
+    setCreateOpinionHandling(!createOpinionHandling);
   };
 
   const DeleteBook = async (bookId: number) => {
@@ -44,7 +50,7 @@ export const Book = ({ book, onDelete }: BookWithDeletionHandler) => {
       await fetch(url + `api/Book/${bookId}`, {
         method: "DELETE",
       });
-      onDelete(bookId);
+      onDelete && onDelete(bookId);
     } catch (error) {
       console.error("Error deleting book:", error);
     }
@@ -52,8 +58,8 @@ export const Book = ({ book, onDelete }: BookWithDeletionHandler) => {
 
   return (
     <>
-      {!editHandling ? (
-        <div className="bookcard" key={book.id}>
+      {book && !createOpinionHandling ? (
+        <div className="bookcard--grid" key={book.id}>
           <div className="bookcard--header">
             <button
               className=" button booktitle--trashbutton"
@@ -71,11 +77,21 @@ export const Book = ({ book, onDelete }: BookWithDeletionHandler) => {
             <h2 className="booktitle">{book.title}</h2>
             <h3 className="bookauthor">by: {book.author}</h3>
           </div>
-          <Opinion bookId={book.id} onEdit={(editOpinion) =>toggleEditOpinion(editOpinion)} />
+          <Opinion bookId={book.id} toCreate={toggleCreateOpinion} />
+          <button
+            className="button bookCard__RateButton"
+            onClick={() => {
+              toggleCreateOpinion();
+            }}
+          >
+            Rate this book
+          </button>
         </div>
       ) : (
-        <OpinionEdit opinion={editOpinion} toEdit={(editOpinion) =>
-          toggleEditOpinion(editOpinion)} />
+        <OpinionCreate
+          bookId={book && book.id}
+          toCreate={toggleCreateOpinion}
+        />
       )}
     </>
   );
