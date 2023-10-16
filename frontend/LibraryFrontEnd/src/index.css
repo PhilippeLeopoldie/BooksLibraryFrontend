@@ -14,13 +14,13 @@ button {
 }
 
 button:hover {
-  border: #4b54ff 2px solid;
+  border: #4bdeff 2px solid;
   
 }
 
 .icone,
 .button {
-  background-color: #b7e4ff;
+  background-color: #EAECEC;
 }
 
 body {
