@@ -16,7 +16,7 @@ export const App = () => {
             </dl>
             <dl className="nav-data">
               <Link className="nav-link" to="/addBook">
-                Add a review
+                Add a Book
               </Link>
             </dl>
           </ul>
