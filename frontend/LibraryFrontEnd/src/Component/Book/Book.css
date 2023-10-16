@@ -80,15 +80,17 @@
 
 .booktitle {
   background-color: transparent;
-  font-family: serif;
   font-size: x-large;
   font-weight: bold;
   -webkit-text-stroke: 1px #a38729;
   color: #d4af37;
+  margin: 0;
 }
 
 .bookauthor {
   background-color: transparent;
+  margin:2%;
+  margin-bottom: 8%;
 }
 
 .bookform--view{
