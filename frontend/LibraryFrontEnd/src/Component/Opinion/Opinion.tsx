@@ -23,11 +23,12 @@ type Opinion = {
 
 type BookType = {
   bookId: number;
-  onEdit: (opinionToUpdate:EditOpinion) => void
+  onEdit?: (opinionToUpdate:EditOpinion) => void
+  toCreate: ()=> void
 };
 
 
-export const Opinion = ({bookId, onEdit}: BookType) => {
+export const Opinion = ({bookId, onEdit, toCreate}: BookType) => {
   const [opinions, setOpinions] = useState<OpinionType[] | null >(null);
   const [lastOpinion, setLastOpinion] = useState<Opinion | null>(null);
   const FetchOpinions = async (bookId :number) => {
@@ -43,7 +44,6 @@ export const Opinion = ({bookId, onEdit}: BookType) => {
     console.error("An error occurred:", error);
    }
   } 
-
 
   useEffect(() => {
     FetchOpinions(bookId);
@@ -71,7 +71,7 @@ export const Opinion = ({bookId, onEdit}: BookType) => {
               <div className="opinionCardItems">{lastOpinion.userName}</div>
               <Rate rate= {lastOpinion.rate}/>
             </div>
-            <div className="opinionCardItems opinioncard--footer">
+            {/* <div className="opinionCardItems opinioncard--footer">
               <button
                 className="button opinioncard--buttonmodify"
                 onClick={() => {
@@ -82,13 +82,20 @@ export const Opinion = ({bookId, onEdit}: BookType) => {
                     userName:lastOpinion.userName,
                     bookId:lastOpinion.bookId
                   }
-                  onEdit(opinionToEdit);
+                  onEdit && onEdit(opinionToEdit);
                 }}
               >
                 <img className="icone iconeModify" src={modify}></img>
                 modify
               </button>
-            </div>
+              <button className="button opinioncard--createButton"
+                onClick={()=> {
+                  toCreate();
+                }}
+              >
+                Rate this book
+              </button>
+            </div> */}
           </div>
         )}
       </div>
