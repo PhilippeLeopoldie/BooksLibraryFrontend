@@ -77,7 +77,7 @@ export const Book = ({ book, onDelete }: BookWithDeletionHandler) => {
             <h2 className="booktitle">{book.title}</h2>
             <h3 className="bookauthor">by: {book.author}</h3>
           </div>
-          <Opinion bookId={book.id} toCreate={toggleCreateOpinion} />
+          <Opinion book={book} toCreate={toggleCreateOpinion} />
           <button
             className="button bookCard__RateButton"
             onClick={() => {

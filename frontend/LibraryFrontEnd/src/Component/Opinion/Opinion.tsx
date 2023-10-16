@@ -22,13 +22,17 @@ type Opinion = {
 };
 
 type BookType = {
-  bookId: number;
+  book: {
+    id:number,
+    title:string,
+    author:string
+  }
   onEdit?: (opinionToUpdate:EditOpinion) => void
   toCreate: ()=> void
 };
 
 
-export const Opinion = ({bookId, onEdit, toCreate}: BookType) => {
+export const Opinion = ({book, onEdit, toCreate}: BookType) => {
   const [opinions, setOpinions] = useState<OpinionType[] | null >(null);
   const [fetching, setFething] = useState<boolean>(true);
   const [lastOpinion, setLastOpinion] = useState<Opinion | null>(null);
@@ -49,7 +53,7 @@ export const Opinion = ({bookId, onEdit, toCreate}: BookType) => {
   } 
 
   useEffect(() => {
-    FetchOpinions(bookId);
+    FetchOpinions(book.id);
   }, []);
 
   useEffect(()=> {
