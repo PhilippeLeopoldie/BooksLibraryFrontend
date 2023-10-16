@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import url from "../../Url";
 import { RateClick } from "../OpinionEdit/RateClick/RateClick";
+import "./OpinionCreate.css";
 
 type AddOpinionType = {
-  bookId: number;
+  bookId?: number;
+  toCreate: () => void;
 };
 
 type FormDataType = {
@@ -12,7 +14,7 @@ type FormDataType = {
   rate: number;
 };
 
-export const OpinionCreate = ({ bookId }: AddOpinionType) => {
+export const OpinionCreate = ({ bookId, toCreate }: AddOpinionType) => {
   const [bookCreatedMessage, setBookCreatedMessage] = useState<boolean>(false);
   const [errorOpinion, setErrorOpinion] = useState<boolean>(false);
   const [errorOpinionDetail, setErrorOpinionDetail] = useState<string>("");
@@ -49,6 +51,7 @@ export const OpinionCreate = ({ bookId }: AddOpinionType) => {
       const newOpinion = await opinionResponse.json();
       setBookCreatedMessage(true);
       setErrorOpinion(false);
+      toCreate();
       return newOpinion;
     } else if (opinionResponse.status === 400) {
       const errorData = await opinionResponse.json();
@@ -76,38 +79,50 @@ export const OpinionCreate = ({ bookId }: AddOpinionType) => {
 
   return (
     <>
-      <textarea
-        className="opinionForm__view input"
-        placeholder="View"
-        name="view"
-        value={formData.view}
-        onChange={(e) => HandleInputChange(e)}
-      />
+      <div className="opinionCreateCard">
+        <RateClick rate={formData.rate} HandleRate={HandleFormDataRate} />
+        <textarea
+          className="opinionForm__view input"
+          placeholder="View"
+          name="view"
+          value={formData.view}
+          onChange={(e) => HandleInputChange(e)}
+        />
 
-      <input
-        className="input"
-        placeholder="UserName"
-        name="userName"
-        value={formData.userName}
-        onChange={(e) => HandleInputChange(e)}
-      />
-      <RateClick rate={formData.rate} HandleRate={HandleFormDataRate} />
-      <button
-        className="button bookForm__postButton"
-        onClick={async () => {
-          await PostOpinion(bookId);
-        }}
-      >
-        Post review
-      </button>
-      {errorOpinion && (
-        <div className="validation__errorMessage">{errorOpinionDetail}</div>
-      )}
-      {bookCreatedMessage && (
-        <h1 className="bookform__output">Review posted!</h1>
-      )}
+        <input
+          className="input"
+          placeholder="UserName"
+          name="userName"
+          value={formData.userName}
+          onChange={(e) => HandleInputChange(e)}
+        />
+        <div className="opinionForm__footer">
+          <button
+            className="button bookForm__postButton"
+            onClick={async () => {
+              bookId && (await PostOpinion(bookId));
+            }}
+          >
+            Post
+          </button>
+          <button
+            onClick={() => {
+              toCreate();
+            }}
+          >
+            Cancel
+          </button>
+        </div>
+
+        {errorOpinion && (
+          <div className="validation__errorMessage">{errorOpinionDetail}</div>
+        )}
+        {bookCreatedMessage && (
+          <h1 className="bookform__output">Review posted!</h1>
+        )}
+      </div>
     </>
   );
-}
+};
 
 export default OpinionCreate;
