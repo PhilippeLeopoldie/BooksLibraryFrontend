@@ -89,7 +89,7 @@ export const Book = ({ book, onDelete }: BookWithDeletionHandler) => {
         </div>
       ) : (
         <OpinionCreate
-          bookId={book && book.id}
+          book={book && book}
           toCreate={toggleCreateOpinion}
         />
       )}
