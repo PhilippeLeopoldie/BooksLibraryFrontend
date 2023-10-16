@@ -1,6 +1,5 @@
 .opinionCreateCard{
   display: grid;
-  justify-content:center;
   width: 20rem;
   height: 30rem;
   background: rgb(253, 229, 187) 10%;
