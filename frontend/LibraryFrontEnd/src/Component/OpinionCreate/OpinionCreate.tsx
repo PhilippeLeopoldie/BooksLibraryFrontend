@@ -5,17 +5,17 @@ import "./OpinionCreate.css";
 
 type AddOpinionType = {
   book?: {
-    id: number,
-    title: string,
-    author: string,
+    id: number;
+    title: string;
+    author: string;
   };
   toCreate: () => void;
 };
 
 type FormDataType = {
-  view: string,
-  userName: string,
-  rate: number,
+  view: string;
+  userName: string;
+  rate: number;
 };
 
 export const OpinionCreate = ({ book, toCreate }: AddOpinionType) => {
@@ -103,6 +103,13 @@ export const OpinionCreate = ({ book, toCreate }: AddOpinionType) => {
           onChange={(e) => HandleInputChange(e)}
         />
         <div className="opinionForm__footer">
+          <button className="button opinionForm__cancelButon"
+            onClick={() => {
+              toCreate();
+            }}
+          >
+            Cancel
+          </button>
           <button
             className="button bookForm__postButton"
             onClick={async () => {
@@ -110,13 +117,6 @@ export const OpinionCreate = ({ book, toCreate }: AddOpinionType) => {
             }}
           >
             Post
-          </button>
-          <button
-            onClick={() => {
-              toCreate();
-            }}
-          >
-            Cancel
           </button>
         </div>
 
