@@ -22,9 +22,10 @@
  margin :8%;
  margin-left: 30%;
  margin-right: 20%;
- font-size:x-large;
+ font-size:large;
  font-weight:bolder;
- color:  #d4af37;
+  color:saddlebrown; 
+ background-color: transparent;
  border-color: #a38729;
 
 }
