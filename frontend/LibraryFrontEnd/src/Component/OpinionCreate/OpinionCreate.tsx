@@ -4,19 +4,18 @@ import { RateClick } from "../OpinionEdit/RateClick/RateClick";
 import "./OpinionCreate.css";
 
 type AddOpinionType = {
-  book?:{
-    id:number,
-    title:string,
-    author:string,
-
-  } ;
+  book?: {
+    id: number,
+    title: string,
+    author: string,
+  };
   toCreate: () => void;
 };
 
 type FormDataType = {
-  view: string;
-  userName: string;
-  rate: number;
+  view: string,
+  userName: string,
+  rate: number,
 };
 
 export const OpinionCreate = ({ book, toCreate }: AddOpinionType) => {
@@ -85,6 +84,8 @@ export const OpinionCreate = ({ book, toCreate }: AddOpinionType) => {
   return (
     <>
       <div className="opinionCreateCard">
+        <h2 className="booktitle">{book?.title}</h2>
+        <h3 className="bookauthor">by: {book?.author}</h3>
         <RateClick rate={formData.rate} HandleRate={HandleFormDataRate} />
         <textarea
           className="opinionForm__view input"
