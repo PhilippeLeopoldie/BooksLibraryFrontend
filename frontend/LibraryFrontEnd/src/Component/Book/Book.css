@@ -19,7 +19,8 @@
   );
 }
 .bookCard__RateButton{
- margin :8%;
+ margin-top :4%;
+ margin-bottom: 8%;
  margin-left: 30%;
  margin-right: 20%;
  font-size:large;
