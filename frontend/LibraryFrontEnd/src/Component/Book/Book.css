@@ -4,11 +4,11 @@
   justify-content: center;
 }
 
-.bookcard {
+.bookcard--grid {
   border: 1px gray solid;
   border-radius: 3%;
   display: grid;
-  grid-template-rows: 2fr 3fr;
+  grid-template-rows: 2fr 3fr 1fr;
   width: 20rem;
   height: 30rem;
   border-radius: 20px 16px 12px 32px;
@@ -18,8 +18,18 @@
     rgb(253, 229, 187) 10%
   );
 }
+.bookCard__RateButton{
+ margin :8%;
+ margin-left: 30%;
+ margin-right: 20%;
+ font-size:x-large;
+ font-weight:bolder;
+ color:  #d4af37;
+ border-color: #a38729;
 
-.bookcard:after {
+}
+
+.bookcard--grid:after {
   display: flex;
   justify-content: end;
   margin-left: 2%;
