@@ -12,16 +12,20 @@ global.fetch = jest.fn().mockImplementation(() =>
     hearders: new Headers(),
   })
 );
-
-test("Should render Loading message initially", async () => {
-  //Arrange
-  await act(async () => {
-    render(<Opinion bookId={1} onEdit={() => {}} />);
+describe("Opinions Component Tests", () => {
+  it("Should render Loading message initially", async () => {
+    //Arrange
+    await act(async () => {
+      render(<Opinion bookId={1} onEdit={() => {}} toCreate={()=> {}} />);
+    });
+  
+    //Act
+    const loadingMessage = screen.getByText("Loading...");
+  
+    //Expect
+    expect(loadingMessage).toBeInTheDocument();
   });
 
-  //Act
-  const loadingMessage = screen.getByText("Loading...");
+  
+})
 
-  //Expect
-  expect(loadingMessage).toBeInTheDocument();
-});
