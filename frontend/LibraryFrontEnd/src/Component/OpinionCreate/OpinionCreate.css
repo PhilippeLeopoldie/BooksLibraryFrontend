@@ -7,4 +7,13 @@
 
 .opinionForm__footer{
  background: transparent;
+ display: flex;
+}
+
+.opinionForm__cancelButon{
+  margin:auto 5%
+}
+
+.bookForm__postButton{
+ margin-left: 10%;
 }
