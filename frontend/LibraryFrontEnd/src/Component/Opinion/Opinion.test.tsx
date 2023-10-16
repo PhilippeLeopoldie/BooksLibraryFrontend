@@ -1,6 +1,7 @@
 import { Opinion } from "./Opinion";
 import { act, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
+import { Book } from "../Book/Book";
 
 global.fetch = jest.fn().mockImplementation(() =>
   Promise.resolve({
@@ -13,17 +14,27 @@ global.fetch = jest.fn().mockImplementation(() =>
   })
 );
 describe("Opinions Component Tests", () => {
-  it("Should render Loading message initially", async () => {
+  it("Should not render Loading message when book with no opinion", async () => {
     //Arrange
+    type Book={
+      id:number,
+      title: string,
+      author:string
+    }
+    const book :Book = {
+      id:1,
+      title:"title 1",
+      author: "author 1"
+    }
     await act(async () => {
-      render(<Opinion bookId={1} onEdit={() => {}} toCreate={()=> {}} />);
+      render(<Opinion book={book} onEdit={() => {}} toCreate={()=> {}} />);
     });
   
     //Act
-    const loadingMessage = screen.getByText("Loading...");
+    const loadingMessage = screen.queryByText("Loading...");
   
     //Expect
-    expect(loadingMessage).toBeInTheDocument();
+    expect(loadingMessage).toBeNull();
   });
 
   
