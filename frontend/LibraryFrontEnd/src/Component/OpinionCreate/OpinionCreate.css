@@ -1,0 +1,9 @@
+.opinionCreateCard{
+  display: grid;
+  justify-content:center;
+  background: rgb(253, 229, 187) 10%;
+}
+
+.opinionForm__footer{
+ background: transparent;
+}
