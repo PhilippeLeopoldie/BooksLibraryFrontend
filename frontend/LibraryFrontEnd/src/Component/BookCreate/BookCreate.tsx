@@ -109,7 +109,7 @@ export const AddBook = () => {
         {bookCreatedMessage && (
           <h1 className="bookform__output">Book created!</h1>
         )}
-        <OpinionCreate bookId={newBookId}/>
+        {/* <OpinionCreate bookId={newBookId}/> */}
       </form>
     </>
   );
