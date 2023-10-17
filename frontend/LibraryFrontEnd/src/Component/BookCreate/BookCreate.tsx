@@ -1,14 +1,12 @@
 import { useState } from "react";
 import { BookType } from "../../Type";
 import url from "../../Url";
-import "../Book/Book.css";
-import OpinionCreate from "../OpinionCreate/OpinionCreate";
+//import "../Book/Book.css";
 
 type FormDataType = {
-  title: string,
-  author: string,
+  title: string;
+  author: string;
 };
-
 
 export const AddBook = () => {
   const [formData, setFormData] = useState<FormDataType>({
@@ -20,7 +18,7 @@ export const AddBook = () => {
   const [bookCreatedMessage, setBookCreatedMessage] = useState<boolean>(false);
   const [errorBook, setErrorBook] = useState<Boolean>(false);
   const [errorBookDetail, setErrorBookDetail] = useState<string>("");
-  const [newBookId, setNewBookId] = useState<number>(0); 
+  const [newBookId, setNewBookId] = useState<number>(0);
   const PostBook = async () => {
     const requestOptions = {
       method: "POST",
@@ -69,13 +67,13 @@ export const AddBook = () => {
 
   return (
     <>
-      <form
-        onSubmit={(e) => e.preventDefault()}
-        action={url + "api/Book"}
-        method="POST"
-        className="bookForm"
-      >
-        
+      <div className="bookForm__container">
+        <form
+          onSubmit={(e) => e.preventDefault()}
+          action={url + "api/Book"}
+          method="POST"
+          className="bookForm"
+        >
           <input
             className="input"
             placeholder="Title"
@@ -91,26 +89,26 @@ export const AddBook = () => {
             value={formData.author}
             onChange={(e) => HandleInputChange(e)}
           />
-        
-        <div className="bookform__output">
-          {errorBook && (
-            <div className="validation__errorMessage">{errorBookDetail}</div>
+
+          <div className="bookform__output">
+            {errorBook && (
+              <div className="validation__errorMessage">{errorBookDetail}</div>
+            )}
+          </div>
+          <button
+            className="button bookForm__postButton"
+            onClick={async () => {
+              await PostBook();
+            }}
+          >
+            Create book
+          </button>
+          {bookCreatedMessage && (
+            <h1 className="bookform__output">Book created!</h1>
           )}
-          
-        </div>
-        <button
-          className="button bookForm__postButton"
-          onClick={async () => {
-            await PostBook();
-          }}
-        >
-          Create book
-        </button>
-        {bookCreatedMessage && (
-          <h1 className="bookform__output">Book created!</h1>
-        )}
-        {/* <OpinionCreate bookId={newBookId}/> */}
-      </form>
+          {/* <OpinionCreate bookId={newBookId}/> */}
+        </form>
+      </div>
     </>
   );
 };
