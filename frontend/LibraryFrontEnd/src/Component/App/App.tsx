@@ -2,6 +2,7 @@ import "./App.css";
 import { AddBook } from "../BookCreate/BookCreate";
 import { BookList } from "../BookList/BookList";
 import { Routes, BrowserRouter, Route, Link } from "react-router-dom";
+import home from "../../media/home_42px.svg";
 
 export const App = () => {
   return (
@@ -11,7 +12,10 @@ export const App = () => {
           <ul className="liste">
             <dl className="nav-data">
               <Link className="nav-link home" to="/">
-                Home
+                <img
+                className="nav__HomeIcone"
+                src={home}
+                ></img>
               </Link>
             </dl>
             <dl className="nav-data">
