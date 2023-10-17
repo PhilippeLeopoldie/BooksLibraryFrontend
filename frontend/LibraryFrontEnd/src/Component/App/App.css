@@ -1,9 +1,7 @@
 #root {
-  
   text-align: center;
-  
-
 }
+
 .liste {
   margin: 0;
   padding: 0;
@@ -21,48 +19,45 @@
   height: 5.2rem;
 }
 
-.navbar__home{
+.navbar__home {
   margin-left: 3%;
 }
 
-.navbar__addBook{
+.navbar__addBook {
   margin-right: 3%;
-  
 }
 
-.iconeTitle{
-  
+.iconeTitle {
   background-color: #d4af37;
   margin: 0;
-  color:white;
+  color: white;
 }
 
-.nav-link{
-  text-decoration: none ;
-  position:fixed;
+.nav-link {
+  text-decoration: none;
+  position: fixed;
   bottom: 0;
   color: white;
-  background-color:#d4af37;
+  background-color: #d4af37;
 }
 
 .nav-linkt:hover {
   font-size: xx-large;
 }
 
-.navElement{
-  background-color:#d4af37;
+.navElement {
+  background-color: #d4af37;
   margin-top: 0;
 }
 
 @media screen and (min-width: 395px) {
-  .navbar{
+  .navbar {
     position: sticky;
     top: 0;
   }
-  
-  .nav-link{
-    position:sticky;
+
+  .nav-link {
+    position: sticky;
     top: 0;
   }
-  
 }
