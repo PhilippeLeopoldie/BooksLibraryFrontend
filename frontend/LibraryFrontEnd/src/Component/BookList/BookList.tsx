@@ -45,7 +45,7 @@ export const BookList = () => {
       <h2>Recommendation of the day</h2>
       <h3>{random?.book.title}</h3>
       <div className="booksContainer" data-testid="booksContainer">
-        {books &&
+        {books && Array.isArray(books) &&
           books
             .sort((a, b) => b.book.id - a.book.id)
             .map((bookDetail, index) => (
