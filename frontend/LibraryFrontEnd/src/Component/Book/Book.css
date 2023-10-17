@@ -2,6 +2,7 @@
   gap: 2%;
   display: grid;
   justify-content: center;
+  margin: 0% 10%;
 }
 
 .bookcard--grid {
