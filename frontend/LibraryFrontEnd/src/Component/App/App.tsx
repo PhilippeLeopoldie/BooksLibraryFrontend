@@ -15,7 +15,7 @@ export const App = () => {
         <div className="navbar">
           <dl className="navElement navbar__home">
             <Link className="nav-link homeLink" to="/">
-              <img className="nav__HomeIcone" src={homeIcone} alt="Home"></img>
+              <img className="nav-link nav__HomeIcone" src={homeIcone} alt="Home"></img>
               <figcaption className="iconeTitle nav__Home__title">
                 Home
               </figcaption>
