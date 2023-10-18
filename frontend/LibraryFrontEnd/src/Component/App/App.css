@@ -24,6 +24,7 @@
   background-color: #d4af37;
   margin: 0;
   color: white;
+  font-weight: bolder;
 }
 
 .navbar__home {
@@ -64,14 +65,16 @@
 
 .nav__addBook {
   margin-bottom: 1.1rem;
+  margin-left:1rem;
 }
 
 .addIcone {
   margin-bottom: 1.1rem;
+  margin-left:1rem;
 }
 
 .nav__AddBook__Title {
-  margin-right: -5.2rem;
+  margin-right: -6rem;
 }
 
 .nav-link {
@@ -134,12 +137,12 @@
 
   .nav__addBook {
     margin-bottom: 0rem;
-    margin-right: 1.2rem;
+    margin-left: -1.4rem;
   }
 
   .addIcone {
     margin-bottom: 0rem;
-    margin-left: -4.2rem;
+    margin-left: -3rem;
   }
 
   .nav__AddBook__Title {
