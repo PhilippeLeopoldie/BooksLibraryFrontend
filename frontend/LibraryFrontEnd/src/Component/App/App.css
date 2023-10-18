@@ -18,19 +18,38 @@
   width: 100%;
   height: 5.2rem;
 }
+.iconeTitle {
+  background-color: #d4af37;
+  margin: 0;
+  color: white;
+}
 
 .navbar__home {
   margin-left: 3%;
 }
 
-.navbar__addBook {
-  margin-right: 3%;
+.nav__search {
+  margin-bottom: 1rem;
 }
 
-.iconeTitle {
-  background-color: #d4af37;
-  margin: 0;
-  color: white;
+.nav__search__title {
+  margin-left: 45%;
+}
+
+.navbar__addBook {
+  margin-right: 8rem;
+}
+
+.nav__addBook {
+  margin-bottom: 1.3rem;
+}
+
+.addIcone {
+  margin-bottom: 1.3rem;
+}
+
+.nav__AddBook__Title {
+  margin-right: -45%;
 }
 
 .nav-link {
@@ -50,7 +69,7 @@
   margin-top: 0;
 }
 
-@media screen and (min-width: 395px) {
+@media screen and (min-width: 768px) {
   .navbar {
     position: sticky;
     top: 0;
@@ -59,5 +78,32 @@
   .nav-link {
     position: sticky;
     top: 0;
+  }
+
+  .navbar__addBook {
+    margin-right: 1.5rem;
+  }
+
+  .nav__addBook {
+    margin-bottom: 0rem;
+    margin-right: 1.2rem;
+  }
+
+  .addIcone {
+    margin-bottom: 0rem;
+    margin-left: -4.2rem;
+  }
+
+  .nav__AddBook__Title {
+    margin-left: 0rem;
+    margin-right: 0rem;
+  }
+
+  .nav__search {
+    margin-bottom: 0rem;
+  }
+
+  .nav__search__title {
+    margin-left: 0%;
   }
 }

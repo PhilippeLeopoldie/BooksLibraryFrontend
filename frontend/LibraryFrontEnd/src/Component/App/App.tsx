@@ -36,23 +36,23 @@ export const App = () => {
             </Link>
           </dl>
           <dl className="navElement navbar__addBook">
-            <Link className="nav-link nav__addBook" to="/addBook">
+            <Link className="nav-link addBook" to="/addBook">
               <img
-                className="nav-link nav__book"
+                className="nav-link nav__addBook"
                 width="48"
                 height="48"
                 src={bookIcone}
                 alt="book"
               />
-
+              
               <img
-                className="nav-link"
+                className="nav-link addIcone"
                 width="20"
                 height="20"
                 src={addIcone}
                 alt="add"
               />
-              <figcaption className="iconeTitle nav__Add__title">
+              <figcaption className="iconeTitle nav__AddBook__Title">
                 Add a book
               </figcaption>
             </Link>
