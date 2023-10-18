@@ -4,6 +4,7 @@
   height: 29rem;
   background: rgb(253, 229, 187) 10%;
   padding-top: 5%;
+  border-radius: 5%;
 }
 
 .opinionForm__footer{
