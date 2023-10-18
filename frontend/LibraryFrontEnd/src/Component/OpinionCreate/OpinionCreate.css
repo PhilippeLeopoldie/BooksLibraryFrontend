@@ -1,19 +1,36 @@
 .opinionCreateCard{
   display: grid;
   width: 20rem;
-  height: 30rem;
+  height: 29rem;
   background: rgb(253, 229, 187) 10%;
+  padding-top: 5%;
 }
 
 .opinionForm__footer{
  background: transparent;
  display: flex;
+ justify-content: space-between;
+ margin-top: 20%;
+ margin-bottom: 10%;
+ 
+}
+.validation__errorMessage{
+  color : red;
+  background-color: transparent;
+  font-size: large;
+  font-weight: bold;
+}
+
+.opinionForm__postButton {
+  font-weight: bold;
+  font-size: large;
+  
+  padding: 0.2rem 3rem;
+  margin:auto 5%
+  
 }
 
 .opinionForm__cancelButon{
   margin:auto 5%
 }
 
-.bookForm__postButton{
- margin-left: 10%;
-}
