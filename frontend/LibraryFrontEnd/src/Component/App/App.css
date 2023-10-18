@@ -16,7 +16,7 @@
   background-color: #d4af37;
   z-index: 1;
   width: 100%;
-  height: 5.2rem;
+  height:4rem;
 }
 .iconeTitle {
   background-color: #d4af37;
@@ -26,6 +26,11 @@
 
 .navbar__home {
   margin-left: 3%;
+}
+
+.nav__HomeIcone {
+  margin-bottom: 1rem;
+  margin-left:-1.5rem;
 }
 
 .nav__search {
@@ -41,11 +46,11 @@
 }
 
 .nav__addBook {
-  margin-bottom: 1.3rem;
+  margin-bottom: 1rem;
 }
 
 .addIcone {
-  margin-bottom: 1.3rem;
+  margin-bottom: 1rem;
 }
 
 .nav__AddBook__Title {
@@ -73,11 +78,25 @@
   .navbar {
     position: sticky;
     top: 0;
+    height: 4.6rem;
   }
 
   .nav-link {
     position: sticky;
     top: 0;
+  }
+
+  .nav__HomeIcone {
+    margin-bottom: 0rem;
+    margin-left:0rem;
+  }
+
+  .nav__search {
+    margin-bottom: 0rem;
+  }
+
+  .nav__search__title {
+    margin-left: 0%;
   }
 
   .navbar__addBook {
