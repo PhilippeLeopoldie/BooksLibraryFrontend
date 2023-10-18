@@ -104,7 +104,7 @@ export const AddBook = () => {
             Create book
           </button>
           {bookCreatedMessage && (
-            <h1 className="bookform__output">Book created!</h1>
+            <div className="bookform__output">Book created!</div>
           )}
           {/* <OpinionCreate bookId={newBookId}/> */}
         </form>
