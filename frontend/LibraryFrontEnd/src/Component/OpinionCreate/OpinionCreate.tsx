@@ -102,6 +102,9 @@ export const OpinionCreate = ({ book, toCreate }: AddOpinionType) => {
           value={formData.userName}
           onChange={(e) => HandleInputChange(e)}
         />
+        {errorOpinion && (
+          <div className="validation__errorMessage">{errorOpinionDetail}</div>
+        )}
         <div className="opinionForm__footer">
           <button className="button opinionForm__cancelButon"
             onClick={() => {
@@ -119,13 +122,6 @@ export const OpinionCreate = ({ book, toCreate }: AddOpinionType) => {
             Post
           </button>
         </div>
-
-        {errorOpinion && (
-          <div className="validation__errorMessage">{errorOpinionDetail}</div>
-        )}
-        {bookCreatedMessage && (
-          <h1 className="bookform__output">Review posted!</h1>
-        )}
       </div>
     </>
   );
