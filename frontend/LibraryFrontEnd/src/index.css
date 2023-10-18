@@ -4,6 +4,12 @@
   color-scheme: light dark;
   background-color: white;
 }
+.input {
+  background-color: white;
+  margin-top: 5%;
+  font-size: x-large;
+  margin: 3%;
+}
 
 button {
   border-radius: 8px;
@@ -15,12 +21,11 @@ button {
 
 button:hover {
   border: #4bdeff 2px solid;
-  
 }
 
 .icone,
 .button {
-  background-color: #EAECEC;
+  background-color: transparent;
 }
 
 body {
