@@ -111,7 +111,7 @@ export const OpinionCreate = ({ book, toCreate }: AddOpinionType) => {
             Cancel
           </button>
           <button
-            className="button bookForm__postButton"
+            className="button opinionForm__postButton"
             onClick={async () => {
               book && book.id && (await PostOpinion(book.id));
             }}
