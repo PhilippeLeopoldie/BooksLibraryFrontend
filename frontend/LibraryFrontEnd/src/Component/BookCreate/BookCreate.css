@@ -1,40 +1,29 @@
 .bookForm__container {
   margin-top: 1rem;
   display: flex;
-  align-items: center;
   justify-content: center;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3),
     0 0 300px 25px rgba(222, 198, 122, 0.7) inset;
-  width: 10rem;
-  height: 100%;
+  width: 20rem;
+  height: 30rem;
   padding: 1rem;
-  margin:5% auto;
+  margin: 5% auto;
   position: relative;
-}
-
-.input {
-  margin-top: 2%;
-  
-  background-color: white;
-  
-  margin: 2% 2%;
-  
 }
 
 .opinionForm__view {
   resize: none;
 }
 
-
-
-.bookForm{
-background-color: transparent;
-display: grid;
-grid-template-rows: repeat(5, 0.6fr) ;
+.bookForm {
+  background-color: transparent;
+  display: grid;
+  grid-template-rows: repeat(5, 0.6fr);
+  width: 100%;
 }
 
-.validation__errorMessage{
-  color : red;
+.validation__errorMessage {
+  color: red;
   background-color: transparent;
   font-size: large;
   font-weight: bold;
@@ -49,7 +38,8 @@ grid-template-rows: repeat(5, 0.6fr) ;
 
 .bookForm__postButton {
   font-weight: bold;
-  font-size: large;
+  font-size: x-large;
   margin-top: 1rem;
   margin-bottom: 1.5rem;
+  color: blue;
 }
