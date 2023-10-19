@@ -20,7 +20,7 @@ type BooksSearchCriteria = {
 export const BookListSearch = ({ searchCriteria }: BooksSearchCriteria) => {
   const [books, setBooks] = useState<BooksType[]>([]);
   const [initialBooks, setInitialBooks] = useState<BooksType[]>([]);
-
+  let filteredBooks: BooksType[] = [];
   const handleDeleteBook = (bookId: number) => {
     setBooks((books) => {
       if (books !== null) {
@@ -36,7 +36,6 @@ export const BookListSearch = ({ searchCriteria }: BooksSearchCriteria) => {
       const booksResponse: Response = await fetch(url + "api/Book");
       if (booksResponse.status === 200) {
         const booksResponseData = await booksResponse.json();
-        //setBooks(booksResponseData.$values);
         setInitialBooks(booksResponseData.$values);
       } else if (booksResponse.status === 404) {
         console.log(booksResponse);
@@ -52,18 +51,23 @@ export const BookListSearch = ({ searchCriteria }: BooksSearchCriteria) => {
 
   useEffect(() => {
     if (searchCriteria !== undefined) {
-      const filteredBooks = initialBooks.filter((books) => {
-        const titleMatches = books.book.title
-          .toLowerCase()
-          .includes(searchCriteria.title.toLowerCase());
+      if (searchCriteria.title === "" && searchCriteria.author === "") {
+        filteredBooks = [];
+      } else {
+        filteredBooks = initialBooks.filter((books) => {
+          const titleMatches = books.book.title
+            .toLowerCase()
+            .includes(searchCriteria.title.toLowerCase());
 
-        const authorMatches = books.book.author
-          .toLowerCase()
-          .includes(searchCriteria.author.toLowerCase());
+          const authorMatches = books.book.author
+            .toLowerCase()
+            .includes(searchCriteria.author.toLowerCase());
 
-        return titleMatches || authorMatches;
-      });
+          return titleMatches || authorMatches;
+        });
+      }
       console.log("filteredBooks value", filteredBooks);
+      console.log("searchCriteria :", searchCriteria);
       setBooks(filteredBooks);
     }
   }, [searchCriteria]);
@@ -93,5 +97,3 @@ export const BookListSearch = ({ searchCriteria }: BooksSearchCriteria) => {
     </>
   );
 };
-
-
