@@ -19,7 +19,9 @@ export const BookSearch = () => {
   
   return (
     <>
-      <form className="searchForm">
+      <form className="searchForm"
+      onSubmit={(e) => e.preventDefault()}
+      >
         <input
           className="searchForm__input"
           autoFocus
