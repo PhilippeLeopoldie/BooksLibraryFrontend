@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { BookList } from "../BookList/BookList"
+import { BookListSearch } from "../BookListSearch/BookListSearch"
 
 type BooksSearchCriteria = {
   search?:{
@@ -39,7 +39,7 @@ export const BookSearch = () => {
           }}
         />
       </form>
-      <BookList searchCriteria={searchCriteria.search}/>
+      <BookListSearch searchCriteria={searchCriteria.search}/>
     </>
   )
 }

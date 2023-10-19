@@ -10,16 +10,8 @@ type BooksType = {
   };
 };
 
-type BooksSearchCriteria = {
-  searchCriteria?: {
-    title: string,
-    author: string,
-  };
-};
-
-export const BookList = ({ searchCriteria }: BooksSearchCriteria) => {
+export const BookList = () => {
   const [books, setBooks] = useState<BooksType[]>([]);
-  const [initialBooks, setInitialBooks] = useState<BooksType[]>([]);
 
   const handleDeleteBook = (bookId: number) => {
     setBooks((books) => {
@@ -37,7 +29,6 @@ export const BookList = ({ searchCriteria }: BooksSearchCriteria) => {
       if (booksResponse.status === 200) {
         const booksResponseData = await booksResponse.json();
         setBooks(booksResponseData.$values);
-        setInitialBooks(booksResponseData.$values);
       } else if (booksResponse.status === 404) {
         console.log(booksResponse);
       }
@@ -49,23 +40,6 @@ export const BookList = ({ searchCriteria }: BooksSearchCriteria) => {
   useEffect(() => {
     fetchBooks();
   }, []);
-
-  useEffect(() => {
-    if (searchCriteria !== undefined) {
-      const filteredBooks = initialBooks.filter((books) => {
-        const titleMatches = books.book.title
-          .toLowerCase()
-          .includes(searchCriteria.title.toLowerCase());
-
-        const authorMatches = books.book.author
-          .toLowerCase()
-          .includes(searchCriteria.author.toLowerCase());
-
-        return titleMatches || authorMatches;
-      });
-      setBooks(filteredBooks);
-    }
-  }, [searchCriteria]);
 
   if (!books) {
     return <h1>Loading...</h1>;
