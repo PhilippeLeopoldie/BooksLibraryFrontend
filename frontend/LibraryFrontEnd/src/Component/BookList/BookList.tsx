@@ -1,5 +1,4 @@
 import { Book } from "../Book/Book";
-import { BookType } from "../../Type";
 import url from "../../Url";
 import { useEffect, useState } from "react";
 
@@ -12,16 +11,15 @@ type BooksType = {
 };
 
 type BooksSearchCriteria = {
-  searchCriteria?:{
-    //filtered: boolean,
+  searchCriteria?: {
     title: string,
-    author: string
-  } 
-}
+    author: string,
+  };
+};
 
-export const BookList = ({searchCriteria}:BooksSearchCriteria) => {
-  const [books, setBooks] = useState<BooksType[] >([]);
-  const [initialBooks, setInitialBooks] = useState<BooksType[] >([]);
+export const BookList = ({ searchCriteria }: BooksSearchCriteria) => {
+  const [books, setBooks] = useState<BooksType[]>([]);
+  const [initialBooks, setInitialBooks] = useState<BooksType[]>([]);
 
   const handleDeleteBook = (bookId: number) => {
     setBooks((books) => {
@@ -39,7 +37,7 @@ export const BookList = ({searchCriteria}:BooksSearchCriteria) => {
       if (booksResponse.status === 200) {
         const booksResponseData = await booksResponse.json();
         setBooks(booksResponseData.$values);
-        setInitialBooks(booksResponseData.$values); 
+        setInitialBooks(booksResponseData.$values);
       } else if (booksResponse.status === 404) {
         console.log(booksResponse);
       }
@@ -52,34 +50,36 @@ export const BookList = ({searchCriteria}:BooksSearchCriteria) => {
     fetchBooks();
   }, []);
 
-  useEffect(()=> {
-    if(searchCriteria !== undefined) {
+  useEffect(() => {
+    if (searchCriteria !== undefined) {
       const filteredBooks = initialBooks.filter((books) => {
+        const titleMatches = books.book.title
+          .toLowerCase()
+          .includes(searchCriteria.title.toLowerCase());
 
-        const titleMatches = books.book.title.toLowerCase()
-        .includes(searchCriteria.title.toLowerCase());
-
-        const authorMatches = books.book.author.toLowerCase()
-        .includes(searchCriteria.author.toLowerCase());
+        const authorMatches = books.book.author
+          .toLowerCase()
+          .includes(searchCriteria.author.toLowerCase());
 
         return titleMatches || authorMatches;
-      })
-      setBooks(filteredBooks)
+      });
+      setBooks(filteredBooks);
     }
-  }, [searchCriteria])
+  }, [searchCriteria]);
 
   if (!books) {
     return <h1>Loading...</h1>;
   }
 
-  const randomIndex = (Math.floor(Math.random() * books.length));
-  const random = books[randomIndex]
+  const randomIndex = Math.floor(Math.random() * books.length);
+  const random = books[randomIndex];
   return (
     <div className="books">
       <h2>Recommendation of the day</h2>
       <h3>{random?.book.title}</h3>
       <div className="booksContainer" data-testid="booksContainer">
-        {books && Array.isArray(books) &&
+        {books &&
+          Array.isArray(books) &&
           books
             .sort((a, b) => b.book.id - a.book.id)
             .map((bookDetail, index) => (
