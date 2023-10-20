@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` snapchot: renders book title and author 1`] = `
+<DocumentFragment>
+  <div
+    class="bookcard--grid"
+  >
+    <div
+      class="bookcard--header"
+    >
+      <button
+        class=" button booktitle--trashbutton"
+        type="submit"
+      >
+        <img
+          alt="delete"
+          class="icone bookcard--iconeTrash"
+          src="SvgrURL"
+        />
+      </button>
+      <h2
+        class="booktitle"
+      >
+        The Great Gatsby
+      </h2>
+      <h3
+        class="bookauthor"
+      >
+        by: F. Scott Fitzgerald
+      </h3>
+    </div>
+    <h2
+      class="OpinionLoading"
+    >
+      Loading...
+    </h2>
+    <button
+      class="button bookCard__RateButton"
+    >
+      Rate this book
+    </button>
+  </div>
+</DocumentFragment>
+`;
