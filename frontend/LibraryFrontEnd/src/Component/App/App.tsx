@@ -1,5 +1,5 @@
 import "./App.css";
-import { AddBook } from "../BookCreate/BookCreate";
+import { BookCreate } from "../BookCreate/BookCreate";
 import { BookList } from "../BookList/BookList";
 import { Routes, BrowserRouter, Route, Link } from "react-router-dom";
 import { BookSearch } from "../BookSearch/BookSearch";
@@ -60,7 +60,7 @@ export const App = () => {
         </div>
         <Routes>
           <Route path="/" element={<BookList />}/>
-          <Route path="/addBook" element={<AddBook />}/>
+          <Route path="/addBook" element={<BookCreate />}/>
           <Route path="/Search" element={<BookSearch/>}/>
         </Routes>
       </BrowserRouter>

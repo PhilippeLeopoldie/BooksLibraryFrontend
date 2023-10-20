@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { BookType } from "../../Type";
+import { Link } from "react-router-dom";
 import url from "../../Url";
+
 //import "../Book/Book.css";
 
 type FormDataType = {
@@ -8,7 +10,7 @@ type FormDataType = {
   author: string;
 };
 
-export const AddBook = () => {
+export const BookCreate = () => {
   const [formData, setFormData] = useState<FormDataType>({
     title: "",
     author: "",
@@ -40,6 +42,10 @@ export const AddBook = () => {
       setNewBookId(body.id);
       setBooks((books) => [...books, body]);
       setBookCreatedMessage(true);
+      setFormData({
+        title: "",
+        author: ""
+      })
       return body;
     } else if (bookResponse.status === 400) {
       setErrorBook(true);
@@ -104,7 +110,14 @@ export const AddBook = () => {
             Create book
           </button>
           {bookCreatedMessage && (
-            <div className="bookform__output">Book created!</div>
+            <div className="bookform__outpout__card">
+              <div className="bookform__output">Book created!</div>
+              <Link to="/">
+                <h2 className="bookform__output__backToHome">back to Home</h2>
+              {/* <img className="nav-link nav__HomeIcone" src={homeIcone} alt="Home"></img> */}
+              </Link>
+            </div>
+            
           )}
           {/* <OpinionCreate bookId={newBookId}/> */}
         </form>
