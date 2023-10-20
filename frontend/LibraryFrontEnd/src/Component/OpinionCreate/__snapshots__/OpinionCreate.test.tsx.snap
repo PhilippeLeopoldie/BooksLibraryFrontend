@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OpinionCreate snapShot: render Opinioncreate 1`] = `
+<DocumentFragment>
+  <div
+    class="opinionCreateCard"
+  >
+    <h2
+      class="booktitle"
+    />
+    <h3
+      class="bookauthor"
+    >
+      by: 
+    </h3>
+    <div
+      class="rate_container--flex"
+    >
+      <div
+        class="rate_star empty"
+      >
+        ★
+      </div>
+      <div
+        class="rate_star empty"
+      >
+        ★
+      </div>
+      <div
+        class="rate_star empty"
+      >
+        ★
+      </div>
+      <div
+        class="rate_star empty"
+      >
+        ★
+      </div>
+      <div
+        class="rate_star empty"
+      >
+        ★
+      </div>
+    </div>
+    <textarea
+      class="opinionForm__view input"
+      name="view"
+      placeholder="View"
+    />
+    <input
+      class="input"
+      name="userName"
+      placeholder="UserName"
+      value=""
+    />
+    <div
+      class="opinionForm__footer"
+    >
+      <button
+        class="button opinionForm__cancelButon"
+      >
+        Cancel
+      </button>
+      <button
+        class="button opinionForm__postButton"
+      >
+        Post
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;
