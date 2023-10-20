@@ -51,9 +51,9 @@ export const BookListSearch = ({ searchCriteria }: BooksSearchCriteria) => {
 
   useEffect(() => {
     if (searchCriteria !== undefined) {
-      if (searchCriteria.title === "" && searchCriteria.author === "") {
-        filteredBooks = [];
-      } else {
+      (searchCriteria.title === "" && searchCriteria.author === "") ? 
+        filteredBooks = []
+       : 
         filteredBooks = initialBooks.filter((books) => {
           const titleMatches = books.book.title
             .toLowerCase()
@@ -65,9 +65,7 @@ export const BookListSearch = ({ searchCriteria }: BooksSearchCriteria) => {
 
           return titleMatches || authorMatches;
         });
-      }
-      console.log("filteredBooks value", filteredBooks);
-      console.log("searchCriteria :", searchCriteria);
+      
       setBooks(filteredBooks);
     }
   }, [searchCriteria]);
