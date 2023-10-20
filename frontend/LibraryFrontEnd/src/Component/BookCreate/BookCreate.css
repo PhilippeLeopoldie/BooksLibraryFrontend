@@ -29,11 +29,18 @@
   font-weight: bold;
 }
 
+.bookform__outpout__card{
+  background-color: transparent;
+}
+
 .bookform__output {
   background-color: transparent;
   color: green;
-  font-size: large;
+  font-size: xxx-large;
   font-weight: bold;
+}
+.bookform__output__backToHome{
+  background-color: transparent;
 }
 
 .bookForm__postButton {
