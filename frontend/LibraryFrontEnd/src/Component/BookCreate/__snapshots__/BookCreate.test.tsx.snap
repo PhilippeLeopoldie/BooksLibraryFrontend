@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Book to Create snapShot: render Book Create 1`] = `
+<DocumentFragment>
+  <div
+    class="bookForm__container"
+  >
+    <form
+      action="https://localhost:7152/api/Book"
+      class="bookForm"
+      method="POST"
+    >
+      <input
+        class="input"
+        name="title"
+        placeholder="Title"
+        value=""
+      />
+      <input
+        class="input"
+        name="author"
+        placeholder="Author"
+        value=""
+      />
+      <div
+        class="bookform__output"
+      />
+      <button
+        class="button bookForm__postButton"
+      >
+        Create book
+      </button>
+    </form>
+  </div>
+</DocumentFragment>
+`;
