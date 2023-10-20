@@ -1,0 +1,94 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App routes snapShot: render nav bar 1`] = `
+<DocumentFragment>
+  <div
+    class="App"
+  >
+    <div
+      class="navbar"
+    >
+      <dl
+        class="navElement navbar__home"
+      >
+        <a
+          class="nav-link homeLink"
+          href="/"
+        >
+          <img
+            alt="Home"
+            class="nav-link nav__HomeIcone"
+            src="SvgrURL"
+          />
+          <figcaption
+            class="iconeTitle nav__Home__title"
+          >
+            Home
+          </figcaption>
+        </a>
+      </dl>
+      <dl
+        class="navElement navbar__search"
+      >
+        <a
+          class="nav-link"
+          href="/Search"
+        >
+          <img
+            alt="Search"
+            class="nav-link nav__search"
+            height="48"
+            src="SvgrURL"
+            width="48"
+          />
+          <figcaption
+            class="iconeTitle nav__search__title"
+          >
+            Search
+          </figcaption>
+        </a>
+      </dl>
+      <dl
+        class="navElement navbar__addBook"
+      >
+        <a
+          class="nav-link addBook"
+          href="/addBook"
+        >
+          <img
+            alt="book"
+            class="nav-link nav__addBook"
+            height="48"
+            src="SvgrURL"
+            width="48"
+          />
+          <img
+            alt="add"
+            class="nav-link addIcone"
+            height="20"
+            src="SvgrURL"
+            width="20"
+          />
+          <figcaption
+            class="iconeTitle nav__AddBook__Title"
+          >
+            Add a book
+          </figcaption>
+        </a>
+      </dl>
+    </div>
+    <div
+      class="books"
+    >
+      <h2>
+        Recommendation of the day
+      </h2>
+      <h3 />
+      <div
+        class="booksContainer"
+        data-testid="booksContainer"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
