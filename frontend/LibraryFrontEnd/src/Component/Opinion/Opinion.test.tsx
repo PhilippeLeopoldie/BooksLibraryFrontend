@@ -13,19 +13,28 @@ global.fetch = jest.fn().mockImplementation(() =>
     hearders: new Headers(),
   })
 );
+
+type Book={
+  id:number,
+  title: string,
+  author:string
+}
+const book :Book = {
+  id:1,
+  title:"title 1",
+  author: "author 1"
+}
+
 describe("Opinions Component Tests", () => {
+  it("SnapShot: should render Opinion", () => {
+    const {asFragment} =  
+      render(<Opinion book={book} onEdit={() => {}} toCreate={()=> {}} />);
+    expect(asFragment()).toMatchSnapshot();
+  })
+
   it("Should not render Loading message when book with no opinion", async () => {
     //Arrange
-    type Book={
-      id:number,
-      title: string,
-      author:string
-    }
-    const book :Book = {
-      id:1,
-      title:"title 1",
-      author: "author 1"
-    }
+    
     await act(async () => {
       render(<Opinion book={book} onEdit={() => {}} toCreate={()=> {}} />);
     });
@@ -35,8 +44,6 @@ describe("Opinions Component Tests", () => {
   
     //Expect
     expect(loadingMessage).toBeNull();
-  });
-
-  
+  }); 
 })
 
