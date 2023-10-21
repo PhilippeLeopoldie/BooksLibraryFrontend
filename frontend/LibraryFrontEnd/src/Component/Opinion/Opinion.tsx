@@ -1,4 +1,5 @@
 import { useEffect, useState, useContext } from "react";
+import "./Opinion.css"
 import { OpinionType } from "../../Type";
 import url from "../../Url";
 import modify from "../../media/write.svg";
@@ -48,7 +49,7 @@ export const Opinion = ({book, onEdit, toCreate}: BookType) => {
       console.log("404 response",response)
     }
    } catch (error) {
-    console.error("An error occurred:", error);
+    console.error("error fetching Opinions:", error);
    }
   } 
 
