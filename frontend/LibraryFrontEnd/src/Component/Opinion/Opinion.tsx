@@ -66,6 +66,7 @@ export const Opinion = ({book, onEdit, toCreate}: BookType) => {
         {lastOpinion && (
           <div className="opinioncontainer--card" key={lastOpinion.id}>
             <div className="opinionCardItems" >
+              <p className="opinionCardItems opinioncard__nbReview">{opinions?.length} reviews</p>
               <textarea
                 className="opinionCardItems opinioncard--view"
                 value={lastOpinion.view}
