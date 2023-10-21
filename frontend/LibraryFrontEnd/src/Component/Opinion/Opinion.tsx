@@ -72,7 +72,10 @@ export const Opinion = ({book, onEdit, toCreate}: BookType) => {
                 readOnly
               />
               <div className="opinionCardItems">{lastOpinion.userName}</div>
-              <Rate rate= {lastOpinion.rate}/>
+              <div className="opinionCardItems opinioncard__rate">
+                <Rate rate= {lastOpinion.rate}/>
+                <p className="opinionCardItems opinioncard__postDate" >{lastOpinion.postDate}</p>
+              </div>
             </div>
             {/* <div className="opinionCardItems opinioncard--footer">
               <button
