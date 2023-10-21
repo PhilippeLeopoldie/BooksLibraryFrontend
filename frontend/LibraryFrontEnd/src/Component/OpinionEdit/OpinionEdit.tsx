@@ -1,6 +1,7 @@
 import { SyntheticEvent, useState, useContext } from "react";
 import url from "../../Url";
 import { RateClick } from "./RateClick/RateClick";
+import "./OpinionEdit.css"
 
 type EditedOpinion = {
   id:number
