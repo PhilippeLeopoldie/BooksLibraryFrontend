@@ -1,0 +1,24 @@
+.booksContainer {
+  display: grid;
+  justify-content: center;
+  margin: 4% 10%;
+}
+
+@media screen and (min-width: 698px) {
+  .booksContainer {
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 0%;
+  }
+}
+
+@media screen and (min-width: 1042px) {
+  .booksContainer {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 1458px) {
+  .booksContainer {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
