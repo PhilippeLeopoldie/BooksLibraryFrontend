@@ -6,19 +6,14 @@ import modify from "../../media/write.svg";
 import { Rate } from "./Rate/Rate";
 
 
-type EditOpinion = {
-  id: number,
-  rate: number,
-  view: string,
-  userName: string,
-  bookId: number
-};
+
 
 type Opinion = {
   id: number,
   rate: number,
   view: string,
   userName: string,
+  postDate: string,
   bookId: number
 };
 
@@ -28,13 +23,13 @@ type BookType = {
     title:string,
     author:string
   }
-  onEdit?: (opinionToUpdate:EditOpinion) => void
+  onEdit?: (opinionToUpdate:Opinion) => void
   toCreate: ()=> void
 };
 
 
 export const Opinion = ({book, onEdit, toCreate}: BookType) => {
-  const [opinions, setOpinions] = useState<OpinionType[] | null >(null);
+  const [opinions, setOpinions] = useState<Opinion[] | null >(null);
   const [fetching, setFething] = useState<boolean>(true);
   const [lastOpinion, setLastOpinion] = useState<Opinion | null>(null);
   const FetchOpinions = async (bookId :number) => {
