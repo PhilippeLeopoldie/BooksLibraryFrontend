@@ -1,4 +1,5 @@
 import { Opinion } from "../Opinion/Opinion";
+import "./Book.css"
 import url from "../../Url";
 import trash from "../../media/delete.svg";
 import { useState } from "react";
