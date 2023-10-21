@@ -1,4 +1,5 @@
 import { Book } from "../Book/Book";
+import "./BookList.css"
 import url from "../../Url";
 import { useEffect, useState } from "react";
 
@@ -11,7 +12,7 @@ type BooksType = {
 };
 
 export const BookList = () => {
-  const [books, setBooks] = useState<BooksType[]>([]);
+  const [books, setBooks] = useState<BooksType[] | null>(null);
 
   const handleDeleteBook = (bookId: number) => {
     setBooks((books) => {

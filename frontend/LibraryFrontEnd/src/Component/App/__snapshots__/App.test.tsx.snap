@@ -77,18 +77,9 @@ exports[`App routes snapShot: render nav bar 1`] = `
         </a>
       </dl>
     </div>
-    <div
-      class="books"
-    >
-      <h2>
-        Recommendation of the day
-      </h2>
-      <h3 />
-      <div
-        class="booksContainer"
-        data-testid="booksContainer"
-      />
-    </div>
+    <h1>
+      Loading...
+    </h1>
   </div>
 </DocumentFragment>
 `;
