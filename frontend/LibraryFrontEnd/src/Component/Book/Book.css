@@ -12,7 +12,7 @@
     #d4af37 10%,
     rgb(253, 229, 187) 10%
   );
-  margin-bottom: 10%;
+  margin:0 1em 10% 1em;
 }
 
 .bookCard__RateButton{
