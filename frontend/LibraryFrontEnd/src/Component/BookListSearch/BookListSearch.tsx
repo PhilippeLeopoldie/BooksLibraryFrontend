@@ -19,7 +19,7 @@ type BooksSearchCriteria = {
 };
 
 export const BookListSearch = ({ searchCriteria }: BooksSearchCriteria) => {
-  const [books, setBooks] = useState<BooksType[]>([]);
+  const [books, setBooks] = useState<BooksType[] | null>(null);
   const [initialBooks, setInitialBooks] = useState<BooksType[]>([]);
   let filteredBooks: BooksType[] = [];
   const handleDeleteBook = (bookId: number) => {
@@ -27,7 +27,7 @@ export const BookListSearch = ({ searchCriteria }: BooksSearchCriteria) => {
       if (books !== null) {
         return books.filter((book) => book.book.id !== bookId);
       } else {
-        return [];
+        return null;
       }
     });
   };
@@ -55,7 +55,7 @@ export const BookListSearch = ({ searchCriteria }: BooksSearchCriteria) => {
       (searchCriteria.title === "" && searchCriteria.author === "") ? 
         filteredBooks = []
        : 
-        filteredBooks = initialBooks.filter((books) => {
+        filteredBooks = Array.isArray(initialBooks)? initialBooks.filter((books) => {
           const titleMatches = books.book.title
             .toLowerCase()
             .includes(searchCriteria.title.toLowerCase());
@@ -65,20 +65,20 @@ export const BookListSearch = ({ searchCriteria }: BooksSearchCriteria) => {
             .includes(searchCriteria.author.toLowerCase());
 
           return titleMatches || authorMatches;
-        });
+        }):[];
       
       setBooks(filteredBooks);
     }
   }, [searchCriteria]);
 
   if (!books) {
-    return <h1>Loading...</h1>;
+    return <h1></h1>;
   }
 
   return (
     <>
       <div className="books">
-        <h2>({books.length}) book(s) found</h2>
+        <h2>({books && books.length}) book(s) found</h2>
         <div className="booksContainer" data-testid="booksContainer">
           {books &&
             Array.isArray(books) &&
