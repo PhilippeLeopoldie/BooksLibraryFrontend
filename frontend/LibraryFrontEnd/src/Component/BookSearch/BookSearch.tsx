@@ -1,4 +1,5 @@
 import { useState } from "react"
+import "./BookSearch.css"
 import { BookListSearch } from "../BookListSearch/BookListSearch"
 
 type BooksSearchCriteria = {
@@ -10,10 +11,7 @@ type BooksSearchCriteria = {
 
 export const BookSearch = () => {
   const [searchCriteria, setSearchCriteria] = useState<BooksSearchCriteria>({
-    search:{
-      title: "",
-      author: ""
-    }
+    
   })
   const [inputValue,setInputValue] = useState<string>("");
   
