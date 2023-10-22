@@ -1,7 +1,7 @@
 .opinionCreateCard{
   display: grid;
-  width: 20em;
-  height: 29em;
+  width: 20rem;
+  height: 29rem;
   background: rgb(253, 229, 187) 10%;
   padding-top: 5%;
   border-radius: 5%;
@@ -27,7 +27,7 @@
   font-weight: bold;
   font-size: large;
   
-  padding: 0.2em 3em;
+  padding: 0.2rem 3rem;
   margin:auto 5%
   
 }
