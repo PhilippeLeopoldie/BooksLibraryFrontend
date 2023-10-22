@@ -1,12 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`BookListSearch snapShot: render 'Loading...' 1`] = `
+<DocumentFragment>
+  <div
+    class="books"
+  >
+    <h2>
+      () book(s) found
+    </h2>
+    <div
+      class="booksContainer"
+      data-testid="booksContainer"
+    />
+  </div>
+</DocumentFragment>
+`;
+
 exports[`BookListSearch snapShot: render BookListSearch 1`] = `
 <DocumentFragment>
   <div
     class="books"
   >
     <h2>
-      (0) book(s) found
+      () book(s) found
     </h2>
     <div
       class="booksContainer"
