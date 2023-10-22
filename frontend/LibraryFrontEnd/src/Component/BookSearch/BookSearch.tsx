@@ -1,25 +1,21 @@
-import { useState } from "react"
-import "./BookSearch.css"
-import { BookListSearch } from "../BookListSearch/BookListSearch"
+import { useState } from "react";
+import "./BookSearch.css";
+import { BookListSearch } from "../BookListSearch/BookListSearch";
 
 type BooksSearchCriteria = {
-  search?:{
-    title: string,
-    author: string
-  }
-}
+  search?: {
+    title: string;
+    author: string;
+  };
+};
 
 export const BookSearch = () => {
-  const [searchCriteria, setSearchCriteria] = useState<BooksSearchCriteria>({
-    
-  })
-  const [inputValue,setInputValue] = useState<string>("");
-  
+  const [searchCriteria, setSearchCriteria] = useState<BooksSearchCriteria>({});
+  const [inputValue, setInputValue] = useState<string>("");
+
   return (
     <>
-      <form className="searchForm"
-      onSubmit={(e) => e.preventDefault()}
-      >
+      <form className="searchForm" onSubmit={(e) => e.preventDefault()}>
         <input
           className="searchForm__input"
           autoFocus
@@ -29,17 +25,15 @@ export const BookSearch = () => {
           onChange={(e) => {
             setInputValue(e.target.value);
             setSearchCriteria({
-               search:{
-                title:e.target.value,
-                author: e.target.value
-              }
-            })
+              search: {
+                title: e.target.value,
+                author: e.target.value,
+              },
+            });
           }}
         />
       </form>
-      <BookListSearch searchCriteria={searchCriteria.search}/>
+      <BookListSearch searchCriteria={searchCriteria.search} />
     </>
-  )
-}
-
-
+  );
+};
