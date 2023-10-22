@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BookList rendering snapShot: should render BookList 1`] = `
+<DocumentFragment>
+  <form
+    class="searchForm"
+  >
+    <input
+      class="searchForm__input"
+      name="titleOrAuthor"
+      placeholder="Search by Title or Author"
+      value="author"
+    />
+  </form>
+  <div
+    class="books"
+  >
+    <h2>
+      (6) book(s) found
+    </h2>
+    <div
+      class="booksContainer"
+      data-testid="booksContainer"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`BookList rendering snapShot: should render an empty BookList 1`] = `
+<DocumentFragment>
+  <form
+    class="searchForm"
+  >
+    <input
+      class="searchForm__input"
+      name="titleOrAuthor"
+      placeholder="Search by Title or Author"
+      value="author"
+    />
+  </form>
+  <div
+    class="books"
+  >
+    <h2>
+      (6) book(s) found
+    </h2>
+    <div
+      class="booksContainer"
+      data-testid="booksContainer"
+    />
+  </div>
+</DocumentFragment>
+`;
