@@ -69,7 +69,10 @@ export const Opinion = ({book, onEdit, toCreate}: BookType) => {
               <p className="opinionCardItems opinioncard__nbReview">{opinions?.length} reviews</p>
               <textarea
                 className="opinionCardItems opinioncard--view"
-                value={lastOpinion.view}
+                value={lastOpinion.view.length > 84 ? 
+                  `${lastOpinion.view.slice(0, 84)}...`
+                  :
+                  lastOpinion.view}
                 readOnly
               />
               <div className="opinionCardItems">{lastOpinion.userName}</div>
@@ -78,31 +81,6 @@ export const Opinion = ({book, onEdit, toCreate}: BookType) => {
                 <p className="opinionCardItems opinioncard__postDate" >{lastOpinion.postDate}</p>
               </div>
             </div>
-            {/* <div className="opinionCardItems opinioncard--footer">
-              <button
-                className="button opinioncard--buttonmodify"
-                onClick={() => {
-                  const opinionToEdit:EditOpinion = {
-                    id:lastOpinion.id,
-                    rate: lastOpinion.rate,
-                    view: lastOpinion.view,
-                    userName:lastOpinion.userName,
-                    bookId:lastOpinion.bookId
-                  }
-                  onEdit && onEdit(opinionToEdit);
-                }}
-              >
-                <img className="icone iconeModify" src={modify}></img>
-                modify
-              </button>
-              <button className="button opinioncard--createButton"
-                onClick={()=> {
-                  toCreate();
-                }}
-              >
-                Rate this book
-              </button>
-            </div> */}
           </div>
         )}
       </div>
