@@ -3,11 +3,11 @@
 exports[`Book to Create snapShot: render Book Create 1`] = `
 <DocumentFragment>
   <div
-    class="bookForm__container"
+    class="bookCreateForm__container"
   >
     <form
       action="https://localhost:7152/api/Book"
-      class="bookForm"
+      class="bookCreateForm"
       method="POST"
     >
       <input
@@ -23,10 +23,10 @@ exports[`Book to Create snapShot: render Book Create 1`] = `
         value=""
       />
       <div
-        class="bookform__output"
+        class="bookCreateForm__output"
       />
       <button
-        class="button bookForm__postButton"
+        class="button bookCreateForm__postButton"
       >
         Create book
       </button>
