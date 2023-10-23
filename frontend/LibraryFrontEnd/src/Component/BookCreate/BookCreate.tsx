@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { BookType } from "../../Type";
 import "./BookCreate.css"
 import { Link } from "react-router-dom";
 import url from "../../Url";
@@ -9,6 +8,14 @@ import url from "../../Url";
 type FormDataType = {
   title: string;
   author: string;
+};
+
+type BookType = {
+  book: {
+    id: number;
+    title: string;
+    author: string;
+  };
 };
 
 export const BookCreate = () => {
