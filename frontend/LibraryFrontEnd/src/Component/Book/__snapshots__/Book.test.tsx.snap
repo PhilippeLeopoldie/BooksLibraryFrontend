@@ -18,11 +18,12 @@ exports[` snapchot: renders book title and author 1`] = `
           src="SvgrURL"
         />
       </button>
-      <h2
-        class="booktitle"
+      <textarea
+        class="booktitle "
+        readonly=""
       >
         The Great Gatsby
-      </h2>
+      </textarea>
       <h3
         class="bookauthor"
       >
