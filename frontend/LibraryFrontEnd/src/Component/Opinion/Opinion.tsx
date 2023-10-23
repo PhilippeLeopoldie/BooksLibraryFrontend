@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext } from "react";
 import "./Opinion.css"
-import { OpinionType } from "../../Type";
+//import { OpinionType } from "../../Type";
 import url from "../../Url";
 import modify from "../../media/write.svg";
 import { Rate } from "./Rate/Rate";
@@ -8,7 +8,7 @@ import { Rate } from "./Rate/Rate";
 
 
 
-type Opinion = {
+type OpinionType = {
   id: number,
   rate: number,
   view: string,
@@ -23,15 +23,15 @@ type BookType = {
     title:string,
     author:string
   }
-  onEdit?: (opinionToUpdate:Opinion) => void
+  onEdit?: (opinionToUpdate:OpinionType) => void
   toCreate: ()=> void
 };
 
 
 export const Opinion = ({book, onEdit, toCreate}: BookType) => {
-  const [opinions, setOpinions] = useState<Opinion[] | null >(null);
+  const [opinions, setOpinions] = useState<OpinionType[] | null >(null);
   const [fetching, setFething] = useState<boolean>(true);
-  const [lastOpinion, setLastOpinion] = useState<Opinion | null>(null);
+  const [lastOpinion, setLastOpinion] = useState<OpinionType | null>(null);
   const FetchOpinions = async (bookId :number) => {
    try {
     const response : Response = await fetch(url + "api/Opinion/BookId=" + bookId);
