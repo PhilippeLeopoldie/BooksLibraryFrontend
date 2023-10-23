@@ -1,4 +1,4 @@
-.bookForm__container {
+.bookCreateForm__container {
   margin-top: 1rem;
   display: flex;
   justify-content: center;
@@ -15,7 +15,7 @@
   resize: none;
 }
 
-.bookForm {
+.bookCreateForm {
   background-color: transparent;
   display: grid;
   grid-template-rows: repeat(5, 0.6fr);
@@ -29,21 +29,21 @@
   font-weight: bold;
 }
 
-.bookform__outpout__card{
+.bookCreateForm__outpout__card{
   background-color: transparent;
 }
 
-.bookform__output {
+.bookCreateForm__output {
   background-color: transparent;
   color: green;
   font-size: xxx-large;
   font-weight: bold;
 }
-.bookform__output__backToHome{
+.bookCreateForm__output__backToHome{
   background-color: transparent;
 }
 
-.bookForm__postButton {
+.bookCreateForm__postButton {
   font-weight: bold;
   font-size: x-large;
   margin-top: 1rem;

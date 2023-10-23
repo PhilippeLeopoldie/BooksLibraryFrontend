@@ -74,12 +74,12 @@ export const BookCreate = () => {
 
   return (
     <>
-      <div className="bookForm__container">
+      <div className="bookCreateForm__container">
         <form
           onSubmit={(e) => e.preventDefault()}
           action={url + "api/Book"}
           method="POST"
-          className="bookForm"
+          className="bookCreateForm"
         >
           <input
             className="input"
@@ -97,13 +97,13 @@ export const BookCreate = () => {
             onChange={(e) => HandleInputChange(e)}
           />
 
-          <div className="bookform__output">
+          <div className="bookCreateForm__output">
             {errorBook && (
               <div className="validation__errorMessage">{errorBookDetail}</div>
             )}
           </div>
           <button
-            className="button bookForm__postButton"
+            className="button bookCreateForm__postButton"
             onClick={async () => {
               await PostBook();
             }}
@@ -111,10 +111,10 @@ export const BookCreate = () => {
             Create book
           </button>
           {bookCreatedMessage && (
-            <div className="bookform__outpout__card">
-              <div className="bookform__output">Book created!</div>
+            <div className="bookCreateForm__outpout__card">
+              <div className="bookCreateForm__output">Book created!</div>
               <Link to="/">
-                <h2 className="bookform__output__backToHome">back to Home</h2>
+                <h2 className="bookCreateForm__output__backToHome">back to Home</h2>
               {/* <img className="nav-link nav__HomeIcone" src={homeIcone} alt="Home"></img> */}
               </Link>
             </div>
