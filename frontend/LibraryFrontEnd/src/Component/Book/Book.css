@@ -82,12 +82,16 @@
   -webkit-text-stroke: 1px #a38729;
   color: #d4af37;
   margin: 0;
+  text-align:center;
+  border-color: transparent;
+  resize:none;
+  height: 5rem;
 }
 
 .bookauthor {
   background-color: transparent;
   margin:2%;
-  margin-bottom: 8%;
+  margin-bottom: 0.2rem;
 }
 
 .bookform--view{
