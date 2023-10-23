@@ -25,10 +25,10 @@
   text-align: justify;
   font-style: italic;
   width: 17rem;
-  height: 6rem;
+  height: 4rem;
   border-color: transparent;
   resize: none;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 .opinioncard__postDate, .opinioncard__nbReview{
