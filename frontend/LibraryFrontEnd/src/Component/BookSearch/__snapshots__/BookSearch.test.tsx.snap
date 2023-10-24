@@ -16,7 +16,7 @@ exports[`BookList rendering snapShot: should render BookList 1`] = `
     class="books"
   >
     <h2>
-      (6) book(s) found
+      (6) books found
     </h2>
     <div
       class="booksContainer"
@@ -42,7 +42,7 @@ exports[`BookList rendering snapShot: should render an empty BookList 1`] = `
     class="books"
   >
     <h2>
-      (6) book(s) found
+      (6) books found
     </h2>
     <div
       class="booksContainer"
