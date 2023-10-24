@@ -32,6 +32,10 @@ here is the components tree:
   - .Net 7.0.203
 
   - ASP.NET Core Web APIs
+  
+  - xUnit 2.4.2
+  
+  - Moq 4.18.4
 
   - API platform: Heroku
 
@@ -45,11 +49,13 @@ here is the components tree:
 
   - React 18.2.0
 
-  - TypeScript
+  - TypeScript 4.9.3
 
   - CSS
 
   - HTML
+  
+  - Jest  29.7.0
 
 
 
