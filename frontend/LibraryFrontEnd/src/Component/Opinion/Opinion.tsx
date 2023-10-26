@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext } from "react";
 import "./Opinion.css";
-//import { OpinionType } from "../../Type";
+import { OpinionList } from "../OpinionList/OpinionList";
 import url from "../../Url";
 import modify from "../../media/write.svg";
 import { Rate } from "./Rate/Rate";
@@ -22,9 +22,10 @@ type BookType = {
   };
   onEdit?: (opinionToUpdate: OpinionType) => void;
   toCreate: () => void;
+  displayReview: (opinions:OpinionType[]) => void;
 };
 
-export const Opinion = ({ book, onEdit, toCreate }: BookType) => {
+export const Opinion = ({ book, onEdit, toCreate, displayReview }: BookType) => {
   const [opinions, setOpinions] = useState<OpinionType[] | null>(null);
   const [fetching, setFething] = useState<boolean>(true);
   const [lastOpinion, setLastOpinion] = useState<OpinionType | null>(null);
@@ -66,12 +67,17 @@ export const Opinion = ({ book, onEdit, toCreate }: BookType) => {
         {lastOpinion && (
           <div className="opinioncontainer--card" key={lastOpinion.id}>
             <div className="opinionCardItems">
-              <p className="opinionCardItems opinioncard__nbReview">
+              <a
+               className="opinionCardItems opinioncard__nbReview"
+               onClick={() => {opinions&&
+                displayReview(opinions)
+               }}>
                 {opinions && (opinions.length>1 ?
                   `${opinions.length} reviews`
                   : 
                   `${opinions.length} review`)} 
-              </p>
+              </a>
+              
               <textarea
                 className="opinionCardItems opinioncard--view"
                 value={
@@ -91,7 +97,7 @@ export const Opinion = ({ book, onEdit, toCreate }: BookType) => {
             </div>
           </div>
         )}
-      </div>
+      </div>         
     </>
   );
 };
