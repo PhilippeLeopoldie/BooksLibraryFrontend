@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3),
-    0 0 300px 25px rgba(222, 198, 122, 0.7) inset;
+    0 0 300px 25px  rgb(253, 229, 187) inset;
   width: 20rem;
   height: 30rem;
   padding: 1rem;
