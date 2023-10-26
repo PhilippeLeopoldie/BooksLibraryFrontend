@@ -33,6 +33,12 @@
 
 .opinioncard__postDate, .opinioncard__nbReview{
   margin: 0;
+  
+}
+
+.opinioncard__nbReview{
+  cursor: pointer;
+  color:#4ba5ff;
 }
 
 .opinioncard--footer {
