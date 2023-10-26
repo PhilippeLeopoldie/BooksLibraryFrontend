@@ -28,7 +28,11 @@ const book :Book = {
 describe("Opinions Component Tests", () => {
   it("SnapShot: should render Opinion", () => {
     const {asFragment} =  
-      render(<Opinion book={book} onEdit={() => {}} toCreate={()=> {}} />);
+      render(<Opinion 
+        book={book} 
+        onEdit={() => {}} 
+        toCreate={()=> {}} 
+        displayReview={()=>{}}/>);
     expect(asFragment()).toMatchSnapshot();
   })
 
@@ -36,7 +40,11 @@ describe("Opinions Component Tests", () => {
     //Arrange
     
     await act(async () => {
-      render(<Opinion book={book} onEdit={() => {}} toCreate={()=> {}} />);
+      render(<Opinion 
+        book={book} 
+        onEdit={() => {}} 
+        toCreate={()=> {}}
+        displayReview={()=>{}} />);
     });
   
     //Act
