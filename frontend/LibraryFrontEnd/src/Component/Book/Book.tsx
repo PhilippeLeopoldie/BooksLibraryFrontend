@@ -1,10 +1,12 @@
-import { Opinion } from "../Opinion/Opinion";
 import "./Book.css"
-import url from "../../Url";
+import { Opinion } from "../Opinion/Opinion";
+import {OpinionCreate} from "../OpinionCreate/OpinionCreate";
+import { OpinionList } from "../OpinionList/OpinionList";
 import trash from "../../media/delete.svg";
+import url from "../../Url";
 import { useState } from "react";
 import { OpinionEdit } from "../OpinionEdit/OpinionEdit";
-import OpinionCreate from "../OpinionCreate/OpinionCreate";
+
 
 type BookWithDeletionHandler = {
   book?: {
@@ -15,32 +17,51 @@ type BookWithDeletionHandler = {
   onDelete?: Function;
 };
 
-type EditOpinion = {
+type Reviews = {
+    id:number;
+    rate:number;
+    view:string;
+    userName:string;
+    postDate:string;
+    bookId: number;
+}
+
+/* type EditOpinion = {
   id: number;
   rate: number;
   view: string;
   userName: string;
   bookId: number;
-};
+}; */
 
 export const Book = ({ book, onDelete }: BookWithDeletionHandler) => {
-  const initialeditopinion = {
+  /* const initialeditopinion = {
     id: 0,
     rate: 0,
     view: "",
     userName: "",
     bookId: 0,
-  };
-  const [editHandling, setEditHandling] = useState<Boolean>(false);
+  }; */
+  /* const [editHandling, setEditHandling] = useState<Boolean>(false);
   const [editOpinion, setEditOpinion] =
-    useState<EditOpinion>(initialeditopinion);
+    useState<EditOpinion>(initialeditopinion); */
   const [createOpinionHandling, setCreateOpinionHandling] =
     useState<boolean>(false);
+    const [displayReview, setDisplayReview] = useState<Boolean>(false);
+    const [reviewList, setReviewList] = useState<Reviews[]>();
 
-  const toggleEditOpinion = (opinionEdited: EditOpinion) => {
+  /* const toggleEditOpinion = (opinionEdited: EditOpinion) => {
     setEditOpinion(opinionEdited);
     setEditHandling(!editHandling);
-  };
+  }; */
+  const toggleOpinionList = () => {
+    setDisplayReview(!displayReview)
+  }
+  const handleOpinionList = (reviews :Reviews[]) => {
+    toggleOpinionList();
+    setReviewList(reviews);
+    console.log("Reviews: ",reviews)
+  }
 
   const toggleCreateOpinion = () => {
     setCreateOpinionHandling(!createOpinionHandling);
@@ -58,8 +79,12 @@ export const Book = ({ book, onDelete }: BookWithDeletionHandler) => {
   };
 
   return (
-    <>
-      {book && !createOpinionHandling ? (
+    <>{displayReview ? 
+      <OpinionList opinions={reviewList} 
+      displayReviews={() => toggleOpinionList()}
+      book={book} />
+      :
+      (book && !createOpinionHandling ? (
         <div className="bookcard--grid" key={book.id}>
           <div className="bookcard--header">
             <button
@@ -82,7 +107,7 @@ export const Book = ({ book, onDelete }: BookWithDeletionHandler) => {
             />
             <h3 className="bookauthor">by: {book.author}</h3>
           </div>
-          <Opinion book={book} toCreate={toggleCreateOpinion} />
+          <Opinion book={book} toCreate={toggleCreateOpinion} displayReview={handleOpinionList} />
           <button
             className="button bookCard__RateButton"
             onClick={() => {
@@ -97,7 +122,7 @@ export const Book = ({ book, onDelete }: BookWithDeletionHandler) => {
           book={book && book}
           toCreate={toggleCreateOpinion}
         />
-      )}
+      ))}
     </>
   );
 };
