@@ -7,6 +7,10 @@
   border-radius: 5%;
   margin:0 1em 10% 1em;
 }
+.opinionCreate__booktitle, .opinionCreate__bookauthor{
+  background: transparent;
+}
+
 
 .opinionForm__footer{
  background: transparent;
