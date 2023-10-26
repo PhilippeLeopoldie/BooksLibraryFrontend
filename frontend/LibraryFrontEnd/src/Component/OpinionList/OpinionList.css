@@ -1,0 +1,47 @@
+.OpinionList {
+  background: rgb(253, 229, 187) 10%;
+  margin: 0;
+}
+
+.OpinionList__container {
+  width: 20rem;
+  height: 30rem;
+  border-radius: 5%;
+  margin-left: 1rem;
+}
+
+.OpinionList__reviews {
+  max-height: 22rem;
+  overflow: auto;
+  padding: 0 1rem;
+}
+
+.OpinionList__header {
+  margin-bottom: 1rem;
+}
+
+.opinionlist__userName {
+  text-align: start;
+  font-weight: bold;
+}
+
+.OpinionList__rate--flex {
+  display: flex;
+  align-items: center;
+}
+.rate_container--flex {
+  margin-right: 1rem;
+}
+
+.OpinionList__date {
+  margin-top: 0.5rem;
+}
+
+.OpinionList__view {
+  text-align: justify;
+  margin-bottom: 2rem;
+}
+
+.OpinionList__horizontalLine {
+  margin-bottom: 2rem;
+}
