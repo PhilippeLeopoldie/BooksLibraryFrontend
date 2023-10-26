@@ -29,12 +29,10 @@
   display: flex;
   align-items: center;
 }
-.rate_container--flex {
-  margin-right: 1rem;
-}
 
 .OpinionList__date {
   margin-top: 0.5rem;
+  margin-left:0.5rem;
 }
 
 .OpinionList__view {
