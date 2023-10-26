@@ -39,6 +39,7 @@
 .opinioncard__nbReview{
   cursor: pointer;
   color:#4ba5ff;
+  font-size: large;
 }
 
 .opinioncard--footer {
