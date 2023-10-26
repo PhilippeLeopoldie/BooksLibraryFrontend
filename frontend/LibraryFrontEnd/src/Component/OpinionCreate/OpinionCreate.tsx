@@ -84,8 +84,8 @@ export const OpinionCreate = ({ book, toCreate }: AddOpinionType) => {
   return (
     <>
       <div className="opinionCreateCard">
-        <h2 className="booktitle">{book?.title}</h2>
-        <h3 className="bookauthor">by: {book?.author}</h3>
+        <h2 className="opinionCreate__booktitle">{book?.title}</h2>
+        <h3 className="opinionCreate__bookauthor">by: {book?.author}</h3>
         <RateClick rate={formData.rate} HandleRate={HandleFormDataRate} />
         <textarea
           className="opinionForm__view input"
