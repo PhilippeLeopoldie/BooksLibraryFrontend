@@ -1,4 +1,4 @@
-.OpinionLoading{
+.OpinionLoading {
   background-color: transparent;
 }
 
@@ -21,6 +21,38 @@
   background-color: rgb(253, 229, 187);
 }
 
+.opinioncard__reviews--flex {
+  display: grid;
+  grid-template-columns: 28% 8%  9% ;
+}
+
+.opinioncard__reviews__averageRate {
+  font-weight: bold;
+  text-align: right;
+}
+
+.opinioncard__reviews__star {
+  text-align: left;
+  margin-top: -1rem;
+}
+
+.OpinionCard__line {
+  color: rgb(253, 229, 187);
+  width:70%;
+  margin-bottom: 1rem;
+  margin-right: 5rem;
+  
+}
+
+.opinionCard__userName {
+  text-align: left;
+  font-weight: bold;
+}
+
+.opinioncard__rate--flex {
+  display:flex;
+}
+
 .opinioncard--view {
   text-align: justify;
   font-style: italic;
@@ -31,16 +63,18 @@
   overflow: hidden;
 }
 
-.opinioncard__postDate, .opinioncard__nbReview{
-  margin: 0;
-  
+.opinioncard__postDate {
+
+  text-align: left;
 }
 
-.opinioncard__nbReview{
+.opinioncard__nbReview {
   cursor: pointer;
-  color:#4ba5ff;
+  color: #4ba5ff;
   font-size: large;
   font-weight: bold;
+  text-align: left;
+  margin: 0;
 }
 
 .opinioncard--footer {
@@ -53,9 +87,7 @@
 .opinioncard--buttonmodify {
   margin-bottom: 5%;
 }
-.opinioncard--buttonmodify:disabled{
+.opinioncard--buttonmodify:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
-
-
