@@ -17,7 +17,7 @@
 }
 .opinionCreate__rateText {
   font-weight: bold;
-  font-size: large;
+  font-size: 1.125rem;
 }
 
 .opinionCreate__inputs--grid {
@@ -38,18 +38,18 @@
 .validation__errorMessage {
   color: red;
   background-color: transparent;
-  font-size: large;
+  font-size:1rem;
   font-weight: bold;
 }
 
 .opinionForm__postButton {
   font-weight: bold;
-  font-size: large;
+  font-size: 1.125rem;
   padding: 0.2rem 3rem;
   margin: auto 5%;
 }
 
 .opinionForm__cancelButon {
   margin: auto 5%;
-  font-size: large;
+  font-size: 1.125rem;
 }

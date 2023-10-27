@@ -20,7 +20,7 @@
  margin-bottom: 8%;
  margin-left: 30%;
  margin-right: 20%;
- font-size:large;
+ font-size:1rem;
  font-weight:bolder;
  background-color: transparent;
  border-color: #a38729;
@@ -77,7 +77,7 @@
 
 .booktitle {
   background-color: transparent;
-  font-size: x-large;
+  font-size: 1.5rem;
   font-weight: bold;
   -webkit-text-stroke: 1px #a38729;
   color: #d4af37;
