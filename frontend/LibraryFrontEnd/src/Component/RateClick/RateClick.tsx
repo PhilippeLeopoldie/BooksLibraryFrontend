@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from "react";
-import "../../Opinion/Rate/Rate.css";
+import "../Rate/Rate.css";
 
 type RateType = {
   rate: number;

@@ -1,4 +1,4 @@
-import { Rate } from "../Opinion/Rate/Rate";
+import { Rate } from "../Rate/Rate";
 import "./OpinionList.css";
 import ArrowLeftIcone from "../../media/arrowLeft.svg"
 

@@ -3,7 +3,7 @@ import "./Opinion.css";
 import { OpinionList } from "../OpinionList/OpinionList";
 import url from "../../Url";
 import modify from "../../media/write.svg";
-import { Rate } from "./Rate/Rate";
+import { Rate } from "../Rate/Rate";
 
 type OpinionType = {
   id: number;

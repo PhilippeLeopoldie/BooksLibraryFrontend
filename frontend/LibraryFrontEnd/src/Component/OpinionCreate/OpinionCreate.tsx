@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import url from "../../Url";
-import { RateClick } from "../OpinionEdit/RateClick/RateClick";
+import { RateClick } from "../RateClick/RateClick";
 import "./OpinionCreate.css";
 
 type AddOpinionType = {
