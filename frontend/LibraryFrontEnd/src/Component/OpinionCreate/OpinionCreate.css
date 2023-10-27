@@ -1,27 +1,24 @@
-.opinionCreateCard{
+.opinionCreateCard {
   display: grid;
   width: 20rem;
   height: 29rem;
-  background: rgb(253, 229, 187) 10%;
   padding-top: 5%;
   border-radius: 5%;
-  margin:0 1em 10% 1em;
-}
-.opinionCreate__booktitle, .opinionCreate__bookauthor{
-  background: transparent;
+  margin: 0 1em 10% 1em;
 }
 
-
-.opinionForm__footer{
- background: transparent;
- display: flex;
- justify-content: space-between;
- margin-top: 20%;
- margin-bottom: 10%;
- 
+.opinionCreate {
+  background: rgb(253, 229, 187) 10%;
 }
-.validation__errorMessage{
-  color : red;
+
+.opinionForm__footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20%;
+  margin-bottom: 10%;
+}
+.validation__errorMessage {
+  color: red;
   background-color: transparent;
   font-size: large;
   font-weight: bold;
@@ -30,13 +27,10 @@
 .opinionForm__postButton {
   font-weight: bold;
   font-size: large;
-  
   padding: 0.2rem 3rem;
-  margin:auto 5%
-  
+  margin: auto 5%;
 }
 
-.opinionForm__cancelButon{
-  margin:auto 5%
+.opinionForm__cancelButon {
+  margin: auto 5%;
 }
-
