@@ -32,8 +32,8 @@ export const OpinionList = ({
     <>
       <div className="OpinionList OpinionList__container">
         <div className="OpinionList OpinionList__header">
-          <h1 className="OpinionList">{book?.title}</h1>
-          <h3 className="OpinionList">Author:{book?.author}</h3>
+          <h2 className="OpinionList OpinionList__header__title">{book?.title}</h2>
+          <h3 className="OpinionList OpinionList__header__author">Author:{book?.author}</h3>
         </div>
         <div className="OpinionList__filter"></div>
         <div className=" OpinionList OpinionList__reviews">
