@@ -36,27 +36,29 @@ export const OpinionList = ({
             {book?.title}
           </h2>
           <h3 className="OpinionList OpinionList__header__author">
-            By:{book?.author}
+            By: {book?.author}
           </h3>
         </header>
         <body className="OpinionList">
           <div className="OpinionList__filter"></div>
           <div className=" OpinionList OpinionList__reviews">
-            {opinions?.map((review, index) => (
-              <div className="OpinionList" key={index}>
-                <p className="OpinionList opinionlist__userName">
-                  {review.userName}
-                </p>
-                <div className="OpinionList OpinionList__rate--flex">
-                  <Rate rate={review.rate} />
-                  <p className="OpinionList OpinionList__date">
-                    {review.postDate}
+            {opinions && opinions
+              .sort((a, b) => b.id - a.id)
+              .map((review, index) => (
+                <div className="OpinionList" key={index}>
+                  <p className="OpinionList opinionlist__userName">
+                    {review.userName}
                   </p>
+                  <div className="OpinionList OpinionList__rate--flex">
+                    <Rate rate={review.rate} />
+                    <p className="OpinionList OpinionList__date">
+                      {review.postDate}
+                    </p>
+                  </div>
+                  <p className="OpinionList OpinionList__view">{review.view}</p>
+                  <hr className="OpinionList OpinionList__horizontalLine" />
                 </div>
-                <p className="OpinionList OpinionList__view">{review.view}</p>
-                <hr className="OpinionList OpinionList__horizontalLine" />
-              </div>
-            ))}
+              ))}
           </div>
         </body>
         <footer className="OpinionList OpinionList__footer--flex">
