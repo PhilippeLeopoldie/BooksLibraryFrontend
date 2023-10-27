@@ -22,15 +22,38 @@ export const OpinionCreate = ({ book, toCreate }: AddOpinionType) => {
   const [bookCreatedMessage, setBookCreatedMessage] = useState<boolean>(false);
   const [errorOpinion, setErrorOpinion] = useState<boolean>(false);
   const [errorOpinionDetail, setErrorOpinionDetail] = useState<string>("");
-
+  const [rateText, setRateText] = useState<string>("");
   const [formData, setFormData] = useState<FormDataType>({
     view: "",
     userName: "",
     rate: 0,
   });
 
+  const RateTextConvertor = (rate: number) => {
+    let rateText="";
+    switch (rate) {
+      case 1:
+        rateText = "Very bad";
+        break;
+      case 2:
+        rateText = "Bad";
+        break;
+      case 3:
+        rateText = "Good";
+        break;
+      case 4:
+        rateText = "Very Good";
+        break;
+      case 5:
+        rateText = "Excellent";
+        break;
+    }
+    setRateText(rateText);
+  };
+
   const HandleFormDataRate = (newRate: number) => {
     setFormData({ ...formData, rate: newRate });
+    RateTextConvertor(newRate);
   };
 
   const PostOpinion = async (bookId: number) => {
@@ -83,18 +106,20 @@ export const OpinionCreate = ({ book, toCreate }: AddOpinionType) => {
 
   return (
     <>
-      <div className="opinionCreateCard">
-        <h2 className="opinionCreate__booktitle">{book?.title}</h2>
-        <h3 className="opinionCreate__bookauthor">by: {book?.author}</h3>
+      <div className="opinionCreate opinionCreateCard">
+        <h2 className="opinionCreate opinionCreate__booktitle">{book?.title}</h2>
+        <h3 className="opinionCreate opinionCreate__bookauthor">by: {book?.author}</h3>
         <RateClick rate={formData.rate} HandleRate={HandleFormDataRate} />
+        <div className="opinionCreate opinionCreate__rateText">
+          {rateText}
+        </div>
         <textarea
-          className="opinionForm__view input"
+          className="opinionForm__view"
           placeholder="View"
           name="view"
           value={formData.view}
           onChange={(e) => HandleInputChange(e)}
         />
-
         <input
           className="input"
           placeholder="UserName"
@@ -103,10 +128,11 @@ export const OpinionCreate = ({ book, toCreate }: AddOpinionType) => {
           onChange={(e) => HandleInputChange(e)}
         />
         {errorOpinion && (
-          <div className="validation__errorMessage">{errorOpinionDetail}</div>
+          <div className="opinionCreate validation__errorMessage">{errorOpinionDetail}</div>
         )}
-        <div className="opinionForm__footer">
-          <button className="button opinionForm__cancelButon"
+        <div className="opinionCreate opinionForm__footer">
+          <button
+            className="button opinionForm__cancelButon"
             onClick={() => {
               toCreate();
             }}
@@ -127,4 +153,3 @@ export const OpinionCreate = ({ book, toCreate }: AddOpinionType) => {
   );
 };
 
-export default OpinionCreate;
