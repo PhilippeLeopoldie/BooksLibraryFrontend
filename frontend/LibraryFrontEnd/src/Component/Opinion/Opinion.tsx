@@ -22,13 +22,19 @@ type BookType = {
   };
   onEdit?: (opinionToUpdate: OpinionType) => void;
   toCreate: () => void;
-  displayReview: (opinions:OpinionType[]) => void;
+  displayReview: (opinions: OpinionType[]) => void;
 };
 
-export const Opinion = ({ book, onEdit, toCreate, displayReview }: BookType) => {
+export const Opinion = ({
+  book,
+  onEdit,
+  toCreate,
+  displayReview,
+}: BookType) => {
   const [opinions, setOpinions] = useState<OpinionType[] | null>(null);
   const [fetching, setFething] = useState<boolean>(true);
   const [lastOpinion, setLastOpinion] = useState<OpinionType | null>(null);
+  const [averageRate, setAverageRate] = useState<number>(0);
   const FetchOpinions = async (bookId: number) => {
     try {
       const response: Response = await fetch(
@@ -47,6 +53,19 @@ export const Opinion = ({ book, onEdit, toCreate, displayReview }: BookType) => 
     }
   };
 
+  const AverageRate = () => {
+    if (opinions) {
+      const rateSum = opinions.reduce(
+        (total, opinion) => total + opinion.rate,
+        0
+      );
+      const average = rateSum / opinions.length;
+
+      const formattedAverage = Number(average.toFixed(1));
+      setAverageRate(formattedAverage);
+    }
+  };
+
   useEffect(() => {
     FetchOpinions(book.id);
   }, []);
@@ -55,6 +74,8 @@ export const Opinion = ({ book, onEdit, toCreate, displayReview }: BookType) => 
     opinions &&
       opinions.length > 0 &&
       setLastOpinion(opinions[opinions.length - 1]);
+    AverageRate();
+    console.log("average rate: ", averageRate);
   }, [opinions]);
 
   if (fetching) {
@@ -67,37 +88,48 @@ export const Opinion = ({ book, onEdit, toCreate, displayReview }: BookType) => 
         {lastOpinion && (
           <div className="opinioncontainer--card" key={lastOpinion.id}>
             <div className="opinionCardItems">
-              <a
-               className="opinionCardItems opinioncard__nbReview"
-               onClick={() => {opinions&&
-                displayReview(opinions)
-               }}>
-                {opinions && (opinions.length>1 ?
-                  `${opinions.length} reviews`
-                  : 
-                  `${opinions.length} review`)} 
-              </a>
-              
-              <textarea
-                className="opinionCardItems opinioncard--view"
-                value={
-                  lastOpinion.view.length > 84
-                    ? `${lastOpinion.view.slice(0, 84)}...`
-                    : lastOpinion.view
-                }
-                readOnly
-              />
-              <div className="opinionCardItems">{lastOpinion.userName}</div>
-              <div className="opinionCardItems opinioncard__rate">
+              <div className="opinionCardItems opinioncard__reviews--flex">
+                <a
+                  className="opinionCardItems opinioncard__nbReview"
+                  onClick={() => {
+                    opinions && displayReview(opinions);
+                  }}
+                >
+                  {opinions &&
+                    (opinions.length > 1
+                      ? `${opinions.length} reviews`
+                      : `${opinions.length} review`)}
+                </a>
+                <div className="opinionCardItems opinioncard__reviews__averageRate">
+                  {averageRate}
+                </div>
+                <div className="rate_star opinioncard__reviews__star">
+                  &#9733;
+                </div>
+              </div>
+              <hr className="OpinionCard__line"></hr>
+              <div className="opinionCardItems opinionCard__userName">
+                {lastOpinion.userName}
+              </div>
+              <div className="opinionCardItems opinioncard__rate--flex">
                 <Rate rate={lastOpinion.rate} />
                 <p className="opinionCardItems opinioncard__postDate">
                   {lastOpinion.postDate}
                 </p>
               </div>
+              <textarea
+                className="opinionCardItems opinioncard--view"
+                value={
+                  lastOpinion.view.length > 150
+                    ? `${lastOpinion.view.slice(0, 110)}...`
+                    : lastOpinion.view
+                }
+                readOnly
+              />
             </div>
           </div>
         )}
-      </div>         
+      </div>
     </>
   );
 };
