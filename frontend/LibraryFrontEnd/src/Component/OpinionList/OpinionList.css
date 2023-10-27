@@ -5,13 +5,28 @@
 
 .OpinionList__container {
   width: 20rem;
-  height: 30rem;
+  height: 29rem;
   border-radius: 5%;
   margin:0 1em 10% 1em;
+  padding-top: 1rem;
+}
+
+.OpinionList__footer--flex {
+  display: flex;
+  justify-content: start;
+  margin-top: 0.5rem;
+  border-radius: 1rem;
+}
+
+.OpinionList__footer__ArrowLeftIcone{
+  height: 2rem;
+  margin-left: 1rem;
+  cursor: pointer;
+  
 }
 
 .OpinionList__reviews {
-  max-height: 22rem;
+  max-height: 21rem;
   overflow: auto;
   padding: 0 1rem;
 }
