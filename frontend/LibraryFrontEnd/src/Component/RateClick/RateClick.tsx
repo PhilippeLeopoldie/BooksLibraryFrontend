@@ -21,8 +21,10 @@ export const RateClick = ({ rate, HandleRate }: RateType) => {
   }, [rate]);
 
   const toggleStar = (index: number) => {
+    // assign array element up to index with '1' and from index with '0'
     const updatedStars : number[] = filledStars.map((star,i) => (i<=index ? 1:0));
     setFilledStars(updatedStars);
+    // sum the array value to pass it to HandleRate
     const newRate: number = updatedStars.reduce((a, b) => (a + b), 0);
     HandleRate(newRate);
   };
