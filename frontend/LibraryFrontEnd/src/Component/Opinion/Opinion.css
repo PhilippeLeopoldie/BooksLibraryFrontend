@@ -40,6 +40,7 @@
   cursor: pointer;
   color:#4ba5ff;
   font-size: large;
+  font-weight: bold;
 }
 
 .opinioncard--footer {
