@@ -89,17 +89,6 @@ export const Opinion = ({
           <div className="opinioncontainer--card" key={lastOpinion.id}>
             <div className="opinionCardItems">
               <div className="opinionCardItems opinioncard__reviews--flex">
-                <a
-                  className="opinionCardItems opinioncard__nbReview"
-                  onClick={() => {
-                    opinions && displayReview(opinions);
-                  }}
-                >
-                  {opinions &&
-                    (opinions.length > 1
-                      ? `${opinions.length} reviews`
-                      : `${opinions.length} review`)}
-                </a>
                 <div className="opinionCardItems opinioncard__reviews__averageRate">
                   {averageRate}
                 </div>
@@ -107,7 +96,21 @@ export const Opinion = ({
                   &#9733;
                 </div>
               </div>
+              <a
+                className="opinionCardItems opinioncard__nbReview"
+                onClick={() => {
+                  opinions && displayReview(opinions);
+                }}
+              >
+                {opinions &&
+                  (opinions.length > 1
+                    ? `${opinions.length} reviews`
+                    : `${opinions.length} review`)}
+              </a>
               <hr className="OpinionCard__line"></hr>
+              <div className="opinionCardItems OpinionCard__LastReviewTitle">
+                Last review:
+              </div>
               <div className="opinionCardItems opinionCard__userName">
                 {lastOpinion.userName}
               </div>
