@@ -11,12 +11,6 @@
   padding-top: 1rem;
 }
 
-.OpinionList__reviews {
-  max-height: 21rem;
-  overflow: auto;
-  padding: 0 1rem;
-}
-
 .OpinionList__header {
   margin-bottom: 1rem;
 }
@@ -24,6 +18,12 @@
 .OpinionList__header__title {
   max-height: 5rem;
   overflow: auto;
+}
+
+.OpinionList__reviews {
+  max-height: 19rem;
+  overflow: auto;
+  padding: 0 1rem;
 }
 
 .opinionlist__userName {
@@ -60,5 +60,6 @@
 .OpinionList__footer__ArrowLeftIcone {
   height: 2rem;
   margin-left: 1rem;
+  margin-bottom: 0.5rem;
   cursor: pointer;
 }
