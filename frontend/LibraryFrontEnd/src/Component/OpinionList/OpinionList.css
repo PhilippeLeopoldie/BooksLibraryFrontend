@@ -21,6 +21,11 @@
   margin-bottom: 1rem;
 }
 
+.OpinionList__header__title {
+  max-height: 5rem;
+  overflow: auto;
+}
+
 .opinionlist__userName {
   text-align: start;
   font-weight: bold;
