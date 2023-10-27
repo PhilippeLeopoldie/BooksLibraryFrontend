@@ -1,5 +1,6 @@
-.opinionCreateCard {
-
+.opinionCreateCard--grid {
+  display: grid;
+  grid-template-rows: 20% 65% 15%;
   width: 20rem;
   height: 29rem;
   padding-top: 5%;
@@ -10,23 +11,29 @@
 .opinionCreate {
   background: rgb(253, 229, 187) 10%;
 }
-
+.opinionCreate__body--grid {
+  display:grid;
+  grid-template-rows: 25% 75%;
+}
 .opinionCreate__rateText {
-  height: 5%;
   font-weight: bold;
   font-size: large;
 }
 
-.opinionForm__view {
-  width: 90%;
-  height: 20%;
+.opinionCreate__inputs--grid {
+  display: grid;
+  grid-template-rows: 65% 20% 15%;
 }
 
-.opinionForm__footer {
+.opinionForm__view {
+  margin:0 2%;
+  border-radius: 10px;
+}
+
+.opinionForm__footer--flex {
   display: flex;
   justify-content: space-between;
-  margin-top: 10%;
-  margin-bottom: 10%;
+  margin-bottom: 20%;
 }
 .validation__errorMessage {
   color: red;
