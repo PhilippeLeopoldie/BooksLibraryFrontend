@@ -1,6 +1,6 @@
 import { Rate } from "../Rate/Rate";
 import "./OpinionList.css";
-import ArrowLeftIcone from "../../media/arrowLeft.svg"
+import ArrowLeftIcone from "../../media/arrowLeft.svg";
 
 type Review = {
   id: number;
@@ -30,38 +30,43 @@ export const OpinionList = ({
 }) => {
   return (
     <>
-      <div className="OpinionList OpinionList__container">
-        <div className="OpinionList OpinionList__header">
-          <h2 className="OpinionList OpinionList__header__title">{book?.title}</h2>
-          <h3 className="OpinionList OpinionList__header__author">Author:{book?.author}</h3>
-        </div>
-        <div className="OpinionList__filter"></div>
-        <div className=" OpinionList OpinionList__reviews">
-          {opinions?.map((review, index) => (
-            <div className="OpinionList" key={index}>
-              <p className="OpinionList opinionlist__userName">
-                {review.userName}
-              </p>
-              <div className="OpinionList OpinionList__rate--flex">
-                <Rate rate={review.rate} />
-                <p className="OpinionList OpinionList__date">
-                  {review.postDate}
+      <div className="OpinionList OpinionList__container--grid">
+        <header className="OpinionList OpinionList__header">
+          <h2 className="OpinionList OpinionList__header__title">
+            {book?.title}
+          </h2>
+          <h3 className="OpinionList OpinionList__header__author">
+            By:{book?.author}
+          </h3>
+        </header>
+        <body className="OpinionList">
+          <div className="OpinionList__filter"></div>
+          <div className=" OpinionList OpinionList__reviews">
+            {opinions?.map((review, index) => (
+              <div className="OpinionList" key={index}>
+                <p className="OpinionList opinionlist__userName">
+                  {review.userName}
                 </p>
+                <div className="OpinionList OpinionList__rate--flex">
+                  <Rate rate={review.rate} />
+                  <p className="OpinionList OpinionList__date">
+                    {review.postDate}
+                  </p>
+                </div>
+                <p className="OpinionList OpinionList__view">{review.view}</p>
+                <hr className="OpinionList OpinionList__horizontalLine" />
               </div>
-              <p className="OpinionList OpinionList__view">{review.view}</p>
-              <hr className="OpinionList OpinionList__horizontalLine" />
-            </div>
-          ))}
-        </div>
-        <div className="OpinionList OpinionList__footer--flex">
-          <img 
-            className="OpinionList OpinionList__footer__ArrowLeftIcone" 
+            ))}
+          </div>
+        </body>
+        <footer className="OpinionList OpinionList__footer--flex">
+          <img
+            className="OpinionList OpinionList__footer__ArrowLeftIcone"
             src={ArrowLeftIcone}
             onClick={() => displayReviews()}
             alt="Back"
           />
-        </div>
-        
+        </footer>
       </div>
     </>
   );
