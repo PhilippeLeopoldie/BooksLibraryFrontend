@@ -90,7 +90,7 @@ export const Opinion = ({
             <div className="opinionCardItems">
               <div className="opinionCardItems opinioncard__reviews--flex">
                 <div className="opinionCardItems opinioncard__reviews__averageRate">
-                  {averageRate}
+                  {averageRate}/5
                 </div>
                 <div className="rate_star opinioncard__reviews__star">
                   &#9733;
