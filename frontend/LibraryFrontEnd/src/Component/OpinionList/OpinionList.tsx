@@ -1,5 +1,6 @@
 import { Rate } from "../Opinion/Rate/Rate";
 import "./OpinionList.css";
+import ArrowLeftIcone from "../../media/arrowLeft.svg"
 
 type Review = {
   id: number;
@@ -30,7 +31,6 @@ export const OpinionList = ({
   return (
     <>
       <div className="OpinionList OpinionList__container">
-        <button onClick={() => displayReviews()}>CLOSE</button>
         <div className="OpinionList OpinionList__header">
           <h1 className="OpinionList">{book?.title}</h1>
           <h3 className="OpinionList">Author:{book?.author}</h3>
@@ -53,6 +53,15 @@ export const OpinionList = ({
             </div>
           ))}
         </div>
+        <div className="OpinionList OpinionList__footer--flex">
+          <img 
+            className="OpinionList OpinionList__footer__ArrowLeftIcone" 
+            src={ArrowLeftIcone}
+            onClick={() => displayReviews()}
+            alt="Back"
+          />
+        </div>
+        
       </div>
     </>
   );
