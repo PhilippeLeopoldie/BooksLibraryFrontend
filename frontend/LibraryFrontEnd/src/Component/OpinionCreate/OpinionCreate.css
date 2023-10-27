@@ -1,5 +1,5 @@
 .opinionCreateCard {
-  display: grid;
+
   width: 20rem;
   height: 29rem;
   padding-top: 5%;
@@ -11,10 +11,21 @@
   background: rgb(253, 229, 187) 10%;
 }
 
+.opinionCreate__rateText {
+  height: 5%;
+  font-weight: bold;
+  font-size: large;
+}
+
+.opinionForm__view {
+  width: 90%;
+  height: 20%;
+}
+
 .opinionForm__footer {
   display: flex;
   justify-content: space-between;
-  margin-top: 20%;
+  margin-top: 10%;
   margin-bottom: 10%;
 }
 .validation__errorMessage {
@@ -33,4 +44,5 @@
 
 .opinionForm__cancelButon {
   margin: auto 5%;
+  font-size: large;
 }
