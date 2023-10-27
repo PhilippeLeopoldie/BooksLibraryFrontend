@@ -3,58 +3,76 @@
 exports[`OpinionCreate snapShot: render Opinioncreate 1`] = `
 <DocumentFragment>
   <div
-    class="opinionCreateCard"
+    class="opinionCreate opinionCreateCard--grid"
   >
-    <h2
-      class="opinionCreate__booktitle"
-    />
-    <h3
-      class="opinionCreate__bookauthor"
+    <header
+      class="opinionCreate"
     >
-      by: 
-    </h3>
+      <h2
+        class="opinionCreate opinionCreate__booktitle"
+      />
+      <h3
+        class="opinionCreate opinionCreate__bookauthor"
+      >
+        by: 
+      </h3>
+    </header>
     <div
-      class="rate_container--flex"
+      class="opinionCreate opinionCreate__rate"
     >
       <div
-        class="rate_star empty"
+        class="rate_container--flex"
       >
-        ★
+        <div
+          class="rate_star empty"
+        >
+          ★
+        </div>
+        <div
+          class="rate_star empty"
+        >
+          ★
+        </div>
+        <div
+          class="rate_star empty"
+        >
+          ★
+        </div>
+        <div
+          class="rate_star empty"
+        >
+          ★
+        </div>
+        <div
+          class="rate_star empty"
+        >
+          ★
+        </div>
       </div>
       <div
-        class="rate_star empty"
-      >
-        ★
-      </div>
-      <div
-        class="rate_star empty"
-      >
-        ★
-      </div>
-      <div
-        class="rate_star empty"
-      >
-        ★
-      </div>
-      <div
-        class="rate_star empty"
-      >
-        ★
-      </div>
+        class="opinionCreate opinionCreate__rateText"
+      />
     </div>
-    <textarea
-      class="opinionForm__view input"
-      name="view"
-      placeholder="View"
-    />
-    <input
-      class="input"
-      name="userName"
-      placeholder="UserName"
-      value=""
-    />
     <div
-      class="opinionForm__footer"
+      class="opinionCreate opinionCreate__inputs--grid"
+    >
+      <textarea
+        class="opinionForm__view"
+        name="view"
+        placeholder="View"
+      />
+      <input
+        class="input"
+        name="userName"
+        placeholder="UserName"
+        value=""
+      />
+      <div
+        class="opinionCreate"
+      />
+    </div>
+    <footer
+      class="opinionCreate opinionForm__footer--flex"
     >
       <button
         class="button opinionForm__cancelButon"
@@ -66,7 +84,7 @@ exports[`OpinionCreate snapShot: render Opinioncreate 1`] = `
       >
         Post
       </button>
-    </div>
+    </footer>
   </div>
 </DocumentFragment>
 `;
