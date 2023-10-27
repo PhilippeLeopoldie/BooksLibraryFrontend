@@ -22,8 +22,8 @@
 }
 
 .opinioncard__reviews--flex {
-  display: grid;
-  grid-template-columns: 28% 8%  9% ;
+  display: flex;
+  justify-content: center;
 }
 
 .opinioncard__reviews__averageRate {
@@ -38,10 +38,15 @@
 
 .OpinionCard__line {
   color: rgb(253, 229, 187);
-  width:70%;
-  margin-bottom: 1rem;
-  margin-right: 5rem;
-  
+  width: 90%;
+  margin-bottom: 0;
+}
+
+.OpinionCard__LastReviewTitle {
+  font-style: italic;
+  text-align: left;
+  font-size: small;
+  margin-bottom: 0.5rem;
 }
 
 .opinionCard__userName {
@@ -50,7 +55,7 @@
 }
 
 .opinioncard__rate--flex {
-  display:flex;
+  display: flex;
 }
 
 .opinioncard--view {
@@ -64,7 +69,7 @@
 }
 
 .opinioncard__postDate {
-
+  margin-left: 0.5rem;
   text-align: left;
 }
 
@@ -75,6 +80,7 @@
   font-weight: bold;
   text-align: left;
   margin: 0;
+  text-decoration: underline;
 }
 
 .opinioncard--footer {
