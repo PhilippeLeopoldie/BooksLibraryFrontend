@@ -30,7 +30,7 @@ export const OpinionCreate = ({ book, toCreate }: AddOpinionType) => {
   });
 
   const RateTextConvertor = (rate: number) => {
-    let rateText="";
+    let rateText = "";
     switch (rate) {
       case 1:
         rateText = "Very bad";
@@ -106,31 +106,48 @@ export const OpinionCreate = ({ book, toCreate }: AddOpinionType) => {
 
   return (
     <>
-      <div className="opinionCreate opinionCreateCard">
-        <h2 className="opinionCreate opinionCreate__booktitle">{book?.title}</h2>
-        <h3 className="opinionCreate opinionCreate__bookauthor">by: {book?.author}</h3>
-        <RateClick rate={formData.rate} HandleRate={HandleFormDataRate} />
-        <div className="opinionCreate opinionCreate__rateText">
-          {rateText}
-        </div>
-        <textarea
-          className="opinionForm__view"
-          placeholder="View"
-          name="view"
-          value={formData.view}
-          onChange={(e) => HandleInputChange(e)}
-        />
-        <input
-          className="input"
-          placeholder="UserName"
-          name="userName"
-          value={formData.userName}
-          onChange={(e) => HandleInputChange(e)}
-        />
-        {errorOpinion && (
-          <div className="opinionCreate validation__errorMessage">{errorOpinionDetail}</div>
-        )}
-        <div className="opinionCreate opinionForm__footer">
+      <div className="opinionCreate opinionCreateCard--grid">
+        <header className="opinionCreate">
+          <h2 className="opinionCreate opinionCreate__booktitle">
+            {book?.title}
+          </h2>
+          <h3 className="opinionCreate opinionCreate__bookauthor">
+            by: {book?.author}
+          </h3>
+        </header>
+        <body className="opinionCreate opinionCreate__body">
+          <div className="opinionCreate opinionCreate__rate">
+            <RateClick rate={formData.rate} HandleRate={HandleFormDataRate} />
+            <div className="opinionCreate opinionCreate__rateText">
+              {rateText}
+            </div>
+          </div>
+          <div className="opinionCreate opinionCreate__inputs">
+            <textarea
+              className="opinionForm__view"
+              placeholder="View"
+              name="view"
+              value={formData.view}
+              onChange={(e) => HandleInputChange(e)}
+            />
+            <input
+              className="input"
+              placeholder="UserName"
+              name="userName"
+              value={formData.userName}
+              onChange={(e) => HandleInputChange(e)}
+            />
+            <div className="opinionCreate">
+            {errorOpinion && (
+              <div className="opinionCreate validation__errorMessage">
+                {errorOpinionDetail}
+              </div>
+            )}
+            </div>
+            
+          </div>
+        </body>
+        <footer className="opinionCreate opinionForm__footer">
           <button
             className="button opinionForm__cancelButon"
             onClick={() => {
@@ -147,9 +164,8 @@ export const OpinionCreate = ({ book, toCreate }: AddOpinionType) => {
           >
             Post
           </button>
-        </div>
+        </footer>
       </div>
     </>
   );
 };
-
