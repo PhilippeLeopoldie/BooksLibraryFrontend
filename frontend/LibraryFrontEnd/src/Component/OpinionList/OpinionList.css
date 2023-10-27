@@ -3,7 +3,9 @@
   margin: 0;
 }
 
-.OpinionList__container {
+.OpinionList__container--grid {
+  display: grid;
+  grid-template-rows: 25% 65% 10%;
   width: 20rem;
   height: 29rem;
   border-radius: 5%;
