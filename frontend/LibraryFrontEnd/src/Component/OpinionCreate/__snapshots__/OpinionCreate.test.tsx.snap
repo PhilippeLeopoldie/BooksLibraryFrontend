@@ -6,10 +6,10 @@ exports[`OpinionCreate snapShot: render Opinioncreate 1`] = `
     class="opinionCreateCard"
   >
     <h2
-      class="booktitle"
+      class="opinionCreate__booktitle"
     />
     <h3
-      class="bookauthor"
+      class="opinionCreate__bookauthor"
     >
       by: 
     </h3>
