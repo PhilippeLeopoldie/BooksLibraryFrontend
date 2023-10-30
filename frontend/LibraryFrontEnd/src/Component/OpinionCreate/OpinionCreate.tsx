@@ -123,7 +123,8 @@ export const OpinionCreate = ({ book, toCreate }: AddOpinionType) => {
             </div>
           </div>
           <div className="opinionCreate opinionCreate__inputs--grid">
-            <textarea
+            <textarea 
+              title="View"
               className="opinionForm__view"
               placeholder="View"
               name="view"
