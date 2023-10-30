@@ -36,7 +36,6 @@ export const Book = ({ book, onDelete }: BookWithDeletionHandler) => {
   const handleOpinionList = (reviews: Reviews[]) => {
     toggleOpinionList();
     setReviewList(reviews);
-    console.log("Reviews: ", reviews);
   };
 
   const toggleCreateOpinion = () => {

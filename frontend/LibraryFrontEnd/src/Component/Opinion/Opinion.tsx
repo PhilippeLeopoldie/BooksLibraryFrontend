@@ -75,7 +75,6 @@ export const Opinion = ({
       opinions.length > 0 &&
       setLastOpinion(opinions[opinions.length - 1]);
     AverageRate();
-    console.log("average rate: ", averageRate);
   }, [opinions]);
 
   if (fetching) {
