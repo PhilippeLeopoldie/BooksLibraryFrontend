@@ -91,6 +91,10 @@
  
 }
 
+footer {
+  background-color: transparent;
+}
+
 .bookauthor {
   background-color: transparent;
   margin:2%;
