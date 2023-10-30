@@ -5,7 +5,7 @@
 
 .OpinionList__container--grid {
   display: grid;
-  grid-template-rows: 25% 65% 10%;
+  grid-template-rows: 20% 70% 10%;
   width: 20rem;
   height: 29rem;
   border-radius: 5%;
@@ -14,7 +14,7 @@
 }
 
 .OpinionList__header {
-  margin-bottom: 1rem;
+  margin-bottom: 0rem;
 }
 
 .OpinionList__header__title {
@@ -22,10 +22,21 @@
   overflow: auto;
 }
 
+.OpinionList__filter--flex {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-around;
+  background-color: transparent;
+}
+
+.OpinionList__filter__button {
+  font-size: 1.5rem;
+}
+
 .OpinionList__reviews {
   max-height: 19rem;
   overflow: auto;
-  padding: 0 1rem;
+  padding: 0 1.2rem;
 }
 
 .opinionlist__userName {
@@ -56,7 +67,10 @@
   display: flex;
   justify-content: start;
   margin-top: 0.5rem;
-  border-radius: 1rem;
+  width: 93%;
+  border-top-right-radius: 0rem;
+  border-bottom-left-radius: 1rem;
+  margin-left: 1%;
 }
 
 .OpinionList__footer__ArrowLeftIcone {
