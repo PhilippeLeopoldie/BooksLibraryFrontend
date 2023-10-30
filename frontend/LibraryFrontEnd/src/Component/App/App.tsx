@@ -13,15 +13,15 @@ export const App = () => {
     <div className="App">
       <BrowserRouter>
         <div className="navbar">
-          <dl className="navElement navbar__home">
+          <div className="navElement navbar__home">
             <Link className="nav-link homeLink" to="/">
               <img className="nav-link nav__HomeIcone" src={homeIcone} alt="Home"></img>
               <figcaption className="iconeTitle nav__Home__title">
                 Home
               </figcaption>
             </Link>
-          </dl>
-          <dl className="navElement navbar__search">
+          </div>
+          <div className="navElement navbar__search">
             <Link className="nav-link" to="/Search">
               <img
                 className="nav-link nav__search"
@@ -34,8 +34,8 @@ export const App = () => {
                 Search
               </figcaption>
             </Link>
-          </dl>
-          <dl className="navElement navbar__addBook">
+          </div>
+          <div className="navElement navbar__addBook">
             <Link className="nav-link addBook" to="/addBook">
               <img
                 className="nav-link nav__addBook"
@@ -56,7 +56,7 @@ export const App = () => {
                 Add a book
               </figcaption>
             </Link>
-          </dl>
+          </div>
         </div>
         <Routes>
           <Route path="/" element={<BookList />}/>
