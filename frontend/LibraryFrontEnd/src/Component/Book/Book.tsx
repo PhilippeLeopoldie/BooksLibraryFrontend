@@ -78,7 +78,12 @@ export const Book = ({ book, onDelete }: BookWithDeletionHandler) => {
                 alt="delete"
               />
             </button>
-            <textarea className="booktitle " value={book.title} readOnly />
+            <textarea
+              title="Book Title"
+              className="booktitle"
+              value={book.title}
+              readOnly
+            />
             <h3 className="bookauthor">by: {book.author}</h3>
           </header>
           <Opinion
