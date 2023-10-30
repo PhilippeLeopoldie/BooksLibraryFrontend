@@ -125,6 +125,7 @@ export const Opinion = ({
                 </div>
                 <textarea
                   title="View"
+                  name="View"
                   className="opinionCardItems opinioncard--view"
                   value={
                     lastOpinion.view.length > 150
