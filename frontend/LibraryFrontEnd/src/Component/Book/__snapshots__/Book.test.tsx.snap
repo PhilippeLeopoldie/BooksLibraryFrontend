@@ -20,6 +20,7 @@ exports[` snapchot: renders book title and author 1`] = `
       </button>
       <textarea
         class="booktitle"
+        name="Book Title"
         readonly=""
         title="Book Title"
       >
