@@ -5,7 +5,7 @@ exports[` snapchot: renders book title and author 1`] = `
   <div
     class="bookcard--grid"
   >
-    <div
+    <header
       class="bookcard--header"
     >
       <button
@@ -29,17 +29,19 @@ exports[` snapchot: renders book title and author 1`] = `
       >
         by: F. Scott Fitzgerald
       </h3>
-    </div>
+    </header>
     <h2
       class="OpinionLoading"
     >
       Loading...
     </h2>
-    <button
-      class="button bookCard__RateButton"
-    >
-      Rate this book
-    </button>
+    <footer>
+      <button
+        class="button bookCard__RateButton"
+      >
+        Rate this book
+      </button>
+    </footer>
   </div>
 </DocumentFragment>
 `;
