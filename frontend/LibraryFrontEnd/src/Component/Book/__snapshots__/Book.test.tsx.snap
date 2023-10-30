@@ -19,8 +19,9 @@ exports[` snapchot: renders book title and author 1`] = `
         />
       </button>
       <textarea
-        class="booktitle "
+        class="booktitle"
         readonly=""
+        title="Book Title"
       >
         The Great Gatsby
       </textarea>

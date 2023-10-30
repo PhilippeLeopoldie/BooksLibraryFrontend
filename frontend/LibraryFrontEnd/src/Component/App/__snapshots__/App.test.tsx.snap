@@ -8,7 +8,7 @@ exports[`App routes snapShot: render nav bar 1`] = `
     <div
       class="navbar"
     >
-      <dl
+      <div
         class="navElement navbar__home"
       >
         <a
@@ -26,8 +26,8 @@ exports[`App routes snapShot: render nav bar 1`] = `
             Home
           </figcaption>
         </a>
-      </dl>
-      <dl
+      </div>
+      <div
         class="navElement navbar__search"
       >
         <a
@@ -47,8 +47,8 @@ exports[`App routes snapShot: render nav bar 1`] = `
             Search
           </figcaption>
         </a>
-      </dl>
-      <dl
+      </div>
+      <div
         class="navElement navbar__addBook"
       >
         <a
@@ -75,7 +75,7 @@ exports[`App routes snapShot: render nav bar 1`] = `
             Add a book
           </figcaption>
         </a>
-      </dl>
+      </div>
     </div>
     <h1>
       Loading...

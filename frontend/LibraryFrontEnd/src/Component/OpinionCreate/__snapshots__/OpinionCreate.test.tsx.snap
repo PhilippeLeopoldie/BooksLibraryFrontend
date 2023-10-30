@@ -60,6 +60,7 @@ exports[`OpinionCreate snapShot: render Opinioncreate 1`] = `
         class="opinionForm__view"
         name="view"
         placeholder="View"
+        title="View"
       />
       <input
         class="input"
