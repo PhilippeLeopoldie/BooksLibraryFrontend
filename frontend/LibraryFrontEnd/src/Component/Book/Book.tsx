@@ -5,7 +5,6 @@ import { OpinionList } from "../OpinionList/OpinionList";
 import trash from "../../media/delete.svg";
 import url from "../../Url";
 import { useState } from "react";
-import { OpinionEdit } from "../OpinionEdit/OpinionEdit";
 
 
 type BookWithDeletionHandler = {
@@ -26,34 +25,12 @@ type Reviews = {
     bookId: number;
 }
 
-/* type EditOpinion = {
-  id: number;
-  rate: number;
-  view: string;
-  userName: string;
-  bookId: number;
-}; */
-
 export const Book = ({ book, onDelete }: BookWithDeletionHandler) => {
-  /* const initialeditopinion = {
-    id: 0,
-    rate: 0,
-    view: "",
-    userName: "",
-    bookId: 0,
-  }; */
-  /* const [editHandling, setEditHandling] = useState<Boolean>(false);
-  const [editOpinion, setEditOpinion] =
-    useState<EditOpinion>(initialeditopinion); */
   const [createOpinionHandling, setCreateOpinionHandling] =
     useState<boolean>(false);
     const [displayReview, setDisplayReview] = useState<Boolean>(false);
     const [reviewList, setReviewList] = useState<Reviews[]>();
 
-  /* const toggleEditOpinion = (opinionEdited: EditOpinion) => {
-    setEditOpinion(opinionEdited);
-    setEditHandling(!editHandling);
-  }; */
   const toggleOpinionList = () => {
     setDisplayReview(!displayReview)
   }
