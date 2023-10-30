@@ -86,50 +86,54 @@ export const Opinion = ({
     <>
       <div className="opinioncontainer">
         {lastOpinion && (
-          <div className="opinioncontainer--card" key={lastOpinion.id}>
-            <div className="opinionCardItems">
-              <div className="opinionCardItems opinioncard__reviews--flex">
-                <div className="opinionCardItems opinioncard__reviews__averageRate">
-                  {averageRate}/5
+          <div className="opinioncontainer--card">
+            <header className="opinionCardItems opinioncard__reviews--flex">
+              <div className="opinionCardItems opinioncard__reviews__averageRate">
+                {averageRate}/5
+              </div>
+              <div className="rate_star opinioncard__reviews__star">
+                &#9733;
+              </div>
+            </header>
+            <main className="opinionCardItems">
+              <section className="opinionCardItems reviews_link">
+                <a
+                  className="opinionCardItems opinioncard__nbReview"
+                  onClick={() => {
+                    opinions && displayReview(opinions);
+                  }}
+                >
+                  {opinions &&
+                    (opinions.length > 1
+                      ? `${opinions.length} reviews`
+                      : `${opinions.length} review`)}
+                </a>
+                <hr className="OpinionCard__line"></hr>
+              </section>
+              <section className="opinionCardItems">
+                <div className="opinionCardItems OpinionCard__LastReviewTitle">
+                  Last review:
                 </div>
-                <div className="rate_star opinioncard__reviews__star">
-                  &#9733;
+                <div className="opinionCardItems opinionCard__userName">
+                  {lastOpinion.userName}
                 </div>
-              </div>
-              <a
-                className="opinionCardItems opinioncard__nbReview"
-                onClick={() => {
-                  opinions && displayReview(opinions);
-                }}
-              >
-                {opinions &&
-                  (opinions.length > 1
-                    ? `${opinions.length} reviews`
-                    : `${opinions.length} review`)}
-              </a>
-              <hr className="OpinionCard__line"></hr>
-              <div className="opinionCardItems OpinionCard__LastReviewTitle">
-                Last review:
-              </div>
-              <div className="opinionCardItems opinionCard__userName">
-                {lastOpinion.userName}
-              </div>
-              <div className="opinionCardItems opinioncard__rate--flex">
-                <Rate rate={lastOpinion.rate} />
-                <p className="opinionCardItems opinioncard__postDate">
-                  {lastOpinion.postDate}
-                </p>
-              </div>
-              <textarea
-                className="opinionCardItems opinioncard--view"
-                value={
-                  lastOpinion.view.length > 150
-                    ? `${lastOpinion.view.slice(0, 110)}...`
-                    : lastOpinion.view
-                }
-                readOnly
-              />
-            </div>
+                <div className="opinionCardItems opinioncard__rate--flex">
+                  <Rate rate={lastOpinion.rate} />
+                  <p className="opinionCardItems opinioncard__postDate">
+                    {lastOpinion.postDate}
+                  </p>
+                </div>
+                <textarea
+                  className="opinionCardItems opinioncard--view"
+                  value={
+                    lastOpinion.view.length > 150
+                      ? `${lastOpinion.view.slice(0, 110)}...`
+                      : lastOpinion.view
+                  }
+                  readOnly
+                />
+              </section>
+            </main>
           </div>
         )}
       </div>
