@@ -1,11 +1,10 @@
-import "./Book.css"
+import "./Book.css";
 import { Opinion } from "../Opinion/Opinion";
-import {OpinionCreate} from "../OpinionCreate/OpinionCreate";
+import { OpinionCreate } from "../OpinionCreate/OpinionCreate";
 import { OpinionList } from "../OpinionList/OpinionList";
 import trash from "../../media/delete.svg";
 import url from "../../Url";
 import { useState } from "react";
-
 
 type BookWithDeletionHandler = {
   book?: {
@@ -17,28 +16,28 @@ type BookWithDeletionHandler = {
 };
 
 type Reviews = {
-    id:number;
-    rate:number;
-    view:string;
-    userName:string;
-    postDate:string;
-    bookId: number;
-}
+  id: number;
+  rate: number;
+  view: string;
+  userName: string;
+  postDate: string;
+  bookId: number;
+};
 
 export const Book = ({ book, onDelete }: BookWithDeletionHandler) => {
   const [createOpinionHandling, setCreateOpinionHandling] =
     useState<boolean>(false);
-    const [displayReview, setDisplayReview] = useState<Boolean>(false);
-    const [reviewList, setReviewList] = useState<Reviews[]>();
+  const [displayReview, setDisplayReview] = useState<Boolean>(false);
+  const [reviewList, setReviewList] = useState<Reviews[]>();
 
   const toggleOpinionList = () => {
-    setDisplayReview(!displayReview)
-  }
-  const handleOpinionList = (reviews :Reviews[]) => {
+    setDisplayReview(!displayReview);
+  };
+  const handleOpinionList = (reviews: Reviews[]) => {
     toggleOpinionList();
     setReviewList(reviews);
-    console.log("Reviews: ",reviews)
-  }
+    console.log("Reviews: ", reviews);
+  };
 
   const toggleCreateOpinion = () => {
     setCreateOpinionHandling(!createOpinionHandling);
@@ -56,14 +55,16 @@ export const Book = ({ book, onDelete }: BookWithDeletionHandler) => {
   };
 
   return (
-    <>{displayReview ? 
-      <OpinionList opinions={reviewList} 
-      displayReviews={() => toggleOpinionList()}
-      book={book} />
-      :
-      (book && !createOpinionHandling ? (
-        <div className="bookcard--grid" key={book.id}>
-          <div className="bookcard--header">
+    <>
+      {displayReview ? (
+        <OpinionList
+          opinions={reviewList}
+          displayReviews={() => toggleOpinionList()}
+          book={book}
+        />
+      ) : book && !createOpinionHandling ? (
+        <div className="bookcard--grid">
+          <header className="bookcard--header">
             <button
               className=" button booktitle--trashbutton"
               type="submit"
@@ -77,29 +78,28 @@ export const Book = ({ book, onDelete }: BookWithDeletionHandler) => {
                 alt="delete"
               />
             </button>
-            <textarea 
-              className="booktitle "
-              value= {book.title}
-              readOnly
-            />
+            <textarea className="booktitle " value={book.title} readOnly />
             <h3 className="bookauthor">by: {book.author}</h3>
-          </div>
-          <Opinion book={book} toCreate={toggleCreateOpinion} displayReview={handleOpinionList} />
-          <button
-            className="button bookCard__RateButton"
-            onClick={() => {
-              toggleCreateOpinion();
-            }}
-          >
-            Rate this book
-          </button>
+          </header>
+          <Opinion
+            book={book}
+            toCreate={toggleCreateOpinion}
+            displayReview={handleOpinionList}
+          />
+          <footer>
+            <button
+              className="button bookCard__RateButton"
+              onClick={() => {
+                toggleCreateOpinion();
+              }}
+            >
+              Rate this book
+            </button>
+          </footer>
         </div>
       ) : (
-        <OpinionCreate
-          book={book && book}
-          toCreate={toggleCreateOpinion}
-        />
-      ))}
+        <OpinionCreate book={book && book} toCreate={toggleCreateOpinion} />
+      )}
     </>
   );
 };
