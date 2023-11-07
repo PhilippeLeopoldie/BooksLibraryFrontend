@@ -56,7 +56,7 @@ export const OpinionList = ({
           </h3>
         </header>
         <main className="OpinionList">
-          <div className="OpinionList__filter--flex">
+          <section className="OpinionList__filter--flex">
             <button
               className="OpinionList__filter__button"
               onClick={() => RateFilter(0)}
@@ -93,8 +93,8 @@ export const OpinionList = ({
             >
               5&#9733;
             </button>
-          </div>
-          <div className=" OpinionList OpinionList__reviews">
+          </section>
+          <section className=" OpinionList OpinionList__reviews">
             {filteredOpinion &&
               filteredOpinion
                 .sort((a, b) => b.id - a.id)
@@ -115,7 +115,7 @@ export const OpinionList = ({
                     <hr className="OpinionList OpinionList__horizontalLine" />
                   </div>
                 ))}
-          </div>
+          </section>
         </main>
         <footer className="OpinionList OpinionList__footer--flex">
           <img
