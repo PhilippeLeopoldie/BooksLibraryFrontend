@@ -48,6 +48,12 @@ export const OpinionList = ({
     <>
       <div className="OpinionList OpinionList__container--grid">
         <header className="OpinionList OpinionList__header">
+        <img
+            className="OpinionList OpinionList__footer__ArrowLeftIcone"
+            src={ArrowLeftIcone}
+            onClick={() => displayReviews()}
+            alt="Back"
+          />
           <h2 className="OpinionList OpinionList__header__title">
             {book?.title}
           </h2>
@@ -117,13 +123,8 @@ export const OpinionList = ({
                 ))}
           </section>
         </main>
-        <footer className="OpinionList OpinionList__footer--flex">
-          <img
-            className="OpinionList OpinionList__footer__ArrowLeftIcone"
-            src={ArrowLeftIcone}
-            onClick={() => displayReviews()}
-            alt="Back"
-          />
+        <footer className="OpinionList OpinionList__footer">
+          
         </footer>
       </div>
     </>
