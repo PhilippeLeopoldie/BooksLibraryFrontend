@@ -64,7 +64,8 @@ export const Book = ({ book, onDelete }: BookWithDeletionHandler) => {
       ) : book && !createOpinionHandling ? (
         <div className="bookcard--grid">
           <header className="bookcard--header">
-            <button
+            {/* <button
+            
               className=" button booktitle--trashbutton"
               type="submit"
               onClick={async () => {
@@ -76,7 +77,7 @@ export const Book = ({ book, onDelete }: BookWithDeletionHandler) => {
                 src={trash}
                 alt="delete"
               />
-            </button>
+            </button> */}
             <textarea
               title="Book Title"
               name="Book Title"
