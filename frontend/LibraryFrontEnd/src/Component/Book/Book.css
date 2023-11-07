@@ -30,7 +30,7 @@
 .bookcard--grid:after {
   display: flex;
   justify-content: end;
-  margin-left: 2%;
+  margin-left: 0.4rem;
   height: 52px;
   bottom: 6px;
   background: white;
@@ -92,7 +92,7 @@
   );
   content: "";
   position: relative;
-  width:98%;
+  width:19.6rem;
 }
 
 .bookcard--header {
