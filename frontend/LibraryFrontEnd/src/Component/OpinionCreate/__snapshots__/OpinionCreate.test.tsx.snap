@@ -17,61 +17,65 @@ exports[`OpinionCreate snapShot: render Opinioncreate 1`] = `
         by: 
       </h3>
     </header>
-    <div
-      class="opinionCreate opinionCreate__rate"
+    <main
+      class="opinionCreate opinionCreate__body--grid"
     >
       <div
-        class="rate_container--flex"
+        class="opinionCreate opinionCreate__rate"
       >
         <div
-          class="rate_star empty"
+          class="rate_container--flex"
         >
-          ★
+          <div
+            class="rate_star empty"
+          >
+            ★
+          </div>
+          <div
+            class="rate_star empty"
+          >
+            ★
+          </div>
+          <div
+            class="rate_star empty"
+          >
+            ★
+          </div>
+          <div
+            class="rate_star empty"
+          >
+            ★
+          </div>
+          <div
+            class="rate_star empty"
+          >
+            ★
+          </div>
         </div>
         <div
-          class="rate_star empty"
-        >
-          ★
-        </div>
-        <div
-          class="rate_star empty"
-        >
-          ★
-        </div>
-        <div
-          class="rate_star empty"
-        >
-          ★
-        </div>
-        <div
-          class="rate_star empty"
-        >
-          ★
-        </div>
+          class="opinionCreate opinionCreate__rateText"
+        />
       </div>
       <div
-        class="opinionCreate opinionCreate__rateText"
-      />
-    </div>
-    <div
-      class="opinionCreate opinionCreate__inputs--grid"
-    >
-      <textarea
-        class="opinionForm__view"
-        name="view"
-        placeholder="View"
-        title="View"
-      />
-      <input
-        class="input"
-        name="userName"
-        placeholder="UserName"
-        value=""
-      />
-      <div
-        class="opinionCreate"
-      />
-    </div>
+        class="opinionCreate opinionCreate__inputs--grid"
+      >
+        <textarea
+          class="opinionForm__view"
+          name="view"
+          placeholder="View"
+          title="View"
+        />
+        <input
+          class="input"
+          name="userName"
+          placeholder="UserName"
+          value=""
+        />
+        <div
+          class="opinionCreate"
+        />
+      </div>
+    </main>
     <footer
       class="opinionCreate opinionForm__footer--flex"
     >

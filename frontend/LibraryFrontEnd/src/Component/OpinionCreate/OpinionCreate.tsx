@@ -115,7 +115,7 @@ export const OpinionCreate = ({ book, toCreate }: AddOpinionType) => {
             by: {book?.author}
           </h3>
         </header>
-        <body className="opinionCreate opinionCreate__body--grid">
+        <main className="opinionCreate opinionCreate__body--grid">
           <div className="opinionCreate opinionCreate__rate">
             <RateClick rate={formData.rate} HandleRate={HandleFormDataRate} />
             <div className="opinionCreate opinionCreate__rateText">
@@ -147,7 +147,7 @@ export const OpinionCreate = ({ book, toCreate }: AddOpinionType) => {
             </div>
             
           </div>
-        </body>
+        </main>
         <footer className="opinionCreate opinionForm__footer--flex">
           <button
             className="button opinionForm__cancelButon"
