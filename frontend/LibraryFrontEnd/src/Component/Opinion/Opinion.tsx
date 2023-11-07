@@ -83,7 +83,7 @@ export const Opinion = ({
 
   return (
     <>
-      <div className="opinioncontainer">
+      
         {lastOpinion && (
           <div className="opinioncontainer--card">
             <header className="opinionCardItems opinioncard__reviews--flex">
@@ -137,7 +137,7 @@ export const Opinion = ({
             </main>
           </div>
         )}
-      </div>
+      
     </>
   );
 };
