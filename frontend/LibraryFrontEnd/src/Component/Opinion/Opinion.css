@@ -60,6 +60,7 @@
   border-color: transparent;
   resize: none;
   overflow: hidden;
+  font-size: 1rem;
 }
 
 .opinioncard__postDate {
