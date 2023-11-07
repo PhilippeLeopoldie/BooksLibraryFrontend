@@ -4,10 +4,10 @@
 
 .opinioncontainer--card {
   display: grid;
-  padding-left: 2.4rem;
+  margin-left: 12%;
   border-bottom-right-radius: 5%;
   background-color: transparent;
-  width:17.5rem;
+  width:85%;
 }
 
 .opinionCardItems,
