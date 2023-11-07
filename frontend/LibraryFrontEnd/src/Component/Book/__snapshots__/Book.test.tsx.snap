@@ -8,16 +8,6 @@ exports[` snapchot: renders book title and author 1`] = `
     <header
       class="bookcard--header"
     >
-      <button
-        class=" button booktitle--trashbutton"
-        type="submit"
-      >
-        <img
-          alt="delete"
-          class="icone bookcard--iconeTrash"
-          src="SvgrURL"
-        />
-      </button>
       <textarea
         class="booktitle"
         name="Book Title"

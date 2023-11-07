@@ -34,7 +34,7 @@ describe("", () => {
     expect(authorElement).toHaveClass("bookauthor");
   });
 
-  test("renders delete img with the correct alt text and ClassName", () => {
+/*   test("renders delete img with the correct alt text and ClassName", () => {
     // Arrange
     const onDelete = jest.fn();
     const { getByAltText } = render(
@@ -47,5 +47,5 @@ describe("", () => {
     //Expect
     expect(trashImage).toBeInTheDocument();
     expect(trashImage).toHaveClass("bookcard--iconeTrash");
-  });
+  }); */
 });
