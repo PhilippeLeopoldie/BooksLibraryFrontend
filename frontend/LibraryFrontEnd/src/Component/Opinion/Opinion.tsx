@@ -127,8 +127,8 @@ export const Opinion = ({
                   name="View"
                   className="opinionCardItems opinioncard--view"
                   value={
-                    lastOpinion.view.length > 150
-                      ? `${lastOpinion.view.slice(0, 110)}...`
+                    lastOpinion.view.length > 100
+                      ? `${lastOpinion.view.slice(0, 100)}...`
                       : lastOpinion.view
                   }
                   readOnly
