@@ -36,6 +36,7 @@
 
 .OpinionList__filter__button {
   font-size: 1.5rem;
+  -webkit-text-size-adjust: auto;
 }
 
 .OpinionList__reviews {
@@ -63,6 +64,7 @@
 .OpinionList__view {
   text-align: justify;
   margin-bottom: 2rem;
+  padding-right: 0.5rem;
 }
 
 .OpinionList__horizontalLine {
