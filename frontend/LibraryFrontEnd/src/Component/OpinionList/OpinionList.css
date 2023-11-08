@@ -24,12 +24,13 @@
 
 .OpinionList__filter--flex {
   margin-bottom: 1rem;
-  display: -webkit-box;
+  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   width: 20rem;
   -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
   background-color: transparent;
 }
 
