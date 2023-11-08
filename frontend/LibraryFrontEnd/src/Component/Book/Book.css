@@ -143,10 +143,8 @@ footer {
   height: 25px;
 }
 
-@media screen and (min-width: 395px) {
-  .bookcard {
-    width: 20rem;
-  }
-}
+
+
+
 
 
