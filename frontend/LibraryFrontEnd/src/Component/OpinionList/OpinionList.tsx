@@ -61,7 +61,7 @@ export const OpinionList = ({
             By: {book?.author}
           </h3>
         </header>
-        <main className="OpinionList">
+        <main className="OpinionList OpinionList__main--flex">
           <section className="OpinionList__filter--flex">
             <button
               className="OpinionList__filter__button"

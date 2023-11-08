@@ -22,12 +22,17 @@
   overflow: auto;
 }
 
+.OpinionList__main--flex {
+  display:flex;
+  flex-direction: column;
+}
+
 .OpinionList__filter--flex {
   margin-bottom: 1rem;
   display: -webkit-flex;
   display: -ms-flexbox;
+  width: 100%;
   display: flex;
-  width: 20rem;
   -ms-flex-pack: distribute;
   -webkit-justify-content: space-around;
   justify-content: space-around;
