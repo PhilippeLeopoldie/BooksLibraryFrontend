@@ -31,8 +31,8 @@
   margin-bottom: 1rem;
   display: -webkit-flex;
   display: -ms-flexbox;
-  width: 20rem;
   display: flex;
+  width: 20rem;
   -ms-flex-pack: distribute;
   -webkit-justify-content: space-around;
   justify-content: space-around;
@@ -41,7 +41,8 @@
 
 .OpinionList__filter__button {
   font-size: 1.5rem;
-  -webkit-text-size-adjust: 0.5rem;
+  
+  -webkit-text-size-adjust: auto;
 }
 
 .OpinionList__reviews {
