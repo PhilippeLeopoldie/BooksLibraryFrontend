@@ -29,13 +29,14 @@
 
 .OpinionList__filter--flex {
   margin-bottom: 1rem;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+ /*  display: -webkit-flex;
+  display: -ms-flexbox; */
+  display: grid;
+  grid-template-columns: repeat(6,1fr);
   width: 20rem;
-  -ms-flex-pack: distribute;
+ /*  -ms-flex-pack: distribute;
   -webkit-justify-content: space-around;
-  justify-content: space-around;
+  justify-content: space-around; */
   background-color: transparent;
 }
 
