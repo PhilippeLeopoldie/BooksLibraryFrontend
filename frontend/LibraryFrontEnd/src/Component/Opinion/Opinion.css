@@ -2,12 +2,12 @@
   background-color: transparent;
 }
 
-.opinioncontainer--card {
+.opinionContainer {
   display: grid;
   margin-left: 12%;
   border-bottom-right-radius: 5%;
   background-color: transparent;
-  width:85%;
+  width:17rem;
 }
 
 .opinionCardItems,

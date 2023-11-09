@@ -85,7 +85,7 @@ export const Opinion = ({
     <>
       
         {lastOpinion && (
-          <div className="opinioncontainer--card">
+          <div className="opinionContainer">
             <header className="opinionCardItems opinioncard__reviews--flex">
               <div className="opinionCardItems opinioncard__reviews__averageRate">
                 {averageRate}/5
