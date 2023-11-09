@@ -7,7 +7,8 @@
   margin-left: 12%;
   border-bottom-right-radius: 5%;
   background-color: transparent;
-  width:17rem;
+  width:17 rem;
+  -webkit-logical-width:16 rem;
 }
 
 .opinionCardItems,
