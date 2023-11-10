@@ -4,7 +4,8 @@
   color-scheme: light dark;
   background-color: white;
 }
-.input {
+
+input {
   background-color: white;
   margin-top: 5%;
   font-size: x-large;
