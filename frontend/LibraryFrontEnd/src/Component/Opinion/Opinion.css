@@ -4,10 +4,10 @@
 
 .opinionContainer {
   display: grid;
-  margin-left: 11%;
+  margin-left: 2.4rem;
   border-bottom-right-radius: 5%;
   background-color: transparent;
-  max-width:17rem;
+  max-width:15rem;
   -webkit-logical-width:16rem;
 }
 
@@ -54,9 +54,9 @@
 }
 
 .opinioncard--view {
-  text-align: justify;
+  text-align: left;
   font-style: italic;
-  width: 17rem;
+  width: 16rem;
   height: 4rem;
   border-color: transparent;
   resize: none;
