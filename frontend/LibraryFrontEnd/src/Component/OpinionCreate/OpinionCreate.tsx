@@ -132,7 +132,7 @@ export const OpinionCreate = ({ book, toCreate }: AddOpinionType) => {
               onChange={(e) => HandleInputChange(e)}
             />
             <input
-              className="input"
+              className="opinionCreate__input"
               placeholder="UserName"
               name="userName"
               value={formData.userName}
