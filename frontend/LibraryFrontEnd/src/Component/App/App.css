@@ -7,11 +7,15 @@
   padding: 0;
 }
 
+.App {
+  display:flex;
+  flex-direction: column;
+}
 
-.navbar {
+.navbar--flex {
   font-size: large;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   position: fixed;
   bottom: 0;
   background-color: #d4af37;
@@ -25,10 +29,10 @@
   margin: 0;
   color: white;
   font-weight: bolder;
+  
 }
 
 .navbar__home {
-  margin-left: 3%;
   transform: scale(0.8);
   margin-bottom: -0.5rem;
 }
@@ -49,7 +53,7 @@
 }
 
 .nav__search {
-  margin-bottom: 1rem;
+  margin-bottom: 1.1rem;
 }
 
 .nav__search__title {
@@ -95,7 +99,7 @@
 }
 
 @media screen and (min-width: 768px) {
-  .navbar {
+  .navbar--flex {
     position: sticky;
     top: 0;
     height: 4.71rem;
@@ -130,14 +134,14 @@
   }
 
   .navbar__addBook {
-    margin-right: 1.5rem;
+    margin-right: 0rem;
     transform: scale(1);
     margin-bottom: 0;
   }
 
   .nav__addBook {
     margin-bottom: 0rem;
-    margin-left: -1.4rem;
+    margin-left: 0rem;
   }
 
   .addIcone {

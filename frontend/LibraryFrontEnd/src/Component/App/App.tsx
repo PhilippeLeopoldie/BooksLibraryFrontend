@@ -12,7 +12,7 @@ export const App = () => {
   return (
     <div className="App">
       <BrowserRouter>
-        <div className="navbar">
+        <div className="navbar--flex">
           <div className="navElement navbar__home">
             <Link className="nav-link homeLink" to="/">
               <img className="nav-link nav__HomeIcone" src={homeIcone} alt="Home"></img>
@@ -44,7 +44,6 @@ export const App = () => {
                 src={bookIcone}
                 alt="book"
               />
-              
               <img
                 className="nav-link addIcone"
                 width="20"
