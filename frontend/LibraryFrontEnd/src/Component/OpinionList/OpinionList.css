@@ -95,18 +95,9 @@
 }
 
 @media screen and (min-width: 396px) {
-
-  .OpinionList__filter--flex {
-    margin-bottom: 1rem;
-    display: -webkit-flex;
-    display: -ms-flexbox; 
-    -ms-flex-pack: distribute;
-    -webkit-justify-content: space-around;
-    justify-content: space-around;
-    max-width: 20rem;
-  }
-
   .OpinionList__filter__button {
     font-size: 1.5rem; 
+    max-width:2.5rem;
+    -webkit-text-size-adjust: none; 
   }
 }
