@@ -7,7 +7,7 @@
   margin-left: 12%;
   border-bottom-right-radius: 5%;
   background-color: transparent;
-  width:17rem;
+  max-width:17rem;
   -webkit-logical-width:16rem;
 }
 
