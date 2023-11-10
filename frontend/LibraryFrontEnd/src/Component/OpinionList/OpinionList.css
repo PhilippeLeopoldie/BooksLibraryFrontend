@@ -95,6 +95,16 @@
 }
 
 @media screen and (min-width: 396px) {
+
+  .OpinionList__filter--flex {
+    margin-bottom: 1rem;
+   /*  display: -webkit-flex;
+    display: -ms-flexbox; */
+    display: grid;
+    grid-template-columns: repeat(6,1fr); 
+    max-width: 20rem;
+  }
+
   .OpinionList__filter__button {
     font-size: 1.5rem; 
     -webkit-text-size-adjust: none; 
