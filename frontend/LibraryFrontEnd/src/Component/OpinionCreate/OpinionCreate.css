@@ -11,7 +11,7 @@
 .opinionCreate {
   background: rgb(253, 229, 187) 10%;
 }
-.opinionCreate__body--grid {
+.opinionCreate__main--grid {
   display:grid;
   grid-template-rows: 25% 75%;
 }
