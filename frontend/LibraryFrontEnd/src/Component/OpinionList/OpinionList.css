@@ -33,7 +33,7 @@
   display: -ms-flexbox; */
   display: flex;
   /* grid-template-columns: repeat(6,1fr); */
-  max-width: 20rem;
+  max-width: 19rem;
  /*  -ms-flex-pack: distribute;
   -webkit-justify-content: space-around;*/
   justify-content: space-around;
