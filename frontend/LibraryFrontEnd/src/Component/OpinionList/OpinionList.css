@@ -41,8 +41,8 @@
 }
 
 .OpinionList__filter__button {
-  font-size: 0.8rem;
-  /* -webkit-text-size-adjust: auto; */
+  font-size: 1.5rem;
+  -webkit-text-size-adjust: 100%; 
 }
 
 .OpinionList__reviews {
