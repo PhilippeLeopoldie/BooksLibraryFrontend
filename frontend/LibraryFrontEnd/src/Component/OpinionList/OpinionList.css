@@ -31,19 +31,18 @@
   margin-bottom: 1rem;
  /*  display: -webkit-flex;
   display: -ms-flexbox; */
-  display: grid;
+  display: flex;
   grid-template-columns: repeat(6,1fr);
-  width: 20rem;
+  max-width: 20rem;
  /*  -ms-flex-pack: distribute;
-  -webkit-justify-content: space-around;
-  justify-content: space-around; */
+  -webkit-justify-content: space-around;*/
+  justify-content: space-around;
   background-color: transparent;
 }
 
 .OpinionList__filter__button {
-  font-size: 1.5rem;
-  
-  -webkit-text-size-adjust: auto;
+  /* font-size: 1.5rem; */
+  /* -webkit-text-size-adjust: auto; */
 }
 
 .OpinionList__reviews {
