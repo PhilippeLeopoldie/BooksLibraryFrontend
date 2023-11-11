@@ -1,5 +1,5 @@
 .bookCreateForm__container {
-  margin-top: 1rem;
+  margin: 6rem auto auto auto;
   display: flex;
   justify-content: center;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3),
@@ -7,7 +7,7 @@
   width: 20rem;
   height: 30rem;
   padding: 1rem;
-  margin: 5% auto;
+  
   position: relative;
 }
 
