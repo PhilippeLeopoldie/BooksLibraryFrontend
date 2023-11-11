@@ -1,5 +1,5 @@
 import { Book } from "../Book/Book";
-import "./BookList.css"
+import "./BookList.css";
 import url from "../../Url";
 import { useEffect, useState } from "react";
 
@@ -49,10 +49,12 @@ export const BookList = () => {
   const randomIndex = Math.floor(Math.random() * books.length);
   const random = books[randomIndex];
   return (
-    <div className="books">
-      <h2>Recommendation of the day</h2>
-      <h3>{random?.book.title}</h3>
-      <div className="booksContainer" data-testid="booksContainer">
+    <>
+      <header className="books">
+        <h2>Recommendation of the day</h2>
+        <h3>{random?.book.title}</h3>
+      </header>
+      <main className="booksContainer" data-testid="booksContainer">
         {books &&
           Array.isArray(books) &&
           books
@@ -64,7 +66,7 @@ export const BookList = () => {
                 onDelete={handleDeleteBook}
               />
             ))}
-      </div>
-    </div>
+      </main>
+    </>
   );
 };
