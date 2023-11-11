@@ -59,8 +59,12 @@
 }
 
 @media screen and (min-width: 768px) {
-  .navbar--grid {
+  .nav-link {
     position: sticky;
+    top: 0;
+  }
+  .navbar--grid {
+    position: fixed;
     top: 0;
     height: 4.71rem;
   }
@@ -69,10 +73,7 @@
     transform: scale(1);
   }
 
-  .nav-link {
-    position: sticky;
-    top: 0;
-  }
+ 
 
   .icone {
     margin-bottom: 0rem;
