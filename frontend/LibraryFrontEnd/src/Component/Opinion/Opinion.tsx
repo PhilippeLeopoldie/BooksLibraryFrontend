@@ -4,6 +4,7 @@ import { OpinionList } from "../OpinionList/OpinionList";
 import url from "../../Url";
 import modify from "../../media/write.svg";
 import { Rate } from "../Rate/Rate";
+import { ThemeContext } from "../App/App";
 
 type OpinionType = {
   id: number;
@@ -31,6 +32,7 @@ export const Opinion = ({
   toCreate,
   displayReview,
 }: BookType) => {
+  const theme = useContext(ThemeContext);
   const [opinions, setOpinions] = useState<OpinionType[] | null>(null);
   const [fetching, setFething] = useState<boolean>(true);
   const [lastOpinion, setLastOpinion] = useState<OpinionType | null>(null);
@@ -85,7 +87,7 @@ export const Opinion = ({
     <>
       
         {lastOpinion && (
-          <div className="opinionContainer">
+          <div className={`opinionContainer opinionContainer--${theme}`}>
             <header className="opinionCardItems opinioncard__reviews--flex">
               <div className="opinionCardItems opinioncard__reviews__averageRate">
                 {averageRate}/5

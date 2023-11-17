@@ -4,15 +4,21 @@
 
 .opinionContainer {
   display: grid;
-  margin-left: 2.4rem;
   border-bottom-right-radius: 5%;
   background-color: transparent;
   -webkit-logical-width:16rem;
 }
 
-.opinionCardItems,
-.img {
-  background-color: rgb(253, 229, 187);
+.opinionContainer--natural {
+  margin-left: 1rem;
+}
+
+.opinionContainer--antique {
+  margin-left: 2.4rem;
+}
+
+.opinionCardItems {
+  background-color: transparent;
 }
 
 .opinioncard__reviews--flex {
@@ -23,6 +29,7 @@
 .opinioncard__reviews__averageRate {
   font-weight: bold;
   text-align: right;
+  color: rgb(47, 6, 150);
 }
 
 .opinioncard__reviews__star {
@@ -31,7 +38,7 @@
 }
 
 .OpinionCard__line {
-  color: rgb(253, 229, 187);
+  color: rgb(0,0,0);
   width: 90%;
   margin-bottom: 0;
 }
@@ -70,7 +77,7 @@
 
 .opinioncard__nbReview {
   cursor: pointer;
-  color: #4ba5ff;
+  color: rgb(47, 6, 150);
   font-size: 1.125rem;
   font-weight: bold;
   text-align: left;
