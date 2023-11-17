@@ -50,7 +50,7 @@ export const BookList = () => {
   const random = books[randomIndex];
   return (
     <>
-      <header className="books">
+      <header className="books__header--flex">
         <h2>Recommendation of the day</h2>
         <h3>{random?.book.title}</h3>
       </header>

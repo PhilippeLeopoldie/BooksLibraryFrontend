@@ -1,3 +1,8 @@
+.books__header--flex {
+  display:flex;
+  flex-direction: column;
+}
+
 .booksContainer {
   display: grid;
   justify-content: center;
@@ -5,7 +10,7 @@
 }
 
 @media screen and (min-width: 768px) {
-  .books {
+  .books__header--flex {
     margin-top: 4rem;
   }
 
