@@ -1,5 +1,10 @@
-.OpinionList {
-  background: rgb(253, 229, 187) 10%;
+.OpinionList--natural {
+  background: #ffffff;
+  margin: 0;
+}
+
+.OpinionList--antique {
+  background: rgb(253, 229, 187);
   margin: 0;
 }
 
@@ -8,9 +13,10 @@
   grid-template-rows: 20% 70% 10%;
   width: 20rem;
   height: 29rem;
-  border-radius: 5%;
+  border-radius: 4%;
   margin: 0 1em 10% 1em;
   padding-top: 1rem;
+  border: 1px black solid;
 }
 
 .OpinionList__header {

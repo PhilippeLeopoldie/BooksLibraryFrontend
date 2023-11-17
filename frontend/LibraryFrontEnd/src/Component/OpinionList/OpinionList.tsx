@@ -1,7 +1,8 @@
 import { Rate } from "../Rate/Rate";
 import "./OpinionList.css";
 import ArrowLeftIcone from "../../media/arrowLeft.svg";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { ThemeContext } from "../App/App";
 
 type Review = {
   id: number;
@@ -29,6 +30,7 @@ export const OpinionList = ({
   displayReviews: DisplayReview;
   book: Book | undefined;
 }) => {
+  const theme = useContext(ThemeContext);
   const [filteredOpinion, setFilteredOpinion] = useState<Review[] | undefined>(
     opinions
   );
@@ -46,22 +48,22 @@ export const OpinionList = ({
 
   return (
     <>
-      <div className="OpinionList OpinionList__container--grid">
-        <header className="OpinionList OpinionList__header">
+      <div className={`OpinionList--${theme} OpinionList__container--grid`}>
+        <header className={`OpinionList--${theme} OpinionList__header`}>
         <img
-            className="OpinionList OpinionList__footer__ArrowLeftIcone"
+            className={`OpinionList--${theme} OpinionList__footer__ArrowLeftIcone`}
             src={ArrowLeftIcone}
             onClick={() => displayReviews()}
             alt="Back"
           />
-          <h2 className="OpinionList OpinionList__header__title">
+          <h2 className={`OpinionList--${theme} OpinionList__header__title`}>
             {book?.title}
           </h2>
-          <h3 className="OpinionList OpinionList__header__author">
+          <h3 className={`OpinionList--${theme} OpinionList__header__author`}>
             By: {book?.author}
           </h3>
         </header>
-        <main className="OpinionList OpinionList__main--flex">
+        <main className={`OpinionList--${theme} OpinionList__main--flex`}>
           <section className="OpinionList__filter--flex">
             <button
               className="OpinionList__filter__button"
@@ -100,30 +102,30 @@ export const OpinionList = ({
               5&#9733;
             </button>
           </section>
-          <section className=" OpinionList OpinionList__reviews">
+          <section className={` OpinionList--${theme} OpinionList__reviews`}>
             {filteredOpinion &&
               filteredOpinion
                 .sort((a, b) => b.id - a.id)
                 .map((review, index) => (
-                  <div className="OpinionList" key={index}>
-                    <p className="OpinionList opinionlist__userName">
+                  <div className={`OpinionList--${theme}`} key={index}>
+                    <p className={`OpinionList--${theme} opinionlist__userName`}>
                       {review.userName}
                     </p>
-                    <div className="OpinionList OpinionList__rate--flex">
+                    <div className={`OpinionList--${theme} OpinionList__rate--flex`}>
                       <Rate rate={review.rate} />
-                      <p className="OpinionList OpinionList__date">
+                      <p className={`OpinionList--${theme} OpinionList__date`}>
                         {review.postDate}
                       </p>
                     </div>
-                    <p className="OpinionList OpinionList__view">
+                    <p className={`OpinionList--${theme} OpinionList__view`}>
                       {review.view}
                     </p>
-                    <hr className="OpinionList OpinionList__horizontalLine" />
+                    <hr className={`OpinionList--${theme} OpinionList__horizontalLine`} />
                   </div>
                 ))}
           </section>
         </main>
-        <footer className="OpinionList OpinionList__footer">
+        <footer className={`OpinionList--${theme} OpinionList__footer`}>
           
         </footer>
       </div>
