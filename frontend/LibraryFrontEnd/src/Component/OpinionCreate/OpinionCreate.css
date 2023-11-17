@@ -4,13 +4,19 @@
   width: 20rem;
   height: 29rem;
   padding-top: 5%;
-  border-radius: 5%;
   margin: 0 1em 10% 1em;
+  border: 1px black solid;
 }
 
-.opinionCreate {
+.opinionCreate--antique {
   background: rgb(253, 229, 187) 10%;
+  border-radius: 5%;
 }
+
+.opinionCreate--natural {
+  background: #ffffff;
+}
+
 .opinionCreate__main--grid {
   display:grid;
   grid-template-rows: 25% 75%;

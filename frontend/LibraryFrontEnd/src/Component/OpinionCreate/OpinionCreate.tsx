@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import url from "../../Url";
 import { RateClick } from "../RateClick/RateClick";
 import "./OpinionCreate.css";
+import { ThemeContext } from "../App/App";
 
 type AddOpinionType = {
   book?: {
@@ -19,6 +20,7 @@ type FormDataType = {
 };
 
 export const OpinionCreate = ({ book, toCreate }: AddOpinionType) => {
+  const theme = useContext(ThemeContext);
   const [bookCreatedMessage, setBookCreatedMessage] = useState<boolean>(false);
   const [errorOpinion, setErrorOpinion] = useState<boolean>(false);
   const [errorOpinionDetail, setErrorOpinionDetail] = useState<string>("");
@@ -106,23 +108,23 @@ export const OpinionCreate = ({ book, toCreate }: AddOpinionType) => {
 
   return (
     <>
-      <div className="opinionCreate opinionCreateCard--grid">
-        <header className="opinionCreate">
-          <h2 className="opinionCreate opinionCreate__booktitle">
+      <div className={`opinionCreate--${theme} opinionCreateCard--grid`}>
+        <header className={`opinionCreate--${theme}`}>
+          <h2 className={`opinionCreate--${theme} opinionCreate__booktitle`}>
             {book?.title}
           </h2>
-          <h3 className="opinionCreate opinionCreate__bookauthor">
+          <h3 className={`opinionCreate--${theme} opinionCreate__bookauthor`}>
             by: {book?.author}
           </h3>
         </header>
-        <main className="opinionCreate opinionCreate__main--grid">
-          <div className="opinionCreate opinionCreate__rate">
+        <main className={`opinionCreate--${theme} opinionCreate__main--grid`}>
+          <div className={`opinionCreate--${theme} opinionCreate__rate`}>
             <RateClick rate={formData.rate} HandleRate={HandleFormDataRate} />
-            <div className="opinionCreate opinionCreate__rateText">
+            <div className={`opinionCreate--${theme} opinionCreate__rateText`}>
               {rateText}
             </div>
           </div>
-          <div className="opinionCreate opinionCreate__inputs--grid">
+          <div className={`opinionCreate--${theme} opinionCreate__inputs--grid`}>
             <textarea 
               title="View"
               className="opinionForm__view"
@@ -138,9 +140,9 @@ export const OpinionCreate = ({ book, toCreate }: AddOpinionType) => {
               value={formData.userName}
               onChange={(e) => HandleInputChange(e)}
             />
-            <div className="opinionCreate">
+            <div className={`opinionCreate--${theme}`}>
             {errorOpinion && (
-              <div className="opinionCreate validation__errorMessage">
+              <div className={`opinionCreate--${theme} validation__errorMessage`}>
                 {errorOpinionDetail}
               </div>
             )}
@@ -148,7 +150,7 @@ export const OpinionCreate = ({ book, toCreate }: AddOpinionType) => {
             
           </div>
         </main>
-        <footer className="opinionCreate opinionForm__footer--flex">
+        <footer className={`opinionCreate--${theme} opinionForm__footer--flex`}>
           <button
             className="button opinionForm__cancelButon"
             onClick={() => {
