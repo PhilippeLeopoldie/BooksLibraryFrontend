@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "./BookCreate.css"
 import { Link } from "react-router-dom";
 import url from "../../Url";
+import { ThemeContext } from "../App/App";
 
 //import "../Book/Book.css";
 
@@ -19,6 +20,7 @@ type BookType = {
 };
 
 export const BookCreate = () => {
+  const theme = useContext(ThemeContext);
   const [formData, setFormData] = useState<FormDataType>({
     title: "",
     author: "",
@@ -81,7 +83,7 @@ export const BookCreate = () => {
 
   return (
     <>
-      <div className="bookCreateForm__container">
+      <div className={`bookCreateForm__container--${theme} bookCreateForm__container`}>
         <form
           onSubmit={(e) => e.preventDefault()}
           action={url + "api/Book"}

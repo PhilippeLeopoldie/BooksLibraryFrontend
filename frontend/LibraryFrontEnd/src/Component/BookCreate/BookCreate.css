@@ -2,13 +2,20 @@
   margin: 2rem auto auto auto;
   display: flex;
   justify-content: center;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3),
-    0 0 300px 25px  rgb(253, 229, 187) inset;
   width: 20rem;
   height: 30rem;
   padding: 1rem;
-  
   position: relative;
+}
+
+.bookCreateForm__container--natural {
+  background-color: #ffffff;
+  border: 1px #000000 solid;
+}
+
+.bookCreateForm__container--antique {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3),
+    0 0 300px 25px  rgb(253, 229, 187) inset;
 }
 
 .opinionForm__view {
