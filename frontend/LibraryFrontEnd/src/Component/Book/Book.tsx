@@ -2,9 +2,11 @@ import "./Book.css";
 import { Opinion } from "../Opinion/Opinion";
 import { OpinionCreate } from "../OpinionCreate/OpinionCreate";
 import { OpinionList } from "../OpinionList/OpinionList";
+import { ThemeContext } from "../App/App";
 import trash from "../../media/delete.svg";
 import url from "../../Url";
-import { useState } from "react";
+import { useContext, useState } from "react";
+
 
 type BookWithDeletionHandler = {
   book?: {
@@ -25,6 +27,7 @@ type Reviews = {
 };
 
 export const Book = ({ book, onDelete }: BookWithDeletionHandler) => {
+  const theme = useContext(ThemeContext);
   const [createOpinionHandling, setCreateOpinionHandling] =
     useState<boolean>(false);
   const [displayReview, setDisplayReview] = useState<Boolean>(false);
@@ -62,7 +65,7 @@ export const Book = ({ book, onDelete }: BookWithDeletionHandler) => {
           book={book}
         />
       ) : book && !createOpinionHandling ? (
-        <div className="bookcard--grid">
+        <div className={"bookcard--grid bookcard--"+theme}>
           <header className="bookcard--header">
             {/* <button
             

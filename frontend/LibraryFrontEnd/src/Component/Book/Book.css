@@ -1,38 +1,48 @@
 
 .bookcard--grid {
   border: 1px gray solid;
-  border-radius: 3%;
   display: grid;
   grid-template-rows: 2fr 3fr 1fr;
   width: 20rem;
   height: 30rem;
-  border-radius: 20px 16px 12px 32px;
-  background-image: linear-gradient(
-    to right,
-    #d4af37 10%,
-    rgb(253, 229, 187) 10%
-  );
   margin:0 1em 10% 1em;
 }
 
 .bookCard__RateButton{
  margin-top :4%;
  margin-bottom: 8%;
- margin-left: 32%;
- margin-right: 20%;
+ 
  font-size:1rem;
  font-weight:bolder;
  background-color: transparent;
- border-color: #a38729;
-
+ color: rgb(47, 6, 150);
 }
 
-.bookcard--grid:after {
-  display: flex;
-  justify-content: end;
-  margin-left: 0.4rem;
-  height: 52px;
-  bottom: 6px;
+.bookcard--antique {
+  border-radius: 20px 16px 12px 32px;
+  background-image: linear-gradient(
+    to right,
+    #d4af37 10%,
+    rgb(253, 229, 187) 10%
+  );
+  
+  .bookCard__RateButton {
+    border-color: #a38729;
+    margin-left: 32%;
+    margin-right: 20%;
+  }
+
+  .booktitle {
+    -webkit-text-stroke: 1px #a38729;
+    color: #d4af37;
+  }
+
+  .bookcard--header {
+    padding-left: 10%;
+  }
+}
+
+.bookcard--antique:after {
   background: white;
   border-radius: 32px 4px 4px 32px;
   box-shadow: inset 4px 6px 0px 0px #a69650;
@@ -93,21 +103,26 @@
   content: "";
   position: relative;
   width:19.6rem;
+  display: flex;
+  justify-content: end;
+  margin-left: 0.4rem;
+  height: 52px;
+  bottom: 6px;
 }
+
 
 .bookcard--header {
   border-top-right-radius: 5%;
   border-top-left-radius: 5%;
   background-color: transparent;
-  padding-left: 10%;
+  
 }
 
 .booktitle {
   background-color: transparent;
   font-size: 1.4rem;
   font-weight: bold;
-  -webkit-text-stroke: 1px #a38729;
-  color: #d4af37;
+  
   text-align:center;
   border-color: transparent;
   resize:none;
