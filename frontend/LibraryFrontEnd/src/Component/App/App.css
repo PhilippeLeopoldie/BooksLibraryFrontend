@@ -58,6 +58,10 @@
  cursor: pointer;
 }
 
+.nav__Settings__Title {
+  margin-top: -0.5rem;
+}
+
 .nav-link {
   text-decoration: none;
   color: white;
@@ -80,7 +84,9 @@
     transform: scale(1);
   }
 
- 
+  .nav__Settings__Title {
+    margin-top: 0;
+  }
 
   .icone {
     margin-bottom: 0rem;

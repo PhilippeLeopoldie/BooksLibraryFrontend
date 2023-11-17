@@ -51,15 +51,16 @@ export const App = () => {
                 Add a book
               </figcaption>
             </Link>
-            <div className="nav-link settingsIcone">
+            <div className="nav-link icone settingsIcone">
               <img
                 className="nav-link"
                 src={settings}
                 onClick={() => {
                   setTheme(theme === "natural" ? "antique" : "natural");
                 }}
+                alt="Themes"
               />
-              <figcaption className="iconeTitle">Themes</figcaption>
+              <figcaption className="iconeTitle nav__Settings__Title">Themes</figcaption>
             </div>
           </nav>
           <Routes>
