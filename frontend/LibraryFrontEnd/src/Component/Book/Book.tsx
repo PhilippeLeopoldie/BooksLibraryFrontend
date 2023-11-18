@@ -7,7 +7,6 @@ import trash from "../../media/delete.svg";
 import url from "../../Url";
 import { useContext, useState } from "react";
 
-
 type BookWithDeletionHandler = {
   book?: {
     id: number;
@@ -65,7 +64,12 @@ export const Book = ({ book, onDelete }: BookWithDeletionHandler) => {
           book={book}
         />
       ) : book && !createOpinionHandling ? (
-        <div className={"bookcard--grid bookcard--"+theme}>
+        <div className={"bookcard--grid bookcard--" + theme}>
+          <img
+            src=""
+            className="BookImage"
+            alt="bookImage"
+          />
           <header className="bookcard--header">
             {/* <button
             
@@ -85,17 +89,20 @@ export const Book = ({ book, onDelete }: BookWithDeletionHandler) => {
               title="Book Title"
               name="Book Title"
               className="booktitle"
-              value={book.title}
+              value={book.title.length > 40 
+              ? `${book.title.slice(0, 40)}...`
+              : book.title}
               readOnly
             />
             <h3 className="bookauthor">by: {book.author}</h3>
           </header>
+          <div className="footer--flex">
           <Opinion
             book={book}
             toCreate={toggleCreateOpinion}
             displayReview={handleOpinionList}
           />
-          <footer>
+          
             <button
               className="button bookCard__RateButton"
               onClick={() => {
@@ -104,7 +111,9 @@ export const Book = ({ book, onDelete }: BookWithDeletionHandler) => {
             >
               Rate this book
             </button>
-          </footer>
+          
+          </div>
+          
         </div>
       ) : (
         <OpinionCreate book={book && book} toCreate={toggleCreateOpinion} />
