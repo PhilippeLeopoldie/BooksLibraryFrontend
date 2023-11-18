@@ -10,22 +10,28 @@
 
 .OpinionList__container--grid {
   display: grid;
-  grid-template-rows: 20% 70% 10%;
+  grid-template-rows: 30% 65% 5%;
   width: 20rem;
   height: 29rem;
   border-radius: 4%;
-  margin: 0 1em 10% 1em;
-  padding-top: 1rem;
+  margin: 0 1rem 10% 1rem;
+  padding-top: 0rem;
   border: 1px black solid;
 }
 
 .OpinionList__header {
   margin-bottom: 0rem;
+  border-radius: 15% 15% 0 0 ;
 }
 
 .OpinionList__header__title {
   max-height: 5rem;
   overflow: auto;
+}
+
+.OpinionList__header__nbReview {
+  text-align: left;
+  margin: 0.5rem 0 0.5rem 1rem ;
 }
 
 .OpinionList__main--flex {
