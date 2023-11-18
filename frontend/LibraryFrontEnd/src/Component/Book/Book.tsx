@@ -12,6 +12,7 @@ type BookWithDeletionHandler = {
     id: number;
     title: string;
     author: string;
+    imageUrl?:string;
   };
   onDelete?: Function;
 };
@@ -66,7 +67,7 @@ export const Book = ({ book, onDelete }: BookWithDeletionHandler) => {
       ) : book && !createOpinionHandling ? (
         <div className={"bookcard--grid bookcard--" + theme}>
           <img
-            src=""
+            src={book.imageUrl &&`${book.imageUrl}`}
             className="BookImage"
             alt="bookImage"
           />
