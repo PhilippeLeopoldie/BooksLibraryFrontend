@@ -62,6 +62,12 @@ export const OpinionList = ({
           <h3 className={`OpinionList--${theme} OpinionList__header__author`}>
             By: {book?.author}
           </h3>
+          <h3 className={`OpinionList--${theme} OpinionList__header__nbReview`}>
+          {opinions &&
+                    (opinions.length > 1
+                      ? `${opinions.length} reviews:`
+                      : `${opinions.length} review:`)}
+            </h3>
         </header>
         <main className={`OpinionList--${theme} OpinionList__main--flex`}>
           <section className="OpinionList__filter--flex">
