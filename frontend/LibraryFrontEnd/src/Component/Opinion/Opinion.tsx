@@ -88,15 +88,18 @@ export const Opinion = ({
       
         {lastOpinion && (
           <div className={`opinionContainer opinionContainer--${theme}`}>
-            <header className="opinionCardItems opinioncard__reviews--flex">
-              <div className="opinionCardItems opinioncard__reviews__averageRate">
+            <section className="opinionCardItems opinioncard__reviews--flex">
+              <a className="opinionCardItems opinioncard__reviews__averageRate"
+              onClick={() => {
+                opinions && displayReview(opinions);
+              }}>
                 {averageRate}/5
-              </div>
+              </a>
               <div className="rate_star opinioncard__reviews__star">
                 &#9733;
               </div>
-            </header>
-            <main className="opinionCardItems">
+            </section>
+            {/* <main className="opinionCardItems">
               <section className="opinionCardItems reviews_link">
                 <a
                   className="opinionCardItems opinioncard__nbReview"
@@ -136,7 +139,7 @@ export const Opinion = ({
                   readOnly
                 />
               </section>
-            </main>
+            </main> */}
           </div>
         )}
       
