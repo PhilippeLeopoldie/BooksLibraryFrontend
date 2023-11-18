@@ -23,7 +23,7 @@
 
 .opinioncard__reviews--flex {
   display: flex;
-  justify-content: center;
+  
 }
 
 .opinioncard__reviews__averageRate {
