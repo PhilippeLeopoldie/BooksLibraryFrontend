@@ -2,15 +2,31 @@
 .bookcard--grid {
   border: 1px gray solid;
   display: grid;
-  grid-template-rows: 2fr 3fr 1fr;
+  grid-template-rows:3fr 1fr 1fr ;
   width: 20rem;
-  height: 30rem;
+  height: 29rem;
   margin:0 1em 10% 1em;
+}
+
+.BookImage {
+  border-bottom:1px #808080 solid ;
+  width:100%;
+  height:100%;
+  
+
+}
+
+.footer--flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: transparent;
 }
 
 .bookCard__RateButton{
  margin-top :4%;
  margin-bottom: 8%;
+ margin-right: 3%;
  
  font-size:1rem;
  font-weight:bolder;
@@ -29,9 +45,14 @@
   .bookCard__RateButton {
     border-color: #a38729;
     margin-left: 32%;
-    margin-right: 20%;
+    
   }
-
+  
+  .BookImage {
+    border-top-right-radius: 5%;
+    width:90%;
+    margin:0% 0% 0 10%
+  }
   .booktitle {
     -webkit-text-stroke: 1px #a38729;
     color: #d4af37;
@@ -126,7 +147,7 @@
   text-align:center;
   border-color: transparent;
   resize:none;
-  max-height: 5rem;
+  max-height: 3.3rem;
   width: 94%;
   border-top-right-radius: 10%;
 }
