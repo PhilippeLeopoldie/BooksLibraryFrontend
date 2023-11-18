@@ -30,6 +30,8 @@
   font-weight: bold;
   text-align: right;
   color: rgb(47, 6, 150);
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .opinioncard__reviews__star {
