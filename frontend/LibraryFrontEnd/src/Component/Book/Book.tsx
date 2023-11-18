@@ -70,6 +70,8 @@ export const Book = ({ book, onDelete }: BookWithDeletionHandler) => {
             src={book.imageUrl &&`${book.imageUrl}`}
             className="BookImage"
             alt="bookImage"
+            width="320px"
+            height="277px"
           />
           <header className="bookcard--header">
             {/* <button
