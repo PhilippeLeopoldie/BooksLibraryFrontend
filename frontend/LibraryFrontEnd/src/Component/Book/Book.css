@@ -20,8 +20,9 @@
   }
 }
 
-.footer--flex {
+.bookcard__footer--flex {
   display: flex;
+  max-width: 18rem;
   align-items: center;
   justify-content: space-between;
   background-color: transparent;
@@ -36,7 +37,7 @@
   color: rgb(47, 6, 150);
 }
 
-.bookcard--header {
+.bookcard__header {
   border-top-right-radius: 5%;
   border-top-left-radius: 5%;
   background-color: transparent;
