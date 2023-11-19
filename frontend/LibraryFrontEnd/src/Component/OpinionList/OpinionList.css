@@ -3,9 +3,10 @@
   margin: 0;
 }
 
-.OpinionList--antique {
-  background: rgb(253, 229, 187);
+.OpinionList--black {
+  background: #000000;
   margin: 0;
+  color:#ffffff;
 }
 
 .OpinionList__container--grid {
@@ -17,6 +18,10 @@
   margin: 0 1rem 10% 1rem;
   padding-top: 0rem;
   border: 1px black solid;
+}
+
+.OpinionList__container--black {
+  border: 1px #ffffff solid;
 }
 
 .OpinionList__header {
@@ -55,6 +60,7 @@
 .OpinionList__filter__button {
   font-size: 1.5rem;
   -webkit-text-size-adjust: 60%; 
+  background-color: transparent;
 }
 
 .OpinionList__reviews {
