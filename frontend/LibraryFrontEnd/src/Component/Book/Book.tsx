@@ -73,7 +73,7 @@ export const Book = ({ book, onDelete }: BookWithDeletionHandler) => {
             width="288px"
             height="326px"
           />
-          <header className="bookcard--header">
+          <header className="bookcard__header">
             {/* <button
             
               className=" button booktitle--trashbutton"
@@ -99,7 +99,7 @@ export const Book = ({ book, onDelete }: BookWithDeletionHandler) => {
             />
             <h3 className="bookauthor">by: {book.author}</h3>
           </header>
-          <div className="footer--flex">
+          <footer className="bookcard__footer--flex">
           <Opinion
             book={book}
             toCreate={toggleCreateOpinion}
@@ -114,9 +114,7 @@ export const Book = ({ book, onDelete }: BookWithDeletionHandler) => {
             >
               Rate this book
             </button>
-          
-          </div>
-          
+          </footer>
         </div>
       ) : (
         <OpinionCreate book={book && book} toCreate={toggleCreateOpinion} />
