@@ -19,7 +19,7 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   position: fixed;
-  bottom: 0;
+  top: 0;
   border-bottom: 1px #ffffff solid;
   border-top: 1px #ffffff solid;
   z-index: 1;
