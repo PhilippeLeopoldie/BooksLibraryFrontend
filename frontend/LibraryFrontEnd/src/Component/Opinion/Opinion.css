@@ -7,16 +7,20 @@
   border-bottom-right-radius: 5%;
   background-color: transparent;
   -webkit-logical-width:16rem;
-}
-
-.opinionContainer--natural {
   margin-left: 1rem;
 }
+
+
 
 .opinionContainer--antique {
   margin-left: 2.4rem;
 }
 
+.opinionContainer--black {
+  .opinioncard__reviews__averageRate {
+    color: rgb(0, 76, 255);
+  }
+}
 .opinionCardItems {
   background-color: transparent;
 }
@@ -39,11 +43,7 @@
   margin-top: -1rem;
 }
 
-.OpinionCard__line {
-  color: rgb(0,0,0);
-  width: 90%;
-  margin-bottom: 0;
-}
+
 
 .OpinionCard__LastReviewTitle {
   font-style: italic;
@@ -77,15 +77,7 @@
   text-align: left;
 }
 
-.opinioncard__nbReview {
-  cursor: pointer;
-  color: rgb(47, 6, 150);
-  font-size: 1.125rem;
-  font-weight: bold;
-  text-align: left;
-  margin: 0;
-  text-decoration: underline;
-}
+
 
 .opinioncard--footer {
   display: flex;
