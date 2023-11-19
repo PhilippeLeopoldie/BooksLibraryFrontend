@@ -83,7 +83,7 @@ export const BookListSearch = ({ searchCriteria }: BooksSearchCriteria) => {
           :
           `(${books.length}) book found`} 
         </h2>
-        <div className="booksContainer" data-testid="booksContainer">
+        <div className="bookListContainer">
           {books &&
             Array.isArray(books) &&
             books
