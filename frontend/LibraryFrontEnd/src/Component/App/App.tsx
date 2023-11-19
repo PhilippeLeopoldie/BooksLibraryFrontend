@@ -48,7 +48,7 @@ export const App = () => {
               />
               <img className="nav-link addIcone" src={addIcone} alt="add" />
               <figcaption className="iconeTitle nav__AddBook__Title">
-                Add a book
+                Add book
               </figcaption>
             </Link>
             <div className="nav-link icone settingsIcone">
