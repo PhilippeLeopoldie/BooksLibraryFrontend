@@ -1,7 +1,8 @@
 import { Book } from "../Book/Book";
 import "./BookList.css";
 import url from "../../Url";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { ThemeContext } from "../App/App";
 
 type BooksType = {
   book: {
@@ -12,6 +13,7 @@ type BooksType = {
 };
 
 export const BookList = () => {
+  const theme = useContext(ThemeContext);
   const [books, setBooks] = useState<BooksType[] | null>(null);
 
   const handleDeleteBook = (bookId: number) => {
@@ -50,11 +52,11 @@ export const BookList = () => {
   const random = books[randomIndex];
   return (
     <>
-      <header className="books__header--flex">
-        <h2>Recommendation of the day</h2>
-        <h3>{random?.book.title}</h3>
+      <header className={`BookList--${theme} books__header--flex`}>
+        <h2 className="BookList">Recommendation of the day</h2>
+        <h3 className="BookList">{random?.book.title}</h3>
       </header>
-      <main className="booksContainer" data-testid="booksContainer">
+      <main className="bookListContainer">
         {books &&
           Array.isArray(books) &&
           books
