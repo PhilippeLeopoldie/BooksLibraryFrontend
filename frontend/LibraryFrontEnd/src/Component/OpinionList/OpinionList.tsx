@@ -48,7 +48,7 @@ export const OpinionList = ({
 
   return (
     <>
-      <div className={`OpinionList--${theme} OpinionList__container--grid`}>
+      <div className={`OpinionList--${theme} OpinionList__container--grid OpinionList__container--${theme}`}>
         <header className={`OpinionList--${theme} OpinionList__header`}>
         <img
             className={`OpinionList--${theme} OpinionList__footer__ArrowLeftIcone`}
