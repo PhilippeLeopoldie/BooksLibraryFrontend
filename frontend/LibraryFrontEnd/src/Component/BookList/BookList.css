@@ -4,11 +4,25 @@
     background-color: transparent;
     color: #ffffff;
   }
+  
 }
 
 .books__header--flex {
   display: flex;
   flex-direction: column;
+  margin-top: 3rem;
+}
+
+.Books__Loading--black {
+  margin-top: 5rem;
+  background-color: #000000;
+  color:#ffffff;
+}
+
+.Books__Loading--natural {
+  margin-top: 5rem;
+  background-color: transparent;
+  color: #000000;
 }
 
 .bookListContainer {
@@ -21,10 +35,6 @@
 @media screen and (min-width: 700px) {
   .books__header--flex {
     margin-top: 4rem;
-  }
-
-  .Books__Loading {
-    margin-top: 5rem;
   }
 
   .bookListContainer {

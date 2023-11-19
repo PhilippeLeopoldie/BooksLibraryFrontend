@@ -45,7 +45,7 @@ export const BookList = () => {
   }, []);
 
   if (!books) {
-    return <h1 className="Books__Loading">Loading...</h1>;
+    return <h1 className={"Books__Loading--"+theme}>Loading...</h1>;
   }
 
   const randomIndex = Math.floor(Math.random() * books.length);
