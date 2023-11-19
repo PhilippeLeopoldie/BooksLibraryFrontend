@@ -16,7 +16,7 @@ export const App = () => {
   const [theme, setTheme] = useState<string>("natural");
 
   return (
-    <div className="App">
+    <div className={`App App--${theme}`}>
       <ThemeContext.Provider value={theme}>
         <BrowserRouter>
           <nav className={"navbar--grid navbar--" + theme}>
@@ -56,7 +56,7 @@ export const App = () => {
                 className="nav-link"
                 src={settings}
                 onClick={() => {
-                  setTheme(theme === "natural" ? "antique" : "natural");
+                  setTheme(theme === "natural" ? "black" : "natural");
                 }}
                 alt="Themes"
               />
