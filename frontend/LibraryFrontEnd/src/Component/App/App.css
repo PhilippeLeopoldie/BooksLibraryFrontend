@@ -24,7 +24,7 @@
   border-top: 1px #ffffff solid;
   z-index: 1;
   width: 100%;
-  height: 3.3rem;
+  height: 3.5rem;
 }
 
 .navbar--antique{
@@ -38,6 +38,7 @@
 .icone {
   margin-bottom: -0.5rem;
   margin-top:-0.4rem;
+  
 }
 
 .nav__Link--flex > * {
@@ -54,8 +55,8 @@
 .iconeTitle {
   background-color: transparent;
   margin: 0;
-  color: white;
-  font-weight: bolder;
+  color:#ffffff;
+ 
 }
 
 .addIcone {
