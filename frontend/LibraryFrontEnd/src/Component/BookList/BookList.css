@@ -11,7 +11,8 @@
 }
 
 .bookListSearchContainer--black > * {
-  color: #ffffff
+  color: #ffffff;
+  background-color: #000000;
 }
 
 .books__header--flex {
