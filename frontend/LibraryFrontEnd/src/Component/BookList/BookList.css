@@ -18,7 +18,7 @@
 .books__header--flex {
   display: flex;
   flex-direction: column;
-  margin-top: 3rem;
+  margin-top: 0rem;
   background-color: transparent;
 }
 .books__header--flex > *{
