@@ -68,7 +68,7 @@ export const Book = ({ book, onDelete }: BookWithDeletionHandler) => {
         <div className={"bookcard--grid bookcard--" + theme}>
           <img
             src={book.imageUrl &&`${book.imageUrl}`}
-            className="BookImage"
+            className="boocard__BookImage"
             alt="bookImage"
             width="288px"
             height="326px"
