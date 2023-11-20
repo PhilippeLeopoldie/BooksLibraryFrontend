@@ -1,7 +1,8 @@
 import { Book } from "../Book/Book";
 import '../BookList/BookList.css'
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import url from "../../Url";
+import { ThemeContext } from "../App/App";
 
 type BooksType = {
   book: {
@@ -19,6 +20,7 @@ type BooksSearchCriteria = {
 };
 
 export const BookListSearch = ({ searchCriteria }: BooksSearchCriteria) => {
+  const theme = useContext(ThemeContext);
   const [books, setBooks] = useState<BooksType[] | null>(null);
   const [initialBooks, setInitialBooks] = useState<BooksType[]>([]);
   let filteredBooks: BooksType[] = [];
@@ -72,12 +74,12 @@ export const BookListSearch = ({ searchCriteria }: BooksSearchCriteria) => {
   }, [searchCriteria]);
 
   if (!books) {
-    return <h1></h1>;
+    return <h1 className={"bookListSearchContainer--"+theme}></h1>;
   }
 
   return (
     <>
-      <div className="books">
+      <div className={"bookListSearchContainer--"+theme}>
         <h2>{books && books.length>1 ?
           `(${books.length}) books found`
           :
