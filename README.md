@@ -12,12 +12,12 @@ There are three tables: user, Books and Opinions.
 For that assignment I have decided to have focus on the one to many relation between Books and Opinions first and managing the corresponding CRUD operations before going further with the User table.
 
 
->Since I have deployed my App the development process follows the <span style = "color: green"> [CI/CD](https://en.wikipedia.org/wiki/CI/CD) </span>principle.
+Since I have deployed my App the development process follows the <span style = "color: green"> [CI/CD](https://en.wikipedia.org/wiki/CI/CD) </span>principle.
 
 
 
 
->[The backend](https://github.com/PhilippeLeopoldie/bookLibraryBackend) is implemented using <span style = "color: green">[Entity Framework code first approach](https://learn.microsoft.com/en-us/ef/ef6/get-started) </span> throw <span style = "color: green"> [TDD](https://en.wikipedia.org/wiki/Test-driven_development) </span> using <span style = "color: green">[xUnit](https://xunit.net/) </span>framework and <span style = "color: green">[Mock](https://github.com/devlooped/moq) </span>library.
+[The backend](https://github.com/PhilippeLeopoldie/bookLibraryBackend) is implemented using <span style = "color: green">[Entity Framework code first approach](https://learn.microsoft.com/en-us/ef/ef6/get-started) </span> throw <span style = "color: green"> [TDD](https://en.wikipedia.org/wiki/Test-driven_development) </span> using <span style = "color: green">[xUnit](https://xunit.net/) </span>framework and <span style = "color: green">[Mock](https://github.com/devlooped/moq) </span>library.
 
 
 So for every review added a digital book is generated with the related opinion informations.  
