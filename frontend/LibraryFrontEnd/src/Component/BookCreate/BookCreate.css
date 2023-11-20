@@ -1,5 +1,5 @@
 .bookCreateForm__container {
-  margin: 4rem auto auto auto;
+  margin: 2rem auto auto auto;
   display: flex;
   justify-content: center;
   width: 20rem;
@@ -53,7 +53,7 @@
   margin-bottom: 1.5rem;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 700px) {
   .bookCreateForm__container {
     margin: 6rem auto auto auto;
   }
