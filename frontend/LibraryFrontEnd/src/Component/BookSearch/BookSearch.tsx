@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "./BookSearch.css";
 import { BookListSearch } from "../BookListSearch/BookListSearch";
+import { ThemeContext } from "../App/App";
 
 type BooksSearchCriteria = {
   search?: {
@@ -10,12 +11,19 @@ type BooksSearchCriteria = {
 };
 
 export const BookSearch = () => {
+  const theme = useContext(ThemeContext);
   const [searchCriteria, setSearchCriteria] = useState<BooksSearchCriteria>({});
   const [inputValue, setInputValue] = useState<string>("");
 
+  const rootElement = document.documentElement;
+  
+
   return (
     <>
-      <form className="searchForm" onSubmit={(e) => e.preventDefault()}>
+      <form className={"searchForm--"+theme} onSubmit={(e) => e.preventDefault()}>
+        <script>
+          {theme ==="black" ? rootElement.style.backgroundColor='#000000': rootElement.style.backgroundColor='#f3f3f4'}
+        </script>
         <input
           className="searchForm__input"
           autoFocus
@@ -32,8 +40,10 @@ export const BookSearch = () => {
             });
           }}
         />
+        <BookListSearch searchCriteria={searchCriteria.search} />
       </form>
-      <BookListSearch searchCriteria={searchCriteria.search} />
+      
+      
     </>
   );
 };
