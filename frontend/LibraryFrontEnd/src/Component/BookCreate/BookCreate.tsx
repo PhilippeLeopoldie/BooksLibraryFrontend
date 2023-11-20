@@ -31,6 +31,7 @@ export const BookCreate = () => {
   const [errorBook, setErrorBook] = useState<Boolean>(false);
   const [errorBookDetail, setErrorBookDetail] = useState<string>("");
   const [newBookId, setNewBookId] = useState<number>(0);
+  const rootElement = document.documentElement;
   const PostBook = async () => {
     const requestOptions = {
       method: "POST",
@@ -84,6 +85,9 @@ export const BookCreate = () => {
   return (
     <>
       <div className={`bookCreateForm__container--${theme} bookCreateForm__container`}>
+        <script>
+          {theme ==="black" ? rootElement.style.backgroundColor='#000000': rootElement.style.backgroundColor='#f3f3f4'}
+        </script>
         <form
           onSubmit={(e) => e.preventDefault()}
           action={url + "api/Book"}
