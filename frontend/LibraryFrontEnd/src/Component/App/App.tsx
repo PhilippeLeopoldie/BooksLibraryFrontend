@@ -10,7 +10,7 @@ import homeIcone from "../../media/home_48px.svg";
 import searchIcone from "../../media/search48px.svg";
 import settings from "../../media/settings48px.svg";
 
-export const ThemeContext = createContext<string | null>(null);
+export const ThemeContext = createContext<string>("natural");
 
 export const App = () => {
   const [theme, setTheme] = useState<string>("natural");
