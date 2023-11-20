@@ -6,6 +6,13 @@
   }
   
 }
+.bookListSearchContainer--black {
+  background-color: #000000;
+}
+
+.bookListSearchContainer--black > * {
+  color: #ffffff
+}
 
 .books__header--flex {
   display: flex;
