@@ -5,15 +5,24 @@
   height: 29rem;
   margin: 0 1em 10% 0em;
   border: 1px black solid;
+  border-radius: 10px;
 }
 
-.opinionCreate--antique {
-  background: rgb(253, 229, 187) 10%;
-  border-radius: 5%;
+.opinionCreate__header {
+  border-radius: 10px;
 }
 
 .opinionCreate--natural {
   background: #ffffff;
+}
+
+.opinionCreate--black {
+  background: #000000;
+  color:#ffffff
+}
+
+.opinionCreateCard--black--grid {
+  border: 1px #ffffff solid;
 }
 
 .opinionCreate__main--grid {
@@ -33,6 +42,7 @@
 .opinionForm__view {
   margin:0 2%;
   border-radius: 10px;
+  background-color: #ffffff;
 }
 
 .opinionCreate__input{
