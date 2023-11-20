@@ -108,8 +108,8 @@ export const OpinionCreate = ({ book, toCreate }: AddOpinionType) => {
 
   return (
     <>
-      <div className={`opinionCreate--${theme} opinionCreateCard--grid`}>
-        <header className={`opinionCreate--${theme}`}>
+      <div className={`opinionCreate--${theme} opinionCreateCard--${theme}--grid opinionCreateCard--grid`}>
+        <header className={`opinionCreate--${theme} opinionCreate__header`}>
           <h2 className={`opinionCreate--${theme} opinionCreate__booktitle`}>
             {book?.title}
           </h2>
