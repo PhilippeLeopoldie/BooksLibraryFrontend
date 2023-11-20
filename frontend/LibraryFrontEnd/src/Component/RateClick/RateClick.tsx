@@ -1,6 +1,7 @@
 
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "../Rate/Rate.css";
+import { ThemeContext } from "../App/App";
 
 type RateType = {
   rate: number;
@@ -8,6 +9,7 @@ type RateType = {
 };
 
 export const RateClick = ({ rate, HandleRate }: RateType) => {
+  const theme = useContext(ThemeContext);
   const numberOfStars: number = 5;
   const emptyStars = new Array<number>(numberOfStars).fill(0);
   const [filledStars, setFilledStars] = useState<number[]>(
@@ -34,7 +36,7 @@ export const RateClick = ({ rate, HandleRate }: RateType) => {
       <div className="rate_container--flex">
         {filledStars.map((isFilled, index) => (
           <div
-            className={`rate_star ${isFilled ? "filled" : "empty"}`}
+            className={`rate_star--${theme} rate_star ${isFilled ? "filled" : "empty"}`}
             key={index}
             onClick={() => toggleStar(index)}           
           >
