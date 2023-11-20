@@ -1,15 +1,15 @@
 .bookcard--grid {
   border: 1px gray solid;
   display: grid;
-  /* grid-template-rows:3.5fr 1fr 0.5fr ; */
   width: 18rem;
   height: 29rem;
   margin: 0 1em 10% 1em;
+  background-color: #ffffff;
+  border-radius: 10px;
 }
 
 .bookcard--black {
   background-color: #000000;
-
   .booktitle,
   .bookauthor {
     color: #ffffff;
@@ -18,6 +18,11 @@
   .bookCard__RateButton {
     color: rgb(0, 76, 255);
   }
+}
+
+.boocard__Image {
+  border-radius: 9px 9px 0 0;
+  border-bottom: gray 1px solid;
 }
 
 .bookcard__footer--flex {
