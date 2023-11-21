@@ -102,7 +102,7 @@ export const BookCreate = () => {
           className="bookCreateForm"
         >
           <input
-            className="input"
+            className={`input input--${theme}`}
             placeholder="Title"
             name="title"
             value={formData.title}
@@ -110,7 +110,7 @@ export const BookCreate = () => {
           />
 
           <input
-            className="input"
+            className={`input input--${theme}`}
             placeholder="Author"
             name="author"
             value={formData.author}
@@ -118,7 +118,7 @@ export const BookCreate = () => {
           />
 
           <input
-            className="input input__imageUrl"
+            className={`input input--${theme} input__imageUrl--${theme}`}
             placeholder="Book Image link"
             name="imageUrl"
             value={formData.imageUrl}
