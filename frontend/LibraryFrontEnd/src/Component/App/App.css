@@ -55,6 +55,12 @@
  
 }
 
+.iconeTitle--blue {
+  background-color: transparent;
+  margin: 0;
+  color: #067eff;
+}
+
 .addIcone {
   margin-left: -3.8rem;
 }
