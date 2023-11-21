@@ -33,10 +33,10 @@ export const RateClick = ({ rate, HandleRate }: RateType) => {
 
   return (
     <>
-      <div className="rate_container--flex">
+      <div className="rateClick_container--flex">
         {filledStars.map((isFilled, index) => (
           <div
-            className={`rate_star--${theme} rate_star ${isFilled ? "filled" : "empty"}`}
+            className={`rate_star--${theme} rateClick_star ${isFilled ? "filled" : "empty"}`}
             key={index}
             onClick={() => toggleStar(index)}           
           >
