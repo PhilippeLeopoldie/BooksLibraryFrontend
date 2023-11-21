@@ -1,10 +1,8 @@
 import { useContext, useState } from "react";
-import "./BookCreate.css"
+import "./BookCreate.css";
 import { Link } from "react-router-dom";
 import url from "../../Url";
 import { ThemeContext } from "../App/App";
-
-//import "../Book/Book.css";
 
 type FormDataType = {
   title: string;
@@ -55,8 +53,8 @@ export const BookCreate = () => {
       setBookCreatedMessage(true);
       setFormData({
         title: "",
-        author: ""
-      })
+        author: "",
+      });
       return body;
     } else if (bookResponse.status === 400) {
       setErrorBook(true);
@@ -84,9 +82,13 @@ export const BookCreate = () => {
 
   return (
     <>
-      <div className={`bookCreateForm__container--${theme} bookCreateForm__container`}>
+      <div
+        className={`bookCreateForm__container--${theme} bookCreateForm__container`}
+      >
         <script>
-          {theme ==="black" ? rootElement.style.backgroundColor='#000000': rootElement.style.backgroundColor='#f3f3f4'}
+          {theme === "black"
+            ? (rootElement.style.backgroundColor = "#000000")
+            : (rootElement.style.backgroundColor = "#f3f3f4")}
         </script>
         <form
           onSubmit={(e) => e.preventDefault()}
@@ -127,13 +129,12 @@ export const BookCreate = () => {
             <div className="bookCreateForm__outpout__card">
               <div className="bookCreateForm__output">Book created!</div>
               <Link to="/">
-                <h2 className="bookCreateForm__output__backToHome">back to Home</h2>
-              {/* <img className="nav-link nav__HomeIcone" src={homeIcone} alt="Home"></img> */}
+                <h2 className="bookCreateForm__output__backToHome">
+                  back to Home
+                </h2>
               </Link>
             </div>
-            
           )}
-          {/* <OpinionCreate bookId={newBookId}/> */}
         </form>
       </div>
     </>
