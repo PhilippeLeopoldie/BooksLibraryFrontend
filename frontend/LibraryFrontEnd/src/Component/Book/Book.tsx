@@ -88,15 +88,12 @@ export const Book = ({ book, onDelete }: BookWithDeletionHandler) => {
                 alt="delete"
               />
             </button> */}
-            <textarea
+            <h3  
               title="Book Title"
-              name="Book Title"
-              className="booktitle"
-              value={book.title.length > 40 
-              ? `${book.title.slice(0, 40)}...`
-              : book.title}
-              readOnly
-            />
+              className="booktitle">{book.title.length > 40 
+                ? `${book.title.slice(0, 40)}...`
+                : book.title}
+            </h3>
             <h3 className="bookauthor">by: {book.author}</h3>
           </header>
           <footer className="bookcard__footer--flex">
