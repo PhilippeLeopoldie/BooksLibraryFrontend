@@ -1,14 +1,18 @@
-.rate_container--flex {
+.rate_container--flex, .rateClick_container--flex  {
   display: flex;
   flex-direction: row;
   justify-content: center;
   background-color: transparent;
 }
 
-.rate_star, .filled {
+.rate_star,.rateClick_star ,.filled {
   background-color: transparent;
   color: rgb(199, 170, 9);
   font-size:xx-large;
+}
+
+.rateClick_star {
+  cursor: pointer;
 }
 
 .rate_star--black {
