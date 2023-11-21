@@ -7,6 +7,7 @@ import { ThemeContext } from "../App/App";
 type FormDataType = {
   title: string;
   author: string;
+  imageUrl: string;
 };
 
 type BookType = {
@@ -14,6 +15,7 @@ type BookType = {
     id: number;
     title: string;
     author: string;
+    imageUrl: string;
   };
 };
 
@@ -22,6 +24,7 @@ export const BookCreate = () => {
   const [formData, setFormData] = useState<FormDataType>({
     title: "",
     author: "",
+    imageUrl: "",
   });
 
   const [books, setBooks] = useState<BookType[]>([]);
@@ -39,6 +42,7 @@ export const BookCreate = () => {
       body: JSON.stringify({
         title: formData.title,
         author: formData.author,
+        imageUrl: formData.imageUrl,
       }),
     };
     const bookResponse: Response = await fetch(
@@ -54,6 +58,7 @@ export const BookCreate = () => {
       setFormData({
         title: "",
         author: "",
+        imageUrl: "",
       });
       return body;
     } else if (bookResponse.status === 400) {
@@ -109,6 +114,14 @@ export const BookCreate = () => {
             placeholder="Author"
             name="author"
             value={formData.author}
+            onChange={(e) => HandleInputChange(e)}
+          />
+
+          <input
+            className="input input__imageUrl"
+            placeholder="Book Image link"
+            name="imageUrl"
+            value={formData.imageUrl}
             onChange={(e) => HandleInputChange(e)}
           />
 
