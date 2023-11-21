@@ -13,6 +13,10 @@
   border: 1px #000000 solid;
 }
 
+.input__imageUrl {
+  font-size: medium;
+}
+
 
 .opinionForm__view {
   resize: none;
