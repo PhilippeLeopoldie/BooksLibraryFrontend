@@ -5,62 +5,68 @@ import { Routes, BrowserRouter, Route, Link } from "react-router-dom";
 import { BookSearch } from "../BookSearch/BookSearch";
 import { createContext, useContext, useState } from "react";
 import addIcone from "../../media/add20px.svg";
+import addBlueIcone from "../../media/add_blue_20px.svg";
 import bookIcone from "../../media/book48px.svg";
+import bookBlueIcone from "../../media/book_blue_48px.svg";
 import homeIcone from "../../media/home_48px.svg";
+import homeBlueIcone from "../../media/home_blue_48px.svg";
 import searchIcone from "../../media/search48px.svg";
-import settings from "../../media/settings48px.svg";
+import searchBlueIcone from "../../media/search_blue_48px.svg";
+import settingsIcone from "../../media/settings48px.svg";
+import settingsBlueIcone from "../../media/settings_blue_48px.svg";
 
 export const ThemeContext = createContext<string>("natural");
 
 export const App = () => {
   const [theme, setTheme] = useState<string>("natural");
-
+  const [activeNavItem , setActiveNavItem ] = useState<string>("home");
   return (
     <div className={`App App--${theme}`}>
       <ThemeContext.Provider value={theme}>
         <BrowserRouter>
           <nav className={"navbar--grid navbar--" + theme}>
-            <Link className="nav-link nav__home__Link--flex" to="/">
+            <Link className="nav-link nav__home__Link--flex" to="/" onClick={()=> {setActiveNavItem("home")}}>
               <img
                 className="nav-link icone nav__HomeIcone"
-                src={homeIcone}
+                src={activeNavItem==="home"? homeBlueIcone : homeIcone}
                 alt="Home"
               ></img>
-              <figcaption className="iconeTitle nav__Home__title">
+              <figcaption className={activeNavItem==="home"? "iconeTitle--blue nav__Home__title":"iconeTitle nav__Home__title"}>
                 Home
               </figcaption>
             </Link>
-            <Link className="nav-link nav__search__link--flex" to="/Search">
+            <Link className="nav-link nav__search__link--flex" to="/Search" onClick={()=> {setActiveNavItem("search")}}>
               <img
                 className="nav-link icone nav__search__image"
-                src={searchIcone}
+                src={activeNavItem==="search"? searchBlueIcone :searchIcone}
                 alt="Search"
               />
-              <figcaption className="iconeTitle nav__search__title">
+              <figcaption className={activeNavItem==="search"?"iconeTitle--blue nav__search__title":"iconeTitle nav__search__title"}>
                 Search
               </figcaption>
             </Link>
-            <Link className="nav-link nav__addBook--flex" to="/addBook">
+            <Link className="nav-link nav__addBook--flex" to="/addBook" onClick={()=> {setActiveNavItem("addBook")}}>
               <img
                 className="nav-link icone nav__addBook"
-                src={bookIcone}
+                src={activeNavItem==="addBook"? bookBlueIcone :bookIcone}
                 alt="book"
               />
-              <img className="nav-link addIcone" src={addIcone} alt="add" />
-              <figcaption className="iconeTitle nav__AddBook__Title">
+              <img className="nav-link addIcone" src={activeNavItem==="addBook"? addBlueIcone :addIcone} alt="add" />
+              <figcaption className={activeNavItem==="addBook"?"iconeTitle--blue nav__AddBook__Title":"iconeTitle nav__AddBook__Title"}>
                 Add book
               </figcaption>
             </Link>
             <div className="nav-link icone settingsIcone">
               <img
                 className="nav-link"
-                src={settings}
+                src={activeNavItem==="settings"? settingsBlueIcone :settingsIcone}
                 onClick={() => {
                   setTheme(theme === "natural" ? "black" : "natural");
+                  setActiveNavItem("settings");
                 }}
                 alt="Themes"
               />
-              <figcaption className="iconeTitle nav__Settings__Title">Themes</figcaption>
+              <figcaption className={activeNavItem==="settings"?"iconeTitle--blue nav__Settings__Title":"iconeTitle nav__Settings__Title"}>Themes</figcaption>
             </div>
           </nav>
           <Routes>
