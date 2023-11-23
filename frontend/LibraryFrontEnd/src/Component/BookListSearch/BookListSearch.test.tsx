@@ -30,7 +30,7 @@ describe("BookListSearch", () => {
     (useState as jest.Mock).mockImplementation(() => [book, jest.fn()]);
     (useState as jest.Mock).mockImplementation(() => [book, jest.fn()]);
 
-    const {asFragment} = render(<BookListSearch/>)
+    const {asFragment} = render(<BookListSearch titleOrAuthor={""}/>)
 
     expect(asFragment()).toMatchSnapshot();
   })
@@ -39,7 +39,7 @@ describe("BookListSearch", () => {
     (useState as jest.Mock).mockImplementation(() => [null, jest.fn()]);
     (useState as jest.Mock).mockImplementation(() => [book, jest.fn()]);
 
-    const {asFragment} = render(<BookListSearch/>)
+    const {asFragment} = render(<BookListSearch titleOrAuthor={""}/>)
 
     expect(asFragment()).toMatchSnapshot();
   })
