@@ -59,7 +59,8 @@
 
 .OpinionList__filter__button {
   font-size: 1.5rem;
-  -webkit-text-size-adjust: 60%; 
+  -webkit-text-size-adjust: 60%;
+  text-size-adjust:60%;
   background-color: transparent;
 }
 
@@ -120,5 +121,6 @@
     align-items: center;
     justify-content: center;
     -webkit-text-size-adjust: none; 
+    text-size-adjust:none;
   }
 }
