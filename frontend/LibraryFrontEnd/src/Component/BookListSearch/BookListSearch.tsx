@@ -55,7 +55,7 @@ export const BookListSearch = ({ titleOrAuthor }: BooksSearchCriteria) => {
     fetchBooks();
   }, [titleOrAuthor]);
 
-  if (!books) {
+  if (titleOrAuthor==="") {
     return <h1 className={"bookListSearchContainer--" + theme}></h1>;
   }
 
@@ -65,7 +65,7 @@ export const BookListSearch = ({ titleOrAuthor }: BooksSearchCriteria) => {
         <h2>
           {books && books.length > 1
             ? `(${books.length}) books found`
-            : `(${books.length}) book found`}
+            : `(${books?.length}) book found`}
         </h2>
         <div className="bookListContainer">
           {books &&
