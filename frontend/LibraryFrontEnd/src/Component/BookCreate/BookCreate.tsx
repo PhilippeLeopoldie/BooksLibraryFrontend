@@ -125,10 +125,20 @@ export const BookCreate = () => {
             onChange={(e) => HandleInputChange(e)}
           />
 
-          <div className="book-create-form__output">
+          <div className="book-create-form__output-card">
             {errorBook && (
               <div className="validation__error-message">{errorBookDetail}</div>
             )}
+            {bookCreatedMessage && (
+            <div className="book-create-form__output-card">
+              <div className="book-create-form__output">Book created!</div>
+              <Link to="/">
+                <h3 className={`book-create-form__output--back-to-home--${theme}`}>
+                  back to Home
+                </h3>
+              </Link>
+            </div>
+          )}
           </div>
           <button
             className="button book-create-form__post-button"
@@ -138,16 +148,7 @@ export const BookCreate = () => {
           >
             Create book
           </button>
-          {bookCreatedMessage && (
-            <div className="book-create-form__output__card">
-              <div className="book-create-form__output">Book created!</div>
-              <Link to="/">
-                <h2 className="book-create-form__output__back-to-home">
-                  back to Home
-                </h2>
-              </Link>
-            </div>
-          )}
+          
         </form>
       </div>
     </>
