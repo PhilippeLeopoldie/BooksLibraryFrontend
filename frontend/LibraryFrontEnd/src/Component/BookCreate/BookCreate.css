@@ -1,4 +1,4 @@
-.bookCreateForm__container {
+.book-create-form__container {
   margin: 2rem auto auto auto;
   display: flex;
   justify-content: center;
@@ -18,12 +18,12 @@
   width:90%;
 }
 
-.bookCreateForm__container--natural {
+.book-create-form__container--natural {
   background-color: #ffffff;
   border: 1px #000000 solid;
 }
 
-.bookCreateForm__container--black {
+.book-create-form__container--black {
   background-color: #000000;
   border: 1px #ffffff solid;
 }
@@ -36,7 +36,7 @@
 }
 
 
-.bookCreateForm {
+.book-create-form {
   background-color: transparent;
   display: grid;
   justify-content: initial;
@@ -44,28 +44,28 @@
   width: 90%;
 }
 
-.validation__errorMessage {
+.validation__error-message {
   color: red;
   background-color: transparent;
   font-size: 2rem;
   font-weight: bold;
 }
 
-.bookCreateForm__outpout__card {
+.book-create-form__output__card {
   background-color: transparent;
 }
 
-.bookCreateForm__output {
+.book-create-form__output {
   background-color: transparent;
   color: green;
   font-size: 2rem;
   font-weight: bold;
 }
-.bookCreateForm__output__backToHome {
+.book-create-form__output__back-to-home {
   background-color: transparent;
 }
 
-.bookCreateForm__postButton {
+.book-create-form__post-button {
   font-weight: bold;
   font-size: 1.5rem;
   margin-top: 1rem;
@@ -73,7 +73,7 @@
 }
 
 @media screen and (min-width: 700px) {
-  .bookCreateForm__container {
+  .book-create-form__container {
     margin: 6rem auto auto auto;
   }
 }

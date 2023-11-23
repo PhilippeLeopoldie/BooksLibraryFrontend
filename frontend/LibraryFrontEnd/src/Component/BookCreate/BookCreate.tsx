@@ -88,7 +88,7 @@ export const BookCreate = () => {
   return (
     <>
       <div
-        className={`bookCreateForm__container--${theme} bookCreateForm__container`}
+        className={`book-create-form__container--${theme} book-create-form__container`}
       >
         <script>
           {theme === "black"
@@ -99,7 +99,7 @@ export const BookCreate = () => {
           onSubmit={(e) => e.preventDefault()}
           action={url + "api/Book"}
           method="POST"
-          className="bookCreateForm"
+          className="book-create-form"
         >
           <input
             className={`input input--${theme}`}
@@ -125,13 +125,13 @@ export const BookCreate = () => {
             onChange={(e) => HandleInputChange(e)}
           />
 
-          <div className="bookCreateForm__output">
+          <div className="book-create-form__output">
             {errorBook && (
-              <div className="validation__errorMessage">{errorBookDetail}</div>
+              <div className="validation__error-message">{errorBookDetail}</div>
             )}
           </div>
           <button
-            className="button bookCreateForm__postButton"
+            className="button book-create-form__post-button"
             onClick={async () => {
               await PostBook();
             }}
@@ -139,10 +139,10 @@ export const BookCreate = () => {
             Create book
           </button>
           {bookCreatedMessage && (
-            <div className="bookCreateForm__outpout__card">
-              <div className="bookCreateForm__output">Book created!</div>
+            <div className="book-create-form__output__card">
+              <div className="book-create-form__output">Book created!</div>
               <Link to="/">
-                <h2 className="bookCreateForm__output__backToHome">
+                <h2 className="book-create-form__output__back-to-home">
                   back to Home
                 </h2>
               </Link>
