@@ -2,8 +2,8 @@
   margin: 2rem auto auto auto;
   display: flex;
   justify-content: center;
-  width: 20rem;
-  height: 29rem;
+  max-width: 20rem;
+  max-height: 29rem;
   padding: 1rem;
   position: relative;
   border-radius: 10px;
@@ -12,6 +12,10 @@
 .input--black {
   background-color: #000000;
   color: #ffffff;
+}
+
+.input {
+  width:90%;
 }
 
 .bookCreateForm__container--natural {
@@ -31,15 +35,13 @@
   color: #067eff;
 }
 
-.opinionForm__view {
-  resize: none;
-}
 
 .bookCreateForm {
   background-color: transparent;
   display: grid;
+  justify-content: initial;
   grid-template-rows: repeat(4, 1fr);
-  width: 100%;
+  width: 90%;
 }
 
 .validation__errorMessage {
