@@ -1,5 +1,5 @@
 import { Book } from "../Book/Book";
-import '../BookList/BookList.css'
+import "../BookList/BookList.css";
 import { useContext, useEffect, useState } from "react";
 import url from "../../Url";
 import { ThemeContext } from "../App/App";
@@ -13,17 +13,12 @@ type BooksType = {
 };
 
 type BooksSearchCriteria = {
-  searchCriteria?: {
-    title: string;
-    author: string;
-  };
+  titleOrAuthor: string;
 };
 
-export const BookListSearch = ({ searchCriteria }: BooksSearchCriteria) => {
+export const BookListSearch = ({ titleOrAuthor }: BooksSearchCriteria) => {
   const theme = useContext(ThemeContext);
-  const [books, setBooks] = useState<BooksType[] | null>(null);
-  const [initialBooks, setInitialBooks] = useState<BooksType[]>([]);
-  let filteredBooks: BooksType[] = [];
+  const [books, setBooks] = useState<BooksType[] | null>([]);
   const handleDeleteBook = (bookId: number) => {
     setBooks((books) => {
       if (books !== null) {
@@ -36,12 +31,20 @@ export const BookListSearch = ({ searchCriteria }: BooksSearchCriteria) => {
 
   const fetchBooks = async () => {
     try {
-      const booksResponse: Response = await fetch(url + "api/Book");
-      if (booksResponse.status === 200) {
-        const booksResponseData = await booksResponse.json();
-        setInitialBooks(booksResponseData.$values);
-      } else if (booksResponse.status === 404) {
-        console.log(booksResponse);
+      if (titleOrAuthor === "") {
+        setBooks([]);
+      }
+      if (titleOrAuthor !== "") {
+        const booksResponse: Response = await fetch(
+          url + `api/Book/TitleOrAuthor/${titleOrAuthor}`
+        );
+        if (booksResponse.status === 200) {
+          const booksResponseData = await booksResponse.json();
+          setBooks(booksResponseData.$values);
+        } else if (booksResponse.status === 404) {
+          setBooks([]);
+          console.log(booksResponse);
+        }
       }
     } catch (error) {
       console.error("Error fetching books:", error);
@@ -50,40 +53,19 @@ export const BookListSearch = ({ searchCriteria }: BooksSearchCriteria) => {
 
   useEffect(() => {
     fetchBooks();
-  }, []);
-
-  useEffect(() => {
-    if (searchCriteria !== undefined) {
-      (searchCriteria.title === "" && searchCriteria.author === "") ? 
-        filteredBooks = []
-       : 
-        filteredBooks = Array.isArray(initialBooks)? initialBooks.filter((books) => {
-          const titleMatches = books.book.title
-            .toLowerCase()
-            .includes(searchCriteria.title.toLowerCase());
-
-          const authorMatches = books.book.author
-            .toLowerCase()
-            .includes(searchCriteria.author.toLowerCase());
-
-          return titleMatches || authorMatches;
-        }):[];
-      
-      setBooks(filteredBooks);
-    }
-  }, [searchCriteria]);
+  }, [titleOrAuthor]);
 
   if (!books) {
-    return <h1 className={"bookListSearchContainer--"+theme}></h1>;
+    return <h1 className={"bookListSearchContainer--" + theme}></h1>;
   }
 
   return (
     <>
-      <div className={"bookListSearchContainer--"+theme}>
-        <h2>{books && books.length>1 ?
-          `(${books.length}) books found`
-          :
-          `(${books.length}) book found`} 
+      <div className={"bookListSearchContainer--" + theme}>
+        <h2>
+          {books && books.length > 1
+            ? `(${books.length}) books found`
+            : `(${books.length}) book found`}
         </h2>
         <div className="bookListContainer">
           {books &&

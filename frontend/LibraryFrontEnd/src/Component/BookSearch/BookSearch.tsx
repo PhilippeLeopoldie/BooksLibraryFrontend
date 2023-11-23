@@ -4,19 +4,14 @@ import { BookListSearch } from "../BookListSearch/BookListSearch";
 import { ThemeContext } from "../App/App";
 
 type BooksSearchCriteria = {
-  search?: {
-    title: string;
-    author: string;
-  };
+  titleOrAuthor: string;
 };
 
 export const BookSearch = () => {
   const theme = useContext(ThemeContext);
-  const [searchCriteria, setSearchCriteria] = useState<BooksSearchCriteria>({});
+  const [searchCriteria, setSearchCriteria] = useState<string>("");
   const [inputValue, setInputValue] = useState<string>("");
-
   const rootElement = document.documentElement;
-  
 
   return (
     <>
@@ -32,15 +27,12 @@ export const BookSearch = () => {
           value={inputValue}
           onChange={(e) => {
             setInputValue(e.target.value);
-            setSearchCriteria({
-              search: {
-                title: e.target.value,
-                author: e.target.value,
-              },
-            });
+            setSearchCriteria(
+              e.target.value,
+            );
           }}
         />
-        <BookListSearch searchCriteria={searchCriteria.search} />
+        <BookListSearch titleOrAuthor={searchCriteria} />
       </form>
       
       
