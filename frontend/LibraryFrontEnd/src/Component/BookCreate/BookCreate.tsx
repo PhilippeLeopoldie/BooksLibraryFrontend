@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import "./BookCreate.css";
 import { Link } from "react-router-dom";
-import url from "../../Url";
+import {BOOK_URL} from "../../Url";
 import { ThemeContext } from "../App/App";
 
 type FormDataType = {
@@ -46,7 +46,7 @@ export const BookCreate = () => {
       }),
     };
     const bookResponse: Response = await fetch(
-      url + "api/Book",
+      BOOK_URL,
       requestOptions
     );
     if (bookResponse.status === 201) {
@@ -97,7 +97,7 @@ export const BookCreate = () => {
         </script>
         <form
           onSubmit={(e) => e.preventDefault()}
-          action={url + "api/Book"}
+          action={BOOK_URL}
           method="POST"
           className="book-create-form"
         >

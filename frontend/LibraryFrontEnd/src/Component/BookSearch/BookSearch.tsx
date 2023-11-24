@@ -34,8 +34,6 @@ export const BookSearch = () => {
         />
         <BookListSearch titleOrAuthor={searchCriteria} />
       </form>
-      
-      
     </>
   );
 };

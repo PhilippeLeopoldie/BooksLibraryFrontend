@@ -1,7 +1,7 @@
 import { Book } from "../Book/Book";
 import "../BookList/BookList.css";
 import { useContext, useEffect, useState } from "react";
-import url from "../../Url";
+import {BOOK_BY_TITLE_OR_AUTHOR_URL} from "../../Url";
 import { ThemeContext } from "../App/App";
 
 type BooksType = {
@@ -29,14 +29,14 @@ export const BookListSearch = ({ titleOrAuthor }: BooksSearchCriteria) => {
     });
   };
 
-  const fetchBooks = async () => {
+  const fetchBooksByTitleOrAuthor = async () => {
     try {
       if (titleOrAuthor === "") {
         setBooks([]);
       }
       if (titleOrAuthor !== "") {
         const booksResponse: Response = await fetch(
-          url + `api/Book/TitleOrAuthor/${titleOrAuthor}`
+          BOOK_BY_TITLE_OR_AUTHOR_URL + titleOrAuthor
         );
         if (booksResponse.status === 200) {
           const booksResponseData = await booksResponse.json();
@@ -52,7 +52,7 @@ export const BookListSearch = ({ titleOrAuthor }: BooksSearchCriteria) => {
   };
 
   useEffect(() => {
-    fetchBooks();
+    fetchBooksByTitleOrAuthor();
   }, [titleOrAuthor]);
 
   if (titleOrAuthor==="") {

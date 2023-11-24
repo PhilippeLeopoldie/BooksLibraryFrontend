@@ -4,7 +4,7 @@ import { OpinionCreate } from "../OpinionCreate/OpinionCreate";
 import { OpinionList } from "../OpinionList/OpinionList";
 import { ThemeContext } from "../App/App";
 import trash from "../../media/delete.svg";
-import url from "../../Url";
+import {API_URL} from "../../Url";
 import { useContext, useState } from "react";
 
 type BookWithDeletionHandler = {
@@ -47,7 +47,7 @@ export const Book = ({ book, onDelete }: BookWithDeletionHandler) => {
 
   const DeleteBook = async (bookId: number) => {
     try {
-      await fetch(url + `api/Book/${bookId}`, {
+      await fetch(API_URL + `api/Book/${bookId}`, {
         method: "DELETE",
       });
       onDelete && onDelete(bookId);

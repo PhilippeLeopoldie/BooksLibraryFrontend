@@ -1,5 +1,5 @@
 import { SyntheticEvent, useState, useContext } from "react";
-import url from "../../Url";
+import {OPINION_URL} from "../../Url";
 import { RateClick } from "../RateClick/RateClick";
 import "./OpinionEdit.css"
 
@@ -50,7 +50,7 @@ export const OpinionEdit = ({ toEdit,opinion}: EditOpinionHandler) => {
         }),
       };
       const response: Response = await fetch(
-        url + `api/Opinion/${opinion.id}`,
+        OPINION_URL + opinion.id,
         requestOptions
       );
       if (response.status === 200) {

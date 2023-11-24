@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import url from "../../Url";
+import {OPINION_URL} from "../../Url";
 import { RateClick } from "../RateClick/RateClick";
 import "./OpinionCreate.css";
 import { ThemeContext } from "../App/App";
@@ -73,7 +73,7 @@ export const OpinionCreate = ({ book, toCreate }: AddOpinionType) => {
       }),
     };
     const opinionResponse: Response = await fetch(
-      url + "api/Opinion",
+      OPINION_URL ,
       requestOptions
     );
     if (opinionResponse.status === 201) {

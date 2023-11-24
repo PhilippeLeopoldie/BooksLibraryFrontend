@@ -1,7 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import "./Opinion.css";
 import { OpinionList } from "../OpinionList/OpinionList";
-import url from "../../Url";
+import {OPINION_BY_BOOKID_URL} from "../../Url";
 import modify from "../../media/write.svg";
 import { Rate } from "../Rate/Rate";
 import { ThemeContext } from "../App/App";
@@ -37,10 +37,10 @@ export const Opinion = ({
   const [fetching, setFething] = useState<boolean>(true);
   const [lastOpinion, setLastOpinion] = useState<OpinionType | null>(null);
   const [averageRate, setAverageRate] = useState<number>(0);
-  const FetchOpinions = async (bookId: number) => {
+  const FetchOpinionBYBookId = async (bookId: number) => {
     try {
       const response: Response = await fetch(
-        url + "api/Opinion/BookId=" + bookId
+        OPINION_BY_BOOKID_URL + bookId
       );
       if (response.status === 200) {
         const responseData = await response.json();
@@ -69,7 +69,7 @@ export const Opinion = ({
   };
 
   useEffect(() => {
-    FetchOpinions(book.id);
+    FetchOpinionBYBookId(book.id);
   }, []);
 
   useEffect(() => {

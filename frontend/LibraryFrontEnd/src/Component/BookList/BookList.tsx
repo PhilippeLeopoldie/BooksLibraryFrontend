@@ -1,6 +1,6 @@
 import { Book } from "../Book/Book";
 import "./BookList.css";
-import url from "../../Url";
+import {BOOK_URL} from "../../Url";
 import { useContext, useEffect, useState } from "react";
 import { ThemeContext } from "../App/App";
 
@@ -28,7 +28,7 @@ export const BookList = () => {
 
   const fetchBooks = async () => {
     try {
-      const booksResponse: Response = await fetch(url + "api/Book");
+      const booksResponse: Response = await fetch(BOOK_URL);
       if (booksResponse.status === 200) {
         const booksResponseData = await booksResponse.json();
         setBooks(booksResponseData.$values);
