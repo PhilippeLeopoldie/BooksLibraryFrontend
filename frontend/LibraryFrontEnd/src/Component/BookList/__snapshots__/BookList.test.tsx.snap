@@ -2,17 +2,20 @@
 
 exports[`BookList rendering snapShot: should render BookList 1`] = `
 <DocumentFragment>
-  <div
-    class="books"
+  <header
+    class="BookList--natural books__header--flex"
   >
-    <h2>
+    <h2
+      class="BookList"
+    >
       Recommendation of the day
     </h2>
-    <h3 />
-    <div
-      class="booksContainer"
-      data-testid="booksContainer"
+    <h3
+      class="BookList"
     />
-  </div>
+  </header>
+  <main
+    class="bookListContainer"
+  />
 </DocumentFragment>
 `;

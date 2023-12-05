@@ -3,31 +3,37 @@
 exports[` snapchot: renders book title and author 1`] = `
 <DocumentFragment>
   <div
-    class="bookcard--grid"
+    class="bookcard--grid bookcard--natural"
   >
+    <img
+      alt="bookImage"
+      class="boocard__Image"
+      height="326px"
+      width="288px"
+    />
     <header
-      class="bookcard--header"
+      class="bookcard__header"
     >
-      <textarea
+      <h3
         class="booktitle"
-        name="Book Title"
-        readonly=""
         title="Book Title"
       >
         The Great Gatsby
-      </textarea>
+      </h3>
       <h3
         class="bookauthor"
       >
         by: F. Scott Fitzgerald
       </h3>
     </header>
-    <h2
-      class="OpinionLoading"
+    <footer
+      class="bookcard__footer--flex"
     >
-      Loading...
-    </h2>
-    <footer>
+      <h2
+        class="OpinionLoading"
+      >
+        Loading...
+      </h2>
       <button
         class="button bookCard__RateButton"
       >

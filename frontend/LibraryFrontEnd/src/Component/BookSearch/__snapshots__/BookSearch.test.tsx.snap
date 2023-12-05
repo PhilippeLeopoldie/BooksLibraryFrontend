@@ -3,51 +3,45 @@
 exports[`BookList rendering snapShot: should render BookList 1`] = `
 <DocumentFragment>
   <form
-    class="searchForm"
+    class="search-form--natural"
   >
+    <script>
+      #f3f3f4
+    </script>
     <input
-      class="searchForm__input"
+      class="search-form__input"
       name="titleOrAuthor"
       placeholder="Search by Title or Author"
       value="author"
     />
+    <h1
+      class="bookListSearchContainer--natural"
+    >
+      author
+    </h1>
   </form>
-  <div
-    class="books"
-  >
-    <h2>
-      (6) books found
-    </h2>
-    <div
-      class="booksContainer"
-      data-testid="booksContainer"
-    />
-  </div>
 </DocumentFragment>
 `;
 
 exports[`BookList rendering snapShot: should render an empty BookList 1`] = `
 <DocumentFragment>
   <form
-    class="searchForm"
+    class="search-form--natural"
   >
+    <script>
+      #f3f3f4
+    </script>
     <input
-      class="searchForm__input"
+      class="search-form__input"
       name="titleOrAuthor"
       placeholder="Search by Title or Author"
       value="author"
     />
+    <h1
+      class="bookListSearchContainer--natural"
+    >
+      author
+    </h1>
   </form>
-  <div
-    class="books"
-  >
-    <h2>
-      (6) books found
-    </h2>
-    <div
-      class="booksContainer"
-      data-testid="booksContainer"
-    />
-  </div>
 </DocumentFragment>
 `;

@@ -3,81 +3,79 @@
 exports[`App routes snapShot: render nav bar 1`] = `
 <DocumentFragment>
   <div
-    class="App"
+    class="App App--natural"
   >
-    <div
-      class="navbar"
+    <nav
+      class="navbar--grid navbar--natural"
     >
-      <div
-        class="navElement navbar__home"
+      <a
+        class="nav-link nav__home__Link--flex"
+        href="/"
       >
-        <a
-          class="nav-link homeLink"
-          href="/"
+        <img
+          alt="Home"
+          class="nav-link icone nav__HomeIcone"
+          src="SvgrURL"
+        />
+        <figcaption
+          class="iconeTitle--blue nav__Home__title"
         >
-          <img
-            alt="Home"
-            class="nav-link nav__HomeIcone"
-            src="SvgrURL"
-          />
-          <figcaption
-            class="iconeTitle nav__Home__title"
-          >
-            Home
-          </figcaption>
-        </a>
-      </div>
-      <div
-        class="navElement navbar__search"
+          Home
+        </figcaption>
+      </a>
+      <a
+        class="nav-link nav__search__link--flex"
+        href="/Search"
       >
-        <a
+        <img
+          alt="Search"
+          class="nav-link icone nav__search__image"
+          src="SvgrURL"
+        />
+        <figcaption
+          class="iconeTitle nav__search__title"
+        >
+          Search
+        </figcaption>
+      </a>
+      <a
+        class="nav-link nav__addBook--flex"
+        href="/addBook"
+      >
+        <img
+          alt="book"
+          class="nav-link icone nav__addBook"
+          src="SvgrURL"
+        />
+        <img
+          alt="add"
+          class="nav-link addIcone"
+          src="SvgrURL"
+        />
+        <figcaption
+          class="iconeTitle nav__AddBook__Title"
+        >
+          Add book
+        </figcaption>
+      </a>
+      <div
+        class="nav-link icone settingsIcone"
+      >
+        <img
+          alt="Themes"
           class="nav-link"
-          href="/Search"
+          src="SvgrURL"
+        />
+        <figcaption
+          class="iconeTitle nav__Settings__Title"
         >
-          <img
-            alt="Search"
-            class="nav-link nav__search"
-            height="48"
-            src="SvgrURL"
-            width="48"
-          />
-          <figcaption
-            class="iconeTitle nav__search__title"
-          >
-            Search
-          </figcaption>
-        </a>
+          Themes
+        </figcaption>
       </div>
-      <div
-        class="navElement navbar__addBook"
-      >
-        <a
-          class="nav-link addBook"
-          href="/addBook"
-        >
-          <img
-            alt="book"
-            class="nav-link nav__addBook"
-            height="48"
-            src="SvgrURL"
-            width="48"
-          />
-          <img
-            alt="add"
-            class="nav-link addIcone"
-            height="20"
-            src="SvgrURL"
-            width="20"
-          />
-          <figcaption
-            class="iconeTitle nav__AddBook__Title"
-          >
-            Add a book
-          </figcaption>
-        </a>
-      </div>
-    </div>
-    <h1>
+    </nav>
+    <h1
+      class="Books__Loading--natural"
+    >
       Loading...
     </h1>
   </div>

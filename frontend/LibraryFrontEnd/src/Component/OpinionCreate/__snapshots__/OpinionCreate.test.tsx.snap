@@ -3,61 +3,61 @@
 exports[`OpinionCreate snapShot: render Opinioncreate 1`] = `
 <DocumentFragment>
   <div
-    class="opinionCreate opinionCreateCard--grid"
+    class="opinionCreate--natural opinionCreateCard--natural--grid opinionCreateCard--grid"
   >
     <header
-      class="opinionCreate"
+      class="opinionCreate--natural opinionCreate__header"
     >
       <h2
-        class="opinionCreate opinionCreate__booktitle"
+        class="opinionCreate--natural opinionCreate__booktitle"
       />
       <h3
-        class="opinionCreate opinionCreate__bookauthor"
+        class="opinionCreate--natural opinionCreate__bookauthor"
       >
         by: 
       </h3>
     </header>
     <main
-      class="opinionCreate opinionCreate__body--grid"
+      class="opinionCreate--natural opinionCreate__main--grid"
     >
       <div
-        class="opinionCreate opinionCreate__rate"
+        class="opinionCreate--natural opinionCreate__rate"
       >
         <div
-          class="rate_container--flex"
+          class="rateClick_container--flex"
         >
           <div
-            class="rate_star empty"
+            class="rate_star--natural rateClick_star empty"
           >
             ★
           </div>
           <div
-            class="rate_star empty"
+            class="rate_star--natural rateClick_star empty"
           >
             ★
           </div>
           <div
-            class="rate_star empty"
+            class="rate_star--natural rateClick_star empty"
           >
             ★
           </div>
           <div
-            class="rate_star empty"
+            class="rate_star--natural rateClick_star empty"
           >
             ★
           </div>
           <div
-            class="rate_star empty"
+            class="rate_star--natural rateClick_star empty"
           >
             ★
           </div>
         </div>
         <div
-          class="opinionCreate opinionCreate__rateText"
+          class="opinionCreate--natural opinionCreate__rateText"
         />
       </div>
       <div
-        class="opinionCreate opinionCreate__inputs--grid"
+        class="opinionCreate--natural opinionCreate__inputs--grid"
       >
         <textarea
           class="opinionForm__view"
@@ -66,18 +66,18 @@ exports[`OpinionCreate snapShot: render Opinioncreate 1`] = `
           title="View"
         />
         <input
-          class="input"
+          class="opinionCreate__input"
           name="userName"
           placeholder="UserName"
           value=""
         />
         <div
-          class="opinionCreate"
+          class="opinionCreate--natural"
         />
       </div>
     </main>
     <footer
-      class="opinionCreate opinionForm__footer--flex"
+      class="opinionCreate--natural opinionForm__footer--flex"
     >
       <button
         class="button opinionForm__cancelButon"

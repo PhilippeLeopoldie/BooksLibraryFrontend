@@ -3,30 +3,39 @@
 exports[`Book to Create snapShot: render Book Create 1`] = `
 <DocumentFragment>
   <div
-    class="bookCreateForm__container"
+    class="book-create-form__container--natural book-create-form__container"
   >
+    <script>
+      #f3f3f4
+    </script>
     <form
       action="https://localhost:7152/api/Book"
-      class="bookCreateForm"
+      class="book-create-form"
       method="POST"
     >
       <input
-        class="input"
+        class="input input--natural"
         name="title"
         placeholder="Title"
         value=""
       />
       <input
-        class="input"
+        class="input input--natural"
         name="author"
         placeholder="Author"
         value=""
       />
+      <input
+        class="input input--natural input__imageUrl--natural"
+        name="imageUrl"
+        placeholder="Book Image link"
+        value=""
+      />
       <div
-        class="bookCreateForm__output"
+        class="book-create-form__output-card"
       />
       <button
-        class="button bookCreateForm__postButton"
+        class="button book-create-form__post-button"
       >
         Create book
       </button>
