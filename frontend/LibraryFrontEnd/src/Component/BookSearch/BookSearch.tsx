@@ -10,25 +10,23 @@ type BooksSearchCriteria = {
 export const BookSearch = () => {
   const theme = useContext(ThemeContext);
   const [searchCriteria, setSearchCriteria] = useState<string>("");
-  const [inputValue, setInputValue] = useState<string>("");
   const rootElement = document.documentElement;
 
   return (
     <>
-      <form className={"searchForm--"+theme} onSubmit={(e) => e.preventDefault()}>
+      <form className={"search-form--"+theme} onSubmit={(e) => e.preventDefault()}>
         <script>
           {theme ==="black" ? rootElement.style.backgroundColor='#000000': rootElement.style.backgroundColor='#f3f3f4'}
         </script>
         <input
-          className="searchForm__input"
+          className="search-form__input"
           autoFocus
           placeholder="Search by Title or Author"
           name="titleOrAuthor"
-          value={inputValue}
+          value={searchCriteria}
           onChange={(e) => {
-            setInputValue(e.target.value);
             setSearchCriteria(
-              e.target.value,
+              e.target.value.toLowerCase()
             );
           }}
         />

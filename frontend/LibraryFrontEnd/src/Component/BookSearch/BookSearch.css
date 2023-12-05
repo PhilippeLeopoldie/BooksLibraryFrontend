@@ -1,15 +1,15 @@
-.searchForm__input {
+.search-form__input {
   margin-top: 2rem;
   font-size: 1.2rem;
   width: 15rem;
 }
 
-.searchForm--black {
+.search-form--black {
   background-color: #000000;
 }
 
 @media screen and (min-width: 700px) {
-  .searchForm__input {
+  .search-form__input {
     margin-top: 6rem;
   }
 }
