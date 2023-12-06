@@ -66,8 +66,8 @@ here is the components tree:
 
 Backend:
   - Example of end points  
-    [getBooks](https://booklibrary-backend-20f7a19cecb2.herokuapp.com/api/book)  
-    [getOpinions](https://booklibrary-backend-20f7a19cecb2.herokuapp.com/api/Opinion)
+    [getBooks](https://booklibrary-backend-20f7a19cecb2.herokuapp.com/api/books)  
+    [getOpinions](https://booklibrary-backend-20f7a19cecb2.herokuapp.com/api/Opinions)
 
 
 
