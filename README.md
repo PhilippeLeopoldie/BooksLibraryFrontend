@@ -62,7 +62,7 @@ here is the components tree:
 
 ## Deploying links
 
-[Frontend](https://books-library-philippe-leopoldie.vercel.app/)
+[Frontend](https://books-library-2023.vercel.app/)
 
 Backend:
   - Example of end points  
