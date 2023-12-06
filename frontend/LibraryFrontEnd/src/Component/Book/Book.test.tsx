@@ -12,7 +12,7 @@ describe("", () => {
   test("snapchot: renders book title and author", () => {
     // Arrange and Act
     const { asFragment } = render(
-      <Book book={actualBookData} onDelete={() => {}} />
+      <Book book={actualBookData}  />
     );
 
     //expect (snapshot)
@@ -21,7 +21,7 @@ describe("", () => {
 
   test("renders book title and author", () => {
     // Arrange
-    render(<Book book={actualBookData} onDelete={() => {}} />);
+    render(<Book book={actualBookData}  />);
 
     // Act
     const titleElement = screen.getByText("The Great Gatsby");

@@ -16,7 +16,7 @@ export const BookList = () => {
   const theme = useContext(ThemeContext);
   const [books, setBooks] = useState<BooksType[] | null>(null);
 
-  const handleDeleteBook = (bookId: number) => {
+  /* const handleDeleteBook = (bookId: number) => {
     setBooks((books) => {
       if (books !== null) {
         return books.filter((book) => book.book.id !== bookId);
@@ -24,7 +24,7 @@ export const BookList = () => {
         return [];
       }
     });
-  };
+  }; */
 
   const fetchBooks = async () => {
     try {
@@ -65,7 +65,7 @@ export const BookList = () => {
               <Book
                 key={bookDetail.book.id}
                 book={bookDetail.book}
-                onDelete={handleDeleteBook}
+                /* onDelete={handleDeleteBook} */
               />
             ))}
       </main>

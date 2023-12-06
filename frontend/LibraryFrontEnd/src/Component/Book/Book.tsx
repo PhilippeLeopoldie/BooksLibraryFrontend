@@ -14,7 +14,7 @@ type BookWithDeletionHandler = {
     author: string;
     imageUrl?:string;
   };
-  onDelete?: Function;
+  /* onDelete?: Function; */
 };
 
 type Reviews = {
@@ -26,7 +26,7 @@ type Reviews = {
   bookId: number;
 };
 
-export const Book = ({ book, onDelete }: BookWithDeletionHandler) => {
+export const Book = ({ book, /* onDelete */ }: BookWithDeletionHandler) => {
   const theme = useContext(ThemeContext);
   const [createOpinionHandling, setCreateOpinionHandling] =
     useState<boolean>(false);
@@ -45,7 +45,7 @@ export const Book = ({ book, onDelete }: BookWithDeletionHandler) => {
     setCreateOpinionHandling(!createOpinionHandling);
   };
 
-  const DeleteBook = async (bookId: number) => {
+  /* const DeleteBook = async (bookId: number) => {
     try {
       await fetch(API_URL + `api/Book/${bookId}`, {
         method: "DELETE",
@@ -54,7 +54,7 @@ export const Book = ({ book, onDelete }: BookWithDeletionHandler) => {
     } catch (error) {
       console.error("Error deleting book:", error);
     }
-  };
+  }; */
 
   return (
     <>
