@@ -17,9 +17,11 @@ type BooksSearchCriteria = {
 };
 
 export const BookListSearch = ({ titleOrAuthor }: BooksSearchCriteria) => {
-  const theme = useContext(ThemeContext);
+  
   const [books, setBooks] = useState<BooksType[] | null>([]);
-  const handleDeleteBook = (bookId: number) => {
+  const [loading, setLoading] = useState<string>("Loading...");
+  const theme = useContext(ThemeContext);
+  /* const handleDeleteBook = (bookId: number) => {
     setBooks((books) => {
       if (books !== null) {
         return books.filter((book) => book.book.id !== bookId);
@@ -27,12 +29,13 @@ export const BookListSearch = ({ titleOrAuthor }: BooksSearchCriteria) => {
         return null;
       }
     });
-  };
+  }; */
 
   const fetchBooksByTitleOrAuthor = async () => {
     try {
       if (titleOrAuthor === "") {
         setBooks([]);
+        setLoading("Loading...");
       }
       if (titleOrAuthor !== "") {
         const booksResponse: Response = await fetch(
@@ -41,8 +44,10 @@ export const BookListSearch = ({ titleOrAuthor }: BooksSearchCriteria) => {
         if (booksResponse.status === 200) {
           const booksResponseData = await booksResponse.json();
           setBooks(booksResponseData.$values);
+          setLoading("");
         } else if (booksResponse.status === 404) {
           setBooks([]);
+          setLoading("");
           console.log(booksResponse);
         }
       }
@@ -57,6 +62,9 @@ export const BookListSearch = ({ titleOrAuthor }: BooksSearchCriteria) => {
 
   if (titleOrAuthor==="") {
     return <h1 className={"bookListSearchContainer--" + theme}></h1>;
+  }
+  if (titleOrAuthor !="" && loading) {
+    return <h1 className={"bookListSearchContainer--" + theme}>{loading}</h1>;
   }
 
   return (
@@ -76,7 +84,7 @@ export const BookListSearch = ({ titleOrAuthor }: BooksSearchCriteria) => {
                 <Book
                   key={bookDetail.book.id}
                   book={bookDetail.book}
-                  onDelete={handleDeleteBook}
+                  /* onDelete={handleDeleteBook} */
                 />
               ))}
         </div>

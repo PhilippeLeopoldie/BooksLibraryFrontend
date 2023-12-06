@@ -26,21 +26,41 @@ const book : BooksType = {
 }
 
 describe("BookListSearch", () => {
-  test("snapShot: render BookListSearch", ()=> {
+  test("snapShot: render Loading... while fetching", ()=> {
     (useState as jest.Mock).mockImplementation(() => [book, jest.fn()]);
-    (useState as jest.Mock).mockImplementation(() => [book, jest.fn()]);
+    (useState as jest.Mock).mockImplementation(() => ["Loading...", jest.fn()]);
+
+    const {asFragment} = render(<BookListSearch titleOrAuthor={"title"}/>)
+
+    expect(asFragment()).toMatchSnapshot();
+  })
+
+  test("snapShot: should not render Loading... when not fetching", ()=> {
+    (useState as jest.Mock).mockImplementation(() => [[], jest.fn()]);
+    (useState as jest.Mock).mockImplementation(() => ["Loading...", jest.fn()]);
 
     const {asFragment} = render(<BookListSearch titleOrAuthor={""}/>)
 
     expect(asFragment()).toMatchSnapshot();
   })
 
-  test("snapShot: render 'Loading...'", ()=> {
-    (useState as jest.Mock).mockImplementation(() => [null, jest.fn()]);
-    (useState as jest.Mock).mockImplementation(() => [book, jest.fn()]);
+  test("snapShot: render (0) book found", ()=> {
+    (useState as jest.Mock).mockImplementation(() => [[], jest.fn()]);
+    (useState as jest.Mock).mockImplementation(() => ["", jest.fn()]);
 
-    const {asFragment} = render(<BookListSearch titleOrAuthor={""}/>)
+    const {asFragment} = render(<BookListSearch titleOrAuthor={"z"}/>)
 
     expect(asFragment()).toMatchSnapshot();
   })
+
+  test("snapShot: render (1) book found", ()=> {
+    (useState as jest.Mock).mockImplementation(() => [book, jest.fn()]);
+    (useState as jest.Mock).mockImplementation(() => ["", jest.fn()]);
+
+    const {asFragment} = render(<BookListSearch titleOrAuthor={"chat"}/>)
+
+    expect(asFragment()).toMatchSnapshot();
+  })
+
+  
 })

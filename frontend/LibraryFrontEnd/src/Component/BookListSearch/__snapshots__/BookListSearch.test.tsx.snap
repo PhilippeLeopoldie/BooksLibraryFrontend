@@ -1,33 +1,49 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`BookListSearch snapShot: render 'Loading...' 1`] = `
+exports[`BookListSearch snapShot: render (0) book found 1`] = `
 <DocumentFragment>
   <div
-    class="books"
+    class="bookListSearchContainer--natural"
   >
     <h2>
-      () book(s) found
+      (0) book found
     </h2>
     <div
-      class="booksContainer"
-      data-testid="booksContainer"
+      class="bookListContainer"
     />
   </div>
 </DocumentFragment>
 `;
 
-exports[`BookListSearch snapShot: render BookListSearch 1`] = `
+exports[`BookListSearch snapShot: render (1) book found 1`] = `
 <DocumentFragment>
   <div
-    class="books"
+    class="bookListSearchContainer--natural"
   >
     <h2>
-      () book(s) found
+      (1) book found
     </h2>
     <div
-      class="booksContainer"
-      data-testid="booksContainer"
+      class="bookListContainer"
     />
   </div>
+</DocumentFragment>
+`;
+
+exports[`BookListSearch snapShot: render Loading... while fetching 1`] = `
+<DocumentFragment>
+  <h1
+    class="bookListSearchContainer--natural"
+  >
+    Loading...
+  </h1>
+</DocumentFragment>
+`;
+
+exports[`BookListSearch snapShot: should not render Loading... when not fetching 1`] = `
+<DocumentFragment>
+  <h1
+    class="bookListSearchContainer--natural"
+  />
 </DocumentFragment>
 `;
