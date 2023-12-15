@@ -1,6 +1,6 @@
 import { SyntheticEvent, useState, useContext } from "react";
-import {OPINION_URL} from "../../Url";
-import { RateClick } from "../RateClick/RateClick";
+import {OPINION_URL} from "../../../Url";
+import { RateClick } from "../../Rates/RateClick/RateClick";
 import "./OpinionEdit.css"
 
 type EditedOpinion = {
