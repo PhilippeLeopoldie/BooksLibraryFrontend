@@ -1,7 +1,7 @@
 import { Opinion } from "./Opinion";
 import { act, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import { Book } from "../Book/Book";
+import { Book } from "../../Books/Book/Book";
 
 global.fetch = jest.fn().mockImplementation(() =>
   Promise.resolve({

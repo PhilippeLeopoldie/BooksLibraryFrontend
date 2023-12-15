@@ -1,10 +1,10 @@
 import { useEffect, useState, useContext } from "react";
 import "./Opinion.css";
 import { OpinionList } from "../OpinionList/OpinionList";
-import {OPINION_BY_BOOKID_URL} from "../../Url";
+import {OPINION_BY_BOOKID_URL} from "../../../Url";
 import modify from "../../media/write.svg";
-import { Rate } from "../Rate/Rate";
-import { ThemeContext } from "../App/App";
+import { Rate } from "../../Rates/Rate/Rate";
+import { ThemeContext } from "../../App/App";
 
 type OpinionType = {
   id: number;

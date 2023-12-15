@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import "./BookSearch.css";
 import { BookListSearch } from "../BookListSearch/BookListSearch";
-import { ThemeContext } from "../App/App";
+import { ThemeContext } from "../../App/App";
 
 type BooksSearchCriteria = {
   titleOrAuthor: string;

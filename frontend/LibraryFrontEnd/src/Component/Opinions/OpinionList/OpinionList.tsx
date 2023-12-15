@@ -1,8 +1,8 @@
-import { Rate } from "../Rate/Rate";
+import { Rate } from "../../Rates/Rate/Rate";
 import "./OpinionList.css";
-import ArrowLeftIcone from "../../media/arrowLeft.svg";
+import ArrowLeftIcone from "../../../media/arrowLeft.svg";
 import { useContext, useState } from "react";
-import { ThemeContext } from "../App/App";
+import { ThemeContext } from "../../App/App";
 
 type Review = {
   id: number;

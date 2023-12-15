@@ -1,8 +1,8 @@
 import React, { useContext, useState } from "react";
-import {OPINION_URL} from "../../Url";
-import { RateClick } from "../RateClick/RateClick";
+import {OPINION_URL} from "../../../Url";
+import { RateClick } from "../../Rates/RateClick/RateClick";
 import "./OpinionCreate.css";
-import { ThemeContext } from "../App/App";
+import { ThemeContext } from "../../App/App";
 
 type AddOpinionType = {
   book?: {

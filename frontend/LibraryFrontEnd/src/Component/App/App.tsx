@@ -1,8 +1,8 @@
 import "./App.css";
-import { BookCreate } from "../BookCreate/BookCreate";
-import { BookList } from "../BookList/BookList";
+import { BookCreate } from "../Books/BookCreate/BookCreate";
+import { BookList } from "../Books/BookList/BookList";
 import { Routes, BrowserRouter, Route, Link } from "react-router-dom";
-import { BookSearch } from "../BookSearch/BookSearch";
+import { BookSearch } from "../Books/BookSearch/BookSearch";
 import { createContext, useContext, useState } from "react";
 import addIcone from "../../media/add20px.svg";
 import addBlueIcone from "../../media/add_blue_20px.svg";

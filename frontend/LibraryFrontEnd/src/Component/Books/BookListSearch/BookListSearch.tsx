@@ -1,8 +1,8 @@
 import { Book } from "../Book/Book";
 import "../BookList/BookList.css";
 import { useContext, useEffect, useState } from "react";
-import {BOOK_BY_TITLE_OR_AUTHOR_URL} from "../../Url";
-import { ThemeContext } from "../App/App";
+import {BOOK_BY_TITLE_OR_AUTHOR_URL} from "../../../Url";
+import { ThemeContext } from "../../App/App";
 
 type BooksType = {
   book: {

@@ -1,10 +1,10 @@
 import "./Book.css";
-import { Opinion } from "../Opinion/Opinion";
-import { OpinionCreate } from "../OpinionCreate/OpinionCreate";
-import { OpinionList } from "../OpinionList/OpinionList";
-import { ThemeContext } from "../App/App";
+import { Opinion } from "../../Opinions/Opinion/Opinion";
+import { OpinionCreate } from "../../Opinions/OpinionCreate/OpinionCreate";
+import { OpinionList } from "../../Opinions/OpinionList/OpinionList";
+import { ThemeContext } from "../../App/App";
 import trash from "../../media/delete.svg";
-import {API_URL} from "../../Url";
+import {API_URL} from "../../../Url";
 import { useContext, useState } from "react";
 
 type BookWithDeletionHandler = {
