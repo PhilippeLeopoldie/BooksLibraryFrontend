@@ -85,7 +85,6 @@ export const Opinion = ({
 
   return (
     <>
-      
         {lastOpinion && (
           <div className={`opinionContainer opinionContainer--${theme}`}>
             <section className="opinionCardItems opinioncard__reviews--flex">
@@ -99,50 +98,9 @@ export const Opinion = ({
                 &#9733;
               </div>
             </section>
-            {/* <main className="opinionCardItems">
-              <section className="opinionCardItems reviews_link">
-                <a
-                  className="opinionCardItems opinioncard__nbReview"
-                  onClick={() => {
-                    opinions && displayReview(opinions);
-                  }}
-                >
-                  {opinions &&
-                    (opinions.length > 1
-                      ? `${opinions.length} reviews`
-                      : `${opinions.length} review`)}
-                </a>
-                <hr className="OpinionCard__line"></hr>
-              </section>
-              <section className="opinionCardItems">
-                <div className="opinionCardItems OpinionCard__LastReviewTitle">
-                  Last review:
-                </div>
-                <div className="opinionCardItems opinionCard__userName">
-                  {lastOpinion.userName}
-                </div>
-                <div className="opinionCardItems opinioncard__rate--flex">
-                  <Rate rate={lastOpinion.rate} />
-                  <p className="opinionCardItems opinioncard__postDate">
-                    {lastOpinion.postDate}
-                  </p>
-                </div>
-                <textarea
-                  title="View"
-                  name="View"
-                  className="opinionCardItems opinioncard--view"
-                  value={
-                    lastOpinion.view.length > 100
-                      ? `${lastOpinion.view.slice(0, 100)}...`
-                      : lastOpinion.view
-                  }
-                  readOnly
-                />
-              </section>
-            </main> */}
+          
           </div>
         )}
-      
     </>
   );
 };
