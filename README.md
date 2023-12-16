@@ -24,8 +24,8 @@ So for every review added a digital book is generated with the related opinion i
 
 ## Installation and Setup
 
-### Backend Installation and Setup
-  1. **Clone the Backend Repository:**
+### Backend
+1. **Clone the Backend Repository:**
     ```bash
     git clone https://github.com/PhilippeLeopoldie/bookLibraryBackend.git
     ```
@@ -91,7 +91,7 @@ So for every review added a digital book is generated with the related opinion i
     - Locate the API_URL variable and update it with the appropriate API URL for your environment.
     - For local environement:
     ```bash
-    export const API_URL : string = "https://localhost:7152/api/";
+    export const API_URL : string = "https://localhost:7152/api/"
     ```
     - For deployement environement:
     ```bash
@@ -120,7 +120,7 @@ So for every review added a digital book is generated with the related opinion i
 ## App Home pages
 ![my image](presentation_image.png)
 
-Dark mode:
+### Dark mode:
 ![my image](presentation_image_dark_mode.png)
 
 
