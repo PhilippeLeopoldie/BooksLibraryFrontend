@@ -20,7 +20,7 @@ Since I have deployed my App the development process follows the <span style = "
 [The backend](https://github.com/PhilippeLeopoldie/bookLibraryBackend) is implemented using <span style = "color: green">[Entity Framework code first approach](https://learn.microsoft.com/en-us/ef/ef6/get-started) </span> throw <span style = "color: green"> [TDD](https://en.wikipedia.org/wiki/Test-driven_development) </span> using <span style = "color: green">[xUnit](https://xunit.net/) </span>framework and <span style = "color: green">[Mock](https://github.com/devlooped/moq) </span>library.
 
 
-So for every review added a digital book is generated with the related opinion informations
+So for every review added a digital book is generated with the related opinions informations
 
 ## Installation and Setup
 
