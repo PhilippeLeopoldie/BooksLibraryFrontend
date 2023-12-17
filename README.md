@@ -1,7 +1,7 @@
 # BookLibraryProject
 This is a full stack application, this repository contains the [Frontend](https://github.com/PhilippeLeopoldie/BooksLibraryProject/tree/master/frontend/LibraryFrontEnd) and the backend is [here](https://github.com/PhilippeLeopoldie/bookLibraryBackend)
 
-## Story 
+## Presentation 
 
 Initialy this app was a hack day assignment from Salt bootcamp  where I had 24 hours to build a fullstack application  that is responsive design.
 
@@ -68,8 +68,8 @@ Since I have deployed my App the development process follows the <span style = "
     dotnet run
     ```
     - The backend should now be running at:
-        - HTTPS: [https://localhost:7152](https://localhost:7152)
-        - HTTP: [https://localhost:5281](https://localhost:5281)
+        - HTTP: [http://localhost:5281](https://localhost:5281)  
+        - Swagger UI: [http://localhost:5281/swagger/index.html](http://localhost:5281/swagger/index.html)
         
 ### Frontend
  **Note**: Ensure you have installed:
@@ -117,10 +117,6 @@ Since I have deployed my App the development process follows the <span style = "
     ```
     - The frontend should now be running locally.
     
-### Notes:
-
-
-
 
 ## Components diagram
 ![my image](Components_diagram.png)
@@ -175,4 +171,5 @@ Since I have deployed my App the development process follows the <span style = "
 ### Backend
   - Example of end points:  
     [getBooks](https://booklibrary-backend-20f7a19cecb2.herokuapp.com/api/books)  
-    [getOpinions](https://booklibrary-backend-20f7a19cecb2.herokuapp.com/api/Opinions)
+    [getOpinions](https://booklibrary-backend-20f7a19cecb2.herokuapp.com/api/Opinions)  
+    [Swagger Documentation](http://localhost:5281/swagger/index.html)
