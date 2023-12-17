@@ -130,8 +130,8 @@ Since I have deployed my App the development process follows the <span style = "
 
 ## Technologies
 
-### Backend
-- [.NET](https://github.com/PhilippeLeopoldie/bookLibraryBackend)
+### [Backend](https://github.com/PhilippeLeopoldie/bookLibraryBackend)
+
   - .Net 7.0.203
 
   - ASP.NET Core Web APIs
@@ -146,8 +146,7 @@ Since I have deployed my App the development process follows the <span style = "
 
     - Database : postGres
 
-### Frontend
-- [React](https://github.com/PhilippeLeopoldie/BooksLibraryProject/tree/master/frontend/LibraryFrontEnd)
+### [Frontend](https://github.com/PhilippeLeopoldie/BooksLibraryProject/tree/master/frontend/LibraryFrontEnd)
 
   - platform: Vercel
   
@@ -170,6 +169,6 @@ Since I have deployed my App the development process follows the <span style = "
 
 ### Backend
   - Example of end points:  
-    [getBooks](https://booklibrary-backend-20f7a19cecb2.herokuapp.com/api/books)  
-    [getOpinions](https://booklibrary-backend-20f7a19cecb2.herokuapp.com/api/Opinions)  
-    [Swagger Documentation](http://localhost:5281/swagger/index.html)
+    - [getBooks](https://booklibrary-backend-20f7a19cecb2.herokuapp.com/api/books)  
+    - [getOpinions](https://booklibrary-backend-20f7a19cecb2.herokuapp.com/api/Opinions)  
+    - Swagger documentation: [http://localhost:5281/swagger/index.html](http://localhost:5281/swagger/index.html)  
