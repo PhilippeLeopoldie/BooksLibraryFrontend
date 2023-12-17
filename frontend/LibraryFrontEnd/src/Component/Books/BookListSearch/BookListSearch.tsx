@@ -21,16 +21,6 @@ export const BookListSearch = ({ titleOrAuthor }: BooksSearchCriteria) => {
   const [books, setBooks] = useState<BooksType[] | null>([]);
   const [loading, setLoading] = useState<string>("Loading...");
   const theme = useContext(ThemeContext);
-  /* const handleDeleteBook = (bookId: number) => {
-    setBooks((books) => {
-      if (books !== null) {
-        return books.filter((book) => book.book.id !== bookId);
-      } else {
-        return null;
-      }
-    });
-  }; */
-
   const fetchBooksByTitleOrAuthor = async () => {
     try {
       if (titleOrAuthor === "") {
@@ -84,7 +74,6 @@ export const BookListSearch = ({ titleOrAuthor }: BooksSearchCriteria) => {
                 <Book
                   key={bookDetail.book.id}
                   book={bookDetail.book}
-                  /* onDelete={handleDeleteBook} */
                 />
               ))}
         </div>

@@ -3,18 +3,16 @@ import { Opinion } from "../../Opinions/Opinion/Opinion";
 import { OpinionCreate } from "../../Opinions/OpinionCreate/OpinionCreate";
 import { OpinionList } from "../../Opinions/OpinionList/OpinionList";
 import { ThemeContext } from "../../App/App";
-import trash from "../../media/delete.svg";
 import {API_URL} from "../../../Url";
 import { useContext, useState } from "react";
 
-type BookWithDeletionHandler = {
+type BookType = {
   book?: {
     id: number;
     title: string;
     author: string;
     imageUrl?:string;
   };
-  /* onDelete?: Function; */
 };
 
 type Reviews = {
@@ -26,7 +24,7 @@ type Reviews = {
   bookId: number;
 };
 
-export const Book = ({ book, /* onDelete */ }: BookWithDeletionHandler) => {
+export const Book = ({ book }: BookType) => {
   const theme = useContext(ThemeContext);
   const [createOpinionHandling, setCreateOpinionHandling] =
     useState<boolean>(false);
@@ -44,17 +42,6 @@ export const Book = ({ book, /* onDelete */ }: BookWithDeletionHandler) => {
   const toggleCreateOpinion = () => {
     setCreateOpinionHandling(!createOpinionHandling);
   };
-
-  /* const DeleteBook = async (bookId: number) => {
-    try {
-      await fetch(API_URL + `api/Book/${bookId}`, {
-        method: "DELETE",
-      });
-      onDelete && onDelete(bookId);
-    } catch (error) {
-      console.error("Error deleting book:", error);
-    }
-  }; */
 
   return (
     <>
@@ -74,20 +61,6 @@ export const Book = ({ book, /* onDelete */ }: BookWithDeletionHandler) => {
             height="326px"
           />
           <header className="bookcard__header">
-            {/* <button
-            
-              className=" button booktitle--trashbutton"
-              type="submit"
-              onClick={async () => {
-                await DeleteBook(book.id);
-              }}
-            >
-              <img
-                className="icone bookcard--iconeTrash"
-                src={trash}
-                alt="delete"
-              />
-            </button> */}
             <h3  
               title="Book Title"
               className="booktitle">{book.title.length > 40 
