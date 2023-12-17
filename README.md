@@ -86,7 +86,7 @@ Since I have deployed my App the development process follows the <span style = "
     cd BooksLibraryProject/frontend/LibraryFrontEnd
     ```
 
-3. **Install Vite:
+3. **Install Vite:**
     ```bash
     npm install -g create-vite
     ```
