@@ -3,7 +3,7 @@ This is a full stack application, this repository contains the [Frontend](https:
 
 ## Story 
 
-Initialy this app was a hack day assignment from Salt bootcamp  where I had 24 hours to build a fullstack CRUD application  that is responsive design.
+Initialy this app was a hack day assignment from Salt bootcamp  where I had 24 hours to build a fullstack application  that is responsive design.
 
 I decided to create a simple application for users to share with others the books that they had read and share their opinion about it.  
 As it could be challenging to choose which book to read sometime, the application propose a book to read among the various books already published.
@@ -69,6 +69,7 @@ Since I have deployed my App the development process follows the <span style = "
     ```
     - The backend should now be running at:
         - HTTPS: [https://localhost:7152](https://localhost:7152)
+        - HTTP: [https://localhost:5281](https://localhost:5281)
         
 ### Frontend
  **Note**: Ensure you have installed:
