@@ -11,6 +11,7 @@ type AddOpinionType = {
     author: string;
   };
   toCreate: () => void;
+  created: (value :boolean) => void;
 };
 
 type FormDataType = {
@@ -19,7 +20,7 @@ type FormDataType = {
   rate: number;
 };
 
-export const OpinionCreate = ({ book, toCreate }: AddOpinionType) => {
+export const OpinionCreate = ({ book, toCreate, created }: AddOpinionType) => {
   const theme = useContext(ThemeContext);
   const [bookCreatedMessage, setBookCreatedMessage] = useState<boolean>(false);
   const [errorOpinion, setErrorOpinion] = useState<boolean>(false);
@@ -81,6 +82,7 @@ export const OpinionCreate = ({ book, toCreate }: AddOpinionType) => {
       setBookCreatedMessage(true);
       setErrorOpinion(false);
       toCreate();
+      created(true);
       return newOpinion;
     } else if (opinionResponse.status === 400) {
       const errorData = await opinionResponse.json();

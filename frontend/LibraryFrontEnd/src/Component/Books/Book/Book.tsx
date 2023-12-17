@@ -3,11 +3,11 @@ import { Opinion } from "../../Opinions/Opinion/Opinion";
 import { OpinionCreate } from "../../Opinions/OpinionCreate/OpinionCreate";
 import { OpinionList } from "../../Opinions/OpinionList/OpinionList";
 import { ThemeContext } from "../../App/App";
-import {API_URL} from "../../../Url";
-import { useContext, useState } from "react";
+import {BOOK_BY_BOOKID_URL} from "../../../Url";
+import { useContext, useEffect, useState } from "react";
 
 type BookType = {
-  book?: {
+  book: {
     id: number;
     title: string;
     author: string;
@@ -26,10 +26,30 @@ type Reviews = {
 
 export const Book = ({ book }: BookType) => {
   const theme = useContext(ThemeContext);
-  const [createOpinionHandling, setCreateOpinionHandling] =
+  const [updatedBook, setUpdatedBook] = useState<BookType>({book})
+  const [displayCreateOpinion, setDisplayCreateOpinion] =
     useState<boolean>(false);
+  const [opinionCreated, setOpinionCreated] = useState<boolean>(false);
   const [displayReview, setDisplayReview] = useState<Boolean>(false);
   const [reviewList, setReviewList] = useState<Reviews[]>();
+
+  const fetchBook = async () => {
+    try {
+      const bookResponse: Response = await fetch(`${BOOK_BY_BOOKID_URL}${book?.id}`);
+      if(bookResponse.status === 200) {
+        const bookResponseData = await bookResponse.json();
+        setUpdatedBook(bookResponseData);
+      } else if (bookResponse.status === 404) {
+        console.log(bookResponse);
+      }
+    } catch (error) {
+      console.error(`Error fetching bookId:${book?.id}`, error)
+    }
+  }
+  useEffect(()=> {
+    opinionCreated === true && fetchBook();
+    console.log ("opinionCreated status: ",opinionCreated)
+  },[opinionCreated])
 
   const toggleOpinionList = () => {
     setDisplayReview(!displayReview);
@@ -40,8 +60,12 @@ export const Book = ({ book }: BookType) => {
   };
 
   const toggleCreateOpinion = () => {
-    setCreateOpinionHandling(!createOpinionHandling);
+    setDisplayCreateOpinion(!displayCreateOpinion);
   };
+
+  const handleCreatedOpinion = (value : boolean) => {
+    setOpinionCreated(value);
+  }
 
   return (
     <>
@@ -51,7 +75,7 @@ export const Book = ({ book }: BookType) => {
           displayReviews={() => toggleOpinionList()}
           book={book}
         />
-      ) : book && !createOpinionHandling ? (
+      ) : book && !displayCreateOpinion ? (
         <div className={"bookcard--grid bookcard--" + theme}>
           <img
             src={book.imageUrl &&`${book.imageUrl}`}
@@ -71,7 +95,7 @@ export const Book = ({ book }: BookType) => {
           </header>
           <footer className="bookcard__footer--flex">
           <Opinion
-            book={book}
+            book={updatedBook?.book}
             toCreate={toggleCreateOpinion}
             displayReview={handleOpinionList}
           />
@@ -87,7 +111,10 @@ export const Book = ({ book }: BookType) => {
           </footer>
         </div>
       ) : (
-        <OpinionCreate book={book && book} toCreate={toggleCreateOpinion} />
+        <OpinionCreate 
+        book={book && book} 
+        toCreate={toggleCreateOpinion}
+        created={handleCreatedOpinion} />
       )}
     </>
   );

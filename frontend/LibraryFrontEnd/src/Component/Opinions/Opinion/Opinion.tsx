@@ -20,6 +20,8 @@ type BookType = {
     id: number;
     title: string;
     author: string;
+    imageUrl?:string;
+    averageRate?: number;
   };
   onEdit?: (opinionToUpdate: OpinionType) => void;
   toCreate: () => void;
@@ -55,7 +57,7 @@ export const Opinion = ({
     }
   };
 
-  const AverageRate = () => {
+  /* const AverageRate = () => {
     if (opinions) {
       const rateSum = opinions.reduce(
         (total, opinion) => total + opinion.rate,
@@ -66,7 +68,7 @@ export const Opinion = ({
       const formattedAverage = Number(average.toFixed(1));
       setAverageRate(formattedAverage);
     }
-  };
+  }; */
 
   useEffect(() => {
     FetchOpinionBYBookId(book.id);
@@ -76,7 +78,7 @@ export const Opinion = ({
     opinions &&
       opinions.length > 0 &&
       setLastOpinion(opinions[opinions.length - 1]);
-    AverageRate();
+   // AverageRate();
   }, [opinions]);
 
   if (fetching) {
@@ -92,7 +94,7 @@ export const Opinion = ({
               onClick={() => {
                 opinions && displayReview(opinions);
               }}>
-                {averageRate}/5
+                {book.averageRate}/5
               </a>
               <div className="rate_star opinioncard__reviews__star">
                 &#9733;
