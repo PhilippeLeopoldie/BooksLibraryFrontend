@@ -8,9 +8,8 @@ Initialy this app was a hack day assignment from Salt bootcamp  where I had 24 h
 I decided to create a simple application for users to share with others the books that they had read and share their opinion about it.  
 As it could be challenging to choose which book to read sometime, the application propose a book to read among the various books already published.
 
-There are three tables: user, Books and Opinions.  
-For that assignment I have decided to have focus on the one to many relation between Books and Opinions first and managing the corresponding CRUD operations before going further with the User table.
-
+There are two tables:  Books and Opinions.  
+For that assignment I have decided to have focus on managing the relationship between books and their corresponding opinions.
 
 Since I have deployed my App the development process follows the <span style = "color: green"> [CI/CD](https://en.wikipedia.org/wiki/CI/CD) </span>principle.
 
@@ -19,8 +18,6 @@ Since I have deployed my App the development process follows the <span style = "
 
 [The backend](https://github.com/PhilippeLeopoldie/bookLibraryBackend) is implemented using <span style = "color: green">[Entity Framework code first approach](https://learn.microsoft.com/en-us/ef/ef6/get-started) </span> throw <span style = "color: green"> [TDD](https://en.wikipedia.org/wiki/Test-driven_development) </span> using <span style = "color: green">[xUnit](https://xunit.net/) </span>framework and <span style = "color: green">[Mock](https://github.com/devlooped/moq) </span>library.
 
-
-So for every review added a digital book is generated with the related opinions informations
 
 ## Installation and Setup
 
@@ -74,6 +71,10 @@ So for every review added a digital book is generated with the related opinions 
         - HTTPS: [https://localhost:7152](https://localhost:7152)
         
 ### Frontend
+ **Note**: Ensure you have installed:
+ - [Node.js](https://nodejs.org/) version: 18.15.0 
+ - [npm](https://www.npmjs.com/)  version: 9.5.0
+    
 
 1. **Clone the Frontend Repository:**
     ```bash
@@ -84,40 +85,46 @@ So for every review added a digital book is generated with the related opinions 
     ```bash
     cd BooksLibraryProject/frontend/LibraryFrontEnd
     ```
-3. **Update the API URL in URLs.ts:**
+
+3. **Install Vite:
+    ```bash
+    npm install -g create-vite
+    ```
+
+4. **Update the API URL in URLs.ts:**
 
     - Open the src/URLs.ts file.
 
-    - Locate the API_URL variable and update it with the appropriate API URL for your environment.
-    - For local environement:
-    ```bash
-    export const API_URL : string = "https://localhost:7152/api/"
-    ```
-    - For deployement environement:
-    ```bash
-    export const API_URL : string = "https://booklibrary-backend-20f7a19cecb2.herokuapp.com/api/" 
-    ```
+    - Locate the API_URL variable and update it with the appropriate API URL for local or deployment environment.
+      - For local environment:
+      ```bash
+      export const API_URL : string = "https://localhost:7152/api/"
+      ```
+      - For deployment environment:
+      ```bash
+      export const API_URL : string = "https://booklibrary-backend-20f7a19cecb2.herokuapp.com/api/" 
+      ```
 
-4. **Install Dependencies:**
+5. **Install Dependencies:**
     ```bash
     npm install
     ```
 
-5. **Run the Frontend Locally:**
+6. **Run the Frontend Locally:**
     ```bash
-    npm start
+    npm run dev
     ```
     - The frontend should now be running locally.
     
 ### Notes:
 
-- Ensure you have [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/) installed for the frontend.
+
 
 
 ## Components diagram
 ![my image](Components_diagram.png)
 
-## App Home pages
+## App Home page:
 ![my image](presentation_image.png)
 
 ### Dark mode:
@@ -146,6 +153,8 @@ So for every review added a digital book is generated with the related opinions 
 - [React](https://github.com/PhilippeLeopoldie/BooksLibraryProject/tree/master/frontend/LibraryFrontEnd)
 
   - platform: Vercel
+  
+  - Node.js 18.15.0 , npm 9.5.0
 
   - React 18.2.0
 
