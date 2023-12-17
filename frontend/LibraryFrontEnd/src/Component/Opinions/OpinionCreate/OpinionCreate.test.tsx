@@ -4,7 +4,7 @@ import "@testing-library/jest-dom";
 
 describe("OpinionCreate", () => {
   test("snapShot: render Opinioncreate", ()=> {
-    const {asFragment} = render(<OpinionCreate toCreate={()=> {}}/>)
+    const {asFragment} = render(<OpinionCreate toCreate={()=> {}} created={()=>{}}/>)
 
     expect(asFragment()).toMatchSnapshot();
   })
