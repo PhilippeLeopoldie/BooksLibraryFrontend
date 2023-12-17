@@ -17,7 +17,7 @@ const config: Config = {
           "jest-runner",
         ]
       }
-    }],"\\.svg$": "<rootDir>/svg-transformer.ts"
+    }],
   },
   testPathIgnorePatterns: [
     "<rootDir>/node_modules/",
