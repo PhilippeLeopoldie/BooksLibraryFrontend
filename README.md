@@ -130,8 +130,10 @@ Since I have deployed my App the development process follows the <span style = "
 
 ## Technologies
 
-### [Backend](https://github.com/PhilippeLeopoldie/bookLibraryBackend)
+### Backend
 
+  [Backend repository](https://github.com/PhilippeLeopoldie/bookLibraryBackend)
+  
   - .Net 7.0.203
 
   - ASP.NET Core Web APIs
@@ -146,7 +148,9 @@ Since I have deployed my App the development process follows the <span style = "
 
     - Database : postGres
 
-### [Frontend](https://github.com/PhilippeLeopoldie/BooksLibraryProject/tree/master/frontend/LibraryFrontEnd)
+### Frontend
+
+  [Frontend repository](https://github.com/PhilippeLeopoldie/BooksLibraryProject/tree/master/frontend/LibraryFrontEnd)
 
   - platform: Vercel
   
