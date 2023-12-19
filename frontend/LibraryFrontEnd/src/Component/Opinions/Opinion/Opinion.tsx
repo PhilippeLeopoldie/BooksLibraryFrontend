@@ -38,7 +38,7 @@ export const Opinion = ({
   const [opinions, setOpinions] = useState<OpinionType[] | null>(null);
   const [fetching, setFething] = useState<boolean>(true);
   const [lastOpinion, setLastOpinion] = useState<OpinionType | null>(null);
-  const [averageRate, setAverageRate] = useState<number>(0);
+  //const [averageRate, setAverageRate] = useState<number>(0);
   const FetchOpinionBYBookId = async (bookId: number) => {
     try {
       const response: Response = await fetch(
@@ -57,18 +57,6 @@ export const Opinion = ({
     }
   };
 
-  /* const AverageRate = () => {
-    if (opinions) {
-      const rateSum = opinions.reduce(
-        (total, opinion) => total + opinion.rate,
-        0
-      );
-      const average = rateSum / opinions.length;
-
-      const formattedAverage = Number(average.toFixed(1));
-      setAverageRate(formattedAverage);
-    }
-  }; */
 
   useEffect(() => {
     FetchOpinionBYBookId(book.id);
@@ -78,7 +66,6 @@ export const Opinion = ({
     opinions &&
       opinions.length > 0 &&
       setLastOpinion(opinions[opinions.length - 1]);
-   // AverageRate();
   }, [opinions]);
 
   if (fetching) {
