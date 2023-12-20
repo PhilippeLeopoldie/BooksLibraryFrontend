@@ -3,7 +3,7 @@
   grid-template-rows: 20% 65% 15%;
   width: 20rem;
   height: 29rem;
-  margin: 0 1em 10% 0em;
+  margin: 0 1em 2rem 0em;
   border: 1px black solid;
   border-radius: 10px;
 }
@@ -43,10 +43,12 @@
   margin:0 2%;
   border-radius: 10px;
   background-color: #ffffff;
+  font-size: 1.25rem;
 }
 
 .opinionCreate__input{
   max-width: 18.5rem;
+  font-size: 1.25rem;
 }
 
 .opinionForm__footer--flex {

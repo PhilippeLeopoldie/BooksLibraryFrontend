@@ -38,7 +38,6 @@ export const Opinion = ({
   const [opinions, setOpinions] = useState<OpinionType[] | null>(null);
   const [fetching, setFething] = useState<boolean>(true);
   const [lastOpinion, setLastOpinion] = useState<OpinionType | null>(null);
-  //const [averageRate, setAverageRate] = useState<number>(0);
   const FetchOpinionBYBookId = async (bookId: number) => {
     try {
       const response: Response = await fetch(
