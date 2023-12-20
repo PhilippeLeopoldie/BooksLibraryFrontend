@@ -1,6 +1,7 @@
 import { Book } from "../Book/Book";
 import "./BookList.css";
-import {BOOK_URL} from "../../../Url";
+import { BOOK_URL } from "../../../Url";
+import { BOOK_TOP_BOOK_URL } from "../../../Url";
 import { useContext, useEffect, useState } from "react";
 import { ThemeContext } from "../../App/App";
 
@@ -9,12 +10,30 @@ type BooksType = {
     id: number;
     title: string;
     author: string;
+    imageUrl?: string;
+    opinions?: OpinionType | null;
   };
+};
+
+type TopBookType = {
+  id: number;
+  title: string;
+  author: string;
+  imageUrl?: string;
+  opinions?: OpinionType | null;
+};
+
+type OpinionType = {
+  rate: number;
+  view: string;
+  userName: string;
 };
 
 export const BookList = () => {
   const theme = useContext(ThemeContext);
   const [books, setBooks] = useState<BooksType[] | null>(null);
+  const [topBook, setTopBook] = useState<TopBookType[] | null>(null);
+  const [numberOfBooks, setNumberOfBook] = useState<number>(3);
   const fetchBooks = async () => {
     try {
       const booksResponse: Response = await fetch(BOOK_URL);
@@ -29,32 +48,54 @@ export const BookList = () => {
     }
   };
 
+  const fetchTopBook = async () => {
+    try {
+      const topBookResponse: Response = await fetch(`${BOOK_TOP_BOOK_URL} ${numberOfBooks}`);
+      if (topBookResponse.status === 200) {
+        const topBookResponseData = await topBookResponse.json();
+        setTopBook(topBookResponseData.$values);
+        console.log("topBook:", topBook);
+        console.log(
+          "topBook title:",
+          topBook?.map((book) => book.title)
+        );
+      } else if (topBookResponse.status === 404) {
+        console.log(topBookResponse);
+      }
+    } catch (error) {
+      console.error("Error fetching TopBook:", error);
+    }
+  };
+
   useEffect(() => {
     fetchBooks();
+    fetchTopBook();
   }, []);
 
   if (!books) {
-    return <h1 className={"Books__Loading--"+theme}>Loading...</h1>;
+    return <h1 className={"Books__Loading--" + theme}>Loading...</h1>;
   }
 
-  const randomIndex = Math.floor(Math.random() * books.length);
-  const random = books[randomIndex];
   return (
     <>
       <header className={`BookList--${theme} books__header--flex`}>
-        <h2 className="BookList">Recommendation of the day</h2>
-        <h3 className="BookList">{random?.book.title}</h3>
+        <h1 className="BookList">{`Top ${numberOfBooks} Most popular`}</h1>
+        <div className="BookList BookList__mostPopular">
+          {topBook?.map((book) => (
+            
+              <Book book={book}/>
+            
+          ))}
+        </div>
       </header>
+      <h1 className={`BookList--${theme}`}>New books</h1>
       <main className="bookListContainer">
         {books &&
           Array.isArray(books) &&
           books
             .sort((a, b) => b.book.id - a.book.id)
             .map((bookDetail, index) => (
-              <Book
-                key={bookDetail.book.id}
-                book={bookDetail.book}
-              />
+              <Book key={bookDetail.book.id} book={bookDetail.book} />
             ))}
       </main>
     </>

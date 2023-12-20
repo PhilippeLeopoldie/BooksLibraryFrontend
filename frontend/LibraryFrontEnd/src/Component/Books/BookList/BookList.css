@@ -4,8 +4,19 @@
     background-color: transparent;
     color: #ffffff;
   }
+}
+
+.BookList--black {
+  background-color:  #000000;
+  color: #ffffff;
+}
+
+.BookList__mostPopular {
+  display : grid;
+  justify-content: center;
   
 }
+
 .bookListSearchContainer--black {
   background-color: #000000;
 }
@@ -40,7 +51,7 @@
 .bookListContainer {
   display: grid;
   justify-content: center;
-  grid-template-columns: repeat(1, auto);
+ 
   margin: 4% 0%;
   background-color: transparent;
 }
@@ -50,26 +61,26 @@
     margin-top: 4rem;
   }
 
-  .bookListContainer {
+  .bookListContainer, .BookList__mostPopular {
     grid-template-columns: repeat(2, auto);
     margin-bottom: 0%;
   }
 }
 
 @media screen and (min-width: 1024px) {
-  .bookListContainer {
+  .bookListContainer, .BookList__mostPopular {
     grid-template-columns: repeat(3, auto);
   }
 }
 
 @media screen and (min-width: 1300px) {
-  .bookListContainer {
+  .bookListContainer .BookList__mostPopular {
     grid-template-columns: repeat(4, auto);
   }
 }
 
 @media screen and (min-width: 1458px) {
-  .bookListContainer {
+  .bookListContainer, .BookList__mostPopular {
     grid-template-columns: repeat(5, auto);
   }
 }
