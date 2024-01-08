@@ -140,14 +140,30 @@ export const BookCreate = () => {
             </div>
           )}
           </div>
-          <button
+          <footer className="footer--flex">
+            <button
+            className="button book-create-form__cancel-button"
+            onClick={()=>{
+              setFormData({
+                title: "",
+                author: "",
+                imageUrl: "",
+              });
+            }}
+            > 
+            Cancel
+            </button>
+            <button
             className="button book-create-form__post-button"
             onClick={async () => {
               await PostBook();
             }}
-          >
+            >
             Create book
           </button>
+
+          </footer>
+          
           
         </form>
       </div>

@@ -36,6 +36,11 @@
   color: #067eff;
 }
 
+.footer--flex {
+  display: flex;
+  justify-content: space-around;
+}
+
 
 .book-create-form {
   background-color: transparent;
@@ -74,6 +79,16 @@
   margin: 0;
 }
 
+.footer--flex {
+  display: flex;
+  justify-content: space-around;
+}
+
+.book-create-form__cancel-button {
+  font-size: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
 
 .book-create-form__post-button {
   font-weight: bold;
