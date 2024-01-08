@@ -18,7 +18,7 @@ import settingsBlueIcone from "../../media/settings_blue_48px.svg";
 export const ThemeContext = createContext<string>("natural");
 
 export const App = () => {
-  const [theme, setTheme] = useState<string>("natural");
+  const [theme, setTheme] = useState<string>("black");
   const [activeNavItem , setActiveNavItem ] = useState<string>("home");
   return (
     <div className={`App App--${theme}`}>
