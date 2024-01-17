@@ -1,5 +1,8 @@
-.OpinionLoading {
-  background-color: transparent;
+.opinion__loading {
+  background-color: transparent; 
+}
+.opinion__loading--black {
+  color: #ffffff;
 }
 
 .opinionContainer {
@@ -16,11 +19,7 @@
   margin-left: 2.4rem;
 }
 
-.opinionContainer--black {
-  .opinioncard__reviews__averageRate {
-    color: rgb(0, 76, 255);
-  }
-}
+
 .opinionCardItems {
   background-color: transparent;
 }
@@ -30,13 +29,6 @@
   
 }
 
-.opinioncard__reviews__averageRate {
-  font-weight: bold;
-  text-align: right;
-  color: rgb(47, 6, 150);
-  text-decoration: underline;
-  cursor: pointer;
-}
 
 .opinioncard__reviews__star {
   text-align: left;
