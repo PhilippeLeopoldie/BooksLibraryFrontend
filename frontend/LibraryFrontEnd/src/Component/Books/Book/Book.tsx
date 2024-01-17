@@ -3,7 +3,7 @@ import { Opinion } from "../../Opinions/Opinion/Opinion";
 import { OpinionCreate } from "../../Opinions/OpinionCreate/OpinionCreate";
 import { OpinionList } from "../../Opinions/OpinionList/OpinionList";
 import { ThemeContext } from "../../App/App";
-import {BOOK_BY_BOOKID_URL} from "../../../Url";
+import { BOOK_BY_BOOKID_URL } from "../../../Url";
 import { useContext, useEffect, useState } from "react";
 
 type BookType = {
@@ -11,7 +11,8 @@ type BookType = {
     id: number;
     title: string;
     author: string;
-    imageUrl?:string;
+    averageRate: number;
+    imageUrl?: string;
   };
 };
 
@@ -26,33 +27,37 @@ type Reviews = {
 
 export const Book = ({ book }: BookType) => {
   const theme = useContext(ThemeContext);
-  const [updatedBook, setUpdatedBook] = useState<BookType>({book})
+  const [updatedBook, setUpdatedBook] = useState<BookType>({ book });
   const [displayCreateOpinion, setDisplayCreateOpinion] =
     useState<boolean>(false);
   const [opinionCreated, setOpinionCreated] = useState<boolean>(false);
   const [displayReview, setDisplayReview] = useState<Boolean>(false);
+  const [averageClick, setAverageclick] = useState<Boolean>(false);
   const [reviewList, setReviewList] = useState<Reviews[]>();
 
   const fetchBook = async () => {
     try {
-      const bookResponse: Response = await fetch(`${BOOK_BY_BOOKID_URL}${book?.id}`);
-      if(bookResponse.status === 200) {
+      const bookResponse: Response = await fetch(
+        `${BOOK_BY_BOOKID_URL}${book?.id}`
+      );
+      if (bookResponse.status === 200) {
         const bookResponseData = await bookResponse.json();
         setUpdatedBook(bookResponseData);
       } else if (bookResponse.status === 404) {
         console.log(bookResponse);
       }
     } catch (error) {
-      console.error(`Error fetching bookId:${book?.id}`, error)
+      console.error(`Error fetching bookId:${book?.id}`, error);
     }
-  }
-  useEffect(()=> {
+  };
+  useEffect(() => {
     opinionCreated === true && fetchBook();
-    console.log ("opinionCreated status: ",opinionCreated)
-  },[opinionCreated])
+    console.log("opinionCreated status: ", opinionCreated);
+  }, [opinionCreated]);
 
   const toggleOpinionList = () => {
     setDisplayReview(!displayReview);
+    setAverageclick(false);
   };
   const handleOpinionList = (reviews: Reviews[]) => {
     toggleOpinionList();
@@ -63,9 +68,9 @@ export const Book = ({ book }: BookType) => {
     setDisplayCreateOpinion(!displayCreateOpinion);
   };
 
-  const handleCreatedOpinion = (value : boolean) => {
+  const handleCreatedOpinion = (value: boolean) => {
     setOpinionCreated(value);
-  }
+  };
 
   return (
     <>
@@ -78,28 +83,41 @@ export const Book = ({ book }: BookType) => {
       ) : book && !displayCreateOpinion ? (
         <div className={"bookcard--grid bookcard--" + theme}>
           <img
-            src={book.imageUrl &&`${book.imageUrl}`}
+            src={book.imageUrl && `${book.imageUrl}`}
             className="boocard__Image"
             alt="bookImage"
             width="288px"
             height="326px"
           />
           <header className="bookcard__header">
-            <h3  
-              title="Book Title"
-              className="booktitle">{book.title.length > 40 
+            <h3 title="Book Title" className="booktitle">
+              {book.title.length > 40
                 ? `${book.title.slice(0, 40)}...`
                 : book.title}
             </h3>
             <h3 className="bookauthor">by: {book.author}</h3>
           </header>
           <footer className="bookcard__footer--flex">
-          <Opinion
-            book={updatedBook?.book}
-            toCreate={toggleCreateOpinion}
-            displayReview={handleOpinionList}
-          />
-          
+            <div className="footer__average-rate--flex">
+              <a
+                className="footer__average-rate"
+                onClick={() => {
+                  console.log("averageClick=", averageClick);
+                  setAverageclick(!averageClick);
+                }}
+              >
+                {book.averageRate}/5
+              </a>
+              <div className="rate_star"> &#9733;</div>
+            </div>
+            {averageClick && (
+              <Opinion
+                book={updatedBook?.book}
+                // toCreate={toggleCreateOpinion}
+                displayReview={handleOpinionList}
+              />
+            )}
+            
             <button
               className="button bookCard__RateButton"
               onClick={() => {
@@ -109,12 +127,14 @@ export const Book = ({ book }: BookType) => {
               Rate this book
             </button>
           </footer>
+          
         </div>
       ) : (
-        <OpinionCreate 
-        book={book && book} 
-        toCreate={toggleCreateOpinion}
-        created={handleCreatedOpinion} />
+        <OpinionCreate
+          book={book && book}
+          toCreate={toggleCreateOpinion}
+          created={handleCreatedOpinion}
+        />
       )}
     </>
   );

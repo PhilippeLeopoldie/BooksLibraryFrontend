@@ -24,18 +24,18 @@ type BookType = {
     averageRate?: number;
   };
   onEdit?: (opinionToUpdate: OpinionType) => void;
-  toCreate: () => void;
+  // toCreate: () => void;
   displayReview: (opinions: OpinionType[]) => void;
 };
 
 export const Opinion = ({
   book,
   onEdit,
-  toCreate,
+  // toCreate,
   displayReview,
 }: BookType) => {
   const theme = useContext(ThemeContext);
-  const [opinions, setOpinions] = useState<OpinionType[] | null>(null);
+  //const [opinions, setOpinions] = useState<OpinionType[] | null>(null);
   const [fetching, setFething] = useState<boolean>(true);
   const [lastOpinion, setLastOpinion] = useState<OpinionType | null>(null);
   const FetchOpinionBYBookId = async (bookId: number) => {
@@ -45,7 +45,8 @@ export const Opinion = ({
       );
       if (response.status === 200) {
         const responseData = await response.json();
-        setOpinions(responseData.$values);
+        //setOpinions(responseData.$values);
+        displayReview(responseData.$values);
         setFething(false);
       } else if (response.status === 404) {
         setFething(false);
@@ -61,19 +62,20 @@ export const Opinion = ({
     FetchOpinionBYBookId(book.id);
   }, []);
 
-  useEffect(() => {
+ /*  useEffect(() => {
     opinions &&
       opinions.length > 0 &&
-      setLastOpinion(opinions[opinions.length - 1]);
-  }, [opinions]);
+      setLastOpinion(opinions[opinions.length - 1]);    
+  }, [opinions]); */
 
   if (fetching) {
-    return <h2 className="OpinionLoading">Loading...</h2>;
+    return <h4 className={`opinion__loading opinion__loading--${theme}`}>Loading...</h4>;
   }
 
   return (
     <>
-        {lastOpinion && (
+        {/* {lastOpinion && (
+          
           <div className={`opinionContainer opinionContainer--${theme}`}>
             <section className="opinionCardItems opinioncard__reviews--flex">
               <a className="opinionCardItems opinioncard__reviews__averageRate"
@@ -88,7 +90,8 @@ export const Opinion = ({
             </section>
           
           </div>
-        )}
+          
+        )} */}
     </>
   );
 };
