@@ -9,7 +9,7 @@ exports[`Book to Create snapShot: render Book Create 1`] = `
       #f3f3f4
     </script>
     <form
-      action="https://localhost:7152/api/Books"
+      action="https://booklibrary-backend-20f7a19cecb2.herokuapp.com/api/Books"
       class="book-create-form"
       method="POST"
     >
@@ -34,11 +34,20 @@ exports[`Book to Create snapShot: render Book Create 1`] = `
       <div
         class="book-create-form__output-card"
       />
-      <button
-        class="button book-create-form__post-button"
+      <footer
+        class="footer--flex"
       >
-        Create book
-      </button>
+        <button
+          class="button book-create-form__cancel-button"
+        >
+          Cancel
+        </button>
+        <button
+          class="button book-create-form__post-button"
+        >
+          Create book
+        </button>
+      </footer>
     </form>
   </div>
 </DocumentFragment>

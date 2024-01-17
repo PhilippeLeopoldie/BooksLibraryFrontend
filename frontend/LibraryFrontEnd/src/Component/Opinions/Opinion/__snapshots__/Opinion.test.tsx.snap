@@ -2,10 +2,10 @@
 
 exports[`Opinions Component Tests SnapShot: should render Opinion 1`] = `
 <DocumentFragment>
-  <h2
-    class="OpinionLoading"
+  <h4
+    class="opinion__loading opinion__loading--natural"
   >
     Loading...
-  </h2>
+  </h4>
 </DocumentFragment>
 `;

@@ -3,10 +3,10 @@
 exports[`App routes snapShot: render nav bar 1`] = `
 <DocumentFragment>
   <div
-    class="App App--natural"
+    class="App App--black"
   >
     <nav
-      class="navbar--grid navbar--natural"
+      class="navbar--grid navbar--black"
     >
       <a
         class="nav-link nav__home__Link--flex"
@@ -74,7 +74,7 @@ exports[`App routes snapShot: render nav bar 1`] = `
       </div>
     </nav>
     <h1
-      class="Books__Loading--natural"
+      class="Books__Loading--black"
     >
       Loading...
     </h1>

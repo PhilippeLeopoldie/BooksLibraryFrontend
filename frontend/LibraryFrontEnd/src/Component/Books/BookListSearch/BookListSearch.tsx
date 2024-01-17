@@ -9,6 +9,7 @@ type BooksType = {
     id: number;
     title: string;
     author: string;
+    averageRate: number;
   };
 };
 

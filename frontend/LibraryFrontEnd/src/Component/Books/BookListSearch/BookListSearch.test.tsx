@@ -13,6 +13,7 @@ type BooksType = {
     id: number;
     title: string;
     author: string;
+    averageRate: number;
   };
 };
 
@@ -21,6 +22,7 @@ const book : BooksType = {
     id: 1,
     title: "title",
     author: "author",
+    averageRate: 3,
   }
 
 }

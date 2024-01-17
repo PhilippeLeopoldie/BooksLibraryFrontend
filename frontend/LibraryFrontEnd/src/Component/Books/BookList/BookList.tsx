@@ -11,6 +11,7 @@ type BooksType = {
     title: string;
     author: string;
     imageUrl?: string;
+    averageRate: number;
     opinions?: OpinionType | null;
   };
 };
@@ -20,6 +21,7 @@ type TopBookType = {
   title: string;
   author: string;
   imageUrl?: string;
+  averageRate: number;
   opinions?: OpinionType | null;
 };
 
@@ -81,10 +83,8 @@ export const BookList = () => {
       <header className={`BookList--${theme} books__header--flex`}>
         <h1 className="BookList">{`Top ${numberOfBooks} Most popular`}</h1>
         <div className="BookList BookList__mostPopular">
-          {topBook?.map((book) => (
-            
-              <Book book={book}/>
-            
+          {topBook?.map((book) => ( 
+              <Book key={book.id} book={book}/>        
           ))}
         </div>
       </header>
@@ -94,7 +94,7 @@ export const BookList = () => {
           Array.isArray(books) &&
           books
             .sort((a, b) => b.book.id - a.book.id)
-            .map((bookDetail, index) => (
+            .map((bookDetail) => (
               <Book key={bookDetail.book.id} book={bookDetail.book} />
             ))}
       </main>

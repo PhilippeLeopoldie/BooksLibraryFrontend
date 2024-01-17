@@ -29,11 +29,20 @@ exports[` snapchot: renders book title and author 1`] = `
     <footer
       class="bookcard__footer--flex"
     >
-      <h2
-        class="OpinionLoading"
+      <div
+        class="footer__average-rate--flex"
       >
-        Loading...
-      </h2>
+        <a
+          class="footer__average-rate"
+        >
+          3/5
+        </a>
+        <div
+          class="rate_star"
+        >
+           ★
+        </div>
+      </div>
       <button
         class="button bookCard__RateButton"
       >
