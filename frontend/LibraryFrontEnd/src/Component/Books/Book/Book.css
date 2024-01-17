@@ -14,11 +14,8 @@
   .bookauthor {
     color: #ffffff;
   }
-
-  .bookCard__RateButton {
-    color: rgb(0, 76, 255);
-  }
 }
+
 
 .boocard__Image {
   border-radius: 9px 9px 0 0;
@@ -29,8 +26,26 @@
   display: flex;
   max-width: 18rem;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   background-color: transparent;
+}
+
+.footer__average-rate--flex{
+  display:flex;
+  background-color: transparent;
+}
+
+.footer__average-rate {
+  font-weight: bold;
+  text-align: right;
+  color: rgb(0, 76, 255);
+  text-decoration: underline;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.rate_star {
+  margin-top: -1rem;
 }
 
 .bookCard__RateButton {
@@ -39,7 +54,7 @@
   width: 50%;
   font-size: 1rem;
   font-weight: bolder;
-  color: rgb(47, 6, 150);
+  color: rgb(0, 76, 255);
 }
 
 .bookcard__header {
