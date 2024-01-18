@@ -52,7 +52,6 @@ export const Book = ({ book }: BookType) => {
   };
   useEffect(() => {
     opinionCreated === true && fetchBook();
-    console.log("opinionCreated status: ", opinionCreated);
   }, [opinionCreated]);
 
   const toggleOpinionList = () => {

@@ -56,11 +56,6 @@ export const BookList = () => {
       if (topBookResponse.status === 200) {
         const topBookResponseData = await topBookResponse.json();
         setTopBook(topBookResponseData.$values);
-        console.log("topBook:", topBook);
-        console.log(
-          "topBook title:",
-          topBook?.map((book) => book.title)
-        );
       } else if (topBookResponse.status === 404) {
         console.log(topBookResponse);
       }
