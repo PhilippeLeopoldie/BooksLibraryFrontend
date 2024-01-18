@@ -31,7 +31,6 @@ describe("Opinions Component Tests", () => {
       render(<Opinion 
         book={book} 
         onEdit={() => {}} 
-        //toCreate={()=> {}} 
         displayReview={()=>{}}/>);
     expect(asFragment()).toMatchSnapshot();
   })

@@ -31,11 +31,9 @@ type BookType = {
 export const Opinion = ({
   book,
   onEdit,
-  // toCreate,
   displayReview,
 }: BookType) => {
   const theme = useContext(ThemeContext);
-  //const [opinions, setOpinions] = useState<OpinionType[] | null>(null);
   const [fetching, setFething] = useState<boolean>(true);
   const [lastOpinion, setLastOpinion] = useState<OpinionType | null>(null);
   const FetchOpinionBYBookId = async (bookId: number) => {
@@ -45,7 +43,6 @@ export const Opinion = ({
       );
       if (response.status === 200) {
         const responseData = await response.json();
-        //setOpinions(responseData.$values);
         displayReview(responseData.$values);
         setFething(false);
       } else if (response.status === 404) {
@@ -62,36 +59,12 @@ export const Opinion = ({
     FetchOpinionBYBookId(book.id);
   }, []);
 
- /*  useEffect(() => {
-    opinions &&
-      opinions.length > 0 &&
-      setLastOpinion(opinions[opinions.length - 1]);    
-  }, [opinions]); */
-
   if (fetching) {
     return <h4 className={`opinion__loading opinion__loading--${theme}`}>Loading...</h4>;
   }
 
   return (
     <>
-        {/* {lastOpinion && (
-          
-          <div className={`opinionContainer opinionContainer--${theme}`}>
-            <section className="opinionCardItems opinioncard__reviews--flex">
-              <a className="opinionCardItems opinioncard__reviews__averageRate"
-              onClick={() => {
-                opinions && displayReview(opinions);
-              }}>
-                {book.averageRate}/5
-              </a>
-              <div className="rate_star opinioncard__reviews__star">
-                &#9733;
-              </div>
-            </section>
-          
-          </div>
-          
-        )} */}
     </>
   );
 };

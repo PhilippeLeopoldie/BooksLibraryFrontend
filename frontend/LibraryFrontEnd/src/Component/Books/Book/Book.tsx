@@ -113,7 +113,6 @@ export const Book = ({ book }: BookType) => {
             {averageClick && (
               <Opinion
                 book={updatedBook?.book}
-                // toCreate={toggleCreateOpinion}
                 displayReview={handleOpinionList}
               />
             )}
