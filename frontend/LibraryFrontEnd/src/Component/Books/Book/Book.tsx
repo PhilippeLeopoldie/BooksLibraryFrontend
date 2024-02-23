@@ -34,6 +34,7 @@ export const Book = ({ book }: BookType) => {
   const [displayReview, setDisplayReview] = useState<Boolean>(false);
   const [averageClick, setAverageclick] = useState<Boolean>(false);
   const [reviewList, setReviewList] = useState<Reviews[]>();
+  const [imageZoom, setImageZoom] = useState<string>("zoomOut");
 
   const fetchBook = async () => {
     try {
@@ -53,6 +54,10 @@ export const Book = ({ book }: BookType) => {
   useEffect(() => {
     opinionCreated === true && fetchBook();
   }, [opinionCreated]);
+
+  const toggleZoomImage = () => {
+    imageZoom === "zoomOut" ? setImageZoom("zoomIn") : setImageZoom("zoomOut");
+  }
 
   const toggleOpinionList = () => {
     setDisplayReview(!displayReview);
@@ -81,12 +86,13 @@ export const Book = ({ book }: BookType) => {
         />
       ) : book && !displayCreateOpinion ? (
         <div className={"bookcard--grid bookcard--" + theme}>
-          <img
+          <img 
             src={book.imageUrl && `${book.imageUrl}`}
-            className="boocard__Image"
+            className={`boocard__Image-${imageZoom} boocard__Image`}
             alt="bookImage"
             width="288px"
             height="326px"
+            onClick={toggleZoomImage}
           />
           <header className="bookcard__header">
             <h3 title="Book Title" className="booktitle">
