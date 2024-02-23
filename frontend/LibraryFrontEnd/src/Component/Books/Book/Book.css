@@ -20,6 +20,16 @@
 .boocard__Image {
   border-radius: 9px 9px 0 0;
   border-bottom: gray 1px solid;
+  cursor: pointer;
+}
+
+.boocard__Image-zoomIn {
+  transform: scale(1.2);
+  border:gray 1px solid;
+}
+
+.boocard__Image-zoomOut {
+  transform: scale(1);
 }
 
 .bookcard__footer--flex {
