@@ -66,7 +66,7 @@ export const BookListSearch = ({ titleOrAuthor }: BooksSearchCriteria) => {
             ? `(${books.length}) books found`
             : `(${books?.length}) book found`}
         </h2>
-        <div className="bookListContainer">
+        <div className={books && books.length > 1 ? "bookListContainer" :"bookListContainer-center"}>
           {books &&
             Array.isArray(books) &&
             books
