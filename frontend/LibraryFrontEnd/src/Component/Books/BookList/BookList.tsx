@@ -77,7 +77,7 @@ export const BookList = () => {
     <>
       <header className={`BookList--${theme} books__header--flex`}>
         <h1 className="BookList">{`Top ${numberOfBooks} Most popular`}</h1>
-        <div className="BookList BookList__mostPopular">
+        <div className="bookListContainer">
           {topBook?.map((book) => ( 
               <Book key={book.id} book={book}/>        
           ))}
