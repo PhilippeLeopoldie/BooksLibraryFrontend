@@ -58,10 +58,10 @@ export const Opinion = ({
   useEffect(() => {
     FetchOpinionBYBookId(book.id);
   }, []);
-
+/* 
   if (fetching) {
     return <h4 className={`opinion__loading opinion__loading--${theme}`}>Loading...</h4>;
-  }
+  } */
 
   return (
     <>

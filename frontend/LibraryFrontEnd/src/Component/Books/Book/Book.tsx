@@ -57,7 +57,7 @@ export const Book = ({ book }: BookType) => {
 
   const toggleZoomImage = () => {
     imageZoom === "zoomOut" ? setImageZoom("zoomIn") : setImageZoom("zoomOut");
-  }
+  };
 
   const toggleOpinionList = () => {
     setDisplayReview(!displayReview);
@@ -86,7 +86,7 @@ export const Book = ({ book }: BookType) => {
         />
       ) : book && !displayCreateOpinion ? (
         <div className={"bookcard--grid bookcard--" + theme}>
-          <img 
+          <img
             src={book.imageUrl && `${book.imageUrl}`}
             className={`boocard__Image-${imageZoom} boocard__Image`}
             alt="bookImage"
@@ -104,16 +104,24 @@ export const Book = ({ book }: BookType) => {
           </header>
           <footer className="bookcard__footer--flex">
             <div className="footer__average-rate--flex">
-              <a
-                className="footer__average-rate"
-                onClick={() => {
-                  console.log("averageClick=", averageClick);
-                  setAverageclick(!averageClick);
-                }}
-              >
-                {book.averageRate}/5
-              </a>
-              <div className="rate_star"> &#9733;</div>
+              {!averageClick ? (
+                <div className="footer__average-rate--flex">
+                  <a
+                    className="footer__average-rate"
+                    onClick={() => {
+                      console.log("averageClick=", averageClick);
+                      setAverageclick(!averageClick);
+                    }}
+                  >
+                    {book.averageRate}/5
+                  </a>
+                  <div className="rate_star"> &#9733;</div>
+                </div>
+              ) : (
+                <h4 className={`opinion__loading opinion__loading--${theme}`}>
+                  Loading...
+                </h4>
+              )}
             </div>
             {averageClick && (
               <Opinion
@@ -121,7 +129,7 @@ export const Book = ({ book }: BookType) => {
                 displayReview={handleOpinionList}
               />
             )}
-            
+
             <button
               className="button bookCard__RateButton"
               onClick={() => {
@@ -131,7 +139,6 @@ export const Book = ({ book }: BookType) => {
               Rate this book
             </button>
           </footer>
-          
         </div>
       ) : (
         <OpinionCreate
