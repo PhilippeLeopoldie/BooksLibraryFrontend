@@ -10,6 +10,7 @@
 
 .bookcard--black {
   background-color: #000000;
+  border: 1px #ffffff solid;
   .booktitle,
   .bookauthor {
     color: #ffffff;
@@ -36,7 +37,7 @@
   display: flex;
   max-width: 18rem;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   background-color: transparent;
 }
 
@@ -52,6 +53,7 @@
   text-decoration: underline;
   cursor: pointer;
   background-color: transparent;
+  margin-left: 10%;
 }
 
 .rate_star {
