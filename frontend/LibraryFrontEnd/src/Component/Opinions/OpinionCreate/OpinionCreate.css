@@ -1,10 +1,10 @@
 .opinionCreateCard--grid {
   display: grid;
   grid-template-rows: 20% 65% 15%;
-  width: 20rem;
+  min-width: 18rem;
   height: 29rem;
-  margin: 0 1em 2rem 0em;
-  border: 1px black solid;
+  margin: 0 1rem 2rem 1rem;
+  border: 1px grey solid;
   border-radius: 10px;
 }
 
@@ -44,10 +44,12 @@
   border-radius: 10px;
   background-color: #ffffff;
   font-size: 1.25rem;
+  max-width: 16.5rem;
+  resize: none;
 }
 
 .opinionCreate__input{
-  max-width: 18.5rem;
+  max-width: 16.5rem;
   font-size: 1.25rem;
 }
 
