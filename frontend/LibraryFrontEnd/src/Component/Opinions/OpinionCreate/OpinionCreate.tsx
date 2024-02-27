@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import {OPINION_URL} from "../../../Url";
+import { OPINION_URL } from "../../../Url";
 import { RateClick } from "../../Rates/RateClick/RateClick";
 import "./OpinionCreate.css";
 import { ThemeContext } from "../../App/App";
@@ -11,7 +11,7 @@ type AddOpinionType = {
     author: string;
   };
   toCreate: () => void;
-  created: (value :boolean) => void;
+  created: (value: boolean) => void;
 };
 
 type FormDataType = {
@@ -73,10 +73,7 @@ export const OpinionCreate = ({ book, toCreate, created }: AddOpinionType) => {
         userName: formData.userName,
       }),
     };
-    const opinionResponse: Response = await fetch(
-      OPINION_URL ,
-      requestOptions
-    );
+    const opinionResponse: Response = await fetch(OPINION_URL, requestOptions);
     if (opinionResponse.status === 201) {
       const newOpinion = await opinionResponse.json();
       setBookCreatedMessage(true);
@@ -110,7 +107,9 @@ export const OpinionCreate = ({ book, toCreate, created }: AddOpinionType) => {
 
   return (
     <>
-      <div className={`opinionCreate--${theme} opinionCreateCard--${theme}--grid opinionCreateCard--grid`}>
+      <div
+        className={`opinionCreate--${theme} opinionCreateCard--${theme}--grid opinionCreateCard--grid`}
+      >
         <header className={`opinionCreate--${theme} opinionCreate__header`}>
           <h2 className={`opinionCreate--${theme} opinionCreate__booktitle`}>
             {book?.title}
@@ -126,8 +125,10 @@ export const OpinionCreate = ({ book, toCreate, created }: AddOpinionType) => {
               {rateText}
             </div>
           </div>
-          <div className={`opinionCreate--${theme} opinionCreate__inputs--grid`}>
-            <textarea 
+          <div
+            className={`opinionCreate--${theme} opinionCreate__inputs--grid`}
+          >
+            <textarea
               title="View"
               className="opinionForm__view"
               placeholder="View"
@@ -143,13 +144,14 @@ export const OpinionCreate = ({ book, toCreate, created }: AddOpinionType) => {
               onChange={(e) => HandleInputChange(e)}
             />
             <div className={`opinionCreate--${theme}`}>
-            {errorOpinion && (
-              <div className={`opinionCreate--${theme} validation__errorMessage`}>
-                {errorOpinionDetail}
-              </div>
-            )}
+              {errorOpinion && (
+                <div
+                  className={`opinionCreate--${theme} validation__errorMessage`}
+                >
+                  {errorOpinionDetail}
+                </div>
+              )}
             </div>
-            
           </div>
         </main>
         <footer className={`opinionCreate--${theme} opinionForm__footer--flex`}>
