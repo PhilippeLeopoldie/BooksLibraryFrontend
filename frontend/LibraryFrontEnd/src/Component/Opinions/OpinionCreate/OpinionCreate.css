@@ -39,7 +39,7 @@
   grid-template-rows: 65% 20% 15%;
 }
 
-.opinionForm__view {
+.opinionCreate__view {
   margin:0 2%;
   border-radius: 10px;
   background-color: #ffffff;
@@ -49,11 +49,12 @@
 }
 
 .opinionCreate__input{
+  margin:2%;
   max-width: 16.5rem;
   font-size: 1.25rem;
 }
 
-.opinionForm__footer--flex {
+.opinionCreate__footer--flex {
   display: flex;
   justify-content: space-between;
   margin-bottom: 20%;
@@ -65,14 +66,14 @@
   font-weight: bold;
 }
 
-.opinionForm__postButton {
+.opinionCreate__postButton {
   font-weight: bold;
   font-size: 1.125rem;
   padding: 0.2rem 3rem;
   margin: auto 5%;
 }
 
-.opinionForm__cancelButon {
+.opinionCreate__cancelButon {
   margin: auto 5%;
   font-size: 1.125rem;
 }

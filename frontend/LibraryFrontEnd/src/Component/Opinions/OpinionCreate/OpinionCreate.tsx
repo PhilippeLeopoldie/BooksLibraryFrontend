@@ -130,7 +130,7 @@ export const OpinionCreate = ({ book, toCreate, created }: AddOpinionType) => {
           >
             <textarea
               title="View"
-              className="opinionForm__view"
+              className="opinionCreate__view"
               placeholder="View"
               name="view"
               value={formData.view}
@@ -154,9 +154,9 @@ export const OpinionCreate = ({ book, toCreate, created }: AddOpinionType) => {
             </div>
           </div>
         </main>
-        <footer className={`opinionCreate--${theme} opinionForm__footer--flex`}>
+        <footer className={`opinionCreate--${theme} opinionCreate__footer--flex`}>
           <button
-            className="button opinionForm__cancelButon"
+            className="button opinionCreate__cancelButon"
             onClick={() => {
               toCreate();
             }}
@@ -164,7 +164,7 @@ export const OpinionCreate = ({ book, toCreate, created }: AddOpinionType) => {
             Cancel
           </button>
           <button
-            className="button opinionForm__postButton"
+            className="button opinionCreate__postButton"
             onClick={async () => {
               book && book.id && (await PostOpinion(book.id));
             }}
