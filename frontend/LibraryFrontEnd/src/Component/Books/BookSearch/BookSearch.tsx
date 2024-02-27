@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { FormEvent, useContext, useState } from "react";
 import "./BookSearch.css";
 import { BookListSearch } from "../BookListSearch/BookListSearch";
 import { ThemeContext } from "../../App/App";
@@ -12,11 +12,15 @@ export const BookSearch = () => {
   const [searchCriteria, setSearchCriteria] = useState<string>("");
   const rootElement = document.documentElement;
 
+  const handleSearch = (e : FormEvent) => {
+    e.preventDefault();
+  }
+
   return (
     <>
       <form
         className={"search-form--" + theme}
-        onSubmit={(e) => e.preventDefault()}
+        onSubmit={handleSearch}
       >
         <script>
           {theme === "black"
