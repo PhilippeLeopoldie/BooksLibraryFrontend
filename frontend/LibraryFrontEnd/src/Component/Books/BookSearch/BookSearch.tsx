@@ -14,9 +14,14 @@ export const BookSearch = () => {
 
   return (
     <>
-      <form className={"search-form--"+theme} onSubmit={(e) => e.preventDefault()}>
+      <form
+        className={"search-form--" + theme}
+        onSubmit={(e) => e.preventDefault()}
+      >
         <script>
-          {theme ==="black" ? rootElement.style.backgroundColor='#000000': rootElement.style.backgroundColor='#f3f3f4'}
+          {theme === "black"
+            ? (rootElement.style.backgroundColor = "#000000")
+            : (rootElement.style.backgroundColor = "#f3f3f4")}
         </script>
         <input
           className="search-form__input"
@@ -25,9 +30,10 @@ export const BookSearch = () => {
           name="titleOrAuthor"
           value={searchCriteria}
           onChange={(e) => {
-            setSearchCriteria(
-              e.target.value.toLowerCase()
-            );
+            setSearchCriteria(e.target.value.toLowerCase());
+          }}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") e.preventDefault();
           }}
         />
         <BookListSearch titleOrAuthor={searchCriteria} />
