@@ -14,6 +14,10 @@ export const BookSearch = () => {
 
   const handleSearch = (e : FormEvent) => {
     e.preventDefault();
+    const inputField = document.activeElement as HTMLElement;
+
+    // remove focus from text input
+    if(inputField){ inputField.blur };
   }
 
   return (
