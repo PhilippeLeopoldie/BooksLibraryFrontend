@@ -10,7 +10,7 @@ type AddOpinionType = {
     title: string;
     author: string;
   };
-  toCreate: () => void;
+  toCreate: (value:string) => void;
   created: (value: boolean) => void;
 };
 
@@ -78,7 +78,7 @@ export const OpinionCreate = ({ book, toCreate, created }: AddOpinionType) => {
       const newOpinion = await opinionResponse.json();
       setBookCreatedMessage(true);
       setErrorOpinion(false);
-      toCreate();
+      toCreate('bookPresentation');
       created(true);
       return newOpinion;
     } else if (opinionResponse.status === 400) {
@@ -158,7 +158,7 @@ export const OpinionCreate = ({ book, toCreate, created }: AddOpinionType) => {
           <button
             className="button opinionCreate__cancelButon"
             onClick={() => {
-              toCreate();
+              toCreate('bookPresentation');              
             }}
           >
             Cancel

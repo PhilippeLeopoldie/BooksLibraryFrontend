@@ -1,8 +1,11 @@
 .bookcard--grid {
   border: 1px gray solid;
   display: grid;
+  grid-template-rows: 70% 20% 10%;
   width: 18rem;
+  min-width: 18rem;
   height: 29rem;
+  min-height: 29rem;
   margin: 0 1rem 2rem 1rem;
   background-color: #ffffff;
   border-radius: 10px;
@@ -15,22 +18,6 @@
   .bookauthor {
     color: #ffffff;
   }
-}
-
-
-.boocard__Image {
-  border-radius: 9px 9px 0 0;
-  border-bottom: gray 1px solid;
-  cursor: pointer;
-}
-
-.boocard__Image-zoomIn {
-  transform: scale(1.2);
-  border:gray 1px solid;
-}
-
-.boocard__Image-zoomOut {
-  transform: scale(1);
 }
 
 .bookcard__footer--flex {
@@ -67,51 +54,4 @@
   font-size: 1rem;
   font-weight: bolder;
   color: rgb(0, 76, 255);
-}
-
-.bookcard__header {
-  border-top-right-radius: 5%;
-  border-top-left-radius: 5%;
-  background-color: transparent;
-}
-
-.booktitle {
-  background-color: transparent;
-  font-size: 1.4rem;
-  font-weight: bold;
-  text-align: center;
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-  border-color: transparent;
-  resize: none;
-  max-height: 3.3rem;
-  width: 94%;
-  border-top-right-radius: 10%;
-}
-
-footer {
-  background-color: transparent;
-}
-
-.bookauthor {
-  background-color: transparent;
-  margin-top: 0.2rem;
-  margin-bottom: 0.2rem;
-}
-
-.bookform--view {
-  resize: none;
-}
-
-.booktitle--trashbutton {
-  display: flex;
-  width: 25px;
-  height: 30px;
-  margin: 2%;
-  padding-left: 0;
-}
-
-.bookcard--iconeTrash {
-  border-radius: 20%;
-  height: 25px;
 }

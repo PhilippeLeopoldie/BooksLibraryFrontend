@@ -1,4 +1,6 @@
 import "./Book.css";
+import { BookZoomImage } from "../BookZoomImage/BookZoomImage";
+import { BookPresentation } from "../BookPresentation/BookPresentation";
 import { Opinion } from "../../Opinions/Opinion/Opinion";
 import { OpinionCreate } from "../../Opinions/OpinionCreate/OpinionCreate";
 import { OpinionList } from "../../Opinions/OpinionList/OpinionList";
@@ -28,10 +30,12 @@ type Reviews = {
 export const Book = ({ book }: BookType) => {
   const theme = useContext(ThemeContext);
   const [updatedBook, setUpdatedBook] = useState<BookType>({ book });
-  const [displayCreateOpinion, setDisplayCreateOpinion] =
-    useState<boolean>(false);
+
+  // allow display the chosen card
+  const [display, setDisplay] = useState<string>("bookPresentation");
+
   const [opinionCreated, setOpinionCreated] = useState<boolean>(false);
-  const [displayReview, setDisplayReview] = useState<Boolean>(false);
+
   const [averageClick, setAverageclick] = useState<Boolean>(false);
   const [reviewList, setReviewList] = useState<Reviews[]>();
   const [imageZoom, setImageZoom] = useState<string>("zoomOut");
@@ -51,8 +55,11 @@ export const Book = ({ book }: BookType) => {
       console.error(`Error fetching bookId:${book?.id}`, error);
     }
   };
+
+  // update rate after creating an opinion
   useEffect(() => {
     opinionCreated === true && fetchBook();
+    console.log(`opinionCreated has changed its value is : ${opinionCreated}`);
   }, [opinionCreated]);
 
   const toggleZoomImage = () => {
@@ -60,7 +67,9 @@ export const Book = ({ book }: BookType) => {
   };
 
   const toggleOpinionList = () => {
-    setDisplayReview(!displayReview);
+    display === "bookPresentation"
+      ? setDisplay("OpinionList")
+      : setDisplay("bookPresentation");
     setAverageclick(false);
   };
   const handleOpinionList = (reviews: Reviews[]) => {
@@ -68,85 +77,79 @@ export const Book = ({ book }: BookType) => {
     setReviewList(reviews);
   };
 
-  const toggleCreateOpinion = () => {
-    setDisplayCreateOpinion(!displayCreateOpinion);
+  const toggleCreateOpinion = (displayValue: string) => {
+    display === "bookPresentation"
+      ? setDisplay(displayValue)
+      : setDisplay(displayValue);
   };
 
   const handleCreatedOpinion = (value: boolean) => {
     setOpinionCreated(value);
   };
 
-  return (
-    <>
-      {displayReview ? (
-        <OpinionList
-          opinions={reviewList}
-          displayReviews={() => toggleOpinionList()}
-          book={book}
-        />
-      ) : book && !displayCreateOpinion ? (
-        <div className={"bookcard--grid bookcard--" + theme}>
-          <img
-            src={book.imageUrl && `${book.imageUrl}`}
-            className={`boocard__Image-${imageZoom} boocard__Image`}
-            alt="bookImage"
-            width="288px"
-            height="326px"
-            onClick={toggleZoomImage}
-          />
-          <header className="bookcard__header">
-            <h3 title="Book Title" className="booktitle">
-              {book.title.length > 40
-                ? `${book.title.slice(0, 40)}...`
-                : book.title}
-            </h3>
-            <h3 className="bookauthor">by: {book.author}</h3>
-          </header>
-          <footer className="bookcard__footer--flex">
-            <div className="footer__average-rate--flex">
-              {!averageClick ? (
-                <div className="footer__average-rate--flex">
-                  <a
-                    className="footer__average-rate"
-                    onClick={() => {
-                      console.log("averageClick=", averageClick);
-                      setAverageclick(!averageClick);
-                    }}
-                  >
-                    {book.averageRate}/5
-                  </a>
-                  <div className="rate_star"> &#9733;</div>
-                </div>
-              ) : (
-                <h4 className={`opinion__loading opinion__loading--${theme}`}>
-                  Loading...
-                </h4>
-              )}
-            </div>
-            {averageClick && (
-              <Opinion
-                book={updatedBook?.book}
-                displayReview={handleOpinionList}
-              />
-            )}
+  let displayedContent: JSX.Element = <></>;
 
-            <button
-              className="button bookCard__RateButton"
-              onClick={() => {
-                toggleCreateOpinion();
-              }}
-            >
-              Rate this book
-            </button>
-          </footer>
-        </div>
-      ) : (
-        <OpinionCreate
-          book={book && book}
-          toCreate={toggleCreateOpinion}
-          created={handleCreatedOpinion}
-        />
-      )}
-    </>
-  );
+  if (display === "OpinionList") {
+    displayedContent = (
+      <OpinionList
+        opinions={reviewList}
+        displayReviews={() => toggleOpinionList()}
+        book={book}
+      />
+    );
+  }
+  if (book && display === "bookPresentation") {
+    displayedContent = (
+      <div className={"bookcard--grid bookcard--" + theme}>
+        <BookPresentation book={book} />
+        <footer className="bookcard__footer--flex">
+          <div className="footer__average-rate--flex">
+            {!averageClick ? (
+              <div className="footer__average-rate--flex">
+                <a
+                  className="footer__average-rate"
+                  onClick={() => {
+                    console.log("averageClick=", averageClick);
+                    setAverageclick(!averageClick);
+                  }}
+                >
+                  {updatedBook.book.averageRate}/5
+                </a>
+                <div className="rate_star"> &#9733;</div>
+              </div>
+            ) : (
+              <h4 className={`opinion__loading opinion__loading--${theme}`}>
+                Loading...
+              </h4>
+            )}
+          </div>
+          {averageClick && (
+            <Opinion
+              book={updatedBook?.book}
+              displayReview={handleOpinionList}
+            />
+          )}
+          <button
+            className="button bookCard__RateButton"
+            onClick={() => {
+              toggleCreateOpinion("createOpinion");
+            }}
+          >
+            Rate this book
+          </button>
+        </footer>
+      </div>
+    );
+  }
+  if (display === "createOpinion") {
+    displayedContent = (
+      <OpinionCreate
+        book={book && book}
+        toCreate={toggleCreateOpinion}
+        created={handleCreatedOpinion}
+      />
+    );
+  }
+
+  return <>{displayedContent}</>;
 };
