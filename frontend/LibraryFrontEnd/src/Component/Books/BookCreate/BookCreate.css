@@ -82,6 +82,7 @@
 .footer--flex {
   display: flex;
   justify-content: space-around;
+  background-color: transparent;
 }
 
 .book-create-form__cancel-button {
