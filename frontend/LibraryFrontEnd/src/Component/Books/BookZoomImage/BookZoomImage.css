@@ -1,0 +1,14 @@
+/* .boocard__Image-zoomOut {
+  transform: scale(1);
+}
+.boocard__Image-zoomIn {
+  transform: scale(1.5);
+} */
+
+.boocard__Image {
+  border-radius: 9px 9px 0 0;
+  border-bottom: gray 1px solid;
+  width: 100%;
+  height:100%;
+  cursor: pointer;
+}
