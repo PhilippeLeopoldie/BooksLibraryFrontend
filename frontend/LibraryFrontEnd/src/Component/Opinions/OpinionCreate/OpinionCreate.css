@@ -1,6 +1,7 @@
 .opinionCreateCard--grid {
   display: grid;
   grid-template-rows: 20% 65% 15%;
+  width: 18rem;
   min-width: 18rem;
   height: 29rem;
   margin: 0 1rem 2rem 1rem;
