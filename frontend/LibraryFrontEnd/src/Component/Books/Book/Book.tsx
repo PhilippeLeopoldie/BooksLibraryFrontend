@@ -6,7 +6,7 @@ import { OpinionList } from "../../Opinions/OpinionList/OpinionList";
 import { ThemeContext } from "../../App/App";
 import { BOOK_BY_BOOKID_URL } from "../../../Url";
 import { useContext, useEffect, useState } from "react";
-import { BookFooter } from "./BookFooter/BookFooter";
+import { BookFooter } from "../BookFooter/BookFooter";
 
 type BookType = {
   book: {
