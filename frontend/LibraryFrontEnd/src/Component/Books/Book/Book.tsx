@@ -1,12 +1,12 @@
 import "./Book.css";
 import { BookZoomImage } from "../BookZoomImage/BookZoomImage";
 import { BookPresentation } from "../BookPresentation/BookPresentation";
-import { Opinion } from "../../Opinions/Opinion/Opinion";
 import { OpinionCreate } from "../../Opinions/OpinionCreate/OpinionCreate";
 import { OpinionList } from "../../Opinions/OpinionList/OpinionList";
 import { ThemeContext } from "../../App/App";
 import { BOOK_BY_BOOKID_URL } from "../../../Url";
 import { useContext, useEffect, useState } from "react";
+import { BookFooter } from "./BookFooter/BookFooter";
 
 type BookType = {
   book: {
@@ -37,8 +37,11 @@ export const Book = ({ book }: BookType) => {
   //state the creation of a new opinion
   const [opinionCreated, setOpinionCreated] = useState<boolean>(false);
 
-  // state if average rate has been clicked on
-  const [averageClick, setAverageclick] = useState<Boolean>(false);
+  // state if average rate has been clicked on 
+  const [averageClick, setAverageclick] = useState<boolean>(false);
+  const handleAverageClick = () => {
+    setAverageclick(!averageClick);
+  }
 
   // store the list of reviews for a book
   const [reviewList, setReviewList] = useState<Reviews[]>();
@@ -105,45 +108,17 @@ export const Book = ({ book }: BookType) => {
     );
   }
   if (book && curentView === "bookPresentation") {
+    const bookFooter = {
+      toggleCreateOpinion: toggleCreateOpinion,
+      handleOpinionList : handleOpinionList,
+      handleAverageClick: handleAverageClick,
+      averageClick: averageClick,
+    }
     displayedContent = (
       <div className={"bookcard--grid bookcard--" + theme}>
         <BookPresentation book={book} />
-        <footer className="bookcard__footer--flex">
-          <div className="footer__average-rate--flex">
-            {!averageClick ? (
-              <div className="footer__average-rate--flex">
-                <a
-                  className="footer__average-rate"
-                  onClick={() => {
-                    console.log("averageClick=", averageClick);
-                    setAverageclick(!averageClick);
-                  }}
-                >
-                  {updatedBook.book.averageRate}/5
-                </a>
-                <div className="rate_star"> &#9733;</div>
-              </div>
-            ) : (
-              <h4 className={`opinion__loading opinion__loading--${theme}`}>
-                Loading...
-              </h4>
-            )}
-          </div>
-          {averageClick && (
-            <Opinion
-              book={updatedBook?.book}
-              displayReview={handleOpinionList}
-            />
-          )}
-          <button
-            className="button bookCard__RateButton"
-            onClick={() => {
-              toggleCreateOpinion("createOpinion");
-            }}
-          >
-            Rate this book
-          </button>
-        </footer>
+        <BookFooter bookFooter={bookFooter} updatedBook={updatedBook.book}/>
+        
       </div>
     );
   }

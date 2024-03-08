@@ -28,12 +28,12 @@
   background-color: transparent;
 }
 
-.footer__average-rate--flex{
+.bookcard__footer-average-rate--flex{
   display:flex;
   background-color: transparent;
 }
 
-.footer__average-rate {
+.bookcard__footer-average-rate {
   font-weight: bold;
   text-align: right;
   color: rgb(0, 76, 255);
@@ -47,7 +47,7 @@
   margin-top: -1rem;
 }
 
-.bookCard__RateButton {
+.bookFooter__RateButton {
   margin-bottom: 4%;
   margin-right: 3%;
   width: 50%;
