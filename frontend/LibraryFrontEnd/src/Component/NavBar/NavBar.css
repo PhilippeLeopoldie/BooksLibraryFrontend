@@ -1,0 +1,90 @@
+.navbar--grid {
+  font-size: large;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  position: fixed;
+  bottom: 0;
+  border-bottom: 1px #ffffff solid;
+  border-top: 1px #ffffff solid;
+  z-index: 1;
+  width: 100%;
+  height: 2.8rem;
+}
+
+.navbar--natural{
+ background-color:#000000;
+}
+
+.icone {
+  margin-bottom: -0.5rem;
+  margin-top:-0.8rem;
+  
+}
+
+.nav__Link--flex > * {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.navbar--grid > * {
+  transform: scale(0.6);
+}
+
+.iconeTitle {
+  background-color: transparent;
+  margin: 0;
+  color:#ffffff;
+ 
+}
+
+.iconeTitle--blue {
+  background-color: transparent;
+  margin: 0;
+  color: #067eff;
+}
+
+.addIcone {
+  margin-left: -3.8rem;
+}
+
+.settingsIcone {
+ cursor: pointer;
+}
+
+.nav__Settings__Title {
+  margin-top: -0.5rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: white;
+  background-color:transparent;
+}
+
+
+@media screen and (min-width: 700px) {
+  .nav-link {
+    position: sticky;
+    top: 0;
+  }
+  .navbar--grid {
+    position: fixed;
+    top: 0;
+    height: 4.71rem;
+  }
+
+  .navbar--grid > * {
+    transform: scale(1);
+  }
+
+  .nav__Settings__Title {
+    margin-top: 0;
+  }
+
+  .icone {
+    margin-bottom: 0rem;
+    margin-top:0rem;
+  }
+}

@@ -6,6 +6,7 @@ import bookIcone from "../../media/book48px.svg";
 import bookBlueIcone from "../../media/book_blue_48px.svg";
 import homeIcone from "../../media/home_48px.svg";
 import homeBlueIcone from "../../media/home_blue_48px.svg";
+import "./NavBar.css"
 import searchIcone from "../../media/search48px.svg";
 import searchBlueIcone from "../../media/search_blue_48px.svg";
 import settingsIcone from "../../media/settings48px.svg";
