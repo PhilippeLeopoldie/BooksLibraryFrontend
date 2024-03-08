@@ -17,7 +17,7 @@ type BooksSearchCriteria = {
   titleOrAuthor: string;
 };
 
-export const BookListSearch = ({ titleOrAuthor }: BooksSearchCriteria) => {
+export const BookSearchList = ({ titleOrAuthor }: BooksSearchCriteria) => {
   
   const [books, setBooks] = useState<BooksType[] | null>([]);
   const [loading, setLoading] = useState<string>("Loading...");

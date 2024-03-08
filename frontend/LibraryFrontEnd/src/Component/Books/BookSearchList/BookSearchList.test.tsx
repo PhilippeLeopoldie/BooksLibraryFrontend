@@ -1,5 +1,5 @@
 import {render, screen,} from "@testing-library/react";
-import { BookListSearch } from "./BookListSearch";
+import { BookSearchList } from "./BookSearchList";
 import "@testing-library/jest-dom";
 import { useState } from "react";
 
@@ -32,7 +32,7 @@ describe("BookListSearch", () => {
     (useState as jest.Mock).mockImplementation(() => [book, jest.fn()]);
     (useState as jest.Mock).mockImplementation(() => ["Loading...", jest.fn()]);
 
-    const {asFragment} = render(<BookListSearch titleOrAuthor={"title"}/>)
+    const {asFragment} = render(<BookSearchList titleOrAuthor={"title"}/>)
 
     expect(asFragment()).toMatchSnapshot();
   })
@@ -41,7 +41,7 @@ describe("BookListSearch", () => {
     (useState as jest.Mock).mockImplementation(() => [[], jest.fn()]);
     (useState as jest.Mock).mockImplementation(() => ["Loading...", jest.fn()]);
 
-    const {asFragment} = render(<BookListSearch titleOrAuthor={""}/>)
+    const {asFragment} = render(<BookSearchList titleOrAuthor={""}/>)
 
     expect(asFragment()).toMatchSnapshot();
   })
@@ -50,7 +50,7 @@ describe("BookListSearch", () => {
     (useState as jest.Mock).mockImplementation(() => [[], jest.fn()]);
     (useState as jest.Mock).mockImplementation(() => ["", jest.fn()]);
 
-    const {asFragment} = render(<BookListSearch titleOrAuthor={"z"}/>)
+    const {asFragment} = render(<BookSearchList titleOrAuthor={"z"}/>)
 
     expect(asFragment()).toMatchSnapshot();
   })
@@ -59,7 +59,7 @@ describe("BookListSearch", () => {
     (useState as jest.Mock).mockImplementation(() => [book, jest.fn()]);
     (useState as jest.Mock).mockImplementation(() => ["", jest.fn()]);
 
-    const {asFragment} = render(<BookListSearch titleOrAuthor={"chat"}/>)
+    const {asFragment} = render(<BookSearchList titleOrAuthor={"chat"}/>)
 
     expect(asFragment()).toMatchSnapshot();
   })
