@@ -1,6 +1,6 @@
 import { FormEvent, useContext, useState } from "react";
 import "./BookSearch.css";
-import { BookListSearch } from "../BookListSearch/BookListSearch";
+import { BookSearchList } from "../BookSearchList/BookSearchList";
 import { ThemeContext } from "../../App/App";
 
 type BooksSearchCriteria = {
@@ -44,7 +44,7 @@ export const BookSearch = () => {
             if (e.key === "Enter") e.preventDefault();
           }}
         />
-        <BookListSearch titleOrAuthor={searchCriteria} />
+        <BookSearchList titleOrAuthor={searchCriteria} />
       </form>
     </>
   );
