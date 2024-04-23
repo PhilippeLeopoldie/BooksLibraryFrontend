@@ -6,7 +6,7 @@ This is a full stack application, this repository contains the [Frontend](https:
 Initialy this app was a hack day assignment from Salt bootcamp  where I had 24 hours to build a fullstack application  that is responsive design.
 
 I decided to create a simple application for users to share with others the books that they had read and share their opinion about it.  
-As it could be challenging to choose which book to read sometime, the application propose a book to read among the various books already published.
+As it could be challenging to choose which book to read sometime, the application propose three books to read among the various books already published.
 
 There are two tables:  Books and Opinions.  
 For that assignment I have decided to have focus on managing the relationship between books and their corresponding opinions.
