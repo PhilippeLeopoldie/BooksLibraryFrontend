@@ -130,7 +130,7 @@ export const OpinionList = ({
                   </div>
                 ))}
           </section>
-        </body>
+        </main>
         <footer className={`OpinionList--${theme} OpinionList__footer`}>
           
         </footer>
