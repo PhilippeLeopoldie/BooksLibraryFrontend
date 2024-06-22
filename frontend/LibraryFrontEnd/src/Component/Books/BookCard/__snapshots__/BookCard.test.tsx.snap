@@ -7,9 +7,7 @@ exports[` snapchot: renders book title and author 1`] = `
   >
     <img
       alt="bookImage"
-      class="boocard__Image"
-      height="326px"
-      width="288px"
+      class="boocard__Image-zoomOut boocard__Image"
     />
     <header
       class="bookcard__header"
@@ -30,21 +28,25 @@ exports[` snapchot: renders book title and author 1`] = `
       class="bookcard__footer--flex"
     >
       <div
-        class="footer__average-rate--flex"
+        class="bookcard__footer-average-rate--flex"
       >
-        <a
-          class="footer__average-rate"
-        >
-          3/5
-        </a>
         <div
-          class="rate_star"
+          class="bookcard__footer-average-rate--flex"
         >
-           ★
+          <a
+            class="bookcard__footer-average-rate"
+          >
+            3/5
+          </a>
+          <div
+            class="rate_star"
+          >
+             ★
+          </div>
         </div>
       </div>
       <button
-        class="button bookCard__RateButton"
+        class="button bookFooter__RateButton"
       >
         Rate this book
       </button>

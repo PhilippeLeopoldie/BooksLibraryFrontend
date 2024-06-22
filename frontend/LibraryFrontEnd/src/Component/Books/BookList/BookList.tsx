@@ -1,4 +1,4 @@
-import { Book } from "../Book/Book";
+import { BookCard } from "../BookCard/BookCard";
 import "./BookList.css";
 import { BOOK_URL } from "../../../Url";
 import { BOOK_TOP_BOOK_URL } from "../../../Url";
@@ -36,6 +36,7 @@ export const BookList = () => {
   const [books, setBooks] = useState<BooksType[] | null>(null);
   const [topBook, setTopBook] = useState<TopBookType[] | null>(null);
   const [numberOfBooks, setNumberOfBook] = useState<number>(3);
+  const [isFetched, setIsfetched] = useState<boolean>(false);
   const fetchBooks = async () => {
     try {
       const booksResponse: Response = await fetch(BOOK_URL);
@@ -65,8 +66,10 @@ export const BookList = () => {
   };
 
   useEffect(() => {
-    fetchBooks();
-    fetchTopBook();
+    if(books === null) {
+      fetchBooks();
+      fetchTopBook();
+    }
   }, []);
 
   if (!books) {
@@ -79,7 +82,7 @@ export const BookList = () => {
         <h1 className="BookList">{`Top ${numberOfBooks} Most popular`}</h1>
         <div className="bookListContainer">
           {topBook?.map((book) => ( 
-              <Book key={book.id} book={book}/>        
+              <BookCard key={book.id} book={book}/>        
           ))}
         </div>
       </header>
@@ -90,7 +93,7 @@ export const BookList = () => {
           books
             .sort((a, b) => b.book.id - a.book.id)
             .map((bookDetail) => (
-              <Book key={bookDetail.book.id} book={bookDetail.book} />
+              <BookCard key={bookDetail.book.id} book={bookDetail.book} />
             ))}
       </main>
     </>

@@ -1,12 +1,13 @@
-import "./Book.css";
+import "./BookCard.css";
 import { BookZoomImage } from "../BookZoomImage/BookZoomImage";
-import { BookPresentation } from "../BookPresentation/BookPresentation";
+import { BookCover } from "./BookCover/BookCover";
+import { BookBody } from "./BookBody/BookBody";
 import { OpinionCreate } from "../../Opinions/OpinionCreate/OpinionCreate";
 import { OpinionList } from "../../Opinions/OpinionList/OpinionList";
 import { ThemeContext } from "../../App/App";
 import { BOOK_BY_BOOKID_URL } from "../../../Url";
 import { useContext, useEffect, useState } from "react";
-import { BookFooter } from "../BookFooter/BookFooter";
+import { BookFooter } from "./BookFooter/BookFooter";
 
 type BookType = {
   book: {
@@ -27,7 +28,7 @@ type Reviews = {
   bookId: number;
 };
 
-export const Book = ({ book }: BookType) => {
+export const BookCard = ({ book }: BookType) => {
   const theme = useContext(ThemeContext);
   const [updatedBook, setUpdatedBook] = useState<BookType>({ book });
 
@@ -98,15 +99,6 @@ export const Book = ({ book }: BookType) => {
 
   //when 'displayContent' is rendered it will render either <OpinionList/> , <bookPresentation/> or <createOpinion/>
   let displayedContent: JSX.Element = <></>;
-  if (curentView === "opinionList") {
-    displayedContent = (
-      <OpinionList
-        opinions={reviewList}
-        displayReviews={() => toggleOpinionList()}
-        book={book}
-      />
-    );
-  }
   if (book && curentView === "bookPresentation") {
     const bookFooter = {
       toggleCreateOpinion: toggleCreateOpinion,
@@ -116,10 +108,20 @@ export const Book = ({ book }: BookType) => {
     }
     displayedContent = (
       <div className={"bookcard--grid bookcard--" + theme}>
-        <BookPresentation book={book} />
+        <BookCover book={book} />
+        <BookBody  title = {book.title } author = {book.author}/>
         <BookFooter bookFooter={bookFooter} updatedBook={updatedBook.book}/>
         
       </div>
+    );
+  }
+  if (curentView === "opinionList") {
+    displayedContent = (
+      <OpinionList
+        opinions={reviewList}
+        displayReviews={() => toggleOpinionList()}
+        book={book}
+      />
     );
   }
   if (curentView === "createOpinion") {

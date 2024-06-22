@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { Book } from "./Book";
+import { BookCard } from "./BookCard";
 import "@testing-library/jest-dom";
 
 const actualBookData = {
@@ -13,7 +13,7 @@ describe("", () => {
   test("snapchot: renders book title and author", () => {
     // Arrange and Act
     const { asFragment } = render(
-      <Book book={actualBookData}  />
+      <BookCard book={actualBookData}  />
     );
 
     //expect (snapshot)
@@ -22,7 +22,7 @@ describe("", () => {
 
   test("renders book title and author", () => {
     // Arrange
-    render(<Book book={actualBookData}  />);
+    render(<BookCard book={actualBookData}  />);
 
     // Act
     const titleElement = screen.getByText("The Great Gatsby");

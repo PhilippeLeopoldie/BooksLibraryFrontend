@@ -1,4 +1,4 @@
-import { Book } from "../Book/Book";
+import { BookCard } from "../BookCard/BookCard";
 import "../BookList/BookList.css";
 import { useContext, useEffect, useState } from "react";
 import {BOOK_BY_TITLE_OR_AUTHOR_URL} from "../../../Url";
@@ -72,7 +72,7 @@ export const BookSearchList = ({ titleOrAuthor }: BooksSearchCriteria) => {
             books
               .sort((a, b) => b.book.id - a.book.id)
               .map((bookDetail, index) => (
-                <Book
+                <BookCard
                   key={bookDetail.book.id}
                   book={bookDetail.book}
                 />

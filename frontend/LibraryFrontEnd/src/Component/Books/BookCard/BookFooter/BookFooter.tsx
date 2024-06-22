@@ -1,6 +1,6 @@
 import  { useContext } from 'react'
-import { Opinion } from '../../Opinions/Opinion/Opinion';
-import { ThemeContext } from '../../App/App';
+import { Opinion } from '../../../Opinions/Opinion/Opinion';
+import { ThemeContext } from '../../../App/App';
 
 type BookFooterType = {
   bookFooter: {
