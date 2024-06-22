@@ -1,5 +1,5 @@
 import "./BookCard.css";
-import { BookZoomImage } from "../BookZoomImage/BookZoomImage";
+import { BookZoomCover } from "./BookCover/BookZoomCover/BookZoomCover";
 import { BookCover } from "./BookCover/BookCover";
 import { BookBody } from "./BookBody/BookBody";
 import { OpinionCreate } from "../../Opinions/OpinionCreate/OpinionCreate";

@@ -5,7 +5,7 @@ type BookImage = {
   zoom: string
 }
 
-export const BookZoomImage = ({imageUrl,zoom}:BookImage) => {
+export const BookZoomCover = ({imageUrl,zoom}:BookImage) => {
   const [imageZoom, setImageZoom] = useState<string>(zoom);
   const toggleZoomImage = () => {
     imageZoom === "zoomOut" ? setImageZoom("zoomIn") : setImageZoom("zoomOut");
