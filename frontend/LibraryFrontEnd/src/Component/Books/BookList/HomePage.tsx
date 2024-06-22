@@ -1,5 +1,5 @@
 import { BookCard } from "../BookCard/BookCard";
-import "./BookList.css";
+import "./HomePage.css";
 import { BOOK_URL } from "../../../Url";
 import { BOOK_TOP_BOOK_URL } from "../../../Url";
 import { useContext, useEffect, useState } from "react";
@@ -31,7 +31,7 @@ type OpinionType = {
   userName: string;
 };
 
-export const BookList = () => {
+export const HomePage = () => {
   const theme = useContext(ThemeContext);
   const [books, setBooks] = useState<BooksType[] | null>(null);
   const [topBook, setTopBook] = useState<TopBookType[] | null>(null);

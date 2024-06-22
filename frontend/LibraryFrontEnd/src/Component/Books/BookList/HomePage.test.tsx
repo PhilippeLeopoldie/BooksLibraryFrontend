@@ -1,4 +1,4 @@
-import { BookList } from "./BookList";
+import { HomePage } from "./HomePage";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { useState } from "react";
@@ -26,7 +26,7 @@ const book: BookType = {
 describe("BookList rendering", () => {
   test("snapShot: should render BookList", () => {
     (useState as jest.Mock).mockImplementation(() => [book, jest.fn()]);
-    const {asFragment} = render(<BookList/>)
+    const {asFragment} = render(<HomePage/>)
 
     expect(asFragment()).toMatchSnapshot();
   })
@@ -36,7 +36,7 @@ describe("BookList rendering", () => {
     (useState as jest.Mock).mockImplementation(() => [null, jest.fn()]);
 
     // Act
-    render(<BookList />);
+    render(<HomePage />);
     const loadingMessage = screen.getByText("Loading...");
 
     // expect
@@ -49,7 +49,7 @@ describe("BookList rendering", () => {
     (useState as jest.Mock).mockImplementation(() => [book, jest.fn()]);
 
     // Act
-    render(<BookList />);
+    render(<HomePage />);
     const loadingMessage = screen.queryByText("Loading...");
 
     // expect

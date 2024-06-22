@@ -1,6 +1,6 @@
 import "./App.css";
 import { BookCreate } from "../Books/BookCreate/BookCreate";
-import { BookList } from "../Books/BookList/BookList";
+import { HomePage } from "../Books/BookList/HomePage";
 import { Routes, BrowserRouter, Route} from "react-router-dom";
 import { BookSearch } from "../Books/BookSearch/BookSearch";
 import { createContext, useContext, useState } from "react";
@@ -20,7 +20,7 @@ export const App = () => {
         <BrowserRouter>
           <NavBar theme={theme} handleTheme={handleTheme}/>
           <Routes>
-            <Route path="/" element={<BookList />} />
+            <Route path="/" element={<HomePage />} />
             <Route path="/addBook" element={<BookCreate />} />
             <Route path="/Search" element={<BookSearch />} />
           </Routes>
