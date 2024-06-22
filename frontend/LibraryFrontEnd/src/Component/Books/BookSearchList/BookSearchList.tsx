@@ -1,5 +1,5 @@
 import { BookCard } from "../BookCard/BookCard";
-import "../BookList/HomePage.css";
+import "../HomePage/HomePage.css";
 import { useContext, useEffect, useState } from "react";
 import {BOOK_BY_TITLE_OR_AUTHOR_URL} from "../../../Url";
 import { ThemeContext } from "../../App/App";
