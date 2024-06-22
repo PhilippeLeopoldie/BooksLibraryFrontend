@@ -45,6 +45,7 @@ export const OpinionList = ({
       setFilteredOpinion(opinions);
     }
   };
+  const ratings = [0,1,2,3,4,5];
 
   return (
     <>
@@ -71,42 +72,14 @@ export const OpinionList = ({
         </header>
         <main className={`OpinionList--${theme} OpinionList__main--flex`}>
           <section className="OpinionList__filter--flex">
-            <button
+            {ratings.map((rating) => (
+              <button
               className="OpinionList__filter__button"
-              onClick={() => RateFilter(0)}
+              onClick={() => RateFilter(rating)}
             >
-              All
+              {rating === 0 ? 'All' : `${rating}★`}
             </button>
-            <button
-              className="OpinionList__filter__button"
-              onClick={() => RateFilter(1)}
-            >
-              1&#9733;
-            </button>
-            <button
-              className="OpinionList__filter__button"
-              onClick={() => RateFilter(2)}
-            >
-              2&#9733;
-            </button>
-            <button
-              className="OpinionList__filter__button"
-              onClick={() => RateFilter(3)}
-            >
-              3&#9733;
-            </button>
-            <button
-              className="OpinionList__filter__button"
-              onClick={() => RateFilter(4)}
-            >
-              4&#9733;
-            </button>
-            <button
-              className="OpinionList__filter__button"
-              onClick={() => RateFilter(5)}
-            >
-              5&#9733;
-            </button>
+            ))}
           </section>
           <section className={` OpinionList--${theme} OpinionList__reviews`}>
             {filteredOpinion &&
