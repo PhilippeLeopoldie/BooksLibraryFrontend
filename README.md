@@ -167,12 +167,6 @@ Since I have deployed my App the development process follows the <span style = "
   - Jest  29.7.0
 
 
-## Deploying links
-### Frontend
-[App URL](https://books-library-2023.vercel.app/)
+## Deploying link
 
-### Backend
-  - Example of end points:  
-    - [getBooks](https://booklibrary-backend-20f7a19cecb2.herokuapp.com/api/books)  
-    - [getOpinions](https://booklibrary-backend-20f7a19cecb2.herokuapp.com/api/Opinions)  
-    - Swagger documentation: [http://localhost:5281/swagger/index.html](http://localhost:5281/swagger/index.html)  
+[App URL](https://books-library-2023.vercel.app/)
