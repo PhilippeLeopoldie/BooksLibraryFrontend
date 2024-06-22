@@ -9,7 +9,7 @@ exports[`BookListSearch snapShot: render (0) book found 1`] = `
       (0) book found
     </h2>
     <div
-      class="bookListContainer"
+      class="bookListContainer-center"
     />
   </div>
 </DocumentFragment>
@@ -24,7 +24,7 @@ exports[`BookListSearch snapShot: render (1) book found 1`] = `
       (0) book found
     </h2>
     <div
-      class="bookListContainer"
+      class="bookListContainer-center"
     />
   </div>
 </DocumentFragment>

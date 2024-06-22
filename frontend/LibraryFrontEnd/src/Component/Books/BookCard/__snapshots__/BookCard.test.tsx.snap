@@ -9,8 +9,8 @@ exports[` snapchot: renders book title and author 1`] = `
       alt="bookImage"
       class="boocard__Image-zoomOut boocard__Image"
     />
-    <header
-      class="bookcard__header"
+    <div
+      class="bookcard__body"
     >
       <h3
         class="booktitle"
@@ -23,7 +23,7 @@ exports[` snapchot: renders book title and author 1`] = `
       >
         by: F. Scott Fitzgerald
       </h3>
-    </header>
+    </div>
     <footer
       class="bookcard__footer--flex"
     >

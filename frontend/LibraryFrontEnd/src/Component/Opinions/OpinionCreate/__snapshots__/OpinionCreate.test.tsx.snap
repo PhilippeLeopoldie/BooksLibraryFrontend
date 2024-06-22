@@ -60,7 +60,7 @@ exports[`OpinionCreate snapShot: render Opinioncreate 1`] = `
         class="opinionCreate--natural opinionCreate__inputs--grid"
       >
         <textarea
-          class="opinionForm__view"
+          class="opinionCreate__view"
           name="view"
           placeholder="View"
           title="View"
@@ -77,15 +77,15 @@ exports[`OpinionCreate snapShot: render Opinioncreate 1`] = `
       </div>
     </main>
     <footer
-      class="opinionCreate--natural opinionForm__footer--flex"
+      class="opinionCreate--natural opinionCreate__footer--flex"
     >
       <button
-        class="button opinionForm__cancelButon"
+        class="button opinionCreate__cancelButon"
       >
         Cancel
       </button>
       <button
-        class="button opinionForm__postButton"
+        class="button opinionCreate__postButton"
       >
         Post
       </button>
