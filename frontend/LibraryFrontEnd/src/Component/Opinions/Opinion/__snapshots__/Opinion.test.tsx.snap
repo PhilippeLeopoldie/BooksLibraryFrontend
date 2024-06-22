@@ -1,11 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Opinions Component Tests SnapShot: should render Opinion 1`] = `
-<DocumentFragment>
-  <h4
-    class="opinion__loading opinion__loading--natural"
-  >
-    Loading...
-  </h4>
-</DocumentFragment>
-`;
+exports[`Opinions Component Tests SnapShot: should render Opinion 1`] = `<DocumentFragment />`;
