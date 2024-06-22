@@ -1,7 +1,7 @@
 import { FormEvent, useContext, useState } from "react";
 import "./BookSearch.css";
 import { BookSearchList } from "./BookSearchList/BookSearchList";
-import { ThemeContext } from "../../App/App";
+import { ThemeContext } from "../App/App";
 
 type BooksSearchCriteria = {
   titleOrAuthor: string;

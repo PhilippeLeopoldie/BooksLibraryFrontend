@@ -1,9 +1,9 @@
 import { BookCard } from "../BookCard/BookCard";
 import "./HomePage.css";
-import { BOOK_URL } from "../../../Url";
-import { BOOK_TOP_BOOK_URL } from "../../../Url";
+import { BOOK_URL } from "../../Url";
+import { BOOK_TOP_BOOK_URL } from "../../Url";
 import { useContext, useEffect, useState } from "react";
-import { ThemeContext } from "../../App/App";
+import { ThemeContext } from "../App/App";
 
 type BooksType = {
   book: {

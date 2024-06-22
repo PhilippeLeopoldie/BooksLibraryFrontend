@@ -1,8 +1,8 @@
 import "./App.css";
-import { BookCreate } from "../Books/BookCreate/BookCreate";
-import { HomePage } from "../Books/HomePage/HomePage";
+import { BookCreate } from "../BookCreate/BookCreate";
+import { HomePage } from "../HomePage/HomePage";
 import { Routes, BrowserRouter, Route} from "react-router-dom";
-import { BookSearch } from "../Books/BookSearch/BookSearch";
+import { BookSearch } from "../BookSearch/BookSearch";
 import { createContext, useContext, useState } from "react";
 import { NavBar } from "../NavBar/NavBar";
 
