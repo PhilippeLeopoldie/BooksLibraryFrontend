@@ -1,6 +1,7 @@
 import { Rate } from "../../Rates/Rate/Rate";
 import "./OpinionList.css";
 import ArrowLeftIcone from "../../../media/arrowLeft.svg";
+import Flip from "../../../media/flip.svg";
 import { useContext, useState } from "react";
 import { ThemeContext } from "../../App/App";
 
@@ -51,15 +52,18 @@ export const OpinionList = ({
     <>
       <section className={`OpinionList--${theme} OpinionList__container--grid OpinionList__container--${theme}`}>
         <header className={`OpinionList--${theme} OpinionList__header`}>
-        <img
-            className={`OpinionList--${theme} OpinionList__footer__ArrowLeftIcone`}
-            src={ArrowLeftIcone}
-            onClick={() => displayReviews()}
-            alt="Back"
-          />
-          <h2 className={`OpinionList--${theme} OpinionList__header__title`}>
-            {book?.title}
-          </h2>
+          <section className={`OpinionList--${theme} OpinionList__header--flex`}>
+            <img
+              className={`OpinionList--${theme} OpinionList__header__flip`}
+              src={Flip}
+              onClick={() => displayReviews()}
+              alt="Back"
+            />
+            <h2 className={`OpinionList--${theme} OpinionList__header__title`}>
+              {book?.title}
+            </h2>
+          </section>
+          
           <h3 className={`OpinionList--${theme} OpinionList__header__author`}>
             By: {book?.author}
           </h3>
