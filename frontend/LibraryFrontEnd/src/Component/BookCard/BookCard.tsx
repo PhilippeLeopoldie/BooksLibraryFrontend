@@ -28,26 +28,48 @@ type Reviews = {
   bookId: number;
 };
 
+type BookState = {
+  updatedBook: BookType,
+  curentView: string, 
+  opinionCreated: boolean,
+  averageClick: boolean,
+  reviewList: Reviews[],
+}
+
 export const BookCard = ({ book }: BookType) => {
   const theme = useContext(ThemeContext);
-  const [updatedBook, setUpdatedBook] = useState<BookType>({ book });
+  const [bookCard, setBookCard] = useState <BookState>({
+    updatedBook : {book}  ,
+    curentView : "bookPresentation",
+    opinionCreated: false,
+    averageClick: false,
+    reviewList:[],
+  });
 
-  // store the card name that will be displayed 
-  const [curentView, setCurentView] = useState<string>("bookPresentation");
-
-  //state the creation of a new opinion
-  const [opinionCreated, setOpinionCreated] = useState<boolean>(false);
-
-  // state if average rate has been clicked on 
-  const [averageClick, setAverageclick] = useState<boolean>(false);
   const handleAverageClick = () => {
-    setAverageclick(!averageClick);
+    setBookCard(prevBookCard => ({...prevBookCard, bookCard, averageClick: !bookCard.averageClick}));
   }
 
-  // store the list of reviews for a book
-  const [reviewList, setReviewList] = useState<Reviews[]>();
 
-  const [imageZoom, setImageZoom] = useState<string>("zoomOut");
+  // used in handleOpinionList to render <OpinionList/> when 'curentView'=== 'opinionList'
+  const toggleOpinionList = () => {
+    bookCard.curentView === "bookPresentation"
+      ? setBookCard(prevView => ({...prevView, curentView:"opinionList"}))
+      : setBookCard(prevView => ({...prevView, curentView:"bookPresentation"}));
+    setBookCard(prevAverageClick => ({...prevAverageClick, averageClick: false}));
+  };
+
+  const handleOpinionList = (reviews: Reviews[]) => {
+    toggleOpinionList();
+    setBookCard(prevBookCard => ({...prevBookCard, reviewList: reviews}));
+  };
+
+  const handleCreatedOpinion = (value: boolean) => {
+    setBookCard(prevOpinionCreatedValue => ({...prevOpinionCreatedValue, opinionCreated:value}));
+  };
+  const toggleCreateOpinion = (view: string) => {
+    setBookCard(prevView => ({...prevView, curentView: view}))
+  };
 
   const fetchBook = async () => {
     try {
@@ -56,7 +78,7 @@ export const BookCard = ({ book }: BookType) => {
       );
       if (bookResponse.status === 200) {
         const bookResponseData = await bookResponse.json();
-        setUpdatedBook(bookResponseData);
+        setBookCard(prevState => ({...prevState, updatedBook: bookResponseData,}));
       } else if (bookResponse.status === 404) {
         console.log(bookResponse);
       }
@@ -64,67 +86,40 @@ export const BookCard = ({ book }: BookType) => {
       console.error(`Error fetching bookId:${book?.id}`, error);
     }
   };
-
-  // when a new opinion is posted ,fetch the book with the new averageRate updated from the backend
+  // when a new opinion is posted ,fetch the book with the new averageRate updated
   useEffect(() => {
-    opinionCreated === true && fetchBook();
-    console.log(`opinionCreated has changed its value is : ${opinionCreated}`);
-  }, [opinionCreated]);
-
-  const toggleZoomImage = () => {
-    imageZoom === "zoomOut" ? setImageZoom("zoomIn") : setImageZoom("zoomOut");
-  };
-
-  // used in handleOpinionList to render <OpinionList/> when 'curentView'=== 'opinionList'
-  const toggleOpinionList = () => {
-    curentView === "bookPresentation"
-      ? setCurentView("opinionList")
-      : setCurentView("bookPresentation");
-    setAverageclick(false);
-  };
-  const handleOpinionList = (reviews: Reviews[]) => {
-    toggleOpinionList();
-    setReviewList(reviews);
-  };
-
-  // used in handleCreateOpinion to render <CreateOpinion/> when 'curentView'=== 'CreateOpinion'
-  const toggleCreateOpinion = (view: string) => {
-    curentView === "bookPresentation"
-      ? setCurentView(view)
-      : setCurentView(view);
-  };
-  const handleCreatedOpinion = (value: boolean) => {
-    setOpinionCreated(value);
-  };
+    bookCard.opinionCreated === true && fetchBook();
+    setBookCard((prevState) => ({...prevState, opinionCreated: false,}));
+  }, [bookCard.opinionCreated]);
 
   //when 'displayContent' is rendered it will render either <OpinionList/> , <bookPresentation/> or <createOpinion/>
   let displayedContent: JSX.Element = <></>;
-  if (book && curentView === "bookPresentation") {
+  if (book && bookCard.curentView === "bookPresentation") {
     const bookFooter = {
       toggleCreateOpinion: toggleCreateOpinion,
       handleOpinionList : handleOpinionList,
       handleAverageClick: handleAverageClick,
-      averageClick: averageClick,
+      averageClick: bookCard.averageClick,
     }
     displayedContent = (
       <div className={"bookcard--grid bookcard--" + theme}>
         <BookCover book={book} />
         <BookBody  title = {book.title } author = {book.author}/>
-        <BookFooter bookFooter={bookFooter} updatedBook={updatedBook.book}/>
+        <BookFooter bookFooter={bookFooter} updatedBook={bookCard.updatedBook.book}/>
         
       </div>
     );
   }
-  if (curentView === "opinionList") {
+  if (bookCard.curentView === "opinionList") {
     displayedContent = (
       <OpinionList
-        opinions={reviewList}
+        opinions={bookCard.reviewList}
         displayReviews={() => toggleOpinionList()}
         book={book}
       />
     );
   }
-  if (curentView === "createOpinion") {
+  if (bookCard.curentView === "createOpinion") {
     displayedContent = (
       <OpinionCreate
         book={book && book}
