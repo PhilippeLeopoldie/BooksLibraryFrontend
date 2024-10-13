@@ -122,9 +122,6 @@ Since I have deployed my App the development process follows the <span style = "
 ![my image](Components_diagram.png)
 
 ## App Home page:
-![my image](presentation_image.png)
-
-### Dark mode:
 ![my image](presentation_image_dark_mode.png)
 
 
