@@ -42,7 +42,7 @@ export const HomePage = () => {
       const booksResponse: Response = await fetch(BOOK_URL);
       if (booksResponse.status === 200) {
         const booksResponseData = await booksResponse.json();
-        setBooks(booksResponseData.$values);
+        setBooks(booksResponseData);
       } else if (booksResponse.status === 404) {
         console.log(booksResponse);
       }
@@ -56,7 +56,7 @@ export const HomePage = () => {
       const topBookResponse: Response = await fetch(`${BOOK_TOP_BOOK_URL} ${numberOfBooks}`);
       if (topBookResponse.status === 200) {
         const topBookResponseData = await topBookResponse.json();
-        setTopBook(topBookResponseData.$values);
+        setTopBook(topBookResponseData);
       } else if (topBookResponse.status === 404) {
         console.log(topBookResponse);
       }

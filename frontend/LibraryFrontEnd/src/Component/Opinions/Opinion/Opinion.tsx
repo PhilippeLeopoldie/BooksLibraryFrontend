@@ -43,7 +43,7 @@ export const Opinion = ({
       );
       if (response.status === 200) {
         const responseData = await response.json();
-        displayReview(responseData.$values);
+        displayReview(responseData);
         setFething(false);
       } else if (response.status === 404) {
         setFething(false);
