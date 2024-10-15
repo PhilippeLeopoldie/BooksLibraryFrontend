@@ -34,7 +34,7 @@ export const BookSearchList = ({ titleOrAuthor }: BooksSearchCriteria) => {
         );
         if (booksResponse.status === 200) {
           const booksResponseData = await booksResponse.json();
-          setBooks(booksResponseData.$values);
+          setBooks(booksResponseData);
           setLoading("");
         } else if (booksResponse.status === 404) {
           setBooks([]);

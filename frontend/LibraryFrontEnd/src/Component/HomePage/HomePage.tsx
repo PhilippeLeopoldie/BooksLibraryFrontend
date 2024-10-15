@@ -1,19 +1,19 @@
 import { BookCard } from "../BookCard/BookCard";
 import "./HomePage.css";
-import { BOOK_URL } from "../../Url";
+import { BOOK_LIST_URL } from "../../Url";
 import { BOOK_TOP_BOOK_URL } from "../../Url";
 import { useContext, useEffect, useState } from "react";
 import { ThemeContext } from "../App/App";
 
 type BooksType = {
-  book: {
+  
     id: number;
     title: string;
     author: string;
     imageUrl?: string;
     averageRate: number;
     opinions?: OpinionType | null;
-  };
+  
 };
 
 type TopBookType = {
@@ -39,10 +39,10 @@ export const HomePage = () => {
   const [isFetched, setIsfetched] = useState<boolean>(false);
   const fetchBooks = async () => {
     try {
-      const booksResponse: Response = await fetch(BOOK_URL);
+      const booksResponse: Response = await fetch(BOOK_LIST_URL);
       if (booksResponse.status === 200) {
         const booksResponseData = await booksResponse.json();
-        setBooks(booksResponseData);
+        setBooks(booksResponseData.books);
       } else if (booksResponse.status === 404) {
         console.log(booksResponse);
       }
@@ -91,9 +91,9 @@ export const HomePage = () => {
         {books &&
           Array.isArray(books) &&
           books
-            .sort((a, b) => b.book.id - a.book.id)
+            .sort((a, b) => b.id - a.id)
             .map((bookDetail) => (
-              <BookCard key={bookDetail.book.id} book={bookDetail.book} />
+              <BookCard key={bookDetail.id} book={bookDetail} />
             ))}
       </main>
     </>
