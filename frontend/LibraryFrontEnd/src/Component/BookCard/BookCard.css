@@ -36,7 +36,7 @@
 .bookcard__footer-average-rate {
   font-weight: bold;
   text-align: right;
-  color: rgb(0, 76, 255);
+  color: #4ba5ff;
   text-decoration: underline;
   cursor: pointer;
   background-color: transparent;
@@ -53,5 +53,5 @@
   width: 50%;
   font-size: 1rem;
   font-weight: bolder;
-  color: rgb(0, 76, 255);
+  color: #4ba5ff;
 }
