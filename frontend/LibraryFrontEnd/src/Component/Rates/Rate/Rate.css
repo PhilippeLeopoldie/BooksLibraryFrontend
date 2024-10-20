@@ -7,7 +7,7 @@
 
 .rate_star,.rateClick_star ,.filled {
   background-color: transparent;
-  color: rgb(199, 170, 9);
+  color: rgb(240, 221, 118);
   font-size:xx-large;
 }
 
@@ -16,7 +16,7 @@
 }
 
 .rate_star--black {
-  text-shadow: -1px 0 rgb(199, 170, 9), 0 1px rgb(199, 170, 9), 1px 0 rgb(199, 170, 9), 0 -1px rgb(199, 170, 9)   ;
+  text-shadow: -1px 0 rgb(240, 221, 118), 0 1px rgb(240, 221, 118), 1px 0 rgb(240, 221, 118), 0 -1px rgb(240, 221, 118)   ;
 }
 
 
