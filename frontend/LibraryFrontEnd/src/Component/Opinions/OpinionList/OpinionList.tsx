@@ -76,21 +76,21 @@ export const OpinionList = ({
         </header>
         <main className={`OpinionList--${theme} OpinionList__main--flex`}>
           <section className="OpinionList__filter--flex">
-            {ratings.map((rating) => (
+            {ratings.map((rating, index) => (
               <button
               className="OpinionList__filter__button"
               onClick={() => RateFilter(rating)}
-            >
+              key={index}>
               {rating === 0 ? 'All' : `${rating}★`}
-            </button>
+              </button>
             ))}
           </section>
           <section className={` OpinionList--${theme} OpinionList__reviews`}>
             {filteredOpinion &&
               filteredOpinion
-                .sort((a, b) => b.id - a.id)
-                .map((review, index) => (
-                  <div className={`OpinionList--${theme}`} key={index}>
+                .sort((prevReview, lastReview) => lastReview.id - prevReview.id)
+                .map((review) => (
+                  <div className={`OpinionList--${theme}`} key={review.id}>
                     <p className={`OpinionList--${theme} opinionlist__userName`}>
                       {review.userName}
                     </p>
