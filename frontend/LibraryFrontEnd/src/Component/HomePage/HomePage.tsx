@@ -16,14 +16,7 @@ type BooksType = {
   
 };
 
-type TopBookType = {
-  id: number;
-  title: string;
-  author: string;
-  imageUrl?: string;
-  averageRate: number;
-  opinions?: OpinionType | null;
-};
+
 
 type OpinionType = {
   rate: number;
@@ -34,7 +27,7 @@ type OpinionType = {
 export const HomePage = () => {
   const theme = useContext(ThemeContext);
   const [books, setBooks] = useState<BooksType[] | null>(null);
-  const [topBook, setTopBook] = useState<TopBookType[] | null>(null);
+  const [topBook, setTopBook] = useState<BooksType[] | null>(null);
   const [numberOfBooks, setNumberOfBook] = useState<number>(3);
   const [isFetched, setIsfetched] = useState<boolean>(false);
   const fetchBooks = async () => {
@@ -67,8 +60,8 @@ export const HomePage = () => {
 
   useEffect(() => {
     if(books === null) {
-      fetchBooks();
       fetchTopBook();
+      fetchBooks();
     }
   }, []);
 
