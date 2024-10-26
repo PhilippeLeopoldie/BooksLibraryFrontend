@@ -11,7 +11,7 @@ As it could be challenging to choose which book to read sometime, the applicatio
 There are two tables:  Books and Opinions.  
 For that assignment I have decided to have focus on managing the relationship between books and their corresponding opinions.
 
-Since I have deployed my App the development process follows the <span style = "color: green"> [CI/CD](https://en.wikipedia.org/wiki/CI/CD) </span>principle.
+Even after deployed, development continues actively, following the <span style = "color: green"> [CI/CD](https://en.wikipedia.org/wiki/CI/CD) </span>principles.
 
 
 
