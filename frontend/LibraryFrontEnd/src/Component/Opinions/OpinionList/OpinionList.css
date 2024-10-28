@@ -133,15 +133,3 @@
   margin-left: 0.2rem;
 }
 
-
-/* @media screen and (min-width: 396px) {
-  .OpinionList__filter__button {
-    display: flex;
-    font-size: 1.5rem; 
-    max-width:2.5rem;
-    align-items: center;
-    justify-content: center;
-    -webkit-text-size-adjust: none; 
-    text-size-adjust:none;
-  }
-} */
