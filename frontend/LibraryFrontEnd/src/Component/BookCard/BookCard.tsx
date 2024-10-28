@@ -28,7 +28,7 @@ type Reviews = {
   bookId: number;
 };
 
-type BookState = {
+type CardState = {
   updatedBook: BookType,
   curentView: string, 
   opinionCreated: boolean,
@@ -38,7 +38,7 @@ type BookState = {
 
 export const BookCard = ({ book }: BookType) => {
   const theme = useContext(ThemeContext);
-  const [bookCard, setBookCard] = useState <BookState>({
+  const [bookCard, setBookCard] = useState <CardState>({
     updatedBook : {book}  ,
     curentView : "bookPresentation",
     opinionCreated: false,
