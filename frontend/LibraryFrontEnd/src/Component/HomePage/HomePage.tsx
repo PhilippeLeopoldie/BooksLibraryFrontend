@@ -5,8 +5,7 @@ import { BOOK_TOP_BOOK_URL } from "../../Url";
 import { useContext, useEffect, useState } from "react";
 import { ThemeContext } from "../App/App";
 
-type BooksType = {
-  
+type BookType = {
     id: number;
     title: string;
     author: string;
@@ -17,7 +16,6 @@ type BooksType = {
 };
 
 
-
 type OpinionType = {
   rate: number;
   view: string;
@@ -26,8 +24,8 @@ type OpinionType = {
 
 export const HomePage = () => {
   const theme = useContext(ThemeContext);
-  const [books, setBooks] = useState<BooksType[] | null>(null);
-  const [topBook, setTopBook] = useState<BooksType[] | null>(null);
+  const [newBooks, setBooks] = useState<BookType[] | null>(null);
+  const [topBook, setTopBook] = useState<BookType[] | null>(null);
   const [numberOfBooks, setNumberOfBook] = useState<number>(3);
   const [isFetched, setIsfetched] = useState<boolean>(false);
   const fetchBooks = async () => {
@@ -59,13 +57,13 @@ export const HomePage = () => {
   };
 
   useEffect(() => {
-    if(books === null) {
+    if(newBooks === null) {
       fetchTopBook();
       fetchBooks();
     }
   }, []);
 
-  if (!books) {
+  if (!newBooks) {
     return <h1 className={"Books__Loading--" + theme}>Loading...</h1>;
   }
 
@@ -74,19 +72,19 @@ export const HomePage = () => {
       <header className={`BookList--${theme} books__header--flex`}>
         <h1 className="BookList">{`Top ${numberOfBooks} Most popular`}</h1>
         <div className="bookListContainer">
-          {topBook?.map((book) => ( 
-              <BookCard key={book.id} book={book}/>        
+          {topBook?.map((topBook) => ( 
+              <BookCard key={topBook.id} book={topBook}/>        
           ))}
         </div>
       </header>
       <h1 className={`BookList--${theme}`}>New books</h1>
       <main className="bookListContainer">
-        {books &&
-          Array.isArray(books) &&
-          books
-            .sort((a, b) => b.id - a.id)
-            .map((bookDetail) => (
-              <BookCard key={bookDetail.id} book={bookDetail} />
+        {newBooks &&
+          Array.isArray(newBooks) &&
+          newBooks
+            .sort((previousNewBook, lastNewBook) => lastNewBook.id - previousNewBook.id)
+            .map((newBook) => (
+              <BookCard key={newBook.id} book={newBook} />
             ))}
       </main>
     </>
