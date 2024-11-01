@@ -6,7 +6,6 @@ import { BookSearch } from "../BookSearch/BookSearch";
 import { createContext, useContext, useState } from "react";
 import { NavBar } from "../NavBar/NavBar";
 import { Settings } from "../Settings/Settings";
-import { Preferences } from "../Preferences/Preferences";
 
 export const ThemeContext = createContext<string>("black");
 
