@@ -14,10 +14,9 @@ import settingsBlueIcone from "../../media/settings_blue_48px.svg";
 
 type NavBarType = {
   theme: string;
-  handleTheme: () => void;
 };
 
-export const NavBar = ({ theme, handleTheme }: NavBarType) => {
+export const NavBar = ({theme}: NavBarType) => {
   const [activeNavItem, setActiveNavItem] = useState<string>("home");
 
   return (
@@ -94,14 +93,19 @@ export const NavBar = ({ theme, handleTheme }: NavBarType) => {
             Add book
           </figcaption>
         </Link>
-        <div className="nav-link icone settingsIcone">
+              <Link
+                  className="nav-link icone settingsIcone"
+                  to="/Settings"
+                  onClick={() => {
+                      setActiveNavItem("settings");
+                  } }
+              >
           <img
             className="nav-link"
             src={
               activeNavItem === "settings" ? settingsBlueIcone : settingsIcone
             }
             onClick={() => {
-              handleTheme();
               setActiveNavItem("settings");
             }}
             alt="Themes"
@@ -113,9 +117,9 @@ export const NavBar = ({ theme, handleTheme }: NavBarType) => {
                 : "iconeTitle nav__Settings__Title"
             }
           >
-            Themes
+            Settings
           </figcaption>
-        </div>
+        </Link>
       </nav>
     </>
   );

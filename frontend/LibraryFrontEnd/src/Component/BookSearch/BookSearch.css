@@ -1,15 +1,16 @@
-.search-form__input {
+.search_form--input {
   margin-top: 2rem;
   font-size: 1.2rem;
   width: 15rem;
+  background-color: inherit;
+  color: #000000;
 }
 
-.search-form--black {
-  background-color: #000000;
-}
+    .search_form--input--black {
+        color:#f3f3f4;
+    }
 
-@media screen and (min-width: 700px) {
-  .search-form__input {
-    margin-top: 6rem;
-  }
-}
+    .search_form--black {
+        background-color: inherit;
+    }
+

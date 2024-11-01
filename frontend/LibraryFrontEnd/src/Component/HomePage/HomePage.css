@@ -1,34 +1,20 @@
 .BookList--black {
-  background-color: #000000;
+  background-color: inherit;
   .BookList {
-    background-color: transparent;
+    background-color: inherit;
     color: #ffffff;
   }
 }
 
-.BookList--black {
-  background-color:  #000000;
-  color: #ffffff;
-}
+    .BookList--black--flex {
+        display: flex;
+        flex-direction: column;
+        background-color: inherit;
+    }
 
-
-.bookListSearchContainer--black {
-  background-color: #000000;
-}
-
-.bookListSearchContainer--black > * {
-  color: #ffffff;
-  background-color: #000000;
-}
-
-.books__header--flex {
-  display: flex;
-  flex-direction: column;
-  margin-top: 0rem;
-  background-color: transparent;
-}
-.books__header--flex > *{
-  background-color: transparent;
+.BookList--black--flex > h1 {
+        background-color: inherit;
+        color:#ffffff;
 }
 
 .Books__Loading--black {
@@ -47,7 +33,6 @@
   display: flex;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
-  margin: 4% 0%;
   background-color: transparent;
 }
 
@@ -57,9 +42,6 @@
 }
 
 @media screen and (min-width: 700px) {
-  .books__header--flex {
-    margin-top: 4rem;
-  }
 
   .bookListContainer, .BookList__mostPopular {
     grid-template-columns: repeat(2, auto);
@@ -73,19 +55,19 @@
     display: grid; 
     justify-content: center;
    }
-  .bookListContainer, .BookList__mostPopular {
+  .bookListContainer {
     grid-template-columns: repeat(3, auto);
   }
 }
 
 @media screen and (min-width: 1300px) {
-  .bookListContainer .BookList__mostPopular {
+  .bookListContainer {
     grid-template-columns: repeat(4, auto);
   }
 }
 
 @media screen and (min-width: 1458px) {
-  .bookListContainer, .BookList__mostPopular {
+  .bookListContainer {
     grid-template-columns: repeat(5, auto);
   }
 }

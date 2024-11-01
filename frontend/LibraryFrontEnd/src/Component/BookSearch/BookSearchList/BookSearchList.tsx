@@ -1,5 +1,5 @@
 import { BookCard } from "../../BookCard/BookCard";
-import "../../HomePage/HomePage.css";
+import "../../BookSearch/BookSearchList/BookSearchList.css";
 import { useContext, useEffect, useState } from "react";
 import {BOOK_BY_TITLE_OR_AUTHOR_URL} from "../../../Url";
 import { ThemeContext } from "../../App/App";
@@ -52,15 +52,15 @@ export const BookSearchList = ({ titleOrAuthor }: BooksSearchCriteria) => {
   }, [titleOrAuthor]);
 
   if (titleOrAuthor==="") {
-    return <h1 className={"bookListSearchContainer--" + theme}></h1>;
+    return <h1 className={"bookSearchListContainer--" + theme}></h1>;
   }
   if (titleOrAuthor !="" && loading) {
-    return <h1 className={"bookListSearchContainer--" + theme}>{loading}</h1>;
+      return <h1 className={"bookSearchListContainer--" + theme}>{loading}</h1>;
   }
 
   return (
     <>
-      <div className={"bookListSearchContainer--" + theme}>
+       <div className={"bookSearchListContainer--" + theme}>
         <h2>
           {books && books.length > 1
             ? `(${books.length}) books found`

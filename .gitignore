@@ -1,2 +1,7 @@
 node_modules/
 .vscode/settings.json
+/frontend/LibraryFrontEnd/src/.vs/src/FileContentIndex
+/frontend/LibraryFrontEnd/src/.vs
+/frontend/.vs/frontend/FileContentIndex
+/frontend/.vs/frontend/v17
+/frontend/.vs

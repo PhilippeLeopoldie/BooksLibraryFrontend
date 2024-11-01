@@ -7,9 +7,21 @@
   flex-direction: column;
 }
 
+.Contents {
+    background-color: inherit;
+    margin: 0rem 0rem 2rem 0rem;
+    
+}
+
 .App--black{
   background-color: #000000;
   .navbar--black{
-    background-color:#000000;
+    background-color:inherit;
   }
+}
+
+@media screen and (min-width: 700px) {
+    .Contents {
+        margin: 5rem 0rem 0rem 0rem;
+    }
 }

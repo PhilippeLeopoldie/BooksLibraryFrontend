@@ -1,0 +1,9 @@
+.bookSearchListContainer--black {
+    color: #ffffff;
+    background-color: inherit;
+}
+
+.bookSearchListContainer--black > h2 {
+    color: #ffffff;
+    background-color: inherit;
+}

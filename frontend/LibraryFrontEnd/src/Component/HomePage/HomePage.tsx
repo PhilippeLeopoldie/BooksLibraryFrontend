@@ -68,25 +68,26 @@ export const HomePage = () => {
   }
 
   return (
-    <>
-      <header className={`BookList--${theme} books__header--flex`}>
+      <>
+      <div className={`BookList--${theme}--flex`}>
         <h1 className="BookList">{`Top ${numberOfBooks} Most popular`}</h1>
         <div className="bookListContainer">
           {topBook?.map((topBook) => ( 
               <BookCard key={topBook.id} book={topBook}/>        
           ))}
         </div>
-      </header>
-      <h1 className={`BookList--${theme}`}>New books</h1>
-      <main className="bookListContainer">
-        {newBooks &&
+      
+        <h1 className="BookList">New books</h1>
+        <div className="bookListContainer">
+          {newBooks &&
           Array.isArray(newBooks) &&
           newBooks
             .sort((previousNewBook, lastNewBook) => lastNewBook.id - previousNewBook.id)
             .map((newBook) => (
               <BookCard key={newBook.id} book={newBook} />
             ))}
-      </main>
+        </div>
+       </div>
     </>
   );
 };
