@@ -22,8 +22,8 @@ export const Settings = ({ theme, handleTheme }: SettingsType) => {
                     <h1 className={`Settings--${theme}`}>Settings</h1>
                 </header>
                 <nav className={`Settings--${theme}`}>
-                    <li className={`Settings Settings--${theme}`}><UserPreferences /></li>
-                    <li onClick={handleTheme} className={`Settings_Theme Settings Settings--${theme}`} >
+                    <div className={`Settings Settings--${theme}`}><UserPreferences /></div>
+                    <div onClick={handleTheme} className={`Settings_Theme Settings Settings--${theme}`} >
                         <img
                             className={` Settings--${theme}`}                           
                             src={theme === 'black' ? lightMode : darkMode}
@@ -32,13 +32,13 @@ export const Settings = ({ theme, handleTheme }: SettingsType) => {
                         <figcaption  className={`Settings--${theme} Setting_ThemeTitle`} >
                             {theme === 'black' ? 'Light Mode' : 'Dark Mode'}
                         </figcaption>
-                    </li>
-                    <li className={`Settings--${theme} About`}><h3 className={ `Settings Settings--${theme}`}>About</h3></li>
-                    <li className={`Settings--${theme}`}>
+                    </div>
+                    <div className={`Settings--${theme} About`}><h3 className={ `Settings Settings--${theme}`}>About</h3></div>
+                    <div className={`Settings--${theme}`}>
                         <Link className={`Settings--${theme}`} to="https://github.com/PhilippeLeopoldie">
                             <h3 className={`Settings Settings--${theme} GitHub`}>GitHub</h3>
                         </Link>
-                    </li>
+                    </div>
                 </nav>
             </div>
         </>
