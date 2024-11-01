@@ -1,0 +1,11 @@
+.Preferences {
+    background-color: inherit;
+}
+
+.Preferences_container--black {
+    color:#ffffff;
+}
+
+.Preferences_container--natural {
+    color: #000000;
+}

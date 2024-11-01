@@ -1,0 +1,30 @@
+.Settings_container {
+    
+    
+}
+
+.Settings {
+    padding: 0.5rem;
+}
+
+.Settings_Theme {
+    cursor:pointer;
+}
+
+.GitHub {
+    background-color: inherit;
+}
+
+.Settings--black {
+    color: #ffffff;
+    background-color: inherit;
+}
+
+.Settings--natural {
+    color: #000000;
+    background-color: inherit;
+}
+
+.Setting_ThemeTitle {
+    margin-bottom: 1rem;
+}
