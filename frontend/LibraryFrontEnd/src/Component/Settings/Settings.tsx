@@ -3,6 +3,8 @@ import { ThemeContext } from "../App/App";
 import "./Settings.css";
 import { UserPreferences } from "../Preferences/UserPreferences";
 import darkMode from "../../media/dark-mode48px.svg";
+import githubDarkMode from "../../media/github-DarkMode.svg";
+import githubLightMode from "../../media/github-LightMode.svg";
 import lightMode from "../../media/light-mode48px.svg";
 import { Link } from "react-router-dom";
 
@@ -33,10 +35,15 @@ export const Settings = ({ theme, handleTheme }: SettingsType) => {
                             {theme === 'black' ? 'Light Mode' : 'Dark Mode'}
                         </figcaption>
                     </div>
-                    <div className={`Settings--${theme} About`}><h3 className={ `Settings Settings--${theme}`}>About</h3></div>
-                    <div className={`Settings--${theme}`}>
+                    <div className={`Settings--${theme} About`}>
+                        <h3 className={`Settings Settings--${theme}`}>About</h3></div>
+                    <div className={`Settings--${theme} Settings_Links--flex`}>
                         <Link className={`Settings--${theme}`} to="https://github.com/PhilippeLeopoldie">
-                            <h3 className={`Settings Settings--${theme} GitHub`}>GitHub</h3>
+                            <img
+                                className={` Settings--${theme}`}
+                                src={theme === 'black' ? githubDarkMode : githubLightMode}>
+                            </img>
+                            <figcaption className={`Settings Settings--${theme} GitHub`}>GitHub</figcaption>
                         </Link>
                     </div>
                 </nav>
