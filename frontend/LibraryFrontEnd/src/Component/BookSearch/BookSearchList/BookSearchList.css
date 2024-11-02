@@ -7,3 +7,49 @@
     color: #ffffff;
     background-color: inherit;
 }
+
+
+.bookSearchListContainer {
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    background-color: inherit;
+}
+
+.bookSearchListContainer--center {
+    display: flex;
+    justify-content: center;
+    background-color: inherit;
+}
+
+@media screen and (min-width: 700px) {
+
+    .bookSearchListContainer {
+        grid-template-columns: repeat(2, auto);
+        margin-bottom: 0%;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+
+    .bookSearchListContainer {
+        display: grid;
+        justify-content: center;
+    }
+
+    .bookSearchListContainer {
+        grid-template-columns: repeat(3, auto);
+    }
+}
+
+@media screen and (min-width: 1300px) {
+    .bookSearchListContainer {
+        grid-template-columns: repeat(4, auto);
+    }
+}
+
+@media screen and (min-width: 1458px) {
+    .bookSearchListContainer {
+        grid-template-columns: repeat(5, auto);
+    }
+}

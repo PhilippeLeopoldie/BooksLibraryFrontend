@@ -19,13 +19,13 @@
 
 .Books__Loading--black {
   margin-top: 5rem;
-  background-color: #000000;
+  background-color: inherit;
   color:#ffffff;
 }
 
 .Books__Loading--natural {
   margin-top: 5rem;
-  background-color: transparent;
+  background-color: inherit;
   color: #000000;
 }
 
@@ -36,10 +36,6 @@
   background-color: transparent;
 }
 
-.bookListContainer-center {
-  display: flex;
-  justify-content: center;
-}
 
 @media screen and (min-width: 700px) {
 
