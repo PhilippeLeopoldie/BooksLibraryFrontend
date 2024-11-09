@@ -17,10 +17,14 @@
         color:#ffffff;
 }
 
+.BookList_Top{
+    margin-top:3rem;
+}
+
 .Books__Loading--black {
-  margin-top: 5rem;
-  background-color: inherit;
-  color:#ffffff;
+    margin-top: 5rem;
+    background-color: inherit;
+    color: #ffffff;
 }
 
 .Books__Loading--natural {
@@ -43,6 +47,10 @@
     grid-template-columns: repeat(2, auto);
     margin-bottom: 0%;
   }
+
+  .BookList_Top {
+        margin-top: 0;
+   }
 }
 
 @media screen and (min-width: 1024px) {

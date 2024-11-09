@@ -70,7 +70,7 @@ export const HomePage = () => {
   return (
       <>
       <div className={`BookList--${theme}--flex`}>
-        <h1 className="BookList">{`Top ${numberOfBooks} Most popular`}</h1>
+        <h1 className="BookList_Top">{`Top ${numberOfBooks} Most popular`}</h1>
         <div className="bookListContainer">
           {topBook?.map((topBook) => ( 
               <BookCard key={topBook.id} book={topBook}/>        
