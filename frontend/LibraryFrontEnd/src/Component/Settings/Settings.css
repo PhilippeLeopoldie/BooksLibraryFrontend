@@ -1,10 +1,14 @@
 .Settings_container {
-    
-    
+    width: 100%;
+    border: 1px solid grey;
+    border-top: none;
+    padding-bottom:1rem;
 }
 
+
+
 .Settings {
-    padding: 0.5rem;
+    padding: 0rem;
 }
 
 .Settings_Theme {
@@ -18,13 +22,19 @@
 .Settings--black {
     color: #ffffff;
     background-color: inherit;
+    h1{
+          margin:0;
+      }
 }
 
 .Settings--natural {
     color: #000000;
     background-color: inherit;
+    h1 {
+    margin: 0;
+    }
 }
 
 .Setting_ThemeTitle {
-    margin-bottom: 1rem;
+    margin-bottom: 0rem;
 }
