@@ -46,36 +46,71 @@
     background-color: rgb(243, 243, 244);
 }
 
-.line {
+.line--black {
     margin-left: 0.2rem;
     width: 2rem;
     transition: 0.5s;
-    margin-left:0.5rem;
-    border:0;
+    margin-left: 0.5rem;
+    border: 0;
+    border-top: 2px solid #ffffff;
+}
+
+.line--natural {
+    margin-left: 0.2rem;
+    width: 2rem;
+    transition: 0.5s;
+    margin-left: 0.5rem;
+    border: 0;
     border-top: 2px solid #000000;
 }
 
-.line1-straight {
+
+.line1-straight--black,  .line1-straight--natural {
     margin-top: 0;
 }
 
-.line1-cross {
+.line1-cross--black {
     margin-top: 0;
     transform: rotate(35deg);
     transition: 0.5s;
     transform-origin: left;
+    border-top: 2px solid #ffffff;
 }
 
-.line2-disappear{
+.line2-disappear--black {
     margin-left: -10rem;
-    transition:2s;
+    transition: 2s;
+    border-top: 2px solid #ffffff;
 }
 
-.line3-cross {
+.line3-cross--black {
     transform: rotate(-35deg);
-    transition:0.5s;
+    transition: 0.5s;
     transform-origin: left;
-    margin-bottom:0;
+    margin-bottom: 0;
+    border-top: 2px solid #ffffff;
+}
+
+.line1-cross--natural {
+    margin-top: 0;
+    transform: rotate(35deg);
+    transition: 0.5s;
+    transform-origin: left;
+    border-top: 2px solid #000000;
+}
+
+.line2-disappear--natural {
+    margin-left: -10rem;
+    transition: 2s;
+    border-top: 2px solid #000000;
+}
+
+.line3-cross--natural {
+    transform: rotate(-35deg);
+    transition: 0.5s;
+    transform-origin: left;
+    margin-bottom: 0;
+    border-top: 2px solid #000000;
 }
 
 .SideBar_settings--black {
@@ -105,13 +140,41 @@
     .Contents {
         margin: 5rem 0rem 0rem 0rem;
     }
-    .line {
-        background-color:#000000;
-    }
 
     .SideBar {
         border-bottom: none;
     }
+
+    .line--natural {
+        border-top: 2px solid #ffffff;
+    }
+
+    .line1-cross--natural, .line3-cross--natural {
+        border-top: 2px solid #000000;
+    }
+
+    .SideBar_container--activated {
+        .line2-straight--natural {
+            border-top: 2px solid #000000;
+        }
+    }
+
+    .SideBar_container--inactivated {
+        .line2-straight--natural {
+            border-top: 2px solid #ffffff;
+        }
+    }
+
+    
+
+
+
+    
+
+    .line3-disappear--natural {
+        border-top: 2px solid #000000;
+    }
+
 
     .SideBar_container--inactivated {
         width: 3rem;

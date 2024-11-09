@@ -37,9 +37,9 @@ export const App = () => {
                                 <div
                                     onClick={handleSideBar}
                                     className={`SideBar ${sideBarActivated ? "SideBar_activated" : "SideBar_inactivated"}--${theme}`}>
-                                    <hr className={`line ${sideBarActivated ? "line1-cross" : "line1-straight"}`}></hr>
-                                    <hr className={`line ${sideBarActivated ? "line2-disappear" : "line2-straight"}`}></hr>
-                                    <hr className={`line ${sideBarActivated ? "line3-cross" : "line3-straight"}`}></hr>
+                                    <hr className={`line--${theme} ${sideBarActivated ? "line1-cross" : "line1-straight"}--${theme}`}></hr>
+                                    <hr className={`line--${theme} ${sideBarActivated ? "line2-disappear" : "line2-straight"}--${theme}`}></hr>
+                                    <hr className={`line--${theme} ${sideBarActivated ? "line3-cross" : "line3-straight"}--${theme}`}></hr>
                                 </div>
                                 <div className={`SideBar_settings--${theme}`}>{sideBarActivated && <Settings theme={theme} handleTheme={handleTheme} />}</div>
                           </aside>  
