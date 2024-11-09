@@ -51,6 +51,8 @@
     width: 2rem;
     transition: 0.5s;
     margin-left:0.5rem;
+    border:0;
+    border-top: 2px solid #000000;
 }
 
 .line1-straight {
