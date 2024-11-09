@@ -14,19 +14,38 @@ export const App = () => {
   const [theme, setTheme] = useState<string>("black");
   const handleTheme = () => {
     setTheme(theme === "natural" ? "black" : "natural");
-  }
+    }
+    const [sideBarActivated, setSideBarActivated] = useState<boolean>(false);
+
+    const handleSideBar = () => {
+        setSideBarActivated(!sideBarActivated);
+    }
   
-  return (
-      <div className={`App App--${theme}`}>
-          <script>
-              {theme === "black"
-                  ? (rootElement.style.backgroundColor = "#000000")
-                  : (rootElement.style.backgroundColor = "#f3f3f4")}
-          </script>
-      <ThemeContext.Provider value={theme}>
-              <BrowserRouter>
-                  <div className={`App App--${theme}` }>
-                      <NavBar theme={theme}/>
+    return (
+        <div className={`App App--${theme}`}>
+            <script>
+                {theme === "black"
+                    ? (rootElement.style.backgroundColor = "#000000")
+                    : (rootElement.style.backgroundColor = "#f3f3f4")}
+            </script>
+            <ThemeContext.Provider value={theme}>
+                <BrowserRouter>
+                    <div className={`App App--${theme}`}>
+                        <div className={`App--${theme} App_navBar--container`}>
+                            <NavBar theme={theme} handleTheme={handleTheme} />
+                            <aside className={`SideBar_container ${sideBarActivated ? "SideBar_container--activated" : "SideBar_container--inactivated"}`}>
+                                <div
+                                    onClick={handleSideBar}
+                                    className={`SideBar ${sideBarActivated ? "SideBar_activated" : "SideBar_inactivated"}--${theme}`}>
+                                    <hr className={`line ${sideBarActivated ? "line1-cross" : "line1-straight"}`}></hr>
+                                    <hr className={`line ${sideBarActivated ? "line2-disappear" : "line2-straight"}`}></hr>
+                                    <hr className={`line ${sideBarActivated ? "line3-cross" : "line3-straight"}`}></hr>
+                                </div>
+                                <div className={`SideBar_settings--${theme}`}>{sideBarActivated && <Settings theme={theme} handleTheme={handleTheme} />}</div>
+                          </aside>  
+                       </div>
+                      
+                      
                       <div className="Contents">
                           <Routes>
                               <Route path="/" element={<HomePage />} />
