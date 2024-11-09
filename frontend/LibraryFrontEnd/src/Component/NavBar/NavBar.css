@@ -1,7 +1,7 @@
 .navbar--grid {
   font-size: large;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   position: fixed;
   bottom: 0;
   border-bottom: 1px #ffffff solid;
@@ -18,7 +18,6 @@
 .icone {
   margin-bottom: -0.5rem;
   margin-top:-0.8rem;
-  
 }
 
 .nav__Link--flex > * {
@@ -49,14 +48,6 @@
   margin-left: -3.8rem;
 }
 
-.settingsIcone {
- cursor: pointer;
-}
-
-.nav__Settings__Title {
-  margin-top: -0.5rem;
-}
-
 .nav-link {
   text-decoration: none;
   color: white;
@@ -77,10 +68,6 @@
 
   .navbar--grid > * {
     transform: scale(1);
-  }
-
-  .nav__Settings__Title {
-    margin-top: 0;
   }
 
   .icone {

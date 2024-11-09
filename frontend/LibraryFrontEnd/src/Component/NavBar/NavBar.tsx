@@ -11,13 +11,21 @@ import searchIcone from "../../media/search48px.svg";
 import searchBlueIcone from "../../media/search_blue_48px.svg";
 import settingsIcone from "../../media/settings48px.svg";
 import settingsBlueIcone from "../../media/settings_blue_48px.svg";
+import { Settings } from "../Settings/Settings"
 
 type NavBarType = {
-  theme: string;
+    theme: string,
+    handleTheme : () => void
 };
 
-export const NavBar = ({theme}: NavBarType) => {
-  const [activeNavItem, setActiveNavItem] = useState<string>("home");
+export const NavBar = ({theme, handleTheme}: NavBarType) => {
+    const [activeNavItem, setActiveNavItem] = useState<string>("home");
+    const [settingIsChecked, setSettingIsChecked] = useState<boolean>(false);
+    
+
+    const handleSettingCheck = () => {
+        setSettingIsChecked(!settingIsChecked);
+    }
 
   return (
     <>
@@ -92,35 +100,9 @@ export const NavBar = ({theme}: NavBarType) => {
           >
             Add book
           </figcaption>
-        </Link>
-              <Link
-                  className="nav-link icone settingsIcone"
-                  to="/Settings"
-                  onClick={() => {
-                      setActiveNavItem("settings");
-                  } }
-              >
-          <img
-            className="nav-link"
-            src={
-              activeNavItem === "settings" ? settingsBlueIcone : settingsIcone
-            }
-            onClick={() => {
-              setActiveNavItem("settings");
-            }}
-            alt="Themes"
-          />
-          <figcaption
-            className={
-              activeNavItem === "settings"
-                ? "iconeTitle--blue nav__Settings__Title"
-                : "iconeTitle nav__Settings__Title"
-            }
-          >
-            Settings
-          </figcaption>
-        </Link>
+        </Link>       
       </nav>
+      {activeNavItem === "settings" && (<Settings theme={theme} handleTheme={handleTheme} />)}
     </>
   );
 };
