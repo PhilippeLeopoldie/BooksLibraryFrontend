@@ -1,5 +1,4 @@
 .Settings_container {
-    width: 100%;
     border: 1px solid grey;
     border-top: none;
     padding-bottom:1rem;
@@ -37,4 +36,10 @@
 
 .Setting_ThemeTitle {
     margin-bottom: 0rem;
+}
+
+@media screen and (min-width: 700px) {
+    .Settings_container {
+        border:none;
+    }
 }
