@@ -1,15 +1,14 @@
 .SideBar_container {
     position: fixed;
     z-index: 2;
+    width: 100%;
 }
 
 .SideBar_container--inactivated {
     background-color: inherit;
-    width: 100%;
 }
 
 .SideBar_container--activated {
-    width: 100%;
     background-color: transparent;
 }
 
@@ -30,71 +29,51 @@
     background-color: rgb(243, 243, 244);
 }
 
-.line--black {
+.Lines {
     margin-left: 0.2rem;
     width: 2rem;
     transition: 0.5s;
     margin-left: 0.5rem;
     border: 0;
+}
+
+.Lines--black {
     border-top: 2px solid #ffffff;
 }
 
-.line--natural {
-    margin-left: 0.2rem;
-    width: 2rem;
-    transition: 0.5s;
-    margin-left: 0.5rem;
-    border: 0;
+.Lines--natural {
     border-top: 2px solid #000000;
 }
 
+.SideBar_container--activated + .Lines--black {
+    border-top: 2px solid #ffffff;
+}
 
-.line1-straight--black, .line1-straight--natural {
+.SideBar_container--activated + .Lines--natural {
+    border-top: 2px solid #000000;
+}
+
+.SideBar_container--inactivated  .Line1 {
     margin-top: 0;
 }
 
-.line1-cross--black {
+.SideBar_container--activated .Line1 {
     margin-top: 0;
-    transform: rotate(35deg);
+    transform: rotate(38deg);
     transition: 0.5s;
     transform-origin: left;
-    border-top: 2px solid #ffffff;
 }
 
-.line2-disappear--black {
-    margin-left: -10rem;
-    transition: 2s;
-    border-top: 2px solid #ffffff;
+.SideBar_container--activated  .Line2 {
+    margin-left: -2.1rem;
+    transition: 1s;
 }
 
-.line3-cross--black {
-    transform: rotate(-35deg);
+.SideBar_container--activated  .Line3 {
+    transform: rotate(-38deg);
     transition: 0.5s;
     transform-origin: left;
-    margin-bottom: 0;
-    border-top: 2px solid #ffffff;
-}
-
-.line1-cross--natural {
-    margin-top: 0;
-    transform: rotate(35deg);
-    transition: 0.5s;
-    transform-origin: left;
-    border-top: 2px solid #000000;
-}
-
-.line2-disappear--natural {
-    margin-left: -10rem;
-    transition: 2s;
-    border-top: 2px solid #000000;
-}
-
-.line3-cross--natural {
-    transform: rotate(-35deg);
-    transition: 0.5s;
-    transform-origin: left;
-    margin-bottom: 0;
-    border-top: 2px solid #000000;
+    margin-bottom: 0;  
 }
 
 .SideBar_settings--black {
@@ -107,68 +86,29 @@
     width: 20rem;
 }
 
-
 @media screen and (min-width: 700px) {
-
-
     .SideBar {
         border-bottom: none;
     }
 
-    .line--natural {
-        border-top: 2px solid #ffffff;
-    }
-
-    .line1-cross--natural, .line3-cross--natural {
+    .SideBar_container--activated .Lines--natural {
         border-top: 2px solid #000000;
     }
 
+    .SideBar_container--inactivated .Lines--natural {
+        border-top: 2px solid #ffffff;
+    }
+
+    .SideBar_container--inactivated {
+        width: 3rem;
+        background-color: transparent;
+    }
+
     .SideBar_container--activated {
-        .line2-straight--natural
+        width: 20rem;
+        background-color: inherit;
+        border: 1px solid grey;
+    }
 
-{
-    border-top: 2px solid #000000;
-}
-
-}
-
-.SideBar_container--inactivated {
-    .line2-straight--natural
-
-{
-    border-top: 2px solid #ffffff;
-}
-
-}
-
-.line3-disappear--natural {
-    border-top: 2px solid #000000;
-}
-
-
-.SideBar_container--inactivated {
-    width: 3rem;
-    background-color: transparent;
-}
-
-.SideBar_container--activated {
-    width: 20rem;
-    background-color: inherit;
-    border: 1px solid grey;
-}
-
-.SideBar_activated--natural {
-    background-color: inherit;
-}
-
-.SideBar_settings--black {
-    margin-top: 2rem;
-    border: none;
-}
-
-.SideBar_settings--natural {
-    margin-top: 2rem;
-    background-color: inherit;
-    border: none;
-}
+    
 }
