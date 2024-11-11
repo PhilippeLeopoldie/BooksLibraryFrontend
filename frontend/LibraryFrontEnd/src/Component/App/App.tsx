@@ -6,6 +6,7 @@ import { BookSearch } from "../BookSearch/BookSearch";
 import { createContext, useContext, useState } from "react";
 import { NavBar } from "../NavBar/NavBar";
 import { Settings } from "../Settings/Settings";
+import { SideBar } from "../SideBar/SideBar"
 
 export const ThemeContext = createContext<string>("black");
 
@@ -14,11 +15,6 @@ export const App = () => {
   const [theme, setTheme] = useState<string>("black");
   const handleTheme = () => {
     setTheme(theme === "natural" ? "black" : "natural");
-    }
-    const [sideBarActivated, setSideBarActivated] = useState<boolean>(false);
-
-    const handleSideBar = () => {
-        setSideBarActivated(!sideBarActivated);
     }
   
     return (
@@ -31,21 +27,10 @@ export const App = () => {
             <ThemeContext.Provider value={theme}>
                 <BrowserRouter>
                     <div className={`App App--${theme}`}>
-                        <div className={`App--${theme} App_navBar--container`}>
+                       <div className={`App--${theme} App_navBar--container`}>
                             <NavBar theme={theme} handleTheme={handleTheme} />
-                            <aside className={`SideBar_container ${sideBarActivated ? "SideBar_container--activated" : "SideBar_container--inactivated"}`}>
-                                <div
-                                    onClick={handleSideBar}
-                                    className={`SideBar ${sideBarActivated ? "SideBar_activated" : "SideBar_inactivated"}--${theme}`}>
-                                    <hr className={`line--${theme} ${sideBarActivated ? "line1-cross" : "line1-straight"}--${theme}`}></hr>
-                                    <hr className={`line--${theme} ${sideBarActivated ? "line2-disappear" : "line2-straight"}--${theme}`}></hr>
-                                    <hr className={`line--${theme} ${sideBarActivated ? "line3-cross" : "line3-straight"}--${theme}`}></hr>
-                                </div>
-                                <div className={`SideBar_settings--${theme}`}>{sideBarActivated && <Settings theme={theme} handleTheme={handleTheme} />}</div>
-                          </aside>  
+                            <SideBar theme={theme} handleTheme={handleTheme} />  
                        </div>
-                      
-                      
                       <div className="Contents">
                           <Routes>
                               <Route path="/" element={<HomePage />} />
@@ -54,9 +39,7 @@ export const App = () => {
                               <Route path="/Settings" element={<Settings theme={theme} handleTheme={handleTheme} />} />
                           </Routes>
                       </div>
-                      
                   </div>
-                  
         </BrowserRouter>
       </ThemeContext.Provider>
     </div>
