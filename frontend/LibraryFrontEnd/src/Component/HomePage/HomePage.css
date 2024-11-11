@@ -1,24 +1,24 @@
 .BookList--black {
-  background-color: inherit;
-  .BookList {
+    background-color: inherit;
+    .BookList {
     background-color: inherit;
     color: #ffffff;
-  }
+    }
 }
 
-    .BookList--black--flex {
-        display: flex;
-        flex-direction: column;
-        background-color: inherit;
-    }
+.BookList--black--flex {
+    display: flex;
+    flex-direction: column;
+    background-color: inherit;
+}
 
 .BookList--black--flex > h1 {
         background-color: inherit;
-        color:#ffffff;
+        color: #ffffff;
 }
 
-.BookList_Top{
-    margin-top:3rem;
+.BookList_Top {
+    margin-top: 1rem;
 }
 
 .Books__Loading--black {
@@ -28,50 +28,51 @@
 }
 
 .Books__Loading--natural {
-  margin-top: 5rem;
-  background-color: inherit;
-  color: #000000;
+    margin-top: 5rem;
+    background-color: inherit;
+    color: #000000;
 }
 
 .bookListContainer {
-  display: flex;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  background-color: transparent;
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    background-color: transparent;
 }
 
 
 @media screen and (min-width: 700px) {
 
-  .bookListContainer, .BookList__mostPopular {
-    grid-template-columns: repeat(2, auto);
-    margin-bottom: 0%;
-  }
+    .bookListContainer, .BookList__mostPopular {
+        grid-template-columns: repeat(2, auto);
+        margin-bottom: 0%;
+    }
 
-  .BookList_Top {
+    .BookList_Top {
         margin-top: 0;
-   }
+    }
 }
 
 @media screen and (min-width: 1024px) {
 
-  .bookListContainer {
-    display: grid; 
-    justify-content: center;
-   }
-  .bookListContainer {
-    grid-template-columns: repeat(3, auto);
-  }
+    .bookListContainer {
+        display: grid;
+        justify-content: center;
+    }
+
+    .bookListContainer {
+        grid-template-columns: repeat(3, auto);
+    }
 }
 
 @media screen and (min-width: 1300px) {
-  .bookListContainer {
-    grid-template-columns: repeat(4, auto);
-  }
+    .bookListContainer {
+        grid-template-columns: repeat(4, auto);
+    }
 }
 
 @media screen and (min-width: 1458px) {
-  .bookListContainer {
-    grid-template-columns: repeat(5, auto);
-  }
+    .bookListContainer {
+        grid-template-columns: repeat(5, auto);
+    }
 }
