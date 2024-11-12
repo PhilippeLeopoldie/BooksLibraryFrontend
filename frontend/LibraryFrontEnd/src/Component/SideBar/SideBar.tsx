@@ -11,7 +11,6 @@ type SideBarType = {
 
 
 export const SideBar = ({ theme, handleTheme }: SideBarType) => {
-
     const [sideBarActivated, setSideBarActivated] = useState<boolean>(false);
 
     const handleSideBar = () => {
@@ -22,7 +21,7 @@ export const SideBar = ({ theme, handleTheme }: SideBarType) => {
         <>
             <aside className={`SideBar_container 
                               ${sideBarActivated ? "SideBar_container--activated" : "SideBar_container--inactivated"}`}>
-                <div
+                <section
                     onClick={handleSideBar}
                     className={`SideBar ${sideBarActivated && "SideBar_activated"}--${theme}`}
                 >
@@ -30,8 +29,8 @@ export const SideBar = ({ theme, handleTheme }: SideBarType) => {
                     <hr className={`Lines Lines--${theme} Line2`}></hr>
                     <hr className={`Lines Lines--${theme} Line3`}></hr>
                     
-                </div>
-                <div className={`SideBar_settings--${theme}`}>{sideBarActivated && <Settings theme={theme} handleTheme={handleTheme} />}</div>
+                </section>
+                <section className={`SideBar_settings--${theme}`}>{sideBarActivated && <Settings theme={theme} handleTheme={handleTheme} />}</section>
             </aside>
         </>);
 };
