@@ -102,12 +102,12 @@ export const BookCard = ({book} : BookType) => {
       averageClick: card.averageClick,
     }
     displayedContent = (
-      <div className={"bookcard--grid bookcard--" + theme}>
+      <section className={"bookcard--grid bookcard--" + theme}>
         <BookCover book={book} />
         <BookBody  title = {book.title } author = {book.author}/>
         <BookFooter bookFooter={bookFooter} updatedBook={card.updatedBook.book}/>
         
-      </div>
+      </section>
     );
   }
   if (card.curentView === "opinionList") {
