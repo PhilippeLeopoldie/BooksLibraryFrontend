@@ -21,8 +21,8 @@ export const BookCreate = () => {
     const [bookCreatedMessage, setBookCreatedMessage] = useState<boolean>(false);
     const [errorBook, setErrorBook] = useState<Boolean>(false);
     const [errorBookDetail, setErrorBookDetail] = useState<string>("");
-    
     const rootElement = document.documentElement;
+
     const PostBook = async () => {
         const requestOptions = {
             method: "POST",
@@ -107,7 +107,7 @@ export const BookCreate = () => {
 
                     <input
                         className={`input input--${theme} input__imageUrl--${theme}`}
-                        placeholder="Book Image link"
+                        placeholder="Paste Book Image Link"
                         name="imageUrl"
                         value={formData.imageUrl}
                         onChange={(e) => HandleInputChange(e)}
