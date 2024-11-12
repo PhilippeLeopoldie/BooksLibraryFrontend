@@ -1,7 +1,7 @@
 import "./App.css";
 import { BookCreate } from "../BookCreate/BookCreate";
 import { HomePage } from "../HomePage/HomePage";
-import { Routes, BrowserRouter, Route} from "react-router-dom";
+import { Routes, BrowserRouter, Route } from "react-router-dom";
 import { BookSearch } from "../BookSearch/BookSearch";
 import { createContext, useContext, useState } from "react";
 import { NavBar } from "../NavBar/NavBar";
@@ -11,12 +11,12 @@ import { SideBar } from "../SideBar/SideBar"
 export const ThemeContext = createContext<string>("black");
 
 export const App = () => {
-  const rootElement = document.documentElement;
-  const [theme, setTheme] = useState<string>("black");
-  const handleTheme = () => {
-    setTheme(theme === "natural" ? "black" : "natural");
+    const rootElement = document.documentElement;
+    const [theme, setTheme] = useState<string>("black");
+    const handleTheme = () => {
+        setTheme(theme === "natural" ? "black" : "natural");
     }
-  
+
     return (
         <div className={`App App--${theme}`}>
             <script>
@@ -27,21 +27,21 @@ export const App = () => {
             <ThemeContext.Provider value={theme}>
                 <BrowserRouter>
                     <div className={`App App--${theme}`}>
-                       <div className={`App--${theme} App_navBar--container`}>
+                        <section className={`App--${theme} App_navBar--container`}>
                             <NavBar theme={theme} handleTheme={handleTheme} />
-                            <SideBar theme={theme} handleTheme={handleTheme} />  
-                       </div>
-                      <div className="Contents">
-                          <Routes>
-                              <Route path="/" element={<HomePage />} />
-                              <Route path="/addBook" element={<BookCreate />} />
-                              <Route path="/Search" element={<BookSearch />} />
-                              <Route path="/Settings" element={<Settings theme={theme} handleTheme={handleTheme} />} />
-                          </Routes>
-                      </div>
-                  </div>
-        </BrowserRouter>
-      </ThemeContext.Provider>
-    </div>
-  );
+                            <SideBar theme={theme} handleTheme={handleTheme} />
+                        </section>
+                        <section className="Contents">
+                            <Routes>
+                                <Route path="/" element={<HomePage />} />
+                                <Route path="/addBook" element={<BookCreate />} />
+                                <Route path="/Search" element={<BookSearch />} />
+                                <Route path="/Settings" element={<Settings theme={theme} handleTheme={handleTheme} />} />
+                            </Routes>
+                        </section>
+                    </div>
+                </BrowserRouter>
+            </ThemeContext.Provider>
+        </div>
+    );
 };
