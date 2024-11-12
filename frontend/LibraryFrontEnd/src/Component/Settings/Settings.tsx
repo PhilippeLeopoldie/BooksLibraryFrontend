@@ -1,5 +1,3 @@
-import { useContext } from "react";
-import { ThemeContext } from "../App/App";
 import "./Settings.css";
 import { UserPreferences } from "../Preferences/UserPreferences";
 import darkMode from "../../media/dark-mode48px.svg";
@@ -15,17 +13,15 @@ type SettingsType = {
 
 
 export const Settings = ({ theme, handleTheme }: SettingsType) => {
-
-
     return (
         <>
-            <div className={`Settings--${theme} Settings_container`}>
+            <section className={`Settings--${theme} Settings_container`}>
                 <header className={`Settings--${theme}`}>
-                    <h1 className={`Settings--${theme}`}>Settings</h1>
+                    <h2 className={`Settings--${theme}`}>Settings</h2>
                 </header>
                 <nav className={`Settings--${theme}`}>
-                    <div className={`Settings Settings--${theme}`}><UserPreferences /></div>
-                    <div onClick={handleTheme} className={`Settings_Theme Settings Settings--${theme}`} >
+                    <div className={`Settings Settings--${theme}`}><UserPreferences/></div>
+                    <section onClick={handleTheme} className={`Settings_Theme Settings Settings--${theme}`} >
                         <img
                             className={` Settings--${theme}`}                           
                             src={theme === 'black' ? lightMode : darkMode}
@@ -34,10 +30,10 @@ export const Settings = ({ theme, handleTheme }: SettingsType) => {
                         <figcaption  className={`Settings--${theme} Setting_ThemeTitle`} >
                             {theme === 'black' ? 'Light Mode' : 'Dark Mode'}
                         </figcaption>
-                    </div>
-                    <div className={`Settings--${theme} About`}>
-                        <h3 className={`Settings Settings--${theme}`}>About</h3></div>
-                    <div className={`Settings--${theme} Settings_Links--flex`}>
+                    </section>
+                    <section className={`Settings--${theme} About`}>
+                        <h3 className={`Settings Settings--${theme}`}>About</h3></section>
+                    <section className={`Settings--${theme} Settings_Links--flex`}>
                         <Link className={`Settings--${theme}`} to="https://github.com/PhilippeLeopoldie">
                             <img
                                 className={` Settings--${theme}`}
@@ -45,9 +41,9 @@ export const Settings = ({ theme, handleTheme }: SettingsType) => {
                             </img>
                             <figcaption className={`Settings Settings--${theme} GitHub`}>GitHub</figcaption>
                         </Link>
-                    </div>
+                    </section>
                 </nav>
-            </div>
+            </section>
         </>
     );
 };
