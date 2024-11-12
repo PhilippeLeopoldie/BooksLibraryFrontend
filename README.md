@@ -166,4 +166,4 @@ Even after deployed, development continues actively, following the <span style =
 
 ## Deploying link
 
-[App URL](https://books-library-2023.vercel.app/)
+[App URL](https://books-library-2024.vercel.app/)
