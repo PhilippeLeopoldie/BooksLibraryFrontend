@@ -10,15 +10,6 @@ type FormDataType = {
     imageUrl: string;
 };
 
-type BookType = {
-    book: {
-        id: number;
-        title: string;
-        author: string;
-        imageUrl: string;
-    };
-};
-
 export const BookCreate = () => {
     const theme = useContext(ThemeContext);
     const [formData, setFormData] = useState<FormDataType>({
@@ -27,11 +18,10 @@ export const BookCreate = () => {
         imageUrl: "",
     });
 
-    const [books, setBooks] = useState<BookType[]>([]);
     const [bookCreatedMessage, setBookCreatedMessage] = useState<boolean>(false);
     const [errorBook, setErrorBook] = useState<Boolean>(false);
     const [errorBookDetail, setErrorBookDetail] = useState<string>("");
-    const [newBookId, setNewBookId] = useState<number>(0);
+    
     const rootElement = document.documentElement;
     const PostBook = async () => {
         const requestOptions = {
@@ -52,8 +42,6 @@ export const BookCreate = () => {
         if (bookResponse.status === 201) {
             setErrorBook(false);
             const body = await bookResponse.json();
-            setNewBookId(body.id);
-            setBooks((books) => [...books, body]);
             setBookCreatedMessage(true);
             setFormData({
                 title: "",
@@ -124,7 +112,6 @@ export const BookCreate = () => {
                         value={formData.imageUrl}
                         onChange={(e) => HandleInputChange(e)}
                     />
-
                     <section className="book-create-form__output-card">
                         {errorBook && (
                             <div className="validation__error-message">{errorBookDetail}</div>
