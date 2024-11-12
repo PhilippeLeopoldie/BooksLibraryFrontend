@@ -3,9 +3,6 @@ import "./BookSearch.css";
 import { BookSearchList } from "./BookSearchList/BookSearchList";
 import { ThemeContext } from "../App/App";
 
-type BooksSearchCriteria = {
-  titleOrAuthor: string;
-};
 
 export const BookSearch = () => {
   const theme = useContext(ThemeContext);
