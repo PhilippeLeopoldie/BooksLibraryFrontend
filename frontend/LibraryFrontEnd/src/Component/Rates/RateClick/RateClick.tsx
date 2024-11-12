@@ -1,4 +1,3 @@
-
 import { useContext, useEffect, useState } from "react";
 import "../Rate/Rate.css";
 import { ThemeContext } from "../../App/App";
@@ -33,7 +32,7 @@ export const RateClick = ({ rate, HandleRate }: RateType) => {
 
   return (
     <>
-      <div className="rateClick_container--flex">
+      <section className="rateClick_container--flex">
         {filledStars.map((isFilled, index) => (
           <div
             className={`rate_star--${theme} rateClick_star ${isFilled ? "filled" : "empty"}`}
@@ -43,7 +42,7 @@ export const RateClick = ({ rate, HandleRate }: RateType) => {
             &#9733;
           </div>
         ))}
-      </div>
+      </section>
     </>
   );
 }
