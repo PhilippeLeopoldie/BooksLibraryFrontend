@@ -30,9 +30,9 @@
 
 .input__imageUrl--black,
 .input__imageUrl--natural {
-  font-size: large;
-  text-decoration: underline;
-  color:aqua;
+    font-size: large;
+    text-decoration: underline;
+    color: #4ba5ff;
 }
 
 .footer--flex {
