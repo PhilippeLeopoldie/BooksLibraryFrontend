@@ -1,6 +1,5 @@
 import { Rate } from "../../Rates/Rate/Rate";
 import "./OpinionList.css";
-import ArrowLeftIcone from "../../../media/arrowLeft.svg";
 import Flip from "../../../media/flip.svg";
 import { useContext, useState } from "react";
 import { ThemeContext } from "../../App/App";
