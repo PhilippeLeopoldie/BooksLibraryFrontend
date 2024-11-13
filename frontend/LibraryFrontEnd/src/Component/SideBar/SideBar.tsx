@@ -30,7 +30,10 @@ export const SideBar = ({ theme, handleTheme }: SideBarType) => {
                     <hr className={`Lines Lines--${theme} Line3`}></hr>
                     
                 </section>
-                <section className={`SideBar_settings--${theme}`}>{sideBarActivated && <Settings theme={theme} handleTheme={handleTheme} />}</section>
+                <section className={` SideBar_settings--${theme}
+                ${sideBarActivated ? "SideBar_settings--activated" : "SideBar_settings--inactivated"}`}>
+                    {sideBarActivated && <Settings theme={theme} handleTheme={handleTheme} />}
+                </section>
             </aside>
         </>);
 };
