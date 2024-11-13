@@ -39,6 +39,7 @@
 
 @media screen and (min-width: 700px) {
     .Settings_container {
-        border:none;
+        margin-top:1.8rem;
+        width:100%;
     }
 }
