@@ -23,7 +23,7 @@ export const SideBar = ({ theme, handleTheme }: SideBarType) => {
                               ${sideBarActivated ? "SideBar_container--activated" : "SideBar_container--inactivated"}`}>
                 <section
                     onClick={handleSideBar}
-                    className={`SideBar ${sideBarActivated && "SideBar_activated"}--${theme}`}
+                    className={`SideBar ${sideBarActivated ? "SideBar_activated" : "SideBar_inactivated"}--${theme}`}
                 >
                     <hr className={`Lines Lines--${theme} Line1`}></hr>
                     <hr className={`Lines Lines--${theme} Line2`}></hr>

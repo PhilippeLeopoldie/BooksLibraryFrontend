@@ -22,7 +22,11 @@
 }
 
 .SideBar_activated--black {
-    background-color: transparent;
+    background-color: #000000;
+}
+
+.SideBar_activated--natural, .SideBar_inactivated--natural{
+    background-color: #ffffff;
 }
 
 
@@ -91,6 +95,7 @@
 
 @media screen and (min-width: 700px) {
     .SideBar {
+        background-color:transparent;
         border-bottom: none;
         width: 3rem;
     }
