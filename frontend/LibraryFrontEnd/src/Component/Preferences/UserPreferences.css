@@ -1,11 +1,63 @@
-.Preferences {
+.Preferences_container {
+    margin-bottom:1rem;
+}
+
+.Preferences_container, .Preferences_container > * {
     background-color: inherit;
 }
 
-.Preferences_container--black {
-    color:#ffffff;
+
+.Preferences_container--black,
+.Preferences_container--black > *,
+.Preferences_container--black .Preferences_form > *,
+.Preferences_container--black label {
+    color: #ffffff;
+    background-color: inherit;
 }
 
-.Preferences_container--natural {
+
+.Preferences_container--natural,
+.Preferences_container--natural .Preferences_container--natural > *,
+.Preferences_container--natural .Preferences_form > *,
+.Preferences_container--naturel label {
     color: #000000;
+    background-color: inherit;
 }
+
+label {
+    background-color: #ffffff;
+}
+
+.Preferences_form {
+    display: none;
+}
+
+.Genres {
+    display: flex;
+    justify-content: space-around;
+    margin:1rem 0rem;
+}
+
+.DropDownMenu_label, .ReadingTime_label, .ReadingTime_radio {
+    margin:1rem 0.3rem;
+    cursor: pointer;
+}
+.ReadingTime {
+    margin-left:0;
+}
+
+.DropDownMenu_ckeckbox {
+    visibility: hidden;
+}
+
+
+
+#toggleCheckbox:checked + .Preferences_form {
+    display: block;
+}
+
+.generateStory {
+    border-color: orange; 
+}
+
+
