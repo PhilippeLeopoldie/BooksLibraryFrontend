@@ -6,7 +6,7 @@
 }
 
 input {
-  background-color: white;
+  background-color: inherit;
   margin-top: 5%;
   font-size: x-large;
   margin: 3%;
@@ -15,11 +15,12 @@ input {
 
 button {
   border-radius: 8px;
-  border: 1px solid transparent;
+  border: 2px solid transparent;
   border-color: #484b86;
   cursor: pointer;
   transition: border-color 0.25s;
   color: #4ba5ff;
+  background-color:inherit;
 }
 
 button:hover {
