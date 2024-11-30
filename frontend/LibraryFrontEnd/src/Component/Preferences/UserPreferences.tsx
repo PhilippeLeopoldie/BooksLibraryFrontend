@@ -5,7 +5,7 @@ import { Button } from "../Button/Button";
 
 export const UserPreferences = () => {
     const theme = useContext(ThemeContext);
-    const genres = ['Romance', 'Children', 'Fiction', 'Thrillers', 'Scary'];
+    const genres = ['Romance', 'Children', 'Fiction', 'Thrillers', 'Scary','Technology'];
     const [choosenGenres, setChoosenGenres] = useState<string[]>([]);
     const [choosenOneGenre, setChoosenOneGenre] = useState<string>("");
     const [selectedTime, setSelectedTime] = useState<string>("5");
@@ -69,6 +69,10 @@ export const UserPreferences = () => {
                             checked={selectedTime === "15"}
                             onChange={handleSelectedTime}
                         />
+                    </section>
+                    <section>
+                        <input type="range" min="0" max="20"  step="5">
+                        </input>
                     </section>
                     <button className="generateStory">Generate Story</button>
                 </form>
