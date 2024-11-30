@@ -34,8 +34,12 @@ label {
 
 .Genres {
     display: flex;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     justify-content: space-around;
-    margin:1rem 0rem;
+    -ms-flex-pack: distribute;
+    -webkit-justify-content: space-around;
+    margin: 1rem 0rem;
 }
 
 .DropDownMenu_label, .ReadingTime_label, .ReadingTime_radio {
