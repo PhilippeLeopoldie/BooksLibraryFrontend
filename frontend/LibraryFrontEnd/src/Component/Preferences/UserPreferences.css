@@ -34,11 +34,9 @@ label {
 
 .Genres {
     display: flex;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    justify-content: space-around;
-    -ms-flex-pack: distribute;
-    -webkit-justify-content: space-around;
+    flex-wrap:wrap;
+    justify-content: space-between;
+    gap:0.5rem 0;
     margin: 1rem 0rem;
 }
 
@@ -57,7 +55,7 @@ label {
 
 
 #toggleCheckbox:checked + .Preferences_form {
-    display: block;
+   display: block;
 }
 
 .generateStory {
