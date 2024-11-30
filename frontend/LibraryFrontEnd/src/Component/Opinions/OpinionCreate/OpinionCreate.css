@@ -41,18 +41,20 @@
 }
 
 .opinionCreate__view {
-  margin:0 2%;
-  border-radius: 10px;
-  background-color: #ffffff;
-  font-size: 1.25rem;
-  max-width: 16.5rem;
-  resize: none;
+    margin: 0 2%;
+    border-radius: 10px;
+    background-color: inherit;
+    color:inherit;
+    font-size: 1.25rem;
+    max-width: 16.5rem;
+    resize: none;
 }
 
 .opinionCreate__input{
   margin:2%;
   max-width: 16.5rem;
   font-size: 1.25rem;
+  color:inherit;
 }
 
 .opinionCreate__footer--flex {
