@@ -1,4 +1,4 @@
-﻿import { useContext, useState } from "react";
+﻿import React, { ChangeEvent, HtmlHTMLAttributes, useContext, useState } from "react";
 import { ThemeContext } from "../App/App";
 import "./UserPreferences.css";
 import { Button } from "../Button/Button";
@@ -9,8 +9,13 @@ export const UserPreferences = () => {
     const [choosenGenres, setChoosenGenres] = useState<string[]>([]);
     const [choosenOneGenre, setChoosenOneGenre] = useState<string>("");
     const [selectedTime, setSelectedTime] = useState<string>("5");
+    const [rangeValue, setRangeValue] = useState<string>("5");
 
-    const handleSelectedTime = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleRangeValue = (event: ChangeEvent<HTMLInputElement>) => {
+        setRangeValue(event.target.value);
+    }
+
+    const handleSelectedTime = (event: ChangeEvent<HTMLInputElement>) => {
         setSelectedTime(event.target.value);
     }
 
@@ -30,7 +35,7 @@ export const UserPreferences = () => {
 
     
     return (
-        <>
+        <>            
             <section className={`Preferences_container Preferences_container--${theme}`}>
                 <label className="DropDownMenu_label" htmlFor="toggleCheckbox">My stories preferences... </label>
                 <input className="DropDownMenu_ckeckbox" type="checkbox" id="toggleCheckbox"/>
@@ -41,7 +46,7 @@ export const UserPreferences = () => {
                         )}
                         
                     </section>
-                    <section className="ReadingTime">Reading time :
+                    {/*<section className="ReadingTime">Reading time :
                         <label className="ReadingTime_label" htmlFor="checkbox_5min">5 min</label>
                         <input
                             className="ReadingTime_radio"
@@ -69,9 +74,16 @@ export const UserPreferences = () => {
                             checked={selectedTime === "15"}
                             onChange={handleSelectedTime}
                         />
-                    </section>
-                    <section>
-                        <input type="range" min="0" max="20"  step="5">
+                    </section>*/}
+                    <section className="ReadingRange"> Reading time:
+                        <label className="rangeLabel" htmlFor="rangeInput">{`${rangeValue} min`}
+                        </label>
+                        <input
+                            className="Reading_time_slider"
+                            type="range" min="0" max="20" step="5"
+                            value={rangeValue}
+                            onChange={handleRangeValue}
+                        >
                         </input>
                     </section>
                     <button className="generateStory">Generate Story</button>

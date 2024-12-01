@@ -1,10 +1,10 @@
 .Preferences_container {
-    margin-bottom:1rem;
+    margin-bottom: 1rem;
 }
 
-.Preferences_container, .Preferences_container > * {
-    background-color: inherit;
-}
+    .Preferences_container, .Preferences_container > * {
+        background-color: inherit;
+    }
 
 
 .Preferences_container--black,
@@ -34,18 +34,28 @@ label {
 
 .Genres {
     display: flex;
-    flex-wrap:wrap;
-    justify-content: space-between;
-    gap:0.5rem 0;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 0.5rem 0;
     margin: 1rem 0rem;
 }
 
 .DropDownMenu_label, .ReadingTime_label, .ReadingTime_radio {
-    margin:1rem 0.3rem;
+    margin: 1rem 0.3rem;
     cursor: pointer;
 }
+
+.DropDownMenu_label {
+    font-size:1.2rem;
+}
+
 .ReadingTime {
-    margin-left:0;
+    margin-left: 0;
+}
+
+.Reading_time_range {
+    width: 80%;
+    cursor: grab;
 }
 
 .DropDownMenu_ckeckbox {
@@ -55,11 +65,9 @@ label {
 
 
 #toggleCheckbox:checked + .Preferences_form {
-   display: block;
+    display: block;
 }
 
 .generateStory {
-    border-color: orange; 
+    border-color: orange;
 }
-
-
