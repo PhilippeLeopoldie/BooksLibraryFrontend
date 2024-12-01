@@ -1,4 +1,4 @@
-﻿import { ChangeEvent, HtmlHTMLAttributes, useContext, useState } from "react";
+﻿import { useContext, useState } from "react";
 import { ThemeContext } from "../../App/App";
 import "./UserPreferences.css";
 import { GenreButton } from "../../GenreButton/GenreButton";
@@ -9,16 +9,6 @@ export const UserPreferences = () => {
     const genres = ['Romance', 'Children', 'Fiction', 'Thrillers', 'Scary','Technology'];
     const [choosenGenres, setChoosenGenres] = useState<string[]>([]);
     const [choosenOneGenre, setChoosenOneGenre] = useState<string>("");
-    const [selectedTime, setSelectedTime] = useState<string>("5");
-    const [rangeValue, setRangeValue] = useState<string>("5");
-
-    const handleRangeValue = (event: ChangeEvent<HTMLInputElement>) => {
-        setRangeValue(event.target.value);
-    }
-
-    const handleSelectedTime = (event: ChangeEvent<HTMLInputElement>) => {
-        setSelectedTime(event.target.value);
-    }
 
     const handleMultipleChoosenGenres = (genre: string) => {
         setChoosenGenres((prevGenres) =>
