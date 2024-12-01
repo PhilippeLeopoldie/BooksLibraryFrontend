@@ -1,6 +1,11 @@
+button {
+    font-size:1.2rem;
+}
+
 .Button--clicked {
     background-color: #4bdeff;
     color: #000000;
+    font-weight:bold;   
 }
 
 .Button--unclicked {

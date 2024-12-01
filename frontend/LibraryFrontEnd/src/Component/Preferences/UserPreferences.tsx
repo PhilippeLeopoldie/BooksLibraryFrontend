@@ -1,7 +1,7 @@
 ﻿import React, { ChangeEvent, HtmlHTMLAttributes, useContext, useState } from "react";
 import { ThemeContext } from "../App/App";
 import "./UserPreferences.css";
-import { Button } from "../Button/Button";
+import { GenreButton } from "../GenreButton/GenreButton";
 
 export const UserPreferences = () => {
     const theme = useContext(ThemeContext);
@@ -42,7 +42,7 @@ export const UserPreferences = () => {
                 <form onSubmit={(e) => e.preventDefault()} className="Preferences_form">
                     <section className='Genres'>
                         {genres.map((genre,index) =>
-                            <Button key={index} name={genre} handleGenres={handleOneChoosenGenre} typeOfChoice="oneChoice" />
+                            <GenreButton key={index} name={genre} handleGenres={handleOneChoosenGenre} typeOfChoice="oneChoice" />
                         )}
                         
                     </section>
