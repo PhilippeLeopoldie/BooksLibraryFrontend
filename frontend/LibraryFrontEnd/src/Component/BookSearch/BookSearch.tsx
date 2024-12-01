@@ -22,10 +22,11 @@ export const BookSearch = () => {
         className={"search_form--" + theme}
         onSubmit={handleSearch}
       >
-        <input
-                  className={`search_form--input search_form--input--${theme}`}
+          <input
+          type="search"
+          className={`search_form--input search_form--input--${theme}`}
           autoFocus
-          placeholder="Search by Title or Author"
+          placeholder="Search by Title or Author..."
           name="titleOrAuthor"
           value={searchCriteria}
           onChange={(e) => {
