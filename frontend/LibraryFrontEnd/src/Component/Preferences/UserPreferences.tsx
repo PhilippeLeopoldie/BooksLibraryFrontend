@@ -46,35 +46,6 @@ export const UserPreferences = () => {
                         )}
                         
                     </section>
-                    {/*<section className="ReadingTime">Reading time :
-                        <label className="ReadingTime_label" htmlFor="checkbox_5min">5 min</label>
-                        <input
-                            className="ReadingTime_radio"
-                            type="radio"
-                            id="checkbox_5min"
-                            value="5"
-                            checked={selectedTime === "5"}
-                            onChange={handleSelectedTime}
-                        />
-                        <label className="ReadingTime_label" htmlFor="checkbox_10min">10 min</label>
-                        <input
-                            className="ReadingTime_radio"
-                            type="radio"
-                            id="checkbox_10min"
-                            value="10"
-                            checked={selectedTime === "10"}
-                            onChange={handleSelectedTime}
-                        />
-                        <label className="ReadingTime_label" htmlFor="checkbox_15min">15 min</label>
-                        <input
-                            className="ReadingTime_radio"
-                            type="radio"
-                            id="checkbox_15min"
-                            value="15"
-                            checked={selectedTime === "15"}
-                            onChange={handleSelectedTime}
-                        />
-                    </section>*/}
                     <section className="ReadingRange"> Reading time:
                         <label className="rangeLabel" htmlFor="rangeInput">{`${rangeValue} min`}
                         </label>
