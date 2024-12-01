@@ -2,7 +2,7 @@
 import { ThemeContext } from "../../App/App";
 import "./UserPreferences.css";
 import { GenreButton } from "../../GenreButton/GenreButton";
-
+import { ReadingRange } from "../ReadingRange/ReadingRange";
 
 export const UserPreferences = () => {
     const theme = useContext(ThemeContext);
@@ -46,17 +46,7 @@ export const UserPreferences = () => {
                             <GenreButton key={index} name={genre} handleGenres={handleOneChoosenGenre} typeOfChoice="oneChoice" />
                         )}  
                     </section>
-                    <section className="ReadingRange--flex"> Reading time:
-                        <label className="rangeLabel" htmlFor="Reading_time_slider">{`${rangeValue} min`}
-                        </label>
-                        <input
-                            className="Reading_time_slider"
-                            type="range" min="0" max="20" step="5"
-                            value={rangeValue}
-                            onChange={handleRangeValue}
-                        >
-                        </input>
-                    </section>
+                    <ReadingRange/>
                     <button className="generateStory">Generate Story</button>
                 </form>
             </section>
