@@ -1,7 +1,8 @@
-﻿import React, { ChangeEvent, HtmlHTMLAttributes, useContext, useState } from "react";
-import { ThemeContext } from "../App/App";
+﻿import { ChangeEvent, HtmlHTMLAttributes, useContext, useState } from "react";
+import { ThemeContext } from "../../App/App";
 import "./UserPreferences.css";
-import { GenreButton } from "../GenreButton/GenreButton";
+import { GenreButton } from "../../GenreButton/GenreButton";
+
 
 export const UserPreferences = () => {
     const theme = useContext(ThemeContext);
@@ -43,11 +44,10 @@ export const UserPreferences = () => {
                     <section className='Genres'>
                         {genres.map((genre,index) =>
                             <GenreButton key={index} name={genre} handleGenres={handleOneChoosenGenre} typeOfChoice="oneChoice" />
-                        )}
-                        
+                        )}  
                     </section>
-                    <section className="ReadingRange"> Reading time:
-                        <label className="rangeLabel" htmlFor="rangeInput">{`${rangeValue} min`}
+                    <section className="ReadingRange--flex"> Reading time:
+                        <label className="rangeLabel" htmlFor="Reading_time_slider">{`${rangeValue} min`}
                         </label>
                         <input
                             className="Reading_time_slider"

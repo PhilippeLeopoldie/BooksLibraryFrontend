@@ -1,5 +1,5 @@
 import "./Settings.css";
-import { UserPreferences } from "../Preferences/UserPreferences";
+import { UserPreferences } from "../Preferences/UserPreferences/UserPreferences";
 import darkMode from "../../media/dark-mode48px.svg";
 import githubDarkMode from "../../media/github-DarkMode.svg";
 import githubLightMode from "../../media/github-LightMode.svg";
