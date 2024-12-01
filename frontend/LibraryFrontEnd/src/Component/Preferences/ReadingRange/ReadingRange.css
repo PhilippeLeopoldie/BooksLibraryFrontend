@@ -1,0 +1,9 @@
+.ReadingRange--flex {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.2rem;
+}
+
+.rangeLabel {
+    margin-top: 1rem;
+}
