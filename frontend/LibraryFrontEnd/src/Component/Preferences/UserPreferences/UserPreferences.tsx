@@ -3,10 +3,11 @@ import { ThemeContext } from "../../App/App";
 import "./UserPreferences.css";
 import { GenreButton } from "../../GenreButton/GenreButton";
 import { ReadingRange } from "../ReadingRange/ReadingRange";
+import { genres } from "../../../constants/genres"
 
 export const UserPreferences = () => {
     const theme = useContext(ThemeContext);
-    const genres = ['Romance', 'Children', 'Fiction', 'Thrillers', 'Scary','Technology'];
+    
     const [choosenGenres, setChoosenGenres] = useState<string[]>([]);
     const [choosenOneGenre, setChoosenOneGenre] = useState<string>("");
 
@@ -24,7 +25,6 @@ export const UserPreferences = () => {
         console.log(`Genre: ${choosenOneGenre}`)
     }
 
-    
     return (
         <>            
             <section className={`Preferences_container Preferences_container--${theme}`}>
@@ -32,7 +32,7 @@ export const UserPreferences = () => {
                 <input className="DropDownMenu_ckeckbox" type="checkbox" id="toggleCheckbox"/>
                 <form onSubmit={(e) => e.preventDefault()} className="Preferences_form">
                     <section className='Genres'>
-                        {genres.map((genre,index) =>
+                        {genres.sort().map((genre,index) =>
                             <GenreButton key={index} name={genre} handleGenres={handleOneChoosenGenre} typeOfChoice="oneChoice" />
                         )}  
                     </section>
