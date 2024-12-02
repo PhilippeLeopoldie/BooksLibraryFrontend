@@ -1,7 +1,7 @@
 import { BookCard } from "../BookCard/BookCard";
 import "./HomePage.css";
-import { BOOK_LIST_URL } from "../../Url";
-import { BOOK_TOP_BOOK_URL } from "../../Url";
+import { BOOK_LIST_URL } from "../../constants/api";
+import { BOOK_TOP_BOOK_URL } from "../../constants/api";
 import { useContext, useEffect, useState } from "react";
 import { ThemeContext } from "../App/App";
 

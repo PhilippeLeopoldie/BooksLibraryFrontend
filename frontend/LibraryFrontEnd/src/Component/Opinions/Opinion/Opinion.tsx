@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./Opinion.css";
-import { OPINION_BY_BOOKID_URL } from "../../../Url";
+import { OPINION_BY_BOOKID_URL } from "../../../constants/api";
 
 
 type OpinionType = {

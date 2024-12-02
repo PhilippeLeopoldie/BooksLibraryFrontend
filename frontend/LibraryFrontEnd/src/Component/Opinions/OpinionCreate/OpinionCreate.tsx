@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { OPINION_URL } from "../../../Url";
+import { OPINION_URL } from "../../../constants/api";
 import { RateClick } from "../../Rates/RateClick/RateClick";
 import "./OpinionCreate.css";
 import { ThemeContext } from "../../App/App";

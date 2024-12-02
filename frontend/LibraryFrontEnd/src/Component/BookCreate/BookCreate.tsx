@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import "./BookCreate.css";
 import { Link } from "react-router-dom";
-import { BOOK_URL } from "../../Url";
+import { BOOK_URL } from "../../constants/api";
 import { ThemeContext } from "../App/App";
 
 type FormDataType = {
