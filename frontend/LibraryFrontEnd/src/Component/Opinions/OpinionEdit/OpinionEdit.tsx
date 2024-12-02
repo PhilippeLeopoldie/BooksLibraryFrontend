@@ -1,5 +1,5 @@
 import { SyntheticEvent, useState, useContext } from "react";
-import {OPINION_URL} from "../../../Url";
+import { OPINION_URL } from "../../../constants/api";
 import { RateClick } from "../../Rates/RateClick/RateClick";
 import "./OpinionEdit.css"
 
