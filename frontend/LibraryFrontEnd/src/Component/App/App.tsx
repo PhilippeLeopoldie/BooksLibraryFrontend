@@ -7,6 +7,7 @@ import { createContext, useContext, useState } from "react";
 import { NavBar } from "../NavBar/NavBar";
 import { Settings } from "../Settings/Settings";
 import { SideBar } from "../SideBar/SideBar"
+import { StoryCard } from "../Story/StoryCard";
 
 
 type ButtonContextType = {
@@ -45,6 +46,7 @@ export const App = () => {
                                     <Route path="/" element={<HomePage />} />
                                     <Route path="/addBook" element={<BookCreate />} />
                                     <Route path="/Search" element={<BookSearch />} />
+                                    <Route path="/createStory" element={<StoryCard/> } />
                                     {/*<Route path="/Settings" element={<Settings theme={theme} handleTheme={handleTheme} />} />*/}
                                 </Routes>
                             </section>

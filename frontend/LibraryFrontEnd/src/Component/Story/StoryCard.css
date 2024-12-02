@@ -1,0 +1,8 @@
+.StoryCard_container, .StoryCard_container > * {
+    background-color: inherit;
+    
+}
+
+.StoryCard_container--black > * {
+    color:#ffffff;
+}

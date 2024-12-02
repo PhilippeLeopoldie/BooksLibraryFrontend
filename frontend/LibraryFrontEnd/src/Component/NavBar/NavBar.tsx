@@ -9,9 +9,6 @@ import homeBlueIcone from "../../media/home_blue_48px.svg";
 import "./NavBar.css"
 import searchIcone from "../../media/search48px.svg";
 import searchBlueIcone from "../../media/search_blue_48px.svg";
-import settingsIcone from "../../media/settings48px.svg";
-import settingsBlueIcone from "../../media/settings_blue_48px.svg";
-import { Settings } from "../Settings/Settings"
 
 type NavBarType = {
     theme: string,
@@ -69,6 +66,28 @@ export const NavBar = ({ theme, handleTheme }: NavBarType) => {
                     </figcaption>
                 </Link>
                 <Link
+                    className="nav-link nav__createStory--flex"
+                    to="/createStory"
+                    onClick={() => {
+                        setActiveNavItem("createStory");
+                    }}
+                >
+                    <img
+                        className="nav-link icone nav__createStory"
+                        src={activeNavItem === "createStory" ? bookBlueIcone : bookIcone}
+                        alt="CreateStory"
+                    />
+                    <figcaption
+                        className={
+                            activeNavItem === "createStory"
+                                ? "iconeTitle--blue nav__createStory__Title"
+                                : "iconeTitle nav__createStory__Title"
+                        }
+                    >
+                        Create AI Story
+                    </figcaption>
+                </Link>
+                <Link
                     className="nav-link nav__addBook--flex"
                     to="/addBook"
                     onClick={() => {
@@ -96,7 +115,6 @@ export const NavBar = ({ theme, handleTheme }: NavBarType) => {
                     </figcaption>
                 </Link>
             </nav>
-            {activeNavItem === "settings" && (<Settings theme={theme} handleTheme={handleTheme} />)}
         </>
     );
 };
