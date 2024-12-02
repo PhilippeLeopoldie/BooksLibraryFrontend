@@ -1,11 +1,11 @@
 ﻿import { useContext, useState } from "react";
 import { ThemeContext } from "../../App/App";
-import "./UserPreferences.css";
+import "./AppUserPreferences.css";
 import { GenreButton } from "../../GenreButton/GenreButton";
 import { ReadingRange } from "../ReadingRange/ReadingRange";
 import { genres } from "../../../constants/genres"
 
-export const UserPreferences = () => {
+export const AppUserPreferences = () => {
     const theme = useContext(ThemeContext);
     
     const [choosenGenres, setChoosenGenres] = useState<string[]>([]);

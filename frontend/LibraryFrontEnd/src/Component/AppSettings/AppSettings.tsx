@@ -1,5 +1,5 @@
 import "./AppSettings.css";
-import { UserPreferences } from "../Preferences/UserPreferences/UserPreferences";
+import { AppUserPreferences } from "../Preferences/AppUserPreferences/AppUserPreferences";
 import darkMode from "../../media/dark-mode48px.svg";
 import githubDarkMode from "../../media/github-DarkMode.svg";
 import githubLightMode from "../../media/github-LightMode.svg";
@@ -20,7 +20,7 @@ export const Settings = ({ theme, handleTheme }: SettingsType) => {
                     <h2 className={`Settings--${theme}`}>Settings</h2>
                 </header>
                 <nav className={`Settings--${theme}`}>
-                    <div className={`Settings Settings--${theme}`}><UserPreferences/></div>
+                    <div className={`Settings Settings--${theme}`}><AppUserPreferences/></div>
                     <section onClick={handleTheme} className={`Settings_Theme Settings Settings--${theme}`} >
                         <img
                             className={` Settings--${theme}`}                           
