@@ -1,4 +1,4 @@
-import "./Settings.css";
+import "./AppSettings.css";
 import { UserPreferences } from "../Preferences/UserPreferences/UserPreferences";
 import darkMode from "../../media/dark-mode48px.svg";
 import githubDarkMode from "../../media/github-DarkMode.svg";

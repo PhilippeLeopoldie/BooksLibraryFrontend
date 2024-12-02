@@ -1,5 +1,5 @@
 import "../SideBar/SideBar.css"
-import { Settings } from "../Settings/Settings";
+import { Settings } from "../AppSettings/AppSettings";
 import { ThemeContext } from "../App/App";
 import { useState } from "react";
 
