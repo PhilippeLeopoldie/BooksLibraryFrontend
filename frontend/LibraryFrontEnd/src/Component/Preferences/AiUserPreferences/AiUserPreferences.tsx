@@ -3,28 +3,24 @@ import { ThemeContext } from "../../App/App";
 import { genres } from "../../../constants/genres";
 import { GenreButton } from "../../GenreButton/GenreButton";
 import { ReadingRange } from "../ReadingRange/ReadingRange";
+import "./AiUserPreferences.css";
 
 export const AiUserPreferences = () => {
     const theme = useContext(ThemeContext);
-    const [choosenOneGenre, setChoosenOneGenre] = useState<string>("");
+    const [Genre, setGenre] = useState<string>("");
 
-    const handleOneChoosenGenre = (genre: string) => {
-        setChoosenOneGenre(genre);
-        console.log(`Genre: ${choosenOneGenre}`)
+    const handleGenre = (genre: string) => {
+        setGenre(genre);
+        console.log(`Genre: ${Genre}`)
     }
     return (
-        <section className={`Preferences_container Preferences_container--${theme}`}>
-            <label className="DropDownMenu_label" htmlFor="toggleCheckbox">My stories preferences... </label>
-            <input className="DropDownMenu_ckeckbox" type="checkbox" id="toggleCheckbox" />
-            <form onSubmit={(e) => e.preventDefault()} className="Preferences_form">
-                <section className='Genres'>
+        <section className={`AiUserPreferences_container AiUserPreferences_container--${theme}`}>
+                <section className='AiGenres'>
                     {genres.sort().map((genre, index) =>
-                        <GenreButton key={index} name={genre} handleGenres={handleOneChoosenGenre} typeOfChoice="oneChoice" />
+                        <GenreButton key={index} name={genre} handleGenres={handleGenre} typeOfChoice="oneChoice" />
                     )}
                 </section>
-                <ReadingRange />
-                <button className="generateStory">Generate Story</button>
-            </form>
+                <ReadingRange/>
         </section>
     )
 }

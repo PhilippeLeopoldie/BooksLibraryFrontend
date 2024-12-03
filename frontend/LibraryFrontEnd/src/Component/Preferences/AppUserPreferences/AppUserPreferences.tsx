@@ -2,27 +2,20 @@
 import { ThemeContext } from "../../App/App";
 import "./AppUserPreferences.css";
 import { GenreButton } from "../../GenreButton/GenreButton";
-import { ReadingRange } from "../ReadingRange/ReadingRange";
 import { genres } from "../../../constants/genres"
 
 export const AppUserPreferences = () => {
     const theme = useContext(ThemeContext);
     
-    const [choosenGenres, setChoosenGenres] = useState<string[]>([]);
-    const [choosenOneGenre, setChoosenOneGenre] = useState<string>("");
+    const [Genres, setGenres] = useState<string[]>([]);
 
-    const handleMultipleChoosenGenres = (genre: string) => {
-        setChoosenGenres((prevGenres) =>
+    const handleMultipleGenres = (genre: string) => {
+        setGenres((prevGenres) =>
             prevGenres.includes(genre) ?
                 prevGenres.filter((g) => g !== genre) :
                 [...prevGenres, genre]
         );
-        console.log(`List of genres: ${choosenGenres}`)
-    }
-
-    const handleOneChoosenGenre = (genre: string) => {
-        setChoosenOneGenre(genre);
-        console.log(`Genre: ${choosenOneGenre}`)
+        console.log(`List of genres: ${Genres}`)
     }
 
     return (
@@ -32,12 +25,11 @@ export const AppUserPreferences = () => {
                 <input className="DropDownMenu_ckeckbox" type="checkbox" id="toggleCheckbox"/>
                 <form onSubmit={(e) => e.preventDefault()} className="Preferences_form">
                     <section className='Genres'>
-                        {genres.sort().map((genre,index) =>
-                            <GenreButton key={index} name={genre} handleGenres={handleOneChoosenGenre} typeOfChoice="oneChoice" />
+                        {genres.sort().map((genre, index) =>
+                            <GenreButton key={index} name={genre} handleGenres={handleMultipleGenres} typeOfChoice="multiChoices" />
                         )}  
                     </section>
-                    <ReadingRange/>
-                    <button className="generateStory">Generate Story</button>
+                    
                 </form>
             </section>
             

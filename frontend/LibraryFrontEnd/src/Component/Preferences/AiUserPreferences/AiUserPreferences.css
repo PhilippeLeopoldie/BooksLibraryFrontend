@@ -1,0 +1,12 @@
+.AiUserPreferences_container, AiUserPreferences_container > * {
+    background-color:inherit;
+}
+
+.AiGenres {
+    background-color: inherit;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 0.5rem 0;
+    margin: 1rem 0rem;
+}
