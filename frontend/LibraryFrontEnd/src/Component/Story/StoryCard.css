@@ -1,8 +1,9 @@
 .StoryCard_container, .StoryCard_container > * {
     background-color: inherit;
-    
+    margin-top: 2rem;
 }
 
-.StoryCard_container--black > * {
-    color:#ffffff;
+.StoryCard_header--black, .AiUserPreferences_section {
+    background-color: inherit;
+    color: #ffffff;
 }
