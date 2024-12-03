@@ -21,7 +21,7 @@ export const AppUserPreferences = () => {
     return (
         <>            
             <section className={`Preferences_container Preferences_container--${theme}`}>
-                <label className="DropDownMenu_label" htmlFor="toggleCheckbox">My stories preferences... </label>
+                <label className="DropDownMenu_label" htmlFor="toggleCheckbox">My genres preferences... </label>
                 <input className="DropDownMenu_ckeckbox" type="checkbox" id="toggleCheckbox"/>
                 <form onSubmit={(e) => e.preventDefault()} className="Preferences_form">
                     <section className='Genres'>
