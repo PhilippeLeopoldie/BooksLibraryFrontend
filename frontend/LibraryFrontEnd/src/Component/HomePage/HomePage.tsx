@@ -3,7 +3,8 @@ import "./HomePage.css";
 import { BOOK_LIST_URL } from "../../constants/api";
 import { BOOK_TOP_BOOK_URL } from "../../constants/api";
 import { useContext, useEffect, useState } from "react";
-import { ThemeContext } from "../App/App";
+import { newBooksFetchingContext, ThemeContext, topBooksFetchingContext } from "../App/App";
+
 
 type BookType = {
     id: number;
@@ -22,18 +23,22 @@ type OpinionType = {
 
 export const HomePage = () => {
     const theme = useContext(ThemeContext);
-    const [newBooks, setBooks] = useState<BookType[] | null>(null);
-    const [topBook, setTopBook] = useState<BookType[] | null>(null);
-    const [numberOfBooks, setNumberOfBook] = useState<number>(3);
-    const [isFetched, setIsfetched] = useState<boolean>(false);
-    const fetchBooks = async () => {
+    const newBooksContext = useContext(newBooksFetchingContext);
+    const topBooksContext = useContext(topBooksFetchingContext);
+    const [newBooks, setNewBooks] = useState<BookType[] | undefined | null>(newBooksContext?.newFetchedBooks);
+    const [topBooks, setTopBooks] = useState<BookType[] | undefined | null>(topBooksContext?.topFetchedBooks);
+    const [numberOfBooks, setNumberOfBooks] = useState<number>(3);
+    
+    const fetchNewBooks = async () => {
         try {
-            const booksResponse: Response = await fetch(BOOK_LIST_URL);
-            if (booksResponse.status === 200) {
-                const booksResponseData = await booksResponse.json();
-                setBooks(booksResponseData.books);
-            } else if (booksResponse.status === 404) {
-                console.log(booksResponse);
+            const newBooksResponse: Response = await fetch(BOOK_LIST_URL);
+            if (newBooksResponse.status === 200) {
+                const newBooksResponseData = await newBooksResponse.json();
+                setNewBooks(newBooksResponseData.books);
+                newBooksContext?.setNewFetchedBooks(newBooksResponseData.books);
+                
+            } else if (newBooksResponse.status === 404) {
+                console.log(newBooksResponse);
             }
         } catch (error) {
             console.error("Error fetching books:", error);
@@ -42,10 +47,11 @@ export const HomePage = () => {
 
     const fetchTopBook = async () => {
         try {
-            const topBookResponse: Response = await fetch(`${BOOK_TOP_BOOK_URL} ${numberOfBooks}`);
+            const topBookResponse: Response = await fetch(`${BOOK_TOP_BOOK_URL}${numberOfBooks}`);
             if (topBookResponse.status === 200) {
                 const topBookResponseData = await topBookResponse.json();
-                setTopBook(topBookResponseData);
+                setTopBooks(topBookResponseData);
+                topBooksContext?.setTopFetchedBooks(topBookResponseData);
             } else if (topBookResponse.status === 404) {
                 console.log(topBookResponse);
             }
@@ -55,13 +61,11 @@ export const HomePage = () => {
     };
 
     useEffect(() => {
-        if (newBooks === null) {
-            fetchTopBook();
-            fetchBooks();
-        }
+        if (!newBooks) fetchNewBooks();
+        if (!topBooks) fetchTopBook();
     }, []);
 
-    if (!newBooks) {
+    if (!newBooks || !topBooks) {
         return <h1 className={"Books__Loading--" + theme}>Loading...</h1>;
     }
 
@@ -70,7 +74,7 @@ export const HomePage = () => {
             <div className={`BookList--${theme}--flex`}>
                 <h1 className="BookList_Top">{`Top ${numberOfBooks} Most popular`}</h1>
                 <div className="bookListContainer">
-                    {topBook?.map((topBook) => (
+                    {topBooks?.map((topBook) => (
                         <BookCard key={topBook.id} book={topBook} />
                     ))}
                 </div>
