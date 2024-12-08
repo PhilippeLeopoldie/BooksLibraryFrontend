@@ -4,7 +4,7 @@ import { BookCover } from "./BookCover/BookCover";
 import { BookBody } from "./BookBody/BookBody";
 import { OpinionCreate } from "../Opinions/OpinionCreate/OpinionCreate";
 import { OpinionList } from "../Opinions/OpinionList/OpinionList";
-import { ThemeContext } from "../App/App";
+import { ThemeContext } from "../../App/App";
 import { BOOK_BY_BOOKID_URL } from "../../constants/api";
 import { useContext, useEffect, useState } from "react";
 import { BookFooter } from "./BookFooter/BookFooter";

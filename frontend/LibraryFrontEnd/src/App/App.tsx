@@ -1,12 +1,12 @@
 import "./App.css";
-import { BookCreate } from "../BookCreate/BookCreate";
-import { HomePage } from "../HomePage/HomePage";
+import { BookCreate } from "../Component/BookCreate/BookCreate";
+import { HomePage } from "../Component/HomePage/HomePage";
 import { Routes, BrowserRouter, Route } from "react-router-dom";
-import { BookSearch } from "../BookSearch/BookSearch";
+import { BookSearch } from "../Component/BookSearch/BookSearch";
 import { createContext, useContext, useState } from "react";
-import { NavBar } from "../NavBar/NavBar";
-import { SideBar } from "../SideBar/SideBar"
-import { StoryCard } from "../Story/StoryCard";
+import { NavBar } from "../Component/NavBar/NavBar";
+import { SideBar } from "../Component/SideBar/SideBar"
+import { StoryCard } from "../Component/Story/StoryCard";
 
 
 type ButtonContextType = {

@@ -3,7 +3,7 @@ import "./HomePage.css";
 import { BOOK_LIST_URL } from "../../constants/api";
 import { BOOK_TOP_BOOK_URL } from "../../constants/api";
 import { useContext, useEffect, useState } from "react";
-import { newBooksFetchingContext, ThemeContext, topBooksFetchingContext } from "../App/App";
+import { newBooksFetchingContext, ThemeContext, topBooksFetchingContext } from "../../App/App";
 
 
 type BookType = {

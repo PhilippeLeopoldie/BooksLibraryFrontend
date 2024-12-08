@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { ThemeContext } from "../../App/App";
+import { ThemeContext } from "../../../App/App";
 import { genres } from "../../../constants/genres";
 import { GenreButton } from "../../GenreButton/GenreButton";
 import { ReadingRange } from "../ReadingRange/ReadingRange";

@@ -1,6 +1,6 @@
 import "./ReadingRange.css"
 import  { ChangeEvent,useContext,useState } from "react";
-import { ThemeContext } from "../../App/App";
+import { ThemeContext } from "../../../App/App";
 
 export const ReadingRange = () => {
     const theme = useContext(ThemeContext);

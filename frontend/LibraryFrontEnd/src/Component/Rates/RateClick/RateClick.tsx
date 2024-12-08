@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import "../Rate/Rate.css";
-import { ThemeContext } from "../../App/App";
+import { ThemeContext } from "../../../App/App";
 
 type RateType = {
   rate: number;

@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { ButtonContext } from "../App/App";
+import { ButtonContext } from "../../App/App";
 import "../GenreButton/GenreButton.css";
 
 type GenreButtonType = {

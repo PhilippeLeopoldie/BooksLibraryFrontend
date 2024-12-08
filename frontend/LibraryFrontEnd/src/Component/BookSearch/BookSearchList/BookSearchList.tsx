@@ -2,7 +2,7 @@ import { BookCard } from "../../BookCard/BookCard";
 import "../../BookSearch/BookSearchList/BookSearchList.css";
 import { useContext, useEffect, useState } from "react";
 import { BOOK_BY_TITLE_OR_AUTHOR_URL } from "../../../constants/api";
-import { ThemeContext } from "../../App/App";
+import { ThemeContext } from "../../../App/App";
 
 type BooksType = {
     book: {

@@ -1,5 +1,5 @@
 import { Context, useContext } from "react";
-import { ThemeContext } from "../App/App";
+import { ThemeContext } from "../../App/App";
 import { AiUserPreferences } from "../Preferences/AiUserPreferences/AiUserPreferences";
 import { AiStory } from "../Story/AiStory/AiStory";
 import "./StoryCard.css"
