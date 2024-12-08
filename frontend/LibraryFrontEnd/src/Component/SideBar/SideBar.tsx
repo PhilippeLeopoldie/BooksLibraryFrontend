@@ -1,6 +1,6 @@
 import "../SideBar/SideBar.css"
 import { Settings } from "../AppSettings/AppSettings";
-import { ThemeContext } from "../App/App";
+import { ThemeContext } from "../../App/App";
 import { useState } from "react";
 
 
