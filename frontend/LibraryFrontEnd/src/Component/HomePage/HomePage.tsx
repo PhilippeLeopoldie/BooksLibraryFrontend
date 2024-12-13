@@ -72,13 +72,13 @@ export const HomePage = () => {
     return (
         <>
             <div className={`BookList--${theme}--flex`}>
-                <h1 className="BookList_Top">{`Top ${numberOfBooks} Most popular`}</h1>
+                <h1 className="BookListTitle">Popular</h1>
                 <div className="bookListContainer">
                     {topBooks?.map((topBook) => (
                         <BookCard key={topBook.id} book={topBook} />
                     ))}
                 </div>
-                <h1 className="BookList">New books</h1>
+                <h1 className="BookListTitle">Recent</h1>
                 <div className="bookListContainer">
                     {newBooks &&
                         Array.isArray(newBooks) &&

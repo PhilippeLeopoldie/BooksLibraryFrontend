@@ -17,8 +17,9 @@
         color: #ffffff;
 }
 
-.BookList_Top {
-    margin-top: 1rem;
+.BookListTitle {
+    text-align:left;
+    margin-left:1rem;
 }
 
 .Books__Loading--black {
@@ -42,19 +43,13 @@
 
 
 @media screen and (min-width: 700px) {
-
     .bookListContainer, .BookList__mostPopular {
         grid-template-columns: repeat(2, auto);
         margin-bottom: 0%;
     }
-
-    .BookList_Top {
-        margin-top: 0;
-    }
 }
 
 @media screen and (min-width: 1024px) {
-
     .bookListContainer {
         display: grid;
         justify-content: center;
