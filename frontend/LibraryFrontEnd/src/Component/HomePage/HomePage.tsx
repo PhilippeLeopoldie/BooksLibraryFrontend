@@ -3,7 +3,7 @@ import "./HomePage.css";
 import { BOOK_LIST_URL } from "../../constants/api";
 import { BOOK_TOP_BOOK_URL } from "../../constants/api";
 import { useContext, useEffect, useState } from "react";
-import { newBooksFetchingContext, ThemeContext, topBooksFetchingContext } from "../../App/App";
+import { newBooksCacheContext, ThemeContext, topBooksCacheContext } from "../../App/App";
 
 
 type BookType = {
@@ -23,10 +23,10 @@ type OpinionType = {
 
 export const HomePage = () => {
     const theme = useContext(ThemeContext);
-    const newBooksContext = useContext(newBooksFetchingContext);
-    const topBooksContext = useContext(topBooksFetchingContext);
-    const [newBooks, setNewBooks] = useState<BookType[] | undefined | null>(newBooksContext?.newFetchedBooks);
-    const [topBooks, setTopBooks] = useState<BookType[] | undefined | null>(topBooksContext?.topFetchedBooks);
+    const newBooksCache = useContext(newBooksCacheContext);
+    const topBooksCache = useContext(topBooksCacheContext);
+    const [newBooks, setNewBooks] = useState<BookType[] | undefined | null>(newBooksCache?.newBooksCache);
+    const [topBooks, setTopBooks] = useState<BookType[] | undefined | null>(topBooksCache?.topBooksCache);
     const [numberOfBooks, setNumberOfBooks] = useState<number>(3);
     
     const fetchNewBooks = async () => {
@@ -35,7 +35,7 @@ export const HomePage = () => {
             if (newBooksResponse.status === 200) {
                 const newBooksResponseData = await newBooksResponse.json();
                 setNewBooks(newBooksResponseData.books);
-                newBooksContext?.setNewFetchedBooks(newBooksResponseData.books);
+                newBooksCache?.setNewBooksCache(newBooksResponseData.books);
                 
             } else if (newBooksResponse.status === 404) {
                 console.log(newBooksResponse);
@@ -51,7 +51,7 @@ export const HomePage = () => {
             if (topBookResponse.status === 200) {
                 const topBookResponseData = await topBookResponse.json();
                 setTopBooks(topBookResponseData);
-                topBooksContext?.setTopFetchedBooks(topBookResponseData);
+                topBooksCache?.setTopBooksCache(topBookResponseData);
             } else if (topBookResponse.status === 404) {
                 console.log(topBookResponse);
             }

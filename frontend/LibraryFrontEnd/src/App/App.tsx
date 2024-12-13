@@ -29,27 +29,27 @@ type OpinionType = {
     userName: string;
 };
 
-type NewBooksFetchingContextType = {
-    newFetchedBooks: BookType[] | null,
-    setNewFetchedBooks: (newStatus: BookType[]) => void
+type NewBooksCacheContextType = {
+    newBooksCache: BookType[] | null,
+    setNewBooksCache: (newStatus: BookType[]) => void
 }
 
-type TopBooksFetchingContextType = {
-    topFetchedBooks: BookType[] | null,
-    setTopFetchedBooks: (newStatus: BookType[]) => void
+type TopBooksCacheContextType = {
+    topBooksCache: BookType[] | null,
+    setTopBooksCache: (newStatus: BookType[]) => void
 }
 
 export const ThemeContext = createContext<string>("black");
 export const ButtonContext = createContext<ButtonContextType | undefined>(undefined);
-export const newBooksFetchingContext = createContext<NewBooksFetchingContextType | null>(null);
-export const topBooksFetchingContext = createContext<TopBooksFetchingContextType | null>(null);
+export const newBooksCacheContext = createContext<NewBooksCacheContextType | null>(null);
+export const topBooksCacheContext = createContext<TopBooksCacheContextType | null>(null);
 
 export const App = () => {
     const rootElement = document.documentElement;
     const [theme, setTheme] = useState<string>("black");
     const [buttonStatus, setButtonStatus] = useState<string>("inactivated");
-    const [newFetchedBooks, setNewFetchedBooks] = useState<BookType[] | null>(null);
-    const [topFetchedBooks, setTopFetchedBooks] = useState<BookType[] | null>(null);
+    const [newBooksCache, setNewBooksCache] = useState<BookType[] | null>(null);
+    const [topBooksCache, setTopBooksCache] = useState<BookType[] | null>(null);
     const handleTheme = () => {
         setTheme(theme === "natural" ? "black" : "natural");
     }
@@ -63,8 +63,8 @@ export const App = () => {
             </script>
             <ThemeContext.Provider value={theme}>
                 <ButtonContext.Provider value={{ buttonStatus, setButtonStatus }}>
-                    <newBooksFetchingContext.Provider value={{ newFetchedBooks, setNewFetchedBooks }}>
-                        <topBooksFetchingContext.Provider value={{ topFetchedBooks, setTopFetchedBooks }}>
+                    <newBooksCacheContext.Provider value={{ newBooksCache, setNewBooksCache }}>
+                        <topBooksCacheContext.Provider value={{ topBooksCache, setTopBooksCache }}>
                             <BrowserRouter>
                                 <div className={`App App--${theme}`}>
                                     <section className={`App--${theme} App_navBar--container`}>
@@ -81,8 +81,8 @@ export const App = () => {
                                     </section>
                                 </div>
                             </BrowserRouter>
-                        </topBooksFetchingContext.Provider>
-                    </newBooksFetchingContext.Provider>
+                        </topBooksCacheContext.Provider>
+                    </newBooksCacheContext.Provider>
                 </ButtonContext.Provider>
             </ThemeContext.Provider>
         </div>
