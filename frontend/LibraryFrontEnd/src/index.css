@@ -1,8 +1,25 @@
+:root {
+    --backgroundcolor-darkmode: #1e1e1e;
+    --backgroundcolor-whitesmoke: #F5F5F5;
+    --backgroundcolorcard-light: #ffffff;
+    --backgroundcolorcard-darkmode: #000000;
+    --fontcolor-dark: #ffffff;
+    --fontcolor-light: #000000;
+    --button-backgroundcolor: #1f6feb;
+    --button-fontcolor: #ffffff;
+    --buttonhover-border: #1cbbdb;
+    --cardborder-hover: #1cbbdb;
+    --forminputcolor: #6495ED;
+    --cardbordercolor_dark: #ffffff;
+    --cardbordercolor_light: #000000;
+    background-color: var(--backgroundcolor-darkmode);
+}
+
 * {
   font-family: serif;
   color: black;
   color-scheme: light dark;
-  background-color: rgb(243, 243, 244);
+  background-color: var(--backgroundcolor-whitesmoke);
 }
 
 input {
@@ -16,19 +33,17 @@ input {
 button {
   border-radius: 8px;
   border: 2px solid transparent;
-  border-color: #484b86;
   cursor: pointer;
   transition: border-color 0.25s;
-  color: #4ba5ff;
-  background-color:inherit;
+  color: var(--button-fontcolor);
+  background-color:var(--button-backgroundcolor);
 }
 
 button:hover {
-  border: #4bdeff 2px solid;
+  border: var(--buttonhover-border) 2px solid;
 }
 
-.icone,
-.button {
+.icone {
   background-color: transparent;
 }
 
