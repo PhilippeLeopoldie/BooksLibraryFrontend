@@ -5,7 +5,8 @@
 }
 
 .search_form--input--black {
-        color:#f3f3f4;
+    color: var(--fontcolor-dark);
+    border: 1px var(--forminputcolor) solid;
 }
 
 .search_form--black {
