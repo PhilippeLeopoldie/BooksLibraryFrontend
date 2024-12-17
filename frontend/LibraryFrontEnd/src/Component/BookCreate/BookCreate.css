@@ -90,15 +90,13 @@
 .book-create-form__cancel-button {
     font-size: 1rem;
     margin-top: 1rem;
-    margin-bottom: 1.5rem;
-    padding: 0 1rem;
+    margin-bottom: 1.5rem;    
 }
 
 .book-create-form__post-button {
   font-weight: bold;
   font-size: 1.2rem;
   margin-top: 1rem;
-  margin-bottom: 1.5rem;
-  padding: 0 1rem;
+  margin-bottom: 1.5rem;  
 }
 

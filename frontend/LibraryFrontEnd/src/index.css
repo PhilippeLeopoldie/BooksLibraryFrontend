@@ -31,12 +31,13 @@ input {
 }
 
 button {
-  border-radius: 8px;
+  border-radius: 2rem;
   border: 2px solid transparent;
   cursor: pointer;
   transition: border-color 0.25s;
   color: var(--button-fontcolor);
   background-color:var(--button-backgroundcolor);
+  padding:0 1.2rem;
 }
 
 button:hover {
