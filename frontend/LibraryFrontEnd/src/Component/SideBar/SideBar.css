@@ -22,7 +22,7 @@
 }
 
 .SideBar_activated--black {
-    background-color: #000000;
+    background-color: var(--backgroundcolor-darkmode);
 }
 
 .SideBar_activated--natural, .SideBar_inactivated--natural{
@@ -39,11 +39,11 @@
 }
 
 .Lines--black {
-    border-top: 2px solid #ffffff;
+    border-top: 2px solid var(--fontcolor-dark);
 }
 
 .Lines--natural {
-    border-top: 2px solid #000000;
+    border-top: 2px solid var(--fontcolor-light);
 }
 
 .SideBar_container--inactivated  .Line1 {
@@ -69,8 +69,8 @@
     margin-bottom: 0;  
 }
 
-.SideBar_settings--black { 
-    background-color: #000000;
+.SideBar_settings--black {
+    background-color: var( --backgroundcolor-darkmode);
     width: 20rem;
 }
 
@@ -101,7 +101,7 @@
     }
 
     .Lines--natural {
-        border-top: 2px solid #ffffff;
+        border-top: 2px solid var(--fontcolor-dark);
     }
 
     .SideBar_container--inactivated {

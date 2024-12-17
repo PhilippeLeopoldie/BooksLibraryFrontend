@@ -9,21 +9,25 @@
   border-radius: 10px;
 }
 
+.opinionCreateCard--grid:hover {
+    border: 1px var(--cardborder-hover) solid;
+}
+
 .opinionCreate__header {
   border-radius: 10px;
 }
 
 .opinionCreate--natural {
-  background: #ffffff;
+    background: var(--backgroundcolor-whitesmoke);
 }
 
 .opinionCreate--black {
-  background: #000000;
-  color:#ffffff
+    background: var(--backgroundcolor-darkmode);
+    color: var(--fontcolor-dark);
 }
 
 .opinionCreateCard--black--grid {
-  border: 1px #ffffff solid;
+    border: 1px var(--cardbordercolor_dark) solid;
 }
 
 .opinionCreate__main--grid {
@@ -44,17 +48,19 @@
     margin: 0 2%;
     border-radius: 10px;
     background-color: inherit;
-    color:inherit;
+    color: inherit;
     font-size: 1.25rem;
     max-width: 16.5rem;
     resize: none;
+    border: 1px var(--formcolor) solid;
 }
 
-.opinionCreate__input{
-  margin:2%;
-  max-width: 16.5rem;
-  font-size: 1.25rem;
-  color:inherit;
+.opinionCreate__input {
+    margin: 2%;
+    max-width: 16.5rem;
+    font-size: 1.25rem;
+    color: inherit;
+    border: 1px var(--formcolor) solid;
 }
 
 .opinionCreate__footer--flex {

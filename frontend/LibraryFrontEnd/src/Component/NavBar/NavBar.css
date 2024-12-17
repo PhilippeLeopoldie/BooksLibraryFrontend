@@ -11,8 +11,8 @@
   height: 2.8rem;
 }
 
-.navbar--natural{
- background-color:#000000;
+.navbar--natural {
+    background-color: var(--backgroundcolor-darkmode);
 }
 
 .icone {

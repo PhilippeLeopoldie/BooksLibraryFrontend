@@ -58,8 +58,8 @@ export const App = () => {
         <div className={`App App--${theme}`}>
             <script>
                 {theme === "black"
-                    ? (rootElement.style.backgroundColor = "#000000")
-                    : (rootElement.style.backgroundColor = "#f3f3f4")}
+                    ? (rootElement.style.backgroundColor = "#1e1e1e")
+                    : (rootElement.style.backgroundColor = "#F5F5F5")}
             </script>
             <ThemeContext.Provider value={theme}>
                 <ButtonContext.Provider value={{ buttonStatus, setButtonStatus }}>

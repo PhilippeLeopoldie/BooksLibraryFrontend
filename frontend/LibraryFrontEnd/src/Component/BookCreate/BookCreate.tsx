@@ -78,11 +78,6 @@ export const BookCreate = () => {
             <section
                 className={`book-create-form__container--${theme} book-create-form__container`}
             >
-                <script>
-                    {theme === "black"
-                        ? (rootElement.style.backgroundColor = "#000000")
-                        : (rootElement.style.backgroundColor = "#f3f3f4")}
-                </script>
                 <form
                     onSubmit={(e) => e.preventDefault()}
                     action={BOOK_URL}

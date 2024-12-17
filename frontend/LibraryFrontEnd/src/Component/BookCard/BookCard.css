@@ -1,57 +1,59 @@
 .bookcard--grid {
-  border: 1px gray solid;
-  display: grid;
-  grid-template-rows: 70% 20% 10%;
-  width: 18rem;
-  min-width: 18rem;
-  height: 29rem;
-  min-height: 29rem;
-  margin: 0 1rem 2rem 1rem;
-  background-color: #ffffff;
-  border-radius: 10px;
+    border: 1px gray solid;
+    display: grid;
+    grid-template-rows: 70% 20% 10%;
+    width: 18rem;
+    min-width: 18rem;
+    height: 29rem;
+    min-height: 29rem;
+    margin: 0 1rem 2rem 1rem;
+    background-color: var(--backgroundcolor-white);
+    border-radius: 10px;
 }
 
+    .bookcard--grid:hover {
+        border: 1px var(--cardborder-hover) solid;
+    }
+
 .bookcard--black {
-  background-color: #000000;
-  border: 1px #ffffff solid;
-  .booktitle,
-  .bookauthor {
-    color: #ffffff;
-  }
+    background-color: inherit;
+    border: 1px var(--cardbordercolor_dark) solid;
+    & .booktitle, & .bookauthor {
+    color: var(--fontcolor-dark);
+    }
 }
 
 .bookcard__footer--flex {
-  display: flex;
-  max-width: 18rem;
-  align-items: center;
-  justify-content: space-between;
-  background-color: transparent;
+    display: flex;
+    max-width: 18rem;
+    align-items: center;
+    justify-content: space-between;
+    background-color: transparent;
 }
 
-.bookcard__footer-average-rate--flex{
-  display:flex;
-  background-color: transparent;
+.bookcard__footer-average-rate--flex {
+    display: flex;
+    background-color: transparent;
 }
 
 .bookcard__footer-average-rate {
-  font-weight: bold;
-  text-align: right;
-  color: #4ba5ff;
-  text-decoration: underline;
-  cursor: pointer;
-  background-color: transparent;
-  margin-left: 10%;
+    font-weight: bold;
+    text-align: right;
+    color: #4ba5ff;
+    text-decoration: underline;
+    cursor: pointer;
+    background-color: transparent;
+    margin-left: 10%;
 }
 
 .rate_star {
-  margin-top: -1rem;
+    margin-top: -1rem;
 }
 
 .bookFooter__RateButton {
-  margin-bottom: 4%;
-  margin-right: 3%;
-  width: 50%;
-  font-size: 1rem;
-  font-weight: bolder;
-  color: #4ba5ff;
+    margin-bottom: 4%;
+    margin-right: 3%;
+    width: 50%;
+    font-size: 1rem;
+    font-weight: bolder;
 }

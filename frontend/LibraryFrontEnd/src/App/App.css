@@ -20,7 +20,7 @@
 }
 
 .App--black{
-  background-color: #000000;
+  background-color: var(--backgroundcolor-darkmode);
   .navbar--black {
     background-color:inherit;
   }

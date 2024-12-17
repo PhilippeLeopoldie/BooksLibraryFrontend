@@ -1,9 +1,6 @@
 .BookList--black {
     background-color: inherit;
-    .BookList {
-    background-color: inherit;
-    color: #ffffff;
-    }
+    
 }
 
 .BookList--black--flex {

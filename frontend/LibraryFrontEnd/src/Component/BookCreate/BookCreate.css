@@ -1,14 +1,15 @@
 .book-create-form__container {
-  margin: 2rem auto auto auto;
-  background-color:inherit;
-  display: flex;
-  justify-content: center;
-  max-width: 20rem;
-  max-height: 29rem;
-  height: 362px;
-  padding: 1rem;
-  position: relative;
-  border-radius: 10px;
+    margin: 2rem auto auto auto;
+    background-color: inherit;
+    display: flex;
+    justify-content: center;
+    max-width: 20rem;
+    max-height: 29rem;
+    height: 362px;
+    padding: 1rem;
+    position: relative;
+    border-radius: 10px;
+    border: 1px var(--forminputcolor) solid;
 }
 
 .input--black {
@@ -18,15 +19,17 @@
 .input {
     background-color: inherit;
     width: 90%;
+    border: 1px var(--forminputcolor) solid;
 }
 
 .book-create-form__container--natural {
-  border: 1px #000000 solid;
+    border: 1px var(--cardbordercolor_light) solid;
+    & .input {
+        border: 1px var(--cardbordercolor_light) solid;
+    }
 }
 
-.book-create-form__container--black {
-  border: 1px #ffffff solid;
-}
+
 
 .input__imageUrl--black,
 .input__imageUrl--natural {
@@ -85,15 +88,17 @@
 }
 
 .book-create-form__cancel-button {
-  font-size: 1rem;
-  margin-top: 1rem;
-  margin-bottom: 1.5rem;
+    font-size: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 0 1rem;
 }
 
 .book-create-form__post-button {
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   margin-top: 1rem;
   margin-bottom: 1.5rem;
+  padding: 0 1rem;
 }
 

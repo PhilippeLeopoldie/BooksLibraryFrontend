@@ -1,28 +1,32 @@
 .OpinionList--natural {
-  background: #ffffff;
-  margin: 0;
+    background: var(--backgroundcolorcard-light);
+    margin: 0;
 }
 
 .OpinionList--black {
-  background: #000000;
-  margin: 0;
-  color:#ffffff;
+    background: inherit;
+    margin: 0;
+    color: var(--fontcolor-dark);
 }
 
 .OpinionList__container--grid {
-  display: grid;
-  grid-template-rows: 30% 65% 5%;
-  width: 18rem;
-  height: 29rem;
-  border-radius: 10px;
-  margin: 0 1rem 1rem;
-  padding-top: 0rem;
-  border: 1px grey solid;
+    display: grid;
+    grid-template-rows: 30% 65% 5%;
+    width: 18rem;
+    height: 29rem;
+    border-radius: 10px;
+    margin: 0 1rem 1rem;
+    padding-top: 0rem;
+    border: 1px grey solid;
 }
 
 .OpinionList__container--black {
-  border: 1px #ffffff solid;
-  width: 18rem;
+    border: 1px var(--cardbordercolor_dark) solid;
+    width: 18rem;
+}
+
+.OpinionList__container--grid:hover {
+    border: 1px var(--cardborder-hover) solid;
 }
 
 .OpinionList__header {
@@ -81,23 +85,30 @@
 }
 
 .OpinionList__filter__button {
-  display: flex;
-  font-size: 1.5rem;
-  max-width: 2.5rem;
-  -webkit-text-size-adjust: 60%;
-  text-size-adjust:60%;
-  background-color: transparent;
-  align-items: center;
-  justify-content: center;
-    
+    display: flex;
+    font-size: 1.5rem;
+    max-width: 2.5rem;
+    -webkit-text-size-adjust: 60%;
+    text-size-adjust: 60%;
+    background-color: transparent;
+    align-items: center;
+    justify-content: center;
+    color: var(--forminputcolor);
+    border: 2px var(--forminputcolor) solid;
 }
 
-.OpinionList__reviews {
-  max-height: 19rem;
-  overflow-x: hidden;
-  padding-left: 0.5rem;
-  width: 17.5rem;
+.OpinionList__filter__button:focus {
+        border-color: var(--buttonhover-border);
+        color: var(--buttonhover-border);
 }
+
+
+    .OpinionList__reviews {
+        max-height: 19rem;
+        overflow-x: hidden;
+        padding-left: 0.5rem;
+        width: 17.5rem;
+    }
 
 .opinionlist__userName {
   text-align: start;
