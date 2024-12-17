@@ -63,7 +63,7 @@
     }
 }
 
-@media screen and (min-width: 1458px) {
+@media screen and (min-width: 1588px) {
     .bookListContainer {
         grid-template-columns: repeat(5, auto);
     }
