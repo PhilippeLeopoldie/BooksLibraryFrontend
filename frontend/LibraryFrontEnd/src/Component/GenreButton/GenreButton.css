@@ -1,8 +1,15 @@
 button {
     font-size:1.2rem;
+    
 }
 
 .Button--clicked {
     background-color: var(--buttonclicked);
     color: var(--fontcolor-light);
+}
+
+.Button--unclicked {
+    background-color: transparent;
+    color: var(--forminputcolor);
+    border-color: var(--forminputcolor);
 }
