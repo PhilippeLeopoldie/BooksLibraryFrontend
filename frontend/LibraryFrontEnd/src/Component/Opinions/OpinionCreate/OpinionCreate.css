@@ -17,6 +17,11 @@
   border-radius: 10px;
 }
 
+.opinionCreate__booktitle{
+    max-height:3.5rem;
+    overflow:auto;
+}
+
 .opinionCreate--natural {
     background: var(--backgroundcolor-whitesmoke);
 }
