@@ -3,12 +3,6 @@ button {
 }
 
 .Button--clicked {
-    background-color: #4bdeff;
-    color: #000000;
-    font-weight:bold;   
-}
-
-.Button--unclicked {
-    
-    
+    background-color: var(--buttonclicked);
+    color: var(--fontcolor-light);
 }
