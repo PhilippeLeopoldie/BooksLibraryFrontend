@@ -142,7 +142,7 @@ export const BookCreate = () => {
                                 await PostBook();
                             }}
                         >
-                            Create book
+                            Add Book
                         </button>
                     </footer>
                 </form>

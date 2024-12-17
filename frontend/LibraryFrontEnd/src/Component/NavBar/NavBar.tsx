@@ -84,7 +84,7 @@ export const NavBar = ({ theme, handleTheme }: NavBarType) => {
                                 : "iconeTitle nav__createStory__Title"
                         }
                     >
-                        Create AI Story
+                        A.I. Story
                     </figcaption>
                 </Link>
                 <Link
@@ -111,7 +111,7 @@ export const NavBar = ({ theme, handleTheme }: NavBarType) => {
                                 : "iconeTitle nav__AddBook__Title"
                         }
                     >
-                        Add book
+                        Add Book
                     </figcaption>
                 </Link>
             </nav>

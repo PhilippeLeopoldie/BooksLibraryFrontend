@@ -8,7 +8,7 @@ export const StoryCard = () => {
     const theme = useContext(ThemeContext);
     return (
         <section className={`StoryCard_container StoryCard_container--${theme}`}>
-                <h2 className={`StoryCard_header--${theme}`}>Create your own short story</h2>
+                <h2 className={`StoryCard_header--${theme}`}>Generate your own A.I. Story</h2>
                 <AiUserPreferences />
                 <AiStory/>  
         </section>
