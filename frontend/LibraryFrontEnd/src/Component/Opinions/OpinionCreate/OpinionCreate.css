@@ -52,7 +52,7 @@
     font-size: 1.25rem;
     max-width: 16.5rem;
     resize: none;
-    border: 1px var(--formcolor) solid;
+    border: 1px var(--forminputcolor) solid;
 }
 
 .opinionCreate__input {
@@ -60,7 +60,7 @@
     max-width: 16.5rem;
     font-size: 1.25rem;
     color: inherit;
-    border: 1px var(--formcolor) solid;
+    border: 1px var(--forminputcolor) solid;
 }
 
 .opinionCreate__footer--flex {
@@ -78,7 +78,6 @@
 .opinionCreate__postButton {
   font-weight: bold;
   font-size: 1.125rem;
-  padding: 0.2rem 3rem;
   margin: auto 5%;
 }
 
