@@ -110,7 +110,8 @@
     overflow-x: hidden;
     padding-left: 0.5rem;
     width: 17.5rem;
-    font-size:1.2rem;  
+    font-size: 1.2rem;
+    
 }
 
 .opinionlist__userName {
@@ -120,19 +121,20 @@
 
 .OpinionList__rate--flex {
   display: flex;
-  align-items: center;
+  padding-top:0.2rem;
 }
 
 .OpinionList__date {
-  margin-top: 0.5rem;
+  
   margin-left: 0.5rem;
 }
 
 .OpinionList__view {
-  text-align: justify;
-  margin-bottom: 1rem;
-  padding-right: 0.5rem;
-  width: 16.3rem;
+    text-align: justify;
+    margin-bottom: 1rem;
+    padding-right: 0.5rem;
+    width: 16.3rem;
+    font-family: var(--fontfamily);
 }
 
 .OpinionList__horizontalLine {
