@@ -1,5 +1,5 @@
 .bookcard--grid {
-    border: 1px gray solid;
+    border: 1px var(--cardbordercolor_light) solid;
     display: grid;
     grid-template-rows: 70% 20% 10%;
     width: 18rem;
