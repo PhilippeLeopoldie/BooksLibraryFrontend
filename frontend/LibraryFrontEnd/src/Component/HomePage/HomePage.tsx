@@ -49,9 +49,9 @@ export const HomePage = () => {
         try {
             const topBookResponse: Response = await fetch(`${BOOK_TOP_BOOK_URL}${numberOfBooks}`);
             if (topBookResponse.status === 200) {
-                const topBookResponseData = await topBookResponse.json();
-                setTopBooks(topBookResponseData);
-                topBooksCache?.setTopBooksCache(topBookResponseData);
+                const topBooksResponseData = await topBookResponse.json();
+                setTopBooks(topBooksResponseData.books);
+                topBooksCache?.setTopBooksCache(topBooksResponseData.books);
             } else if (topBookResponse.status === 404) {
                 console.log(topBookResponse);
             }
