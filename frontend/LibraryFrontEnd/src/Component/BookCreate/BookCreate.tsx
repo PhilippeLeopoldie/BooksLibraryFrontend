@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import "./BookCreate.css";
 import { Link } from "react-router-dom";
 import { BOOK_URL } from "../../constants/api";
-import { ThemeContext } from "../../App/App";
+import { newBooksCacheContext,ThemeContext } from "../../App/App";
 
 type FormDataType = {
     title: string;
@@ -12,6 +12,7 @@ type FormDataType = {
 
 export const BookCreate = () => {
     const theme = useContext(ThemeContext);
+    const newBooksCache = useContext(newBooksCacheContext);
     const [formData, setFormData] = useState<FormDataType>({
         title: "",
         author: "",
@@ -43,6 +44,7 @@ export const BookCreate = () => {
             setErrorBook(false);
             const body = await bookResponse.json();
             setBookCreatedMessage(true);
+            newBooksCache?.setNewBooksCache([]);
             setFormData({
                 title: "",
                 author: "",

@@ -61,11 +61,11 @@ export const HomePage = () => {
     };
 
     useEffect(() => {
-        if (!newBooks) fetchNewBooks();
+        if (!newBooks || newBooks.length === 0) fetchNewBooks();
         if (!topBooks) fetchTopBook();
     }, []);
 
-    if (!newBooks || !topBooks) {
+    if (!newBooks || newBooks.length === 0 || !topBooks) {
         return <h1 className={"Books__Loading--" + theme}>Loading...</h1>;
     }
 
