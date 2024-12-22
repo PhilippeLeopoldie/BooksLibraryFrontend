@@ -1,3 +1,3 @@
-export const genres = ['Romance', 'Children', 'Fiction', 'Thrillers', 'Scary', 'Technology'];
+export const genres = ['Romance', 'Children','Young adult', 'Fiction', 'Thrillers', 'Horror', 'Technology'];
     
     
