@@ -131,13 +131,13 @@ Even after deployed, development continues actively, following the <span style =
 
   [Backend repository](https://github.com/PhilippeLeopoldie/bookLibraryBackend)
   
-  - .Net 7.0.203
+  - .Net 9.0.0
 
   - ASP.NET Core Web APIs
   
-  - xUnit 2.4.2
+  - xUnit 2.9.2
   
-  - Moq 4.18.4
+  - Moq 4.20.72
 
   - API platform: Heroku
 
@@ -166,4 +166,4 @@ Even after deployed, development continues actively, following the <span style =
 
 ## Deploying link
 
-[App URL](https://books-library-2024.vercel.app/)
+[stories-n-books.vercel.app](https://stories-n-books.vercel.app/)
