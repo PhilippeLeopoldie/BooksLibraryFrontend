@@ -11,6 +11,10 @@
     --buttonhover-border: #1cbbdb;
     --buttonclicked: #4bdeff;
     --cardborder-hover: #1cbbdb;
+    --cardboxshadow-hover-lightmode: 0 4px 10px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.4);
+    --cardboxshadow-hover-darkmode: 0 4px 8px 0 rgba(28, 187, 219, 0.9), 0 6px 20px 0 rgba(28, 187, 219, 0.8);
+    --cardboxshadow-darkmode: 0 4px 8px 0 rgba(21, 173, 232, 0.2), 0 6px 20px 0 rgba(21, 173, 232, 0.19);
+    --cardboxshadow-lightmode: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     --forminputcolor: #6495ED;
     --cardbordercolor_dark: #ffffff;
     --cardbordercolor_light: #000000;
