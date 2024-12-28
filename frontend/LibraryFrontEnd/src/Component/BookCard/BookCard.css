@@ -1,5 +1,5 @@
 .bookcard--grid {
-    border: 1px var(--cardbordercolor_light) solid;
+    border: 1px rgba(0, 0, 0, 0.2) solid;
     display: grid;
     grid-template-rows: 70% 20% 10%;
     width: 18rem;
@@ -9,18 +9,25 @@
     margin: 0 1rem 2rem 1rem;
     background-color: var(--backgroundcolor-white);
     border-radius: 10px;
+    box-shadow: var(--cardboxshadow-lightmode);
 }
 
-    .bookcard--grid:hover {
-        border: 1px var(--cardborder-hover) solid;
-    }
+.bookcard--grid:hover {
+    box-shadow: var(--cardboxshadow-hover-lightmode);
+}
+
+.bookcard--black:hover {
+    border: 1px var(--cardborder-hover) solid;
+    box-shadow: var(--cardboxshadow-hover-darkmode);
+}
 
 .bookcard--black {
     background-color: inherit;
-    border: 1px var(--cardbordercolor_dark) solid;
+    box-shadow: var(--cardboxshadow-darkmode);
     & .booktitle, & .bookauthor {
     color: var(--fontcolor-dark);
     }
+
 }
 
 .bookcard__footer--flex {
