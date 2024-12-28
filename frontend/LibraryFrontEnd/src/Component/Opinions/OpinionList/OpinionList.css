@@ -21,18 +21,22 @@
 }
 
 .OpinionList__container--black {
-    border: 1px var(--cardbordercolor_dark) solid;
-    width: 18rem;
+    box-shadow: var(--cardboxshadow-darkmode);
+    
 }
 
-.OpinionList__container--grid:hover {
+.OpinionList__container--black:hover {
     border: 1px var(--cardborder-hover) solid;
+    box-shadow: var(--cardboxshadow-hover-darkmode);
+ }
+
+.OpinionList__container--natural:hover {
+    box-shadow: var(--cardboxshadow-hover-lightmode);
 }
 
 .OpinionList__header {
   margin-bottom: 0rem;
   border-radius: 15% 15% 0 0 ;
-  
 }
 
 .OpinionList__header--flex {
@@ -47,7 +51,6 @@
   cursor: pointer;
   border-radius: 20%;
 }
-
 
 .OpinionList__header__title {
   max-height: 5rem;
@@ -69,7 +72,6 @@
   display:flex;
   flex-direction: column;
   width: 18rem;
-  
 }
 
 .OpinionList__filter--flex {
@@ -77,7 +79,6 @@
   display: -webkit-flex;
   display: -ms-flexbox; 
   display: flex;
-  /* grid-template-columns: repeat(6,1fr); */
   max-width: 18rem;
   -ms-flex-pack: distribute;
   -webkit-justify-content: space-around;
@@ -104,14 +105,12 @@
         color: var(--buttonhover-border);
 }
 
-
 .OpinionList__reviews {
     max-height: 19rem;
     overflow-x: hidden;
     padding-left: 0.5rem;
     width: 17.5rem;
     font-size: 1.2rem;
-    
 }
 
 .opinionlist__userName {
@@ -125,7 +124,6 @@
 }
 
 .OpinionList__date {
-  
   margin-left: 0.5rem;
 }
 
