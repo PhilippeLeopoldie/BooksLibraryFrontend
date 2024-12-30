@@ -1,0 +1,19 @@
+.AiStory {
+    background-color:transparent;
+}
+
+.AiStory--black {
+    color: var(--fontcolor-dark);
+}
+
+.AiStory--light {
+    color: var(--fontcolor-light);
+}
+
+.AiStory__activated--false {
+    display:none;
+}
+
+.AiStory__activated--true {
+    display:contents;
+}
