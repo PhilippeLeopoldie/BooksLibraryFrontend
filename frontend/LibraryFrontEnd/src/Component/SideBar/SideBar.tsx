@@ -1,7 +1,7 @@
 import "../SideBar/SideBar.css"
 import { Settings } from "../AppSettings/AppSettings";
 import { ThemeContext } from "../../App/App";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 
 type SideBarType = {
@@ -12,14 +12,30 @@ type SideBarType = {
 
 export const SideBar = ({ theme, handleTheme }: SideBarType) => {
     const [sideBarActivated, setSideBarActivated] = useState<boolean>(false);
+    const sidebarRef = useRef<HTMLElement | null>(null);
 
     const handleSideBar = () => {
         setSideBarActivated(!sideBarActivated);
-    }
+    };
+
+    const handleOutsideClick = (event: MouseEvent) => {
+        if (sidebarRef.current && !sidebarRef.current.contains(event.target as Node))
+            setSideBarActivated(false);
+    };
+
+    useEffect(() => {
+        if (sideBarActivated) {
+            document.addEventListener('mousedown', handleOutsideClick);
+        } else {
+            document.removeEventListener('mousedown', handleOutsideClick);
+        }
+
+        return () => document.removeEventListener('mousedown', handleOutsideClick);
+    }, [sideBarActivated]);
 
     return (
         <>
-            <aside className={`SideBar_container 
+            <aside ref={sidebarRef} className={`SideBar_container 
                               ${sideBarActivated ? "SideBar_container--activated" : "SideBar_container--inactivated"}`}>
                 <section
                     onClick={handleSideBar}
