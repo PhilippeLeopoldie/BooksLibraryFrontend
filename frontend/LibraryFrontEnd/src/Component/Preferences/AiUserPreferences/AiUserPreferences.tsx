@@ -11,7 +11,6 @@ export const AiUserPreferences = () => {
 
     const handleGenre = (genre: string) => {
         setGenre(genre);
-        console.log(`Genre: ${Genre}`)
     }
     return (
         <section className={`AiUserPreferences_container AiUserPreferences_container--${theme}`}>

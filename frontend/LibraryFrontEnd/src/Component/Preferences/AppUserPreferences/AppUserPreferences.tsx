@@ -13,7 +13,6 @@ export const AppUserPreferences = () => {
                 prevGenres.filter((g) => g !== genre) :
                 [...prevGenres, genre]
         );
-        console.log(`List of genres: ${Genres}`)
     }
     return (
         <>            
