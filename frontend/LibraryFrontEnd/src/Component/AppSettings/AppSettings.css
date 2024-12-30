@@ -1,14 +1,7 @@
 .Settings_container {
     border: 1px solid grey;
     padding-bottom:1rem;
-    
 }
-
-.Settings_container:not(:focus) {
-    
-}
-
-
 
 .Settings {
     padding: 0rem;
