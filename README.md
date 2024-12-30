@@ -3,16 +3,16 @@ This is a full stack application, this repository contains the [Frontend](https:
 
 ## Presentation 
 
-Initialy this app was a hack day assignment from Salt bootcamp  where I had 24 hours to build a fullstack application  that is responsive design.
+ReadSphere: Your Personalized Short Stories and Book Library Platform
 
-I decided to create a simple application for users to share with others the books that they had read and share their opinion about it.  
-As it could be challenging to choose which book to read sometime, the application propose three books to read among the various books already published.
+ReadSphere is designed to help you explore, organize, and track your reading journey with ease. 
 
-There are two tables:  Books and Opinions.  
-For that assignment I have decided to have focus on managing the relationship between books and their corresponding opinions.
+Featuring a sleek interface, curated book recommendations, and an exciting upcoming integration with OpenAI to generate your own short stories,
+ReadSphere makes it effortless to discover books and stories tailored to your unique interests. 
 
-Even after deployed, development continues actively, following the <span style = "color: green"> [CI/CD](https://en.wikipedia.org/wiki/CI/CD) </span>principles.
+Whether you're searching by title, author, or genre, or exploring top-rated reads, ReadSphere is your ultimate companion for all things reading.
 
+Although ReadSphere is still in development, you can already take a sneak peek and start enjoying its features. Dive in and explore! [readsphere.vercel.app](https://readsphere.vercel.app)
 
 
 
@@ -166,4 +166,4 @@ Even after deployed, development continues actively, following the <span style =
 
 ## Deploying link
 
-[stories-n-books.vercel.app](https://stories-n-books.vercel.app/)
+[readsphere.vercel.app](https://readsphere.vercel.app)
