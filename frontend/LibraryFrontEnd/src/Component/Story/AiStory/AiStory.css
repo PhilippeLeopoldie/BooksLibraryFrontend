@@ -17,3 +17,15 @@
 .AiStory__activated--true {
     display:contents;
 }
+
+.AiStoryButton {
+    border-color: orange;
+}
+
+.AiStoryButton--black {
+    color: var(--fontcolor-dark);
+}
+
+.AiStoryButton--natural {
+    color: var(--fontcolor-light);
+}

@@ -12,9 +12,11 @@ export const AiStory = () => {
     return (
         <>
             <button
-                className="generateStory"
+                className={`AiStoryButton AiStoryButton--${theme} AiStory`}
                 onClick={activateStory}
-            >Generate Story</button>
+            >
+                Generate Story
+            </button>
             <section className={`AiStory--${theme} AiStory`}>
                 <h3 className={`AiStory--${theme} AiStory__activated--${activated}`}>
                     Oups! This feature is still in development. Come back soon!
