@@ -118,9 +118,6 @@ Although ReadSphere is still in development, you can already take a sneak peek a
     - The frontend should now be running locally.
     
 
-## Components diagram
-![my image](Components_diagram.png)
-
 ## App Home page:
 ![my image](presentation_image_dark_mode.png)
 
