@@ -1,0 +1,18 @@
+.About {
+    background-color:transparent;
+}
+
+.About_container {
+    padding: 0 10% 0 10%;
+    
+}
+
+.About_article {
+   width:100%;
+}
+
+.About--black {
+    color: var(--fontcolor-dark);
+    font-family: var(--fontfamily);
+}
+

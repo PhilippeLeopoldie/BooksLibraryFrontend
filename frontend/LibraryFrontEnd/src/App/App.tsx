@@ -1,4 +1,5 @@
 import "./App.css";
+import { About } from "../Component/About/About";
 import { BookCreate } from "../Component/BookCreate/BookCreate";
 import { HomePage } from "../Component/HomePage/HomePage";
 import { Routes, BrowserRouter, Route } from "react-router-dom";
@@ -74,6 +75,7 @@ export const App = () => {
                                     <section className="Contents">
                                         <Routes>
                                             <Route path="/" element={<HomePage />} />
+                                            <Route path="/about" element={<About/>} />
                                             <Route path="/addBook" element={<BookCreate />} />
                                             <Route path="/Search" element={<BookSearch />} />
                                             <Route path="/createStory" element={<StoryCard />} />

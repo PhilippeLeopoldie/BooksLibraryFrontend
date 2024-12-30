@@ -32,9 +32,13 @@ export const Settings = ({ theme, handleTheme }: SettingsType) => {
                         </figcaption>
                     </section>
                     <section className={`Settings--${theme} About`}>
-                        <h3 className={`Settings Settings--${theme}`}>About</h3></section>
+                        <h3 className={`Settings Settings--${theme}`}>
+                            <Link className={`Settings--${theme}`} to="/about">
+                                About
+                            </Link>
+                        </h3></section>
                     <section className={`Settings--${theme} Settings_Links--flex`}>
-                        <Link className={`Settings--${theme}`} to="https://github.com/PhilippeLeopoldie">
+                        <Link className={`Settings--${theme}`} to="https://github.com/PhilippeLeopoldie/BooksLibraryFrontend">
                             <img
                                 className={` Settings--${theme}`}
                                 src={theme === 'black' ? githubDarkMode : githubLightMode}>
