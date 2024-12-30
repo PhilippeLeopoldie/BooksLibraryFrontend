@@ -1,5 +1,5 @@
 import "../SideBar/SideBar.css"
-import { Settings } from "../AppSettings/AppSettings";
+import { AppSettings } from "../AppSettings/AppSettings";
 import { ThemeContext } from "../../App/App";
 import { useEffect, useRef, useState } from "react";
 
@@ -48,7 +48,7 @@ export const SideBar = ({ theme, handleTheme }: SideBarType) => {
                 </section>
                 <section className={` SideBar_settings--${theme}
                 ${sideBarActivated ? "SideBar_settings--activated" : "SideBar_settings--inactivated"}`}>
-                    {sideBarActivated && <Settings theme={theme} handleTheme={handleTheme} />}
+                    {sideBarActivated && <AppSettings theme={theme} handleTheme={handleTheme} />}
                 </section>
             </aside>
         </>);

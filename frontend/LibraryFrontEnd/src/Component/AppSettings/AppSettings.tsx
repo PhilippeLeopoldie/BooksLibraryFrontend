@@ -12,7 +12,7 @@ type SettingsType = {
 };
 
 
-export const Settings = ({ theme, handleTheme }: SettingsType) => {
+export const AppSettings = ({ theme, handleTheme }: SettingsType) => {
     return (
         <>
             <section className={`Settings--${theme} Settings_container`}>
