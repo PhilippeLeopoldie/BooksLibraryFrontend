@@ -1,10 +1,11 @@
 import "./App.css";
 import { About } from "../Component/About/About";
 import { BookCreate } from "../Component/BookCreate/BookCreate";
+import { GENRES_LIST_URL } from "../constants/api";
 import { HomePage } from "../Component/HomePage/HomePage";
 import { Routes, BrowserRouter, Route } from "react-router-dom";
 import { BookSearch } from "../Component/BookSearch/BookSearch";
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { NavBar } from "../Component/NavBar/NavBar";
 import { SideBar } from "../Component/SideBar/SideBar"
 import { StoryCard } from "../Component/Story/StoryCard";
@@ -30,6 +31,11 @@ type OpinionType = {
     userName: string;
 };
 
+type GenreType = {
+    name: string,
+    books: BookType[];
+}
+
 type NewBooksCacheContextType = {
     newBooksCache: BookType[] | null,
     setNewBooksCache: (newStatus: BookType[]) => void
@@ -51,9 +57,28 @@ export const App = () => {
     const [buttonStatus, setButtonStatus] = useState<string>("inactivated");
     const [newBooksCache, setNewBooksCache] = useState<BookType[] | null>(null);
     const [topBooksCache, setTopBooksCache] = useState<BookType[] | null>(null);
+    const [genres, setGenres] = useState<GenreType[] | null>(null);
+
     const handleTheme = () => {
         setTheme(theme === "natural" ? "black" : "natural");
     }
+
+    const fetchGenres = async () => {
+        try {
+            const genreResponse: Response = await fetch(GENRES_LIST_URL);
+            if (genreResponse.status === 200) {
+                const genreResponseData: GenreType[] = await genreResponse.json();
+                setGenres(genreResponseData);
+            } else if (genreResponse.status === 404) {
+                console.log(genreResponse);
+            }
+        } catch (error) {
+            console.error("Error fetching genres", error);
+        }
+    }
+    useEffect(() => {
+        if (!genres) fetchGenres();
+    }, []);
 
     return (
         <div className={`App App--${theme}`}>
