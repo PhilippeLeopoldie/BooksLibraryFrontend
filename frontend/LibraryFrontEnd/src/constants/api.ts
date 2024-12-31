@@ -7,7 +7,7 @@ export const BOOK_BY_BOOKID_URL: string = BOOK_URL+"/";
 export const BOOK_BY_TITLE_OR_AUTHOR_URL : string = BOOK_URL+"/TitleOrAuthor?titleOrAuthor=";
 export const OPINION_URL: string = API_URL+"Opinions/";
 export const OPINION_BY_BOOKID_URL : string = OPINION_URL+"BookId=";
- 
+export const GENRES_LIST_URL: string = API_URL+"Genres";
 
 
 
