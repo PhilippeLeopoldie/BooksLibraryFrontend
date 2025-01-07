@@ -31,9 +31,20 @@ type OpinionType = {
     userName: string;
 };
 
+type GenreResponseType = {
+    genres: GenreType[],
+    totalGenreCount: number,
+}
+
 type GenreType = {
+    id: number,
     name: string,
-    books: BookType[];
+    books: BookType[]
+}
+
+type genresCacheContextType = {
+    genresCache: GenreResponseType | null,
+    setGenresCache: (newStatus: GenreResponseType) => void
 }
 
 type NewBooksCacheContextType = {
@@ -50,6 +61,7 @@ export const ThemeContext = createContext<string>("black");
 export const ButtonContext = createContext<ButtonContextType | undefined>(undefined);
 export const newBooksCacheContext = createContext<NewBooksCacheContextType | null>(null);
 export const topBooksCacheContext = createContext<TopBooksCacheContextType | null>(null);
+export const genresCacheContext = createContext<genresCacheContextType | null>(null);
 
 export const App = () => {
     const rootElement = document.documentElement;
@@ -57,7 +69,7 @@ export const App = () => {
     const [buttonStatus, setButtonStatus] = useState<string>("inactivated");
     const [newBooksCache, setNewBooksCache] = useState<BookType[] | null>(null);
     const [topBooksCache, setTopBooksCache] = useState<BookType[] | null>(null);
-    const [genres, setGenres] = useState<GenreType[] | null>(null);
+    const [genresCache, setGenresCache] = useState<GenreResponseType | null>(null);
 
     const handleTheme = () => {
         setTheme(theme === "natural" ? "black" : "natural");
@@ -67,8 +79,9 @@ export const App = () => {
         try {
             const genreResponse: Response = await fetch(GENRES_LIST_URL);
             if (genreResponse.status === 200) {
-                const genreResponseData: GenreType[] = await genreResponse.json();
-                setGenres(genreResponseData);
+                const genreResponseData: GenreResponseType = await genreResponse.json();
+                setGenresCache(genreResponseData);
+                console.log(genreResponseData.genres);
             } else if (genreResponse.status === 404) {
                 console.log(genreResponse);
             }
@@ -77,9 +90,9 @@ export const App = () => {
         }
     }
     useEffect(() => {
-        if (!genres) fetchGenres();
+        if (!genresCache) fetchGenres();
     }, []);
-
+    
     return (
         <div className={`App App--${theme}`}>
             <script>
@@ -91,6 +104,7 @@ export const App = () => {
                 <ButtonContext.Provider value={{ buttonStatus, setButtonStatus }}>
                     <newBooksCacheContext.Provider value={{ newBooksCache, setNewBooksCache }}>
                         <topBooksCacheContext.Provider value={{ topBooksCache, setTopBooksCache }}>
+                            <genresCacheContext.Provider value={{ genresCache, setGenresCache }}>
                             <BrowserRouter>
                                 <div className={`App App--${theme}`}>
                                     <section className={`App--${theme} App_navBar--container`}>
@@ -107,7 +121,8 @@ export const App = () => {
                                         </Routes>
                                     </section>
                                 </div>
-                            </BrowserRouter>
+                                </BrowserRouter>
+                            </genresCacheContext.Provider>
                         </topBooksCacheContext.Provider>
                     </newBooksCacheContext.Provider>
                 </ButtonContext.Provider>
