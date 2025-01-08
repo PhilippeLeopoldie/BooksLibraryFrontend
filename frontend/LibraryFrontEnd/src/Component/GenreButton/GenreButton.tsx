@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { ButtonContext } from "../../App/App";
 import "../GenreButton/GenreButton.css";
 
@@ -22,18 +22,21 @@ export const GenreButton = ({ name, handleGenres, typeOfChoice }: GenreButtonTyp
         setIsClicked(!isClicked);
         handleGenres(name);
     }
+    const sessionStorageGenre = sessionStorage.getItem("userGenrePreference");
+    const sessionStorageGenres = sessionStorage.getItem("userGenresPreference");
 
     let displayedContent: JSX.Element = <></>;
     if (typeOfChoice === 'oneChoice') {
         displayedContent = (< button
-            className={`${buttonContext?.buttonStatus === name ? 'Button--clicked' : 'Button--unclicked'}`}
+            className={`${sessionStorageGenre === name ? 'Button--clicked' : 'Button--unclicked'}`}
             onClick={handleOneChoice}>
             {name}
         </button>)
     }
     if (typeOfChoice === 'multiChoices') {
         displayedContent = (< button
-            className={`${isClicked ? 'Button--clicked' : 'Button--unclicked'}`}
+            className={`${sessionStorageGenres?.includes(name) ? 'Button--clicked' : 'Button--unclicked'
+    }`}
             onClick={handleMultiChoice}>
             {name}
         </button>)
