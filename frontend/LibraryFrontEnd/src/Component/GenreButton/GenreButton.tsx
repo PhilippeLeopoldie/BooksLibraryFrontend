@@ -1,5 +1,4 @@
-import { useContext, useState } from "react";
-import { ButtonContext } from "../../App/App";
+import { useState } from "react";
 import "../GenreButton/GenreButton.css";
 
 type GenreButtonType = {
@@ -10,11 +9,9 @@ type GenreButtonType = {
 
 
 
-export const GenreButton = ({ name, handleGenres, typeOfChoice }: GenreButtonType) => {
-    const buttonContext = useContext(ButtonContext);
+export const GenreButton = ({ name, handleGenres, typeOfChoice }: GenreButtonType) => {   
     const [isClicked, setIsClicked] = useState<boolean>(false);
     const handleOneChoice = () => {
-        buttonContext?.setButtonStatus(name);
         handleGenres(name);
     }
 

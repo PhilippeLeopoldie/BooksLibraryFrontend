@@ -5,16 +5,10 @@ import { GENRES_LIST_URL } from "../constants/api";
 import { HomePage } from "../Component/HomePage/HomePage";
 import { Routes, BrowserRouter, Route } from "react-router-dom";
 import { BookSearch } from "../Component/BookSearch/BookSearch";
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { NavBar } from "../Component/NavBar/NavBar";
 import { SideBar } from "../Component/SideBar/SideBar"
 import { StoryCard } from "../Component/Story/StoryCard";
-
-
-type ButtonContextType = {
-    buttonStatus: string,
-    setButtonStatus: (newStatus: string) => void;
-}
 
 type BookType = {
     id: number;
@@ -58,7 +52,6 @@ type TopBooksCacheContextType = {
 }
 
 export const ThemeContext = createContext<string>("black");
-export const ButtonContext = createContext<ButtonContextType | undefined>(undefined);
 export const newBooksCacheContext = createContext<NewBooksCacheContextType | null>(null);
 export const topBooksCacheContext = createContext<TopBooksCacheContextType | null>(null);
 export const genresCacheContext = createContext<genresCacheContextType | null>(null);
@@ -66,7 +59,6 @@ export const genresCacheContext = createContext<genresCacheContextType | null>(n
 export const App = () => {
     const rootElement = document.documentElement;
     const [theme, setTheme] = useState<string>("black");
-    const [buttonStatus, setButtonStatus] = useState<string>("inactivated");
     const [newBooksCache, setNewBooksCache] = useState<BookType[] | null>(null);
     const [topBooksCache, setTopBooksCache] = useState<BookType[] | null>(null);
     const [genresCache, setGenresCache] = useState<GenreResponseType | null>(null);
@@ -81,7 +73,6 @@ export const App = () => {
             if (genreResponse.status === 200) {
                 const genreResponseData: GenreResponseType = await genreResponse.json();
                 setGenresCache(genreResponseData);
-                console.log(genreResponseData.genres);
             } else if (genreResponse.status === 404) {
                 console.log(genreResponse);
             }
@@ -101,7 +92,7 @@ export const App = () => {
                     : (rootElement.style.backgroundColor = "#F5F5F5")}
             </script>
             <ThemeContext.Provider value={theme}>
-                <ButtonContext.Provider value={{ buttonStatus, setButtonStatus }}>
+                
                     <newBooksCacheContext.Provider value={{ newBooksCache, setNewBooksCache }}>
                         <topBooksCacheContext.Provider value={{ topBooksCache, setTopBooksCache }}>
                             <genresCacheContext.Provider value={{ genresCache, setGenresCache }}>
@@ -125,7 +116,7 @@ export const App = () => {
                             </genresCacheContext.Provider>
                         </topBooksCacheContext.Provider>
                     </newBooksCacheContext.Provider>
-                </ButtonContext.Provider>
+                
             </ThemeContext.Provider>
         </div>
     );
