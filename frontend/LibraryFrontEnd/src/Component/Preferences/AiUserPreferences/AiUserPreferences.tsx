@@ -1,22 +1,30 @@
-import { useContext, useState } from "react";
-import { ThemeContext } from "../../../App/App";
-import { genres } from "../../../constants/genres";
+import { useContext, useEffect, useState } from "react";
+import { ThemeContext, genresCacheContext } from "../../../App/App";
 import { GenreButton } from "../../GenreButton/GenreButton";
 import { ReadingRange } from "../ReadingRange/ReadingRange";
 import "./AiUserPreferences.css";
 
 export const AiUserPreferences = () => {
     const theme = useContext(ThemeContext);
-    const [Genre, setGenre] = useState<string>("");
-
-    const handleGenre = (genre: string) => {
-        setGenre(genre);
+    const listOfGenresContext = useContext(genresCacheContext);
+    const listOfGenres = listOfGenresContext?.genresCache?.genres || [];
+    const [userGenrePreference, setUserGenrePreferences] = useState<string>(
+        sessionStorage.getItem("userGenrePreference") || "");
+    
+    const handleGenreSelection = (genre: string) => {
+        sessionStorage.setItem("userGenrePreference", genre);
+        setUserGenrePreferences(genre);
     }
+
+    useEffect(() => {
+        console.log(userGenrePreference);
+    }, [userGenrePreference]);
+
     return (
         <section className={`AiUserPreferences_container AiUserPreferences_container--${theme}`}>
                 <section className='AiGenres'>
-                    {genres.sort().map((genre, index) =>
-                        <GenreButton key={index} name={genre} handleGenres={handleGenre} typeOfChoice="oneChoice" />
+                {listOfGenres.map((genre) =>
+                    <GenreButton key={genre.id} name={genre.name} handleGenres={handleGenreSelection} typeOfChoice="oneChoice" />
                     )}
                 </section>
                 <ReadingRange/>
