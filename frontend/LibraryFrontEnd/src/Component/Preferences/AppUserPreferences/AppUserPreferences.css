@@ -49,6 +49,23 @@ label {
     font-size:1.2rem;
 }
 
+.arrow--black {
+    fill: var(--fontcolor-dark);
+}
+
+.arrow--natural {
+    fill: var(--fontcolor-light);
+}
+
+.arrow_container {
+    background-color: transparent;
+    margin-left: 1rem;
+}
+
+.arrow {
+    background-color: transparent;
+}
+
 .ReadingTime {
     margin-left: 0;
 }
