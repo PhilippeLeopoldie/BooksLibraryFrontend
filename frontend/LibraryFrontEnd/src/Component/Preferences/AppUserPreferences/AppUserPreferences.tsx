@@ -8,38 +8,38 @@ export const AppUserPreferences = () => {
     const theme = useContext(ThemeContext); 
     const listOfGenresContext = useContext(genresCacheContext);
     const listOfGenres = listOfGenresContext?.genresCache?.genres;
-    const storedGenres = sessionStorage.getItem("userGenresPreference");
-    const [userGenresPreference, setUserGenresPreference] = useState<string>(
+    const storedGenresId = sessionStorage.getItem("userGenresIdPreference");
+    const [userGenresIdPreference, setUserGenresIdPreference] = useState<string>(
         () => {
-            return storedGenres ? storedGenres : "";
+            return storedGenresId ? storedGenresId : "";
            
         }
     );
 
-    const handleMultipleGenres = (genre: string) => {
-        setUserGenresPreference((initialListOfGenres) => {
-            const listOfGenres = initialListOfGenres ? initialListOfGenres.split(",") : [];
-            const genreAlreadyExists = listOfGenres.includes(genre);
-            let updatedGenres: string[];
+    const handleMultipleGenres = (genreId: string) => {
+        setUserGenresIdPreference((initialListOfGenresId) => {
+            const listOfGenresId = initialListOfGenresId ? initialListOfGenresId.split(",") : [];
+            const genreIdAlreadyExists = listOfGenresId.includes(genreId);
+            let updatedGenresId: string[];
 
-            if (genreAlreadyExists) {
+            if (genreIdAlreadyExists) {
                 // Remove the genre if it already exists
-                updatedGenres = listOfGenres.filter((element) => element !== genre);
+                updatedGenresId = listOfGenresId.filter((elementId) => elementId !== genreId);
             } else {
                 // Add the genre if it doesn't exist
-                updatedGenres = [...listOfGenres, genre];
+                updatedGenresId = [...listOfGenresId, genreId];
             }
-            sessionStorage.setItem("userGenresPreference", updatedGenres.join(","));
+            sessionStorage.setItem("userGenresIdPreference", updatedGenresId.join(","));
 
-            return updatedGenres.join(",");
+            return updatedGenresId.join(",");
         });
     }
 
 
     useEffect(() => {
-        console.log(userGenresPreference);
+        console.log(userGenresIdPreference);
 
-    }, [userGenresPreference]);
+    }, [userGenresIdPreference]);
 
     return (
         <>
@@ -56,7 +56,7 @@ export const AppUserPreferences = () => {
                 <form onSubmit={(e) => e.preventDefault()} className="Preferences_form">
                     <section className='Genres'>
                         {listOfGenres?.map((genre) =>
-                            <GenreButton key={genre.id} name={genre.name} handleGenres={handleMultipleGenres} typeOfChoice="multiChoices" />
+                            <GenreButton key={genre.id} genre={genre} handleGenres={handleMultipleGenres} typeOfChoice="multiChoices" />
                         )}  
                     </section>                    
                 </form>

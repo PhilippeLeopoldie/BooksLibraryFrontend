@@ -8,23 +8,23 @@ export const AiUserPreferences = () => {
     const theme = useContext(ThemeContext);
     const listOfGenresContext = useContext(genresCacheContext);
     const listOfGenres = listOfGenresContext?.genresCache?.genres || [];
-    const [userGenrePreference, setUserGenrePreferences] = useState<string>(
-        sessionStorage.getItem("userGenrePreference") || "");
+    const [userGenreIdPreference, setUserGenreIdPreferences] = useState<string>(
+        sessionStorage.getItem("userGenreIdPreference") || "");
     
-    const handleGenreSelection = (genre: string) => {
-        sessionStorage.setItem("userGenrePreference", genre);
-        setUserGenrePreferences(genre);
+    const handleGenreSelection = (genreId: string) => {
+        sessionStorage.setItem("userGenreIdPreference", genreId);
+        setUserGenreIdPreferences(genreId);
     }
 
     useEffect(() => {
-        console.log(userGenrePreference);
-    }, [userGenrePreference]);
+        console.log(userGenreIdPreference);
+    }, [userGenreIdPreference]);
 
     return (
         <section className={`AiUserPreferences_container AiUserPreferences_container--${theme}`}>
                 <section className='AiGenres'>
                 {listOfGenres.map((genre) =>
-                    <GenreButton key={genre.id} name={genre.name} handleGenres={handleGenreSelection} typeOfChoice="oneChoice" />
+                    <GenreButton key={genre.id} genre={genre} handleGenres={handleGenreSelection} typeOfChoice="oneChoice" />
                     )}
                 </section>
                 <ReadingRange/>
