@@ -27,40 +27,6 @@
     & .booktitle, & .bookauthor {
     color: var(--fontcolor-dark);
     }
-
 }
 
-.bookcard__footer--flex {
-    display: flex;
-    max-width: 18rem;
-    align-items: center;
-    justify-content: space-between;
-    background-color: transparent;
-}
 
-.bookcard__footer-average-rate--flex {
-    display: flex;
-    background-color: transparent;
-}
-
-.bookcard__footer-average-rate {
-    font-weight: bold;
-    text-align: right;
-    color: #4ba5ff;
-    text-decoration: underline;
-    cursor: pointer;
-    background-color: transparent;
-    margin-left: 10%;
-}
-
-.rate_star {
-    margin-top: -1rem;
-}
-
-.bookFooter__RateButton {
-    margin-bottom: 4%;
-    margin-right: 3%;
-    width: auto;
-    font-size: 1rem;
-    font-weight: bolder;
-}
