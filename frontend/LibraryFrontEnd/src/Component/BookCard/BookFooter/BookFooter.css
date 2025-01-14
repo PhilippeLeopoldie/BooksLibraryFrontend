@@ -21,6 +21,14 @@
     margin-left: 10%;
 }
 
+.item_label {
+    position: absolute;
+    margin-top: -1.5rem;
+    color: var(--fontcolor-link);
+    background-color: transparent;
+    font-size:1.2rem;
+}
+
 .rate_star {
     margin-top: -1rem;
 }
