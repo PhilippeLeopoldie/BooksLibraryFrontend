@@ -9,6 +9,8 @@
 .bookcard__footer-average-rate--flex {
     display: flex;
     background-color: transparent;
+    cursor:pointer;
+    margin-left:0.2rem;
 }
 
 .bookcard__footer-average-rate {
@@ -16,17 +18,24 @@
     text-align: right;
     color: var(--fontcolor-link);
     text-decoration: underline;
-    cursor: pointer;
+    
     background-color: transparent;
     margin-left: 10%;
 }
 
-.item_label {
+.bookcard__footer-numberOfReview {
     position: absolute;
     margin-top: -1.5rem;
     color: var(--fontcolor-link);
     background-color: transparent;
-    font-size:1.2rem;
+    
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.item_label:hover .bookcard__footer-average-rate,
+.item_label:hover .bookcard__footer-numberOfReview {
+    color: var(--fontcolor-link-hover);
 }
 
 .rate_star {

@@ -48,16 +48,17 @@ export const BookFooter = ({ bookFooter, updatedBook }: BookFooterType) => {
             <footer className="bookcard__footer--flex">
                 <section className="bookcard__footer-average-rate--flex">
                     {!bookFooter.averageClick ? (
-                        <div className="bookcard__footer-average-rate--flex">
+                        <div className="item_label bookcard__footer-average-rate--flex"
+                            onClick={() => {
+                                bookFooter.handleAverageClick();
+                            }}
+                            aria-label="Reviews">
                             <a
-                                className="bookcard__footer-average-rate"
-                                onClick={() => {
-                                    bookFooter.handleAverageClick();
-                                }}
+                                className=" item_label bookcard__footer-average-rate"
                             >
                                 {updatedBook.averageRate}/5
                             </a>
-                            <span className="item_label">{numberOfReviewsValidation()}</span>
+                            <span className="bookcard__footer-numberOfReview">{numberOfReviewsValidation()}</span>
                             <div className="rate_star"> &#9733;</div>
                         </div>
                     ) : (
