@@ -35,7 +35,14 @@ type Reviews = {
 export const BookFooter = ({ bookFooter, updatedBook }: BookFooterType) => {
 
     const theme = useContext(ThemeContext);
-    
+    const numberOfReview: number | undefined = updatedBook.opinions?.length;
+
+    const numberOfReviewsValidation = () => {
+        if (!numberOfReview) return "";
+        if (numberOfReview && numberOfReview === 1) return `${numberOfReview} review`;
+        if (numberOfReview && numberOfReview > 1) return `${numberOfReview} reviews`;
+    }
+
     return (
         <>
             <footer className="bookcard__footer--flex">
