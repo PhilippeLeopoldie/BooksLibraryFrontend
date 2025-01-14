@@ -5,6 +5,7 @@
     --backgroundcolorcard-darkmode: #000000;
     --fontcolor-dark: #f3f3f4;
     --fontcolor-light: #000000;
+    --fontcolor-link: #4ba5ff;
     --fontfamily: Euclid,"Noto Sans","Droid Sans","Helvetica Neue",Corbel,Helvetica,Arial,sans-serif;
     --button-backgroundcolor: #1f6feb;
     --button-fontcolor: #ffffff;
@@ -27,6 +28,8 @@
   color-scheme: light dark;
   background-color: var(--backgroundcolor-whitesmoke);
 }
+
+
 
 input {
   background-color: inherit;

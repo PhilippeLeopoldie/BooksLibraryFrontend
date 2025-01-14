@@ -14,7 +14,7 @@
 .bookcard__footer-average-rate {
     font-weight: bold;
     text-align: right;
-    color: #4ba5ff;
+    color: var(--fontcolor-link);
     text-decoration: underline;
     cursor: pointer;
     background-color: transparent;
