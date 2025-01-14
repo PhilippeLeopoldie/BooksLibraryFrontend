@@ -19,6 +19,7 @@ type bookType = {
     author: string;
     averageRate: number;
     imageUrl?: string;
+    opinions?: Reviews[] | null;
 }
 
 type Reviews = {
@@ -34,7 +35,7 @@ type Reviews = {
 export const BookFooter = ({ bookFooter, updatedBook }: BookFooterType) => {
 
     const theme = useContext(ThemeContext);
-
+    
     return (
         <>
             <footer className="bookcard__footer--flex">
