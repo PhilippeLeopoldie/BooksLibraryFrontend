@@ -25,14 +25,14 @@ export const NavBar = ({ theme, handleTheme }: NavBarType) => {
                     className="nav-link nav__home__Link--flex"
                     to="/"
                     onClick={() => {
-                        setActiveNavItem("home");
+                        setActiveNavItem("home");                    
                     }}
                 >
                     <img
                         className="nav-link icone nav__HomeIcone"
                         src={activeNavItem === "home" ? homeBlueIcone : homeIcone}
                         alt="Home"
-                    ></img>
+                    />      
                     <figcaption
                         className={
                             activeNavItem === "home"
