@@ -57,6 +57,7 @@ export const BookFooter = ({ bookFooter, updatedBook }: BookFooterType) => {
                             >
                                 {updatedBook.averageRate}/5
                             </a>
+                            <span className="item_label">{numberOfReviewsValidation()}</span>
                             <div className="rate_star"> &#9733;</div>
                         </div>
                     ) : (
