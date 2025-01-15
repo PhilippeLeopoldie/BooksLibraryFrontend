@@ -1,7 +1,7 @@
 .bookcard--grid {
     border: 1px rgba(0, 0, 0, 0.2) solid;
     display: grid;
-    grid-template-rows: 70% 18% 12%;
+    grid-template-rows: 68% 18% 14%;
     width: 18rem;
     min-width: 18rem;
     height: 29rem;
