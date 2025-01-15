@@ -30,14 +30,14 @@ export const GenreButton = ({ genre, handleGenres, typeOfChoice }: GenreButtonTy
     let displayedContent: JSX.Element = <></>;
     if (typeOfChoice === 'oneChoice') {
         displayedContent = (< button
-            className={`${sessionStorageGenre === genre.id.toString() ? 'Button--clicked' : 'Button--unclicked'}`}
+            className={`${sessionStorageGenre === genre.id.toString() ? 'genreButton Button--clicked' : 'genreButton Button--unclicked'}`}
             onClick={handleOneChoice}>
             {genre.name}
         </button>)
     }
     if (typeOfChoice === 'multiChoices') {
         displayedContent = (< button
-            className={`${sessionStorageGenres?.includes(genre.id.toString()) ? 'Button--clicked' : 'Button--unclicked'
+            className={`${sessionStorageGenres?.includes(genre.id.toString()) ? 'genreButton Button--clicked' : 'genreButton Button--unclicked'
     }`}
             onClick={handleMultiChoice}>
             {genre.name}
