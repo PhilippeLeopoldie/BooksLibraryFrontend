@@ -1,6 +1,7 @@
 import { Rate } from "../../Rates/Rate/Rate";
 import "./OpinionList.css";
 import Flip from "../../../media/flip.svg";
+import { numberOfReviewsValidation } from '../../../constants/commonFunctions';
 import { useContext, useState } from "react";
 import { ThemeContext } from "../../../App/App";
 
@@ -33,8 +34,9 @@ export const OpinionList = ({
   const theme = useContext(ThemeContext);
   const [filteredOpinion, setFilteredOpinion] = useState<Review[] | undefined>(
     opinions
-  );
-
+    );
+    const opinionsLength = opinions?.length;
+    
   const RateFilter = (rateToFilter: number) => {
     if (opinions) {
       if (rateToFilter !== 0) {
@@ -66,21 +68,18 @@ export const OpinionList = ({
           <h3 className={`OpinionList--${theme} OpinionList__header__author`}>
             By: {book?.author}
           </h3>
-          <h3 className={`OpinionList--${theme} OpinionList__header__nbReview`}>
-          {opinions &&
-                    (opinions.length > 1
-                      ? `${opinions.length} reviews:`
-                      : `${opinions.length} review:`)}
+                  <h3 className={`OpinionList--${theme} OpinionList__header__nbReview`}>
+                      {numberOfReviewsValidation(opinionsLength)}
             </h3>
         </header>
         <main className={`OpinionList--${theme} OpinionList__main--flex`}>
           <section className="OpinionList__filter--flex">
             {ratings.map((rating, index) => (
               <button
-              className="OpinionList__filter__button"
-              onClick={() => RateFilter(rating)}
-              key={index}>
-              {rating === 0 ? 'All' : `${rating}★`}
+                className={`OpinionList__filter__button`}
+                onClick={() => RateFilter(rating)}
+                key={index}>
+                    {rating === 0 ? 'All' : `${rating}★`}
               </button>
             ))}
           </section>

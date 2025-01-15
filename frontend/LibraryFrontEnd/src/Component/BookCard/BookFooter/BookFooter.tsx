@@ -1,4 +1,5 @@
 import "./BookFooter.css";
+import { numberOfReviewsValidation } from '../../../constants/commonFunctions';
 import { useContext } from 'react'
 import { Opinion } from '../../Opinions/Opinion/Opinion';
 import { ThemeContext } from '../../../App/App';
@@ -37,12 +38,6 @@ export const BookFooter = ({ bookFooter, updatedBook }: BookFooterType) => {
     const theme = useContext(ThemeContext);
     const numberOfReview: number | undefined = updatedBook.opinions?.length;
 
-    const numberOfReviewsValidation = () => {
-        if (!numberOfReview) return "";
-        if (numberOfReview && numberOfReview === 1) return `${numberOfReview} review`;
-        if (numberOfReview && numberOfReview > 1) return `${numberOfReview} reviews`;
-    }
-
     return (
         <>
             <footer className="bookcard__footer--flex">
@@ -58,7 +53,7 @@ export const BookFooter = ({ bookFooter, updatedBook }: BookFooterType) => {
                             >
                                 {updatedBook.averageRate}/5
                             </a>
-                            <span className="bookcard__footer-numberOfReview">{numberOfReviewsValidation()}</span>
+                            <span className="bookcard__footer-numberOfReview">{numberOfReviewsValidation(numberOfReview)}</span>
                             <div className="rate_star"> &#9733;</div>
                         </div>
                     ) : (
