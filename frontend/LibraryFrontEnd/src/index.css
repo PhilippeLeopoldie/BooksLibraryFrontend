@@ -48,10 +48,11 @@ button {
   padding:0 1.2rem;
 }
 
-button:hover {
-  border: var(--buttonhover-border) 2px solid;
-  box-shadow:var(--cardboxshadow-hover-darkmode) ;
-}
+    button:hover {
+        border: var(--buttonhover-border) 2px solid;
+        box-shadow: var(--cardboxshadow-hover-darkmode);
+        color: var(--buttonhover-border);
+    }
 
 .icone {
   background-color: transparent;
