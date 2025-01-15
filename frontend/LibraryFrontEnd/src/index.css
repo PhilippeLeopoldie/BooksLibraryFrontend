@@ -66,3 +66,7 @@ body {
   left:0;
   width:100%;
 }
+
+.rate_star {
+    margin-top: -1rem;
+}
