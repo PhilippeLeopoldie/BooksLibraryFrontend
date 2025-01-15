@@ -6,11 +6,15 @@
     background-color: transparent;
 }
 
+.bookcard__footer-section--flex {
+    display: flex;
+    background-color: transparent;
+}
+
 .bookcard__footer-reviews-container {
     background-color: transparent;
     cursor: pointer;
-    margin-left: 0.2rem;
-    
+    margin-left: 0.3rem;
 }
 
 .bookcard__footer-reviews-container:hover .bookcard__footer-average-rate,
@@ -23,25 +27,25 @@
     background-color: transparent;
     font-size: 1.2rem;
     font-weight: bold;
+    text-decoration: underline;
+    text-decoration-thickness:0.1rem;
 }
 
 .bookcard__footer-average-rate--flex {
     display: flex;
     background-color: transparent;
-    
+    padding-top: 0.4rem;
 }
 
 .bookcard__footer-average-rate {
     font-weight: bold;
     color: var(--fontcolor-link);
-    text-decoration: underline;
     background-color: transparent;
     margin-left: 10%;
 }
 
 .bookcard__footer-ratestar {
     margin-left: 0.2rem;
-    padding-top:0.2rem;
 }
 
 .bookFooter__RateButton {

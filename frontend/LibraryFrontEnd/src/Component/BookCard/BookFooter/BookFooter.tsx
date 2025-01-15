@@ -41,7 +41,7 @@ export const BookFooter = ({ bookFooter, updatedBook }: BookFooterType) => {
     return (
         <>
             <footer className="bookcard__footer--flex">
-                <section className="bookcard__footer-average-rate--flex">
+                <section className="bookcard__footer-section--flex">
                     {!bookFooter.averageClick ? (
                         <div className="item_label bookcard__footer-reviews-container"
                             onClick={() => {
