@@ -6,29 +6,29 @@
     background-color: transparent;
 }
 
-.bookcard__footer-average-rate--flex {
-    display: flex;
+.bookcard__footer-reviews-container {
     background-color: transparent;
-    cursor:pointer;
-    margin-left:0.2rem;
+    cursor: pointer;
+    margin-left: 0.2rem;
 }
 
 .bookcard__footer-average-rate {
     font-weight: bold;
-    text-align: right;
     color: var(--fontcolor-link);
     text-decoration: underline;
-    
     background-color: transparent;
     margin-left: 10%;
 }
 
+.bookcard__footer-average-rate--flex {
+    display:flex;
+    background-color:transparent;
+}
+
 .bookcard__footer-numberOfReview {
-    position: absolute;
-    margin-top: -1.5rem;
+    
     color: var(--fontcolor-link);
     background-color: transparent;
-    
     font-size: 1.2rem;
     font-weight: bold;
 }
