@@ -55,7 +55,7 @@ export const BookFooter = ({ bookFooter, updatedBook }: BookFooterType) => {
                                 >
                                     {updatedBook.averageRate}/5
                                 </a>
-                                <div className="rate_star"> &#9733;</div>
+                                <div className="rate_star bookcard__footer-ratestar"> &#9733;</div>
                             </div>
                         </div>
                     ) : (
