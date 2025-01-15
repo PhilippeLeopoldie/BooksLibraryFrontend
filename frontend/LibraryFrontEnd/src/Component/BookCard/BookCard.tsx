@@ -15,7 +15,7 @@ type BookType = {
     title: string;
     author: string;
     averageRate: number;
-    imageUrl?: string;
+        imageUrl?: string;    
   }
 };
 
