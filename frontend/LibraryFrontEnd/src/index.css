@@ -50,8 +50,6 @@ button {
 
     button:hover, button:focus {
         border: var(--buttonhover-border) 2px solid;
-        box-shadow: var(--cardboxshadow-hover-darkmode);
-        color: var(--buttonhover-border);
     }
 
 .icone {
