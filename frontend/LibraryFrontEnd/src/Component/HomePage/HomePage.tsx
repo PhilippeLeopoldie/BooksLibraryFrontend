@@ -21,7 +21,7 @@ type OpinionType = {
     userName: string;
 };
 
-type Pagination = {
+type PaginationType = {
     paginatedItems: BookType[],
     totalItems: number,
     page: number,
@@ -41,7 +41,7 @@ export const HomePage = () => {
         try {
             const newBooksResponse: Response = await fetch(BOOK_LIST_URL);
             if (newBooksResponse.status === 200) {
-                const newBooksResponseData : Pagination = await newBooksResponse.json();
+                const newBooksResponseData : PaginationType = await newBooksResponse.json();
                 setNewBooks(newBooksResponseData.paginatedItems);
                 newBooksCache?.setNewBooksCache(newBooksResponseData.paginatedItems);
                 
