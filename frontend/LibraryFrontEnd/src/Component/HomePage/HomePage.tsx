@@ -21,6 +21,14 @@ type OpinionType = {
     userName: string;
 };
 
+type Pagination = {
+    paginatedItems: BookType[],
+    totalItems: number,
+    page: number,
+    totalPages: number,
+    requestedAt: string
+}
+
 export const HomePage = () => {
     const theme = useContext(ThemeContext);
     const newBooksCache = useContext(newBooksCacheContext);
@@ -33,9 +41,9 @@ export const HomePage = () => {
         try {
             const newBooksResponse: Response = await fetch(BOOK_LIST_URL);
             if (newBooksResponse.status === 200) {
-                const newBooksResponseData = await newBooksResponse.json();
-                setNewBooks(newBooksResponseData.books);
-                newBooksCache?.setNewBooksCache(newBooksResponseData.books);
+                const newBooksResponseData : Pagination = await newBooksResponse.json();
+                setNewBooks(newBooksResponseData.paginatedItems);
+                newBooksCache?.setNewBooksCache(newBooksResponseData.paginatedItems);
                 
             } else if (newBooksResponse.status === 404) {
                 console.log(newBooksResponse);
