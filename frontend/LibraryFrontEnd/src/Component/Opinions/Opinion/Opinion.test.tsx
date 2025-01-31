@@ -1,3 +1,4 @@
+import { BookType } from "../../../constants/types";
 import { Opinion } from "./Opinion";
 import { act, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
@@ -14,15 +15,11 @@ global.fetch = jest.fn().mockImplementation(() =>
   })
 );
 
-type Book={
-  id:number,
-  title: string,
-  author:string
-}
-const book :Book = {
+const book :BookType = {
   id:1,
   title:"title 1",
-  author: "author 1"
+    author: "author 1",
+    averageRate:5
 }
 
 describe("Opinions Component Tests", () => {
