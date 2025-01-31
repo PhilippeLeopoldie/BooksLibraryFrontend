@@ -1,17 +1,8 @@
 import "./BookCover.css";
+import { BookType } from "../../../constants/types";
 import { useState } from "react";
 
-type BookType = {
-    book: {
-        id: number;
-        title: string;
-        author: string;
-        averageRate: number;
-        imageUrl?: string;
-    };
-};
-
-export const BookCover = ({ book }: BookType) => {
+export const BookCover = ({ book }: { book:BookType }) => {
 
     const [imageZoom, setImageZoom] = useState<string>("zoomOut");
     const toggleZoomImage = () => {
