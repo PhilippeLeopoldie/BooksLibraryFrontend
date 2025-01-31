@@ -1,6 +1,7 @@
 import "./App.css";
 import { About } from "../Component/About/About";
 import { BookCreate } from "../Component/BookCreate/BookCreate";
+import { BookType, GenreType } from "../constants/types";
 import { GENRES_LIST_URL } from "../constants/api";
 import { HomePage } from "../Component/HomePage/HomePage";
 import { Routes, BrowserRouter, Route } from "react-router-dom";
@@ -10,30 +11,9 @@ import { NavBar } from "../Component/NavBar/NavBar";
 import { SideBar } from "../Component/SideBar/SideBar"
 import { StoryCard } from "../Component/Story/StoryCard";
 
-type BookType = {
-    id: number;
-    title: string;
-    author: string;
-    imageUrl?: string;
-    averageRate: number;
-    opinions?: OpinionType | null;
-};
-
-type OpinionType = {
-    rate: number;
-    view: string;
-    userName: string;
-};
-
 type GenreResponseType = {
     genres: GenreType[],
     totalGenreCount: number,
-}
-
-type GenreType = {
-    id: number,
-    name: string,
-    books: BookType[]
 }
 
 type genresCacheContextType = {
