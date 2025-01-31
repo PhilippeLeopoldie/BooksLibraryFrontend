@@ -2,32 +2,9 @@ import { BookCard } from "../BookCard/BookCard";
 import "./HomePage.css";
 import { BOOK_LIST_URL } from "../../constants/api";
 import { BOOK_TOP_BOOK_URL } from "../../constants/api";
+import { BookType, PaginationType } from "../../constants/types";
 import { useContext, useEffect, useState } from "react";
 import { newBooksCacheContext, ThemeContext, topBooksCacheContext } from "../../App/App";
-
-
-type BookType = {
-    id: number;
-    title: string;
-    author: string;
-    imageUrl?: string;
-    averageRate: number;
-    opinions?: OpinionType | null;
-};
-
-type OpinionType = {
-    rate: number;
-    view: string;
-    userName: string;
-};
-
-type PaginationType = {
-    paginatedItems: BookType[],
-    totalItems: number,
-    page: number,
-    totalPages: number,
-    requestedAt: string
-}
 
 export const HomePage = () => {
     const theme = useContext(ThemeContext);

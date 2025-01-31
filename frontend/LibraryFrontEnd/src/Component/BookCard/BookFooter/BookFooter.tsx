@@ -1,4 +1,5 @@
 import "./BookFooter.css";
+import { BookType, ReviewType } from "../../../constants/types";
 import { numberOfReviewsValidation } from '../../../constants/commonFunctions';
 import { useContext } from 'react'
 import { Opinion } from '../../Opinions/Opinion/Opinion';
@@ -7,31 +8,12 @@ import { ThemeContext } from '../../../App/App';
 type BookFooterType = {
     bookFooter: {
         toggleCreateOpinion: (view: string) => void,
-        handleOpinionList: (reviews: Reviews[]) => void,
+        handleOpinionList: (reviews: ReviewType[]) => void,
         handleAverageClick: () => void,
         averageClick: boolean,
     },
-    updatedBook: bookType
+    updatedBook: BookType
 }
-
-type bookType = {
-    id: number;
-    title: string;
-    author: string;
-    averageRate: number;
-    imageUrl?: string;
-    opinions?: Reviews[] | null;
-}
-
-type Reviews = {
-    id: number;
-    rate: number;
-    view: string;
-    userName: string;
-    postDate: string;
-    bookId: number;
-};
-
 
 export const BookFooter = ({ bookFooter, updatedBook }: BookFooterType) => {
 

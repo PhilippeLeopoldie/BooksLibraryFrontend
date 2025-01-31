@@ -1,29 +1,15 @@
+import { BookType, ReviewType } from "../../../constants/types";
 import { useEffect, useState } from "react";
 import "./Opinion.css";
 import { OPINION_BY_BOOKID_URL } from "../../../constants/api";
 
 
-type OpinionType = {
-    id: number;
-    rate: number;
-    view: string;
-    userName: string;
-    postDate: string;
-    bookId: number;
+type BookAndReviewType = {
+    book: BookType,
+    displayReview: (opinions: ReviewType[]) => void;
 };
 
-type BookType = {
-    book: {
-        id: number;
-        title: string;
-        author: string;
-        imageUrl?: string;
-        averageRate?: number;
-    };
-    displayReview: (opinions: OpinionType[]) => void;
-};
-
-export const Opinion = ({book,displayReview}: BookType) => {
+export const Opinion = ({book,displayReview}: BookAndReviewType) => {
     
     const FetchOpinionBYBookId = async (bookId: number) => {
         try {

@@ -1,3 +1,4 @@
+import { BookType, ReviewType } from "../../../constants/types";
 import { Rate } from "../../Rates/Rate/Rate";
 import "./OpinionList.css";
 import Flip from "../../../media/flip.svg";
@@ -5,34 +6,19 @@ import { numberOfReviewsValidation } from '../../../constants/commonFunctions';
 import { useContext, useState } from "react";
 import { ThemeContext } from "../../../App/App";
 
-type Review = {
-  id: number;
-  rate: number;
-  view: string;
-  userName: string;
-  postDate: string;
-  bookId: number;
-};
-
 type DisplayReview = () => void;
-
-type Book = {
-  id: number;
-  title: string;
-  author: string;
-};
 
 export const OpinionList = ({
   opinions,
   displayReviews,
   book,
 }: {
-  opinions: Review[] | undefined;
+  opinions: ReviewType[] | undefined;
   displayReviews: DisplayReview;
-  book: Book | undefined;
+  book: BookType | undefined;
 }) => {
   const theme = useContext(ThemeContext);
-  const [filteredOpinion, setFilteredOpinion] = useState<Review[] | undefined>(
+  const [filteredOpinion, setFilteredOpinion] = useState<ReviewType[] | undefined>(
     opinions
     );
     const opinionsLength = opinions?.length;

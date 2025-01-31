@@ -1,3 +1,4 @@
+import { BookType, ReviewType } from "../../../constants/types";
 import React, { useContext, useState } from "react";
 import { OPINION_URL } from "../../../constants/api";
 import { RateClick } from "../../Rates/RateClick/RateClick";
@@ -5,19 +6,9 @@ import "./OpinionCreate.css";
 import { ThemeContext } from "../../../App/App";
 
 type AddOpinionType = {
-    book?: {
-        id: number;
-        title: string;
-        author: string;
-    };
+    book?: BookType;
     toCreate: (value: string) => void;
     created: (value: boolean) => void;
-};
-
-type FormDataType = {
-    view: string;
-    userName: string;
-    rate: number;
 };
 
 export const OpinionCreate = ({ book, toCreate, created }: AddOpinionType) => {
@@ -26,10 +17,13 @@ export const OpinionCreate = ({ book, toCreate, created }: AddOpinionType) => {
     const [errorOpinion, setErrorOpinion] = useState<boolean>(false);
     const [errorOpinionDetail, setErrorOpinionDetail] = useState<string>("");
     const [rateText, setRateText] = useState<string>("");
-    const [formData, setFormData] = useState<FormDataType>({
+    const [formData, setFormData] = useState<ReviewType>({
+        id:0,
         view: "",
         userName: "",
         rate: 0,
+        postDate: "",
+        bookId: 0
     });
 
     const RateTextConvertor = (rate: number) => {

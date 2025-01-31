@@ -1,22 +1,19 @@
+import { BookType } from "../../constants/types";
 import { useContext, useState } from "react";
 import "./BookCreate.css";
 import { Link } from "react-router-dom";
 import { BOOK_URL } from "../../constants/api";
 import { newBooksCacheContext,ThemeContext } from "../../App/App";
 
-type FormDataType = {
-    title: string;
-    author: string;
-    imageUrl: string;
-};
-
 export const BookCreate = () => {
     const theme = useContext(ThemeContext);
     const newBooksCache = useContext(newBooksCacheContext);
-    const [formData, setFormData] = useState<FormDataType>({
+    const [formData, setFormData] = useState<BookType>({
+        id:0,
         title: "",
         author: "",
         imageUrl: "",
+        averageRate:0
     });
 
     const [bookCreatedMessage, setBookCreatedMessage] = useState<boolean>(false);
@@ -46,9 +43,11 @@ export const BookCreate = () => {
             setBookCreatedMessage(true);
             newBooksCache?.setNewBooksCache([]);
             setFormData({
+                id: 0,
                 title: "",
                 author: "",
                 imageUrl: "",
+                averageRate: 0
             });
             return body;
         } else if (bookResponse.status === 400) {
@@ -130,9 +129,11 @@ export const BookCreate = () => {
                             onClick={() => {
                                 setErrorBook(false);
                                 setFormData({
+                                    id: 0,
                                     title: "",
                                     author: "",
                                     imageUrl: "",
+                                    averageRate: 0
                                 });
                             }}
                         >

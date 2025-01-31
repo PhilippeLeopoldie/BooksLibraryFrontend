@@ -1,30 +1,16 @@
 import { SyntheticEvent, useState, useContext } from "react";
 import { OPINION_URL } from "../../../constants/api";
+import { ReviewType } from "../../../constants/types";
 import { RateClick } from "../../Rates/RateClick/RateClick";
 import "./OpinionEdit.css"
 
-type EditedOpinion = {
-  id:number
-  rate: number,
-  view: string,
-  userName: string,
-  bookId: number
+
+type EditReviewHandler = {
+    toEdit: (opinionToUpdate: ReviewType) => void,
+    opinion: ReviewType
 };
 
-
-type EditOpinionHandler = {
-  toEdit:(opinionToUpdate:EditedOpinion) => void,
-  opinion:{
-    id:number,
-    view:string,
-    userName:string,
-    rate:number,
-    bookId:number,
-  }
-  
-};
-
-export const OpinionEdit = ({ toEdit,opinion}: EditOpinionHandler) => {
+export const OpinionEdit = ({ toEdit,opinion}: EditReviewHandler) => {
   const [updatedRate, setUpdatedRate] = useState<number>(opinion.rate);
   const handleOpinionContextRate = (newRate: number) => {
     setUpdatedRate(newRate);
@@ -54,12 +40,13 @@ export const OpinionEdit = ({ toEdit,opinion}: EditOpinionHandler) => {
         requestOptions
       );
       if (response.status === 200) {
-        const opinionToEdit:EditedOpinion = {
-          id:opinion.id,
-          rate: updatedRate,
-          view: view,
-          userName:userName,
-          bookId:opinion.bookId
+        const opinionToEdit:ReviewType = {
+            id:opinion.id,
+            rate: updatedRate,
+            view: view,
+            userName:userName,
+            bookId: opinion.bookId,
+            postDate: opinion.postDate
         }
         toEdit(opinionToEdit);
       } else if (response.status === 400) {

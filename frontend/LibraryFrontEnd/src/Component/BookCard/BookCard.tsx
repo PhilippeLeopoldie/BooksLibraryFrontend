@@ -2,6 +2,7 @@ import "./BookCard.css";
 import { BookZoomCover } from "./BookCover/BookZoomCover/BookZoomCover";
 import { BookCover } from "./BookCover/BookCover";
 import { BookBody } from "./BookBody/BookBody";
+import { BookType, ReviewType } from "../../constants/types";
 import { OpinionCreate } from "../Opinions/OpinionCreate/OpinionCreate";
 import { OpinionList } from "../Opinions/OpinionList/OpinionList";
 import { ThemeContext } from "../../App/App";
@@ -9,37 +10,18 @@ import { BOOK_BY_BOOKID_URL } from "../../constants/api";
 import { useContext, useEffect, useState } from "react";
 import { BookFooter } from "./BookFooter/BookFooter";
 
-type BookType = {
-  book: {
-    id: number;
-    title: string;
-    author: string;
-    averageRate: number;
-        imageUrl?: string;    
-  }
-};
-
-type Reviews = {
-  id: number;
-  rate: number;
-  view: string;
-  userName: string;
-  postDate: string;
-  bookId: number;
-};
-
 type CardState = {
   updatedBook: BookType,
   curentView: string, 
   opinionCreated: boolean,
   averageClick: boolean,
-  reviewList: Reviews[],
+  reviewList: ReviewType[],
 }
 
-export const BookCard = ({book} : BookType) => {
+export const BookCard = ({ book }: { book: BookType }) => {
   const theme = useContext(ThemeContext);
   const [card, setCard] = useState <CardState>({
-    updatedBook : {book}  ,
+    updatedBook : book  ,
     curentView : "bookPresentation",
     opinionCreated: false,
     averageClick: false,
@@ -59,7 +41,7 @@ export const BookCard = ({book} : BookType) => {
     setCard(prevAverageClick => ({...prevAverageClick, averageClick: false}));
   };
 
-  const handleOpinionList = (reviews: Reviews[]) => {
+  const handleOpinionList = (reviews: ReviewType[]) => {
     toggleOpinionList();
     setCard(prevBookCard => ({...prevBookCard, reviewList: reviews}));
   };
@@ -104,8 +86,8 @@ export const BookCard = ({book} : BookType) => {
     displayedContent = (
       <section className={"bookcard--grid bookcard--" + theme}>
         <BookCover book={book} />
-        <BookBody  title = {book.title } author = {book.author}/>
-        <BookFooter bookFooter={bookFooter} updatedBook={card.updatedBook.book}/>
+        <BookBody  book = {book} />
+        <BookFooter bookFooter={bookFooter} updatedBook={card.updatedBook}/>
         
       </section>
     );
