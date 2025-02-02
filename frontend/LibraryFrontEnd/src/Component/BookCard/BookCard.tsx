@@ -14,7 +14,7 @@ type CardState = {
   updatedBook: BookType,
   curentView: string, 
   opinionCreated: boolean,
-  averageClick: boolean,
+  averageRateClick: boolean,
   reviewList: ReviewType[],
 }
 
@@ -24,12 +24,12 @@ export const BookCard = ({ book }: { book: BookType }) => {
     updatedBook : book  ,
     curentView : "bookPresentation",
     opinionCreated: false,
-    averageClick: false,
+    averageRateClick: false,
     reviewList:[],
   });
 
-  const handleAverageClick = () => {
-    setCard(prevBookCard => ({...prevBookCard, averageClick: !card.averageClick}));
+  const handleAverageRateClick = () => {
+    setCard(prevBookCard => ({...prevBookCard, averageRateClick: !card.averageRateClick}));
   }
 
 
@@ -38,7 +38,7 @@ export const BookCard = ({ book }: { book: BookType }) => {
     card.curentView === "bookPresentation"
       ? setCard(prevView => ({...prevView,curentView:"opinionList"}))
       : setCard(prevView => ({...prevView, curentView:"bookPresentation"}));
-    setCard(prevAverageClick => ({...prevAverageClick, averageClick: false}));
+    setCard(prevAverageClick => ({...prevAverageClick, averageRateClick: false}));
   };
 
   const handleOpinionList = (reviews: ReviewType[]) => {
@@ -80,8 +80,8 @@ export const BookCard = ({ book }: { book: BookType }) => {
     const bookFooter = {
       toggleCreateOpinion: toggleCreateOpinion,
       handleOpinionList : handleOpinionList,
-      handleAverageClick: handleAverageClick,
-      averageClick: card.averageClick,
+      handleAverageClick: handleAverageRateClick,
+      averageClick: card.averageRateClick,
     }
     displayedContent = (
       <section className={"bookcard--grid bookcard--" + theme}>
