@@ -29,3 +29,8 @@ export type ReviewType = {
     postDate: string;
     bookId: number;
 };
+
+export type PaginationType = {
+    page: string,
+    pageSize: string
+}
