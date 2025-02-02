@@ -1,13 +1,15 @@
 import { BookCard } from "../BookCard/BookCard";
 import "./HomePage.css";
-import { BOOK_LIST_URL } from "../../constants/api";
+import { BOOK_URL } from "../../constants/api";
 import { BOOK_TOP_BOOK_URL } from "../../constants/api";
-import { BookType, PaginatedBookType } from "../../constants/types";
+import { BookType, PaginatedBookType, PaginationType } from "../../constants/types";
+import { getPaginatedItemsUrl } from "../../constants/commonFunctions";
 import { useContext, useEffect, useState } from "react";
 import { newBooksCacheContext, ThemeContext, topBooksCacheContext } from "../../App/App";
 
 export const HomePage = () => {
     const theme = useContext(ThemeContext);
+    const [pagination, setPagination] = useState<PaginationType>({ page:"1", pageSize:"6" })
     const newBooksCache = useContext(newBooksCacheContext);
     const topBooksCache = useContext(topBooksCacheContext);
     const [newBooks, setNewBooks] = useState<BookType[] | undefined | null>(newBooksCache?.newBooksCache);
@@ -16,7 +18,7 @@ export const HomePage = () => {
     
     const fetchNewBooks = async () => {
         try {
-            const newBooksResponse: Response = await fetch(BOOK_LIST_URL);
+            const newBooksResponse: Response = await fetch(getPaginatedItemsUrl(BOOK_URL, pagination.page, pagination.pageSize));
             if (newBooksResponse.status === 200) {
                 const newBooksResponseData : PaginatedBookType = await newBooksResponse.json();
                 setNewBooks(newBooksResponseData.paginatedItems);
