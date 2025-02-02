@@ -2,7 +2,7 @@ import { BookCard } from "../BookCard/BookCard";
 import "./HomePage.css";
 import { BOOK_LIST_URL } from "../../constants/api";
 import { BOOK_TOP_BOOK_URL } from "../../constants/api";
-import { BookType, PaginationType } from "../../constants/types";
+import { BookType, PaginatedBookType } from "../../constants/types";
 import { useContext, useEffect, useState } from "react";
 import { newBooksCacheContext, ThemeContext, topBooksCacheContext } from "../../App/App";
 
@@ -18,7 +18,7 @@ export const HomePage = () => {
         try {
             const newBooksResponse: Response = await fetch(BOOK_LIST_URL);
             if (newBooksResponse.status === 200) {
-                const newBooksResponseData : PaginationType = await newBooksResponse.json();
+                const newBooksResponseData : PaginatedBookType = await newBooksResponse.json();
                 setNewBooks(newBooksResponseData.paginatedItems);
                 newBooksCache?.setNewBooksCache(newBooksResponseData.paginatedItems);
                 

@@ -13,7 +13,7 @@ export type GenreType = {
     books: BookType[]
 };
 
-export type PaginationType = {
+export type PaginatedBookType = {
     paginatedItems: BookType[],
     totalItems: number,
     page: number,
