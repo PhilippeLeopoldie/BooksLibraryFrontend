@@ -8,7 +8,7 @@ export type BookType = {
 };
 
 export type GenreType = {
-    id: number,
+    id: string,
     name: string,
     books: BookType[]
 };
