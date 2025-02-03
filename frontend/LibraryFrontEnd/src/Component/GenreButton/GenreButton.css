@@ -3,9 +3,6 @@ button {
     
 }
 
-.genreButton:hover, .genreButton:focus {
-    box-shadow: var(--cardboxshadow-hover-darkmode);
-}
 
 .Button--clicked {
     background-color: var(--buttonclicked);
