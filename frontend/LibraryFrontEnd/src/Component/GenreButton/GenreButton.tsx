@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "../GenreButton/GenreButton.css";
 
 type GenreButtonType = {
@@ -16,37 +15,31 @@ type genreType = {
 
 
 export const GenreButton = ({ genre, handleGenres, typeOfChoice, sessionStorageName }: GenreButtonType) => {   
-    const [isClicked, setIsClicked] = useState<boolean>(false);
-    const handleSingleChoice = () => {
+
+    const handleChoice = () => {
         handleGenres(genre.id.toString());
     }
 
-    const handleMultiChoice = () => {
-        setIsClicked(!isClicked);
-        handleGenres(genre.id.toString());
+    const buttonClassName  = (): string => {
+        if (typeOfChoice === 'single') {
+            return sessionStorageGenre?.at(0) === genre.id.toString()
+                ? 'genreButton Button--clicked'
+                : 'genreButton Button--unclicked'; 
+        };
+        return sessionStorageGenre?.includes(genre.id.toString())
+            ? 'genreButton Button--clicked'
+            : 'genreButton Button--unclicked';
     }
+
     const sessionStorageGenre = sessionStorage.getItem(sessionStorageName)?.split(",");
-
-    let displayedContent: JSX.Element = <></>;
-    if (typeOfChoice === 'single') {
-        displayedContent = (< button
-            className={`${sessionStorageGenre?.at(0) === genre.id.toString() ? 'genreButton Button--clicked' : 'genreButton Button--unclicked'}`}
-            onClick={handleSingleChoice}>
-            {genre.name}
-        </button>)
-    }
-    if (typeOfChoice === 'multiple') {
-        displayedContent = (< button
-            className={`${sessionStorageGenre?.includes(genre.id.toString()) ? 'genreButton Button--clicked' : 'genreButton Button--unclicked'
-    }`}
-            onClick={handleMultiChoice}>
-            {genre.name}
-        </button>)
-    }
 
     return (
         <>
-            {displayedContent}
+            <button
+                className={buttonClassName()}
+                onClick={handleChoice}>
+                {genre.name}
+            </button>
         </>
     )
 };
