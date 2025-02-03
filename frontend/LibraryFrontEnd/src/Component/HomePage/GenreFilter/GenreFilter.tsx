@@ -24,9 +24,6 @@ export const GenreFilter = () => {
     }
 
     useEffect(() => {
-    }, [genreFilter]);
-
-    useEffect(() => {
         if (!sessionStorage.getItem("genreFiltered")) 
         handleGenreFiltered('All');
     }, [])
