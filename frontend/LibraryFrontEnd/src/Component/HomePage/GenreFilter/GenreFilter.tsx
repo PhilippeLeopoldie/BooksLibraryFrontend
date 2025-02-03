@@ -1,4 +1,5 @@
 import { GenreButton } from "../../GenreButton/GenreButton";
+import "./GenreFilter.css";
 import { useContext, useEffect, useState } from "react";
 import { ThemeContext, genresCacheContext } from "../../../App/App";
 
@@ -22,7 +23,7 @@ export const GenreFilter = () => {
 
     return (
         <>
-            <section className={`genreFilter_container--${theme}`}>
+            <section className={`genreFilter_container genreFilter_container--${theme}`}>
                 {
                     listOfGenres.map((genre) =>
                         <GenreButton
