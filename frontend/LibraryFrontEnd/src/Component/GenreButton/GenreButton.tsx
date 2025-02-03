@@ -4,7 +4,7 @@ import "../GenreButton/GenreButton.css";
 type GenreButtonType = {
     genre: genreType,
     handleGenres: (genre: string) => void,
-    typeOfChoice: string,
+    typeOfChoice: 'single' | 'multiple',
 }
 
 type genreType = {
@@ -16,7 +16,7 @@ type genreType = {
 
 export const GenreButton = ({ genre, handleGenres, typeOfChoice }: GenreButtonType) => {   
     const [isClicked, setIsClicked] = useState<boolean>(false);
-    const handleOneChoice = () => {
+    const handleSingleChoice = () => {
         handleGenres(genre.id.toString());
     }
 
@@ -28,14 +28,14 @@ export const GenreButton = ({ genre, handleGenres, typeOfChoice }: GenreButtonTy
     const sessionStorageGenres = sessionStorage.getItem("userGenresIdPreference")?.split(",");
 
     let displayedContent: JSX.Element = <></>;
-    if (typeOfChoice === 'oneChoice') {
+    if (typeOfChoice === 'single') {
         displayedContent = (< button
             className={`${sessionStorageGenre === genre.id.toString() ? 'genreButton Button--clicked' : 'genreButton Button--unclicked'}`}
-            onClick={handleOneChoice}>
+            onClick={handleSingleChoice}>
             {genre.name}
         </button>)
     }
-    if (typeOfChoice === 'multiChoices') {
+    if (typeOfChoice === 'multiple') {
         displayedContent = (< button
             className={`${sessionStorageGenres?.includes(genre.id.toString()) ? 'genreButton Button--clicked' : 'genreButton Button--unclicked'
     }`}

@@ -56,7 +56,7 @@ export const AppUserPreferences = () => {
                 <form onSubmit={(e) => e.preventDefault()} className="Preferences_form">
                     <section className='Genres'>
                         {listOfGenres?.map((genre) =>
-                            <GenreButton key={genre.id} genre={genre} handleGenres={handleMultipleGenres} typeOfChoice="multiChoices" />
+                            <GenreButton key={genre.id} genre={genre} handleGenres={handleMultipleGenres} typeOfChoice='multiple' />
                         )}  
                     </section>                    
                 </form>

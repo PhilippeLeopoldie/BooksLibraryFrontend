@@ -24,7 +24,7 @@ export const AiUserPreferences = () => {
         <section className={`AiUserPreferences_container AiUserPreferences_container--${theme}`}>
                 <section className='AiGenres'>
                 {listOfGenres.map((genre) =>
-                    <GenreButton key={genre.id} genre={genre} handleGenres={handleGenreSelection} typeOfChoice="oneChoice" />
+                    <GenreButton key={genre.id} genre={genre} handleGenres={handleGenreSelection} typeOfChoice='single' />
                     )}
                 </section>
                 <ReadingRange/>
