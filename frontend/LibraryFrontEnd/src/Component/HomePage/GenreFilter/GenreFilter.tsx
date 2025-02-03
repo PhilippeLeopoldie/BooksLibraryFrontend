@@ -2,6 +2,7 @@ import { GenreButton } from "../../GenreButton/GenreButton";
 import "./GenreFilter.css";
 import { useContext, useEffect, useState } from "react";
 import { ThemeContext, genresCacheContext } from "../../../App/App";
+import { GenreType } from "../../../constants/types";
 
 export const GenreFilter = () => {
     const theme = useContext(ThemeContext);
@@ -11,19 +12,32 @@ export const GenreFilter = () => {
         sessionStorage.getItem("genreFiltered") || ""
     );
 
+    const allGenre: GenreType = {
+        id: 'All',
+        name: 'All'
+    }
+
     const handleGenreFiltered = (genreId: string) => {
         sessionStorage.setItem("genreFiltered", genreId);
         setGenreFilter(genreId);
     }
 
     useEffect(() => {
-        console.log(genreFilter);
     }, [genreFilter]);
 
+    useEffect(() => {
+        handleGenreFiltered('All');
+    }, [])
 
     return (
         <>
             <section className={`genreFilter_container genreFilter_container--${theme}`}>
+                <GenreButton
+                    genre={allGenre}
+                    handleGenres={handleGenreFiltered}
+                    typeOfChoice='single'
+                    sessionStorageName='genreFiltered'
+                />
                 {
                     listOfGenres.map((genre) =>
                         <GenreButton
