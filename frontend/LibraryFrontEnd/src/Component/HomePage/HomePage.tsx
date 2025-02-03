@@ -1,4 +1,5 @@
 import "./HomePage.css";
+import { GenreFilter } from "./GenreFilter/GenreFilter";
 import { NewBooks } from "./NewBooks/NewBooks";
 import { TopBook } from "./TopBooks/TopBook";
 import { useContext, useState } from "react";
@@ -13,6 +14,7 @@ export const HomePage = () => {
     return (
         <>
             <div className={`BookList--${theme}--flex`}>
+                <GenreFilter/>
                 <TopBook maxNumBooks={`${numberOfBooks}`} />
                 <NewBooks/>
             </div>
