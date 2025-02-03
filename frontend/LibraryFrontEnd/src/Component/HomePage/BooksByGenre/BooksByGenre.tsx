@@ -45,7 +45,7 @@ export const BooksByGenre = ({ sessionStorageName }: { sessionStorageName: strin
     }, [selectedGenre])
 
     return (
-        <div className={`booksByGenre_container booksByGenre_container--${theme}` }>
+        <div className={`bookListContainer` }>
             {displayedContent}
         </div>
     )
