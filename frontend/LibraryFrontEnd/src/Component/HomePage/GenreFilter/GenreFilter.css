@@ -1,0 +1,29 @@
+.genreFilter_container{
+    background-color: transparent;
+    padding-top:0.2rem;
+    display:flex;
+    overflow-x:auto;
+    scrollbar-width:none;
+    -ms-overflow-style:none;
+    scroll-behavior:smooth;
+    z-index:2;
+    position:sticky;
+    top:3rem;
+    gap:0.2rem;
+    padding-bottom:0.2rem;
+
+}
+
+.genreFilter_container--black {
+    background-color: var(--backgroundcolor-darkmode);
+}
+
+.genreFilter_container--natural {
+    background-color: var(--backgroundcolor-whitesmoke);
+}
+
+@media screen and (min-width: 700px) {
+    .genreFilter_container {
+       top:4.8rem;
+    }
+}
