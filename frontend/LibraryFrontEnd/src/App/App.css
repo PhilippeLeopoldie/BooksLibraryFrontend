@@ -16,7 +16,7 @@
 
 .Contents {
     background-color: inherit;
-    margin: 3.2rem 0rem 2rem 0rem;
+    margin: 3rem 0rem 2rem 0rem;
 }
 
 .App--black{
@@ -28,6 +28,6 @@
 
 @media screen and (min-width: 700px) {
     .Contents {
-        margin: 5rem 0rem 0rem 0rem;
+        margin: 4.8rem 0rem 0rem 0rem;
     } 
 }
