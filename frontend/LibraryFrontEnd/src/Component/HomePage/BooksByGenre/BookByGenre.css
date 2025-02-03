@@ -1,8 +1,8 @@
-.booksByGenre_container, .notFound_message {
+ .notFound_message {
     background-color: inherit;
 }
 
-.booksByGenre_container--black > * {
+.notFound_message {
     color: var(--fontcolor-dark);
-    font-size:2rem;
+    font-size: 2rem;
 }
