@@ -14,7 +14,8 @@ export const NewBooks = ()  => {
 
     const fetchNewBooks = async () => {
         try {
-            const newBooksResponse: Response = await fetch(getPaginatedItemsUrl(BOOK_URL, pagination.page, pagination.pageSize));
+            const newBooksResponse: Response = await fetch(
+                getPaginatedItemsUrl(`${BOOK_URL}?`, pagination.page, pagination.pageSize));
             if (newBooksResponse.status === 200) {
                 const newBooksResponseData: PaginatedBookType = await newBooksResponse.json();
                 setNewBooks(newBooksResponseData.paginatedItems);

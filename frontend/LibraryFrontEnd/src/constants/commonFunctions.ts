@@ -7,5 +7,5 @@ export const numberOfReviewsValidation = (numberOfReview: number | undefined) =>
 }
 
 export const getPaginatedItemsUrl = (url: string, page: string, pageSize: string) => {
-    return `${url}?Page=${page}&PageSize=${pageSize}`;
+    return `${url}Page=${page}&PageSize=${pageSize}`;
 }
