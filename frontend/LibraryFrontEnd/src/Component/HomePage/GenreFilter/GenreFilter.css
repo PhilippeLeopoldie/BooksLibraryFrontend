@@ -26,4 +26,10 @@
     .genreFilter_container {
        top:4.8rem;
     }
+    .genreFilter_container {
+       scrollbar-width:initial;
+       -ms-overflow-style:initial;
+       scroll-padding-bottom:auto;
+       padding-bottom:1rem;
+    }
 }
