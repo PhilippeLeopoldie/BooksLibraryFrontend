@@ -1,5 +1,6 @@
 import { BookCard } from "../../BookCard/BookCard";
 import { BOOKS_BY_GENRESId_URL } from "../../../constants/api"
+import "./BookByGenre.css";
 import { useContext ,useEffect, useState } from "react";
 import { BookType, PaginatedBookType ,PaginationType } from "../../../constants/types";
 import { getPaginatedItemsUrl } from "../../../constants/commonFunctions";
@@ -31,7 +32,7 @@ export const BooksByGenre = ({ sessionStorageName }: { sessionStorageName: strin
                 };
             } else if (booksByIdResponse.status === 400) {
                 console.log(booksByIdResponse);
-                setDisplayedContent(<h3> No Books found for this genre!</h3>);
+                setDisplayedContent(<h3 className={`notFound_message` }> No books found for this genre...</h3>);
             }
 
         } catch (error) {
@@ -44,7 +45,7 @@ export const BooksByGenre = ({ sessionStorageName }: { sessionStorageName: strin
     }, [selectedGenre])
 
     return (
-        <div className={`booksByGenre_container--${theme}` }>
+        <div className={`booksByGenre_container booksByGenre_container--${theme}` }>
             {displayedContent}
         </div>
     )
