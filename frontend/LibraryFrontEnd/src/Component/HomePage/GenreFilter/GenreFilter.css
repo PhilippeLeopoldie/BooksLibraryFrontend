@@ -1,6 +1,6 @@
 .genreFilter_container{
     background-color: transparent;
-    padding-top:0.2rem;
+    padding:0.2rem 0.5rem 0 0.5rem;
     display:flex;
     overflow-x:auto;
     scrollbar-width:none;
@@ -9,7 +9,7 @@
     z-index:2;
     position:sticky;
     top:3rem;
-    gap:0.2rem;
+    gap:0.5rem;
     padding-bottom:0.2rem;
 
 }
