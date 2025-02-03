@@ -10,7 +10,7 @@ export type BookType = {
 export type GenreType = {
     id: string,
     name: string,
-    books: BookType[]
+    books?: BookType[]
 };
 
 export type PaginatedBookType = {

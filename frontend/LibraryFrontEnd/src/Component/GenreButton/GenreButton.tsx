@@ -1,5 +1,5 @@
 import "../GenreButton/GenreButton.css";
-
+import { GenreType } from "../../constants/types";
 
 type GenreButtonType = {
     genre: GenreType,
@@ -7,12 +7,6 @@ type GenreButtonType = {
     typeOfChoice: 'single' | 'multiple',
     sessionStorageName: string
 }
-
-type GenreType = {
-    id: string,
-    name: string
-}
-
 
 
 export const GenreButton = ({ genre, handleGenres, typeOfChoice, sessionStorageName }: GenreButtonType) => {   
