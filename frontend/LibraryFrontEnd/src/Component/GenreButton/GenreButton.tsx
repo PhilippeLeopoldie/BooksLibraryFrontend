@@ -1,8 +1,9 @@
 import "../GenreButton/GenreButton.css";
 
+
 type GenreButtonType = {
     genre: GenreType,
-    handleGenres: (genre: string) => void,
+    handleGenres: (genreId: string) => void,
     typeOfChoice: 'single' | 'multiple',
     sessionStorageName: string
 }
