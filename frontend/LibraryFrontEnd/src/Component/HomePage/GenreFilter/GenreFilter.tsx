@@ -3,6 +3,7 @@ import "./GenreFilter.css";
 import { useContext, useEffect, useState } from "react";
 import { ThemeContext, genresCacheContext } from "../../../App/App";
 import { GenreType } from "../../../constants/types";
+import { BooksByGenre } from "../BooksByGenre/BooksByGenre";
 
 export const GenreFilter = () => {
     const theme = useContext(ThemeContext);
@@ -49,6 +50,9 @@ export const GenreFilter = () => {
                             sessionStorageName='genreFiltered'
                         />)
                 }
+            </section>
+            <section className={`booksByGenre_container booksByGenre_container--${theme}`}>
+                <BooksByGenre sessionStorageName={"genreFiltered"} />
             </section>
 
         </>
