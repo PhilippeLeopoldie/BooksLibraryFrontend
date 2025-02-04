@@ -41,6 +41,7 @@ export const BooksByGenre = ({ sessionStorageName }: { sessionStorageName: strin
     }
 
     useEffect(() => {
+        if (selectedGenre)
         fetchBooksByGenreId();
     }, [selectedGenre])
 
