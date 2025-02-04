@@ -30,7 +30,7 @@
   background-color: var(--backgroundcolor-whitesmoke);
 }
 
-input {
+input, select, option {
   background-color: inherit;
   margin-top: 5%;
   font-size: x-large;
