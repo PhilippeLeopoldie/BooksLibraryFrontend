@@ -2,7 +2,7 @@ import "./HomePage.css";
 import { BooksByGenre } from "./BooksByGenre/BooksByGenre";
 import { GenreFilter } from "./GenreFilter/GenreFilter";
 import { NewBooks } from "./NewBooks/NewBooks";
-import { TopBook } from "./TopBooks/TopBook";
+import { PopularBooks } from "./PopularBooks/PopularBooks";
 import { useContext, useEffect, useState } from "react";
 import { FilteredGenreContext, ThemeContext} from "../../App/App";
 
@@ -23,7 +23,7 @@ export const HomePage = () => {
         } else {
             setDisplayedContent(
                 <>
-                    <TopBook maxNumBooks={`${numberOfBooks}`} />
+                    <PopularBooks maxNumBooks={`${numberOfBooks}`} />
                     <NewBooks />
                 </>
             );

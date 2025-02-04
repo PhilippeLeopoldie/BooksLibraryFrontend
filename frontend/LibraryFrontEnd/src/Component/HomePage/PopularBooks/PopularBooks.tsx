@@ -5,7 +5,7 @@ import { ThemeContext, topBooksCacheContext } from "../../../App/App";
 import { BOOK_TOP_BOOK_URL } from "../../../constants/api";
 
 
-export const TopBook = ({ maxNumBooks }: { maxNumBooks: string })  => {
+export const PopularBooks = ({ maxNumBooks }: { maxNumBooks: string })  => {
     const theme = useContext(ThemeContext);
     const topBooksCache = useContext(topBooksCacheContext);
     const [topBooks, setTopBooks] = useState<BookType[] | undefined | null>(topBooksCache?.topBooksCache);
