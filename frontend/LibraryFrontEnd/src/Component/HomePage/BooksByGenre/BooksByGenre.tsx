@@ -28,7 +28,7 @@ export const BooksByGenre = ({ sessionStorageName }: { sessionStorageName: strin
                     Array.isArray(booksData.paginatedItems)) {
                     setDisplayedContent(
                         <>
-                            <h3 className={`genreTitle genreTitle--${theme}`}>{selectedGenreName}</h3>
+                            <h3 className={`genreTitle genreTitle--${theme}`}>{`${selectedGenreName} (${booksData.totalItems})`}</h3>
                             <div className="bookListContainer" >
                                 {booksData.paginatedItems.map((book) => (
                                     <BookCard key={book.id} book={book} />
