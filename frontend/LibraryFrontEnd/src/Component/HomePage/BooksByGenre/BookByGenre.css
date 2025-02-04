@@ -1,11 +1,17 @@
- .notFound_message {
+.notFound_message, .genreTitle {
     background-color: inherit;
+    font-size: 1.5rem;
 }
 
-.notFound_message {
+.notFound_message--black, .genreTitle--black {
     color: var(--fontcolor-dark);
-    font-size: 2rem;
 }
+
+.genreTitle {
+    display:flex;
+    margin-left:1rem;
+}
+
 .bookListContainer {
-    margin-top:0.5rem;
+    margin-top: 0.5rem;
 }
