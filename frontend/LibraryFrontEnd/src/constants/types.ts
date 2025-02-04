@@ -5,6 +5,7 @@ export type BookType = {
     imageUrl?: string;
     averageRate: number;
     opinions?: ReviewType[] | null;
+    genreId?: string
 };
 
 export type GenreType = {
