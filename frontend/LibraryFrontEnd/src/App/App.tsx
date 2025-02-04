@@ -31,10 +31,15 @@ type TopBooksCacheContextType = {
     setTopBooksCache: (newStatus: BookType[]) => void
 }
 
+type GenreFilterContextType = {
+    genreFilter: string | null,
+    setGenreFilter: (newStatus: string) => void
+}
 export const ThemeContext = createContext<string>("black");
 export const newBooksCacheContext = createContext<NewBooksCacheContextType | null>(null);
 export const topBooksCacheContext = createContext<TopBooksCacheContextType | null>(null);
 export const genresCacheContext = createContext<genresCacheContextType | null>(null);
+export const genreFilterContext = createContext<GenreFilterContextType | null>(null);
 
 export const App = () => {
     const rootElement = document.documentElement;
@@ -42,6 +47,9 @@ export const App = () => {
     const [newBooksCache, setNewBooksCache] = useState<BookType[] | null>(null);
     const [topBooksCache, setTopBooksCache] = useState<BookType[] | null>(null);
     const [genresCache, setGenresCache] = useState<GenreResponseType | null>(null);
+    const [genreFilter, setGenreFilter] = useState<string | null>(
+        sessionStorage.getItem("genreFiltered")
+    );
 
     const handleTheme = () => {
         setTheme(theme === "natural" ? "black" : "natural");
@@ -72,7 +80,7 @@ export const App = () => {
                     : (rootElement.style.backgroundColor = "#F5F5F5")}
             </script>
             <ThemeContext.Provider value={theme}>
-                
+                <genreFilterContext.Provider value={{ genreFilter, setGenreFilter }}>
                     <newBooksCacheContext.Provider value={{ newBooksCache, setNewBooksCache }}>
                         <topBooksCacheContext.Provider value={{ topBooksCache, setTopBooksCache }}>
                             <genresCacheContext.Provider value={{ genresCache, setGenresCache }}>
@@ -96,7 +104,7 @@ export const App = () => {
                             </genresCacheContext.Provider>
                         </topBooksCacheContext.Provider>
                     </newBooksCacheContext.Provider>
-                
+                </genreFilterContext.Provider>
             </ThemeContext.Provider>
         </div>
     );
