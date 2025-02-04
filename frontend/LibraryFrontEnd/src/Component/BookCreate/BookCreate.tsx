@@ -3,17 +3,20 @@ import { useContext, useState } from "react";
 import "./BookCreate.css";
 import { Link } from "react-router-dom";
 import { BOOK_URL } from "../../constants/api";
-import { newBooksCacheContext,ThemeContext } from "../../App/App";
+import { genresCacheContext, newBooksCacheContext, ThemeContext } from "../../App/App";
 
 export const BookCreate = () => {
     const theme = useContext(ThemeContext);
     const newBooksCache = useContext(newBooksCacheContext);
+    const genresCache = useContext(genresCacheContext);
+    const genresListCache = genresCache?.genresCache?.genres;
     const [formData, setFormData] = useState<BookType>({
         id:0,
         title: "",
         author: "",
         imageUrl: "",
-        averageRate:0
+        averageRate: 0,
+        genreId: ""
     });
 
     const [bookCreatedMessage, setBookCreatedMessage] = useState<boolean>(false);
@@ -31,6 +34,7 @@ export const BookCreate = () => {
                 title: formData.title,
                 author: formData.author,
                 imageUrl: formData.imageUrl,
+                genreId: formData.genreId
             }),
         };
         const bookResponse: Response = await fetch(
@@ -47,7 +51,8 @@ export const BookCreate = () => {
                 title: "",
                 author: "",
                 imageUrl: "",
-                averageRate: 0
+                averageRate: 0,
+                genreId:""
             });
             return body;
         } else if (bookResponse.status === 400) {
@@ -68,6 +73,7 @@ export const BookCreate = () => {
         e:
             | React.ChangeEvent<HTMLInputElement>
             | React.ChangeEvent<HTMLTextAreaElement>
+            | React.ChangeEvent<HTMLSelectElement>
     ) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
         bookCreatedMessage && HideBookCreatedMessage();
@@ -100,6 +106,19 @@ export const BookCreate = () => {
                         value={formData.author}
                         onChange={(e) => HandleInputChange(e)}
                     />
+                    
+                    <select
+                        className={`select select--${theme}` }
+                        name="genreId"
+                        value={formData.genreId}
+                        onChange={(e) => HandleInputChange(e)}
+                    >
+                    <option value="" disabled>Choose a genre</option>
+                        {genresListCache && genresListCache.map((genre) => (
+                            <option className={`option option--${theme}`} key={genre.id} value={genre.id}> {genre.name} </option>
+                        ))
+                        }
+                    </select>
 
                     <input
                         className={`input input--${theme} input__imageUrl--${theme}`}
@@ -133,7 +152,8 @@ export const BookCreate = () => {
                                     title: "",
                                     author: "",
                                     imageUrl: "",
-                                    averageRate: 0
+                                    averageRate: 0,
+                                    genreId: ""
                                 });
                             }}
                         >
