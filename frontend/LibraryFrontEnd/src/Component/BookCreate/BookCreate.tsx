@@ -113,7 +113,7 @@ export const BookCreate = () => {
                         value={formData.genreId}
                         onChange={(e) => HandleInputChange(e)}
                     >
-                    <option value="" disabled>Choose a genre</option>
+                        <option className={`option option--${theme}`} value="" disabled>Choose a genre</option>
                         {genresListCache && genresListCache.map((genre) => (
                             <option className={`option option--${theme}`} key={genre.id} value={genre.id}> {genre.name} </option>
                         ))

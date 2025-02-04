@@ -12,14 +12,22 @@
     border: 1px var(--forminputcolor) solid;
 }
 
-.input--black {
+.input--black, .select--black, .option--black {
   color: #ffffff;
 }
 
-.input {
+.input, .select {
     background-color: inherit;
     width: 90%;
     border: 1px var(--forminputcolor) solid;
+}
+
+.option--black {
+    background-color: var(--backgroundcolor-darkmode);
+}
+
+.select {
+    position: relative;
 }
 
 .book-create-form__container--natural {
@@ -88,7 +96,7 @@
 }
 
 .book-create-form__cancel-button {
-    font-size: 1rem;
+    font-size: 1.2rem;
     margin-top: 1rem;
     margin-bottom: 1.5rem;    
 }
