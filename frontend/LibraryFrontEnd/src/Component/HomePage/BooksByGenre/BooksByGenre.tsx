@@ -12,7 +12,6 @@ export const BooksByGenre = ({ sessionStorageName }: { sessionStorageName: strin
     const genreCacheContext = useContext(genresCacheContext);
     const selectedGenre = sessionStorage.getItem(sessionStorageName);
     const [pagination, setPagination] = useState<PaginationType>({ page: "1", pageSize: "6" })
-    const [booksByGenre, setBooksByGenre] = useState<BookType[] | undefined>();
     const [displayedContent, setDisplayedContent] = useState<JSX.Element>(<></>);
     const fetchBooksByGenreId = async () => {
         try {
@@ -23,7 +22,6 @@ export const BooksByGenre = ({ sessionStorageName }: { sessionStorageName: strin
                 await fetch(getPaginatedItemsUrl(`${BOOKS_BY_GENRESId_URL}${selectedGenre}&`, `${pagination.page}`, `${pagination.pageSize}`));
             if (booksByIdResponse.status === 200) {
                 const booksData: PaginatedBookType = await booksByIdResponse.json();
-                setBooksByGenre(booksData.paginatedItems);
                 if (booksData.paginatedItems &&
                     Array.isArray(booksData.paginatedItems)) {
                     setDisplayedContent(
