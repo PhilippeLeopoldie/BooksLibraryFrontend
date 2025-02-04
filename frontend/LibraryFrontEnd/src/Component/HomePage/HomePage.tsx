@@ -28,7 +28,7 @@ export const HomePage = () => {
                 </>
             );
         }
-    }, [genreContext?.genreFilter])
+    }, [genreContext?.genreFilter, theme])
 
     return (
         <>
