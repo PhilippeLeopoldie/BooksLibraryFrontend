@@ -6,3 +6,6 @@
     color: var(--fontcolor-dark);
     font-size: 2rem;
 }
+.bookListContainer {
+    margin-top:0.5rem;
+}
