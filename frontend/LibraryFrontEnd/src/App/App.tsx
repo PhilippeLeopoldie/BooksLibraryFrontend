@@ -31,7 +31,7 @@ type TopBooksCacheContextType = {
     setTopBooksCache: (newStatus: BookType[]) => void
 }
 
-type GenreFilterContextType = {
+type FilteredGenreContextType = {
     genreFilter: string | null,
     setGenreFilter: (newStatus: string) => void
 }
@@ -39,7 +39,7 @@ export const ThemeContext = createContext<string>("black");
 export const newBooksCacheContext = createContext<NewBooksCacheContextType | null>(null);
 export const topBooksCacheContext = createContext<TopBooksCacheContextType | null>(null);
 export const genresCacheContext = createContext<genresCacheContextType | null>(null);
-export const genreFilterContext = createContext<GenreFilterContextType | null>(null);
+export const FilteredGenreContext = createContext<FilteredGenreContextType | null>(null);
 
 export const App = () => {
     const rootElement = document.documentElement;
@@ -80,7 +80,7 @@ export const App = () => {
                     : (rootElement.style.backgroundColor = "#F5F5F5")}
             </script>
             <ThemeContext.Provider value={theme}>
-                <genreFilterContext.Provider value={{ genreFilter, setGenreFilter }}>
+                <FilteredGenreContext.Provider value={{ genreFilter, setGenreFilter }}>
                     <newBooksCacheContext.Provider value={{ newBooksCache, setNewBooksCache }}>
                         <topBooksCacheContext.Provider value={{ topBooksCache, setTopBooksCache }}>
                             <genresCacheContext.Provider value={{ genresCache, setGenresCache }}>
@@ -104,7 +104,7 @@ export const App = () => {
                             </genresCacheContext.Provider>
                         </topBooksCacheContext.Provider>
                     </newBooksCacheContext.Provider>
-                </genreFilterContext.Provider>
+                </FilteredGenreContext.Provider>
             </ThemeContext.Provider>
         </div>
     );
