@@ -9,6 +9,7 @@
 
 .About_article {
    width:100%;
+   font-size:1.2rem;
 }
 
 .About--black {
@@ -16,3 +17,8 @@
     font-family: var(--fontfamily);
 }
 
+@media screen and (min-width: 700px) {
+    .About_article {
+        font-size:1.5rem;
+    }
+}
