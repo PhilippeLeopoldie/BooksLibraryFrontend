@@ -3,7 +3,7 @@ import React, { useContext, useState } from "react";
 import { OPINION_URL } from "../../../constants/api";
 import { RateClick } from "../../Rates/RateClick/RateClick";
 import "./OpinionCreate.css";
-import { ThemeContext } from "../../../App/App";
+import { newBooksCacheContext, ThemeContext, topBooksCacheContext } from "../../../App/App";
 
 type AddOpinionType = {
     book?: BookType;
@@ -13,6 +13,8 @@ type AddOpinionType = {
 
 export const OpinionCreate = ({ book, toCreate, created }: AddOpinionType) => {
     const theme = useContext(ThemeContext);
+    const newBooksCache = useContext(newBooksCacheContext);
+    const topBooksCache = useContext(topBooksCacheContext);
     const [bookCreatedMessage, setBookCreatedMessage] = useState<boolean>(false);
     const [errorOpinion, setErrorOpinion] = useState<boolean>(false);
     const [errorOpinionDetail, setErrorOpinionDetail] = useState<string>("");
@@ -74,6 +76,8 @@ export const OpinionCreate = ({ book, toCreate, created }: AddOpinionType) => {
             setErrorOpinion(false);
             toCreate('bookPresentation');
             created(true);
+            newBooksCache?.setNewBooksCache([]);
+            topBooksCache?.setTopBooksCache([]);
             return newOpinion;
         } else if (opinionResponse.status === 400) {
             const errorData = await opinionResponse.json();
