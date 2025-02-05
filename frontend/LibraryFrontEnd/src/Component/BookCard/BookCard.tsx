@@ -58,9 +58,9 @@ export const BookCard = ({ book }: { book: BookType }) => {
       const bookResponse: Response = await fetch(
         `${BOOK_BY_BOOKID_URL}${book?.id}`
       );
-      if (bookResponse.status === 200) {
-        const bookResponseData = await bookResponse.json();
-        setCard(prevState => ({...prevState, updatedBook: bookResponseData,}));
+        if (bookResponse.status === 200) {
+            const bookResponseData = await bookResponse.json();
+          setCard(prevState => ({ ...prevState, updatedBook: bookResponseData.book, opinionCreated: false }));
       } else if (bookResponse.status === 404) {
         console.log(bookResponse);
       }
@@ -70,8 +70,7 @@ export const BookCard = ({ book }: { book: BookType }) => {
   };
   // when a new opinion is posted ,fetch the book with the new averageRate updated
   useEffect(() => {
-    card.opinionCreated === true && fetchBook();
-    setCard((prevState) => ({...prevState, opinionCreated: false}));
+      card.opinionCreated === true && fetchBook();
   }, [card.opinionCreated]);
 
   //when 'displayContent' is rendered it will render either <OpinionList/> , <bookPresentation/> or <createOpinion/>
