@@ -3,11 +3,12 @@ import { useContext, useState } from "react";
 import "./BookCreate.css";
 import { Link } from "react-router-dom";
 import { BOOK_URL } from "../../constants/api";
-import { genresCacheContext, newBooksCacheContext, ThemeContext } from "../../App/App";
+import { genresCacheContext, newBooksCacheContext, topBooksCacheContext, ThemeContext } from "../../App/App";
 
 export const BookCreate = () => {
     const theme = useContext(ThemeContext);
     const newBooksCache = useContext(newBooksCacheContext);
+    const topBooksCache = useContext(topBooksCacheContext);
     const genresCache = useContext(genresCacheContext);
     const genresListCache = genresCache?.genresCache?.genres;
     const [formData, setFormData] = useState<BookType>({
@@ -46,6 +47,7 @@ export const BookCreate = () => {
             const body = await bookResponse.json();
             setBookCreatedMessage(true);
             newBooksCache?.setNewBooksCache([]);
+            topBooksCache?.setTopBooksCache([]);
             setFormData({
                 id: 0,
                 title: "",
