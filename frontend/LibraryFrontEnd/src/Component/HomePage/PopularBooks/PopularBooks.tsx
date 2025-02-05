@@ -26,7 +26,7 @@ export const PopularBooks = ({ maxNumBooks }: { maxNumBooks: string })  => {
     };
 
     useEffect(() => {
-        if (!topBooks) fetchTopBook();
+        if (!topBooks || topBooks.length === 0) fetchTopBook();
     }, []);
 
     if (!topBooks) {
