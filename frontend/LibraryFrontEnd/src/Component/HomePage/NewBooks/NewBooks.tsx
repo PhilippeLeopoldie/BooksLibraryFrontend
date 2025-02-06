@@ -34,7 +34,7 @@ export const NewBooks = ()  => {
     }, []);
 
     if (!newBooks) {
-        return <h1 className={"Books__Loading--" + theme}>Loading...</h1>;
+        return <h1 className={"Books__Loading--" + theme}></h1>;
     }
 
     return (
