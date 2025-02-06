@@ -3,15 +3,16 @@ import { BookType, PaginatedBookType, PaginationType } from "../../../constants/
 import { BOOK_URL } from "../../../constants/api";
 import { getPaginatedItemsUrl } from "../../../constants/commonFunctions";
 import { useContext, useEffect, useState } from "react";
-import { ThemeContext, newBooksCacheContext } from "../../../App/App";
+import { ThemeContext, paginatedBooksCacheContext } from "../../../App/App";
 
 
 export const NewBooks = ()  => {
     const theme = useContext(ThemeContext);
-    const [pagination, setPagination] = useState<PaginationType>({ page: "1", pageSize: "6" })
-    const [booksResponse, setBooksResponse] = useState<PaginatedBookType>();
-    const newBooksCache = useContext(newBooksCacheContext);
-    const [initialBooks, setInitialBooks] = useState<BookType[] | undefined | null>(newBooksCache?.newBooksCache);
+    const paginatedBooksCache = useContext(paginatedBooksCacheContext);
+    const [pagination, setPagination] = useState<PaginationType>({ page: "1", pageSize: "3" })
+    const maxItems = 2 * Number(pagination.pageSize);
+    const [paginatedBooks, setPaginatedBooks] = useState<PaginatedBookType | undefined | null>(paginatedBooksCache?.paginatedBooks);
+    const [initialBooks, setInitialBooks] = useState<BookType[] | undefined | null>(paginatedBooksCache?.paginatedBooks?.paginatedItems);
 
     const fetchNewBooks = async (page: string, pageSize: string) => {
         try {
@@ -31,28 +32,38 @@ export const NewBooks = ()  => {
 
     const addBooks = (initialBooks: BookType[] | undefined | null, newBooks: BookType[]) => {
         if (initialBooks) {
-            return initialBooks.concat(newBooks);
+            const addedBook = initialBooks.concat(newBooks);
+            return trimItems(addedBook);
         }
         return newBooks;
     }
-
-    const saveBooks = (booksResponseData: PaginatedBookType) => {
-        console.log(`saveBooks is called!`)
-        setBooksResponse(booksResponseData);
-        setInitialBooks(booksResponseData.paginatedItems);
-        newBooksCache?.setNewBooksCache(booksResponseData.paginatedItems);
+    // define max number of items to display (2* pageSize)
+    const trimItems = (booksTotrim: BookType[]) => {
+        console.log(`before trimItems, nb of books: ${booksTotrim?.length}`);
+        if (booksTotrim.length > maxItems) {
+            console.log(`after trimItems, nb of books: ${initialBooks?.length}`);
+            return booksTotrim.slice(- maxItems);
+        }
+        return booksTotrim;
     }
 
-    const nextPage = () => {
-        const newPage = (Number(pagination.page) + 1);
-        if (booksResponse && newPage <= booksResponse?.totalPages) {
-            setPagination({ ...pagination, page: newPage.toString() })
-            fetchNewBooks(newPage.toString(), pagination.pageSize);
+    const saveBooks = (updatedBooks: PaginatedBookType) => {
+        console.log(`saveBooks is called!`)
+        setPaginatedBooks(updatedBooks);
+        setInitialBooks(updatedBooks.paginatedItems);
+        paginatedBooksCache?.setPaginatedBooks(updatedBooks);
+    }
+
+    const goToNextPage = () => {
+        const nextPageNumber = (paginatedBooks && paginatedBooks?.page + 1);
+        if (paginatedBooks && (nextPageNumber && nextPageNumber <= paginatedBooks?.totalPages)) {
+            setPagination((prev) => ({ ...prev, page: nextPageNumber.toString() }))
+            fetchNewBooks(nextPageNumber.toString(), pagination.pageSize);
         } else {
             console.log("Nextpage condition not fullfilled!")
-            console.log(`booksResponse : ${booksResponse}`)
         }
     }
+    
 
     useEffect(() => {
         if (!initialBooks || initialBooks.length === 0) fetchNewBooks(pagination.page, pagination.pageSize)
@@ -73,7 +84,7 @@ export const NewBooks = ()  => {
                         .map((newBook) => (
                             <BookCard key={newBook.id} book={newBook} />
                         ))}
-                <button onClick={nextPage}
+                <button onClick={goToNextPage}
                 >next Page</button>
             </div>
         </>

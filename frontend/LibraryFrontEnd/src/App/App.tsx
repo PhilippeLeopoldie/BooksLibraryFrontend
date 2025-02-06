@@ -1,7 +1,7 @@
 import "./App.css";
 import { About } from "../Component/About/About";
 import { BookCreate } from "../Component/BookCreate/BookCreate";
-import { BookType, GenreType } from "../constants/types";
+import { BookType, GenreType, PaginatedBookType } from "../constants/types";
 import { GENRES_LIST_URL } from "../constants/api";
 import { HomePage } from "../Component/HomePage/HomePage";
 import { Routes, BrowserRouter, Route } from "react-router-dom";
@@ -21,9 +21,10 @@ type genresCacheContextType = {
     setGenresCache: (newStatus: GenreResponseType) => void
 }
 
-type NewBooksCacheContextType = {
-    newBooksCache: BookType[] | null,
-    setNewBooksCache: (newStatus: BookType[]) => void
+type paginatedBooksCacheContextType = {
+    paginatedBooks: PaginatedBookType | null,
+    //newBooksCache: BookType[] | null,
+    setPaginatedBooks: (newStatus: PaginatedBookType) => void
 }
 
 type TopBooksCacheContextType = {
@@ -36,7 +37,7 @@ type FilteredGenreContextType = {
     setGenreFilter: (newStatus: string) => void
 }
 export const ThemeContext = createContext<string>("black");
-export const newBooksCacheContext = createContext<NewBooksCacheContextType | null>(null);
+export const paginatedBooksCacheContext = createContext<paginatedBooksCacheContextType | null>(null);
 export const topBooksCacheContext = createContext<TopBooksCacheContextType | null>(null);
 export const genresCacheContext = createContext<genresCacheContextType | null>(null);
 export const FilteredGenreContext = createContext<FilteredGenreContextType | null>(null);
@@ -44,7 +45,7 @@ export const FilteredGenreContext = createContext<FilteredGenreContextType | nul
 export const App = () => {
     const rootElement = document.documentElement;
     const [theme, setTheme] = useState<string>("black");
-    const [newBooksCache, setNewBooksCache] = useState<BookType[] | null>(null);
+    const [paginatedBooks, setPaginatedBooks] = useState<PaginatedBookType | null>(null);
     const [topBooksCache, setTopBooksCache] = useState<BookType[] | null>(null);
     const [genresCache, setGenresCache] = useState<GenreResponseType | null>(null);
     const [genreFilter, setGenreFilter] = useState<string | null>(
@@ -81,7 +82,7 @@ export const App = () => {
             </script>
             <ThemeContext.Provider value={theme}>
                 <FilteredGenreContext.Provider value={{ genreFilter, setGenreFilter }}>
-                    <newBooksCacheContext.Provider value={{ newBooksCache, setNewBooksCache }}>
+                    <paginatedBooksCacheContext.Provider value={{ paginatedBooks, setPaginatedBooks}}>
                         <topBooksCacheContext.Provider value={{ topBooksCache, setTopBooksCache }}>
                             <genresCacheContext.Provider value={{ genresCache, setGenresCache }}>
                             <BrowserRouter>
@@ -103,7 +104,7 @@ export const App = () => {
                                 </BrowserRouter>
                             </genresCacheContext.Provider>
                         </topBooksCacheContext.Provider>
-                    </newBooksCacheContext.Provider>
+                    </paginatedBooksCacheContext.Provider>
                 </FilteredGenreContext.Provider>
             </ThemeContext.Provider>
         </div>
