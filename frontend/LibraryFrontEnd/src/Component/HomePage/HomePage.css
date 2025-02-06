@@ -32,7 +32,7 @@
     color: #000000;
 }
 
-.bookListContainer {
+.bookListContainer--flex {
     display: flex;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
@@ -41,31 +41,31 @@
 
 
 @media screen and (min-width: 700px) {
-    .bookListContainer, .BookList__mostPopular {
+    .bookListContainer--flex, .BookList__mostPopular {
         grid-template-columns: repeat(2, auto);
         margin-bottom: 0%;
     }
 }
 
 @media screen and (min-width: 1024px) {
-    .bookListContainer {
+    .bookListContainer--flex {
         display: grid;
         justify-content: center;
     }
 
-    .bookListContainer {
+    .bookListContainer--flex {
         grid-template-columns: repeat(3, auto);
     }
 }
 
 @media screen and (min-width: 1300px) {
-    .bookListContainer {
+    .bookListContainer--flex {
         grid-template-columns: repeat(4, auto);
     }
 }
 
 @media screen and (min-width: 1588px) {
-    .bookListContainer {
+    .bookListContainer--flex {
         grid-template-columns: repeat(5, auto);
     }
 }

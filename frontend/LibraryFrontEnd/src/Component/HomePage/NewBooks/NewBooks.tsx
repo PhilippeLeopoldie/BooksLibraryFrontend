@@ -2,6 +2,7 @@ import { BookCard } from "../../BookCard/BookCard";
 import { BookType, PaginatedBookType, PaginationType } from "../../../constants/types";
 import { BOOK_URL } from "../../../constants/api";
 import { getPaginatedItemsUrl } from "../../../constants/commonFunctions";
+import "./NewBooks.css";
 import { useContext, useEffect, useState } from "react";
 import { ThemeContext, paginatedBooksCacheContext } from "../../../App/App";
 
@@ -32,23 +33,19 @@ export const NewBooks = ()  => {
 
     const addBooks = (initialBooks: BookType[] | undefined | null, newBooks: BookType[]) => {
         if (initialBooks) {
-            const addedBook = initialBooks.concat(newBooks);
-            return trimItems(addedBook);
+            return trimItems(initialBooks.concat(newBooks));
         }
         return newBooks;
     }
     // define max number of items to display (2* pageSize)
     const trimItems = (booksTotrim: BookType[]) => {
-        console.log(`before trimItems, nb of books: ${booksTotrim?.length}`);
         if (booksTotrim.length > maxItems) {
-            console.log(`after trimItems, nb of books: ${initialBooks?.length}`);
             return booksTotrim.slice(- maxItems);
         }
         return booksTotrim;
     }
 
     const saveBooks = (updatedBooks: PaginatedBookType) => {
-        console.log(`saveBooks is called!`)
         setPaginatedBooks(updatedBooks);
         setInitialBooks(updatedBooks.paginatedItems);
         paginatedBooksCache?.setPaginatedBooks(updatedBooks);
@@ -59,8 +56,6 @@ export const NewBooks = ()  => {
         if (paginatedBooks && (nextPageNumber && nextPageNumber <= paginatedBooks?.totalPages)) {
             setPagination((prev) => ({ ...prev, page: nextPageNumber.toString() }))
             fetchNewBooks(nextPageNumber.toString(), pagination.pageSize);
-        } else {
-            console.log("Nextpage condition not fullfilled!")
         }
     }
     
@@ -76,7 +71,7 @@ export const NewBooks = ()  => {
     return (
         <>
             <h1 className="BookListTitle">Recent</h1>
-            <div className="bookListContainer">
+            <div className="bookListContainer--flex">
                 {initialBooks &&
                     Array.isArray(initialBooks) &&
                     initialBooks
