@@ -10,8 +10,7 @@ import { ThemeContext, paginatedBooksCacheContext } from "../../../App/App";
 export const NewBooks = ()  => {
     const theme = useContext(ThemeContext);
     const paginatedBooksCache = useContext(paginatedBooksCacheContext);
-    const [pagination, setPagination] = useState<PaginationType>({ page: "1", pageSize: "3" })
-    const maxItems = 2 * Number(pagination.pageSize);
+    const [pagination, setPagination] = useState<PaginationType>({ page: "1", pageSize: "6" });
     const [paginatedBooks, setPaginatedBooks] = useState<PaginatedBookType | undefined | null>(paginatedBooksCache?.paginatedBooks);
     const [initialBooks, setInitialBooks] = useState<BookType[] | undefined | null>(paginatedBooksCache?.paginatedBooks?.paginatedItems);
 
@@ -21,8 +20,11 @@ export const NewBooks = ()  => {
                 getPaginatedItemsUrl(`${BOOK_URL}?`, page, pageSize));
             if (newBooksResponse.status === 200) {
                 const newBooksResponseData: PaginatedBookType = await newBooksResponse.json();
-                saveBooks({ ...newBooksResponseData, paginatedItems: addBooks(initialBooks, newBooksResponseData.paginatedItems) });
-
+                const concatenedItems = initialBooks ?
+                    initialBooks.concat(newBooksResponseData.paginatedItems)
+                    :
+                    newBooksResponseData.paginatedItems;
+                saveBooks({...newBooksResponseData,paginatedItems: concatenedItems});
             } else if (newBooksResponse.status === 404) {
                 console.log(newBooksResponse);
             }
@@ -31,20 +33,6 @@ export const NewBooks = ()  => {
         }
     };
 
-    const addBooks = (initialBooks: BookType[] | undefined | null, newBooks: BookType[]) => {
-        if (initialBooks) {
-            return trimItems(initialBooks.concat(newBooks));
-        }
-        return newBooks;
-    }
-    // define max number of items to display (2* pageSize)
-    const trimItems = (booksTotrim: BookType[]) => {
-        if (booksTotrim.length > maxItems) {
-            return booksTotrim.slice(- maxItems);
-        }
-        return booksTotrim;
-    }
-
     const saveBooks = (updatedBooks: PaginatedBookType) => {
         setPaginatedBooks(updatedBooks);
         setInitialBooks(updatedBooks.paginatedItems);
@@ -52,16 +40,17 @@ export const NewBooks = ()  => {
     }
 
     const goToNextPage = () => {
-        const nextPageNumber = (paginatedBooks && paginatedBooks?.page + 1);
-        if (paginatedBooks && (nextPageNumber && nextPageNumber <= paginatedBooks?.totalPages)) {
+        const nextPageNumber = (paginatedBooks ? paginatedBooks?.page + 1 : 1);
+        if (paginatedBooks && nextPageNumber <= paginatedBooks?.totalPages) {
             setPagination((prev) => ({ ...prev, page: nextPageNumber.toString() }))
             fetchNewBooks(nextPageNumber.toString(), pagination.pageSize);
         }
     }
     
-
     useEffect(() => {
-        if (!initialBooks || initialBooks.length === 0) fetchNewBooks(pagination.page, pagination.pageSize)
+        if (!initialBooks || initialBooks.length === 0) {
+            fetchNewBooks(pagination.page, pagination.pageSize)
+        }
     }, []);
 
     if (!initialBooks) {
@@ -71,17 +60,17 @@ export const NewBooks = ()  => {
     return (
         <>
             <h1 className="BookListTitle">Recent</h1>
-            <div className="bookListContainer--flex">
-                {initialBooks &&
-                    Array.isArray(initialBooks) &&
-                    initialBooks
-                        .sort((previousNewBook, lastNewBook) => lastNewBook.id - previousNewBook.id)
-                        .map((newBook) => (
+                <div className="bookListContainer--flex">
+                    {initialBooks &&
+                        Array.isArray(initialBooks) &&
+                        initialBooks
+                            .sort((previousNewBook, lastNewBook) => lastNewBook.id - previousNewBook.id)
+                            .map((newBook) => (
                             <BookCard key={newBook.id} book={newBook} />
-                        ))}
-                <button onClick={goToNextPage}
-                >next Page</button>
-            </div>
+                            ))}
+                    <button onClick={goToNextPage}
+                    >next Page</button>
+                </div>
         </>
     )
 };
