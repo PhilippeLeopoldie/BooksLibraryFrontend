@@ -37,8 +37,9 @@ export const NewBooks = ()  => {
     }
 
     const goToNextPage = () => {
-        const nextPageNumber = (paginatedBooks ? paginatedBooks?.page + 1 : 1);
-        if (paginatedBooks && nextPageNumber <= paginatedBooks.totalPages) {
+        if (!paginatedBooks) return;
+        const nextPageNumber = paginatedBooks.page + 1 ;
+        if (nextPageNumber <= paginatedBooks.totalPages) {
             setPagination((prev) => ({ ...prev, page: nextPageNumber.toString() }))
             fetchNewBooks(nextPageNumber.toString(), pagination.pageSize);
         }
