@@ -50,15 +50,11 @@ export const NewBooks = ()  => {
         }
     }, []);
 
-    if (!paginatedBooks?.paginatedItems) {
-        return <h1 className={"Books__Loading--" + theme}></h1>;
-    }
-
     return (
         <>
             <h1 className="BookListTitle">Recent</h1>
                 <div className="bookListContainer--flex">
-                {paginatedBooks.paginatedItems &&
+                {paginatedBooks?.paginatedItems &&
                     paginatedBooks.paginatedItems
                             .sort((previousNewBook, lastNewBook) => lastNewBook.id - previousNewBook.id)
                             .map((newBook) => (
