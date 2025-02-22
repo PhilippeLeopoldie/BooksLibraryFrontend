@@ -3,7 +3,7 @@ import { BookType, PaginatedBookType, PaginationType } from "../../../constants/
 import { BOOK_URL } from "../../../constants/api";
 import { getPaginatedItemsUrl } from "../../../constants/commonFunctions";
 import "./NewBooks.css";
-import { useContext, useEffect, useState, useRef } from "react";
+import { useContext, useEffect, useState, useRef, useCallback } from "react";
 import { ThemeContext, paginatedBooksCacheContext } from "../../../App/App";
 
 
@@ -12,6 +12,7 @@ export const NewBooks = ()  => {
     const paginatedBooksContext = useContext(paginatedBooksCacheContext);
     const [pagination, setPagination] = useState<PaginationType>({ page: "1", pageSize: "6" });
     const [paginatedBooks, setPaginatedBooks] = useState<PaginatedBookType | undefined | null>(paginatedBooksContext?.paginatedBooks);
+    const observer = useRef<IntersectionObserver | null>(null);
 
     const fetchNewBooks = async (page: string, pageSize: string) => {
         try {
@@ -44,6 +45,16 @@ export const NewBooks = ()  => {
             fetchNewBooks(nextPageNumber.toString(), pagination.pageSize);
         }
     }
+
+    const lastBookCardRef = useCallback((node: HTMLDivElement | null) => {
+        if (observer.current) observer.current.disconnect();
+        observer.current = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                goToNextPage();
+            }
+        });
+        if (node) observer.current.observe(node);
+    }, [paginatedBooks]);
     
     useEffect(() => {
         if (!paginatedBooks || paginatedBooks?.paginatedItems.length === 0) {
@@ -54,16 +65,20 @@ export const NewBooks = ()  => {
     return (
         <>
             <h1 className="BookListTitle">Recent</h1>
-                <div className="bookListContainer--flex">
+            <div className="bookListContainer--flex">
                 {paginatedBooks?.paginatedItems &&
                     paginatedBooks.paginatedItems
-                            .sort((previousNewBook, lastNewBook) => lastNewBook.id - previousNewBook.id)
-                            .map((newBook) => (
-                            <BookCard key={newBook.id} book={newBook} />
-                            ))}
-                    <button onClick={goToNextPage}
-                    >next Page</button>
-                </div>
+                        .sort((previousNewBook, lastNewBook) => lastNewBook.id - previousNewBook.id)
+                        .map((newBook, index) =>
+                            <div className="bookRefContainer"
+                                key={newBook.id}
+                                ref={index === paginatedBooks.paginatedItems.length - 1 ?
+                                    lastBookCardRef
+                                    : null}>
+                                <BookCard book={newBook} />
+                            </div>
+                        )}
+            </div>
         </>
     )
 };
