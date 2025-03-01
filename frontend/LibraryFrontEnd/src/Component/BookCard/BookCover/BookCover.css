@@ -18,7 +18,7 @@
     background-color: transparent;
     color: var(--fontcolor-dark);
     font-family: var(--fontfamily);
-    margin-right: 3rem;
+    margin-right: 4.5rem;
 }
 
 .flipImage {
@@ -29,7 +29,7 @@
     background-color: transparent;
     color: var(--fontcolor-light);
     font-family: var(--fontfamily);
-    margin-right: 3rem;
+    margin-right: 4.5rem;
 }
 
 .bookcard__Description {
