@@ -1,13 +1,43 @@
-.boocard__Image {
-  border-radius: 9px 9px 0 0;
-  border-bottom: gray 1px solid;
-  width: 100%;
-  height:100%;
+.bookcard__Image {
+    border-radius: 9px 9px 0 0;
+    border-bottom: gray 1px solid;
+    width: 100%;
+    height: 100%;
+}
+
+.bookcard__Image:hover {
+    cursor: pointer;
+}
+
+.bookcard__DescriptionTitle--black {
+    background-color: transparent;
+    color: var(--fontcolor-dark);
+    font-family: var(--fontfamily);
+}
+
+.bookcard__Description {
+    background-color: transparent;
+}
+
+
+.bookcard__Description--black {
+    color: var(--fontcolor-dark);
+    font-family: var(--fontfamily);
+    max-height: 70%;
+    overflow-y: auto;
+    padding: 0 0.5rem 0 0.5rem;
+}
+
+.bookcard__Description--natural {
+    color: var(--fontcolor-light);
+    font-family: var(--fontfamily);
+    max-height: 70%;
+    overflow-y: auto;
+    padding: 0 0.5rem 0 0.5rem;
 }
 
 .bookcard__header {
-  border-top-right-radius: 5%;
-  border-top-left-radius: 5%;
-  background-color: transparent;
+    border-top-right-radius: 5%;
+    border-top-left-radius: 5%;
+    background-color: transparent;
 }
-
