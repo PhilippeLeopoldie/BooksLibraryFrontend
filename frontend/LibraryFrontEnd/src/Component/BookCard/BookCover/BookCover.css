@@ -21,6 +21,17 @@
     margin-right: 3rem;
 }
 
+.flipImage {
+    cursor: pointer;
+}
+
+.bookcard__DescriptionTitle--natural {
+    background-color: transparent;
+    color: var(--fontcolor-light);
+    font-family: var(--fontfamily);
+    margin-right: 3rem;
+}
+
 .bookcard__Description {
     background-color: transparent;
 }
