@@ -10,9 +10,9 @@ export const GenreFilter = () => {
     const listOfGenres = listOfGenresContext?.genresCache?.genres || [];
     const genreContext = useContext(FilteredGenreContext);
 
-    const allGenre: GenreType = {
-        id: 'Resent',
-        name: 'Resent'
+    const recentGenre: GenreType = {
+        id: 'Recent',
+        name: 'Recent'
     }
 
     const popularGenre: GenreType = {
@@ -43,7 +43,7 @@ export const GenreFilter = () => {
                     sessionStorageName='genreFiltered'
                 />
                 <GenreButton
-                    genre={allGenre}
+                    genre={recentGenre}
                     handleGenres={handleSelectedGenre}
                     typeOfChoice='single'
                     sessionStorageName='genreFiltered'
