@@ -29,7 +29,7 @@ export const BookCover = ({ book }: { book:BookType }) => {
                     >
                         <div className="bookcard__Description bookcard__DescriptionHearder">
                             <img
-                                className={`OpinionList--${theme} OpinionList__header__flip`}
+                                className={`bookcard__Description flipImage`}
                                 src={Flip}
                                 onClick={toggleDescription}
                                 alt="Back"
