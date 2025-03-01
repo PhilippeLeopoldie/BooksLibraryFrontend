@@ -12,9 +12,14 @@ export const HomePage = () => {
     const [numberOfBooks, setNumberOfBooks] = useState<number>(3);
     const [displayedContent, setDisplayedContent] = useState<JSX.Element>(<></>);
 
-    
+
     useEffect(() => {
-        if (genreContext && genreContext.genreFilter !== 'All') {
+        if (genreContext?.genreFilter === 'Popular') {
+            setDisplayedContent(
+                <PopularBooks maxNumBooks={`${numberOfBooks}`} />
+            );
+        }
+        else if (genreContext?.genreFilter !== 'Recent') {
             setDisplayedContent(
                 <section className={`booksByGenre_container booksByGenre_container--${theme}`}>
                     <BooksByGenre sessionStorageName={"genreFiltered"} />
@@ -22,10 +27,7 @@ export const HomePage = () => {
             );
         } else {
             setDisplayedContent(
-                <>
-                    <PopularBooks maxNumBooks={`${numberOfBooks}`} />
-                    <NewBooks />
-                </>
+                <NewBooks />
             );
         }
     }, [genreContext?.genreFilter, theme])
