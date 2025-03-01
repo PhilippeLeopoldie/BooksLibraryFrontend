@@ -35,7 +35,7 @@ export const PopularBooks = ({ maxNumBooks }: { maxNumBooks: string })  => {
 
     return (
         <>
-            <h1 className="BookListTitle">Recommended</h1>
+            <h1 className="BookListTitle">Popular</h1>
             <div className="bookListContainer--flex">
                 {topBooks?.map((topBook) => (
                     <BookCard key={topBook.id} book={topBook} />
