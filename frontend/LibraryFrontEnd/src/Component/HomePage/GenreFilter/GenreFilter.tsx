@@ -11,23 +11,37 @@ export const GenreFilter = () => {
     const genreContext = useContext(FilteredGenreContext);
 
     const allGenre: GenreType = {
-        id: 'All',
-        name: 'All'
+        id: 'Resent',
+        name: 'Resent'
     }
+
+    const popularGenre: GenreType = {
+        id: 'Popular',
+        name: 'Popular'
+    }
+
 
     const handleSelectedGenre = (genreId: string) => {
         sessionStorage.setItem("genreFiltered", genreId);
         genreContext?.setGenreFilter(genreId);
     }
 
+    
     useEffect(() => {
-        if (!sessionStorage.getItem("genreFiltered")) 
-        handleSelectedGenre('All');
+        (!sessionStorage.getItem("genreFiltered")) 
+        // set default genre
+        handleSelectedGenre('Popular');
     }, [])
 
     return (
         <>
             <section className={`genreFilter_container genreFilter_container--${theme}`}>
+                <GenreButton
+                    genre={popularGenre}
+                    handleGenres={handleSelectedGenre}
+                    typeOfChoice='single'
+                    sessionStorageName='genreFiltered'
+                />
                 <GenreButton
                     genre={allGenre}
                     handleGenres={handleSelectedGenre}
