@@ -5,7 +5,8 @@ import "@testing-library/jest-dom";
 const actualBookData = {
   id: 1,
   title: "The Great Gatsby",
-  author: "F. Scott Fitzgerald",
+    author: "F. Scott Fitzgerald",
+    description: "The story of the mysteriously wealthy Jay Gatsby and his love for the beautiful Daisy Buchanan.",
   averageRate: 3,
 };
 

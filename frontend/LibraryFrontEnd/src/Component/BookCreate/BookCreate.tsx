@@ -15,6 +15,7 @@ export const BookCreate = () => {
         id:0,
         title: "",
         author: "",
+        description: "",
         imageUrl: "",
         averageRate: 0,
         genreId: ""
@@ -58,6 +59,7 @@ export const BookCreate = () => {
                 id: 0,
                 title: "",
                 author: "",
+                description: "",
                 imageUrl: "",
                 averageRate: 0,
                 genreId:""
@@ -159,6 +161,7 @@ export const BookCreate = () => {
                                     id: 0,
                                     title: "",
                                     author: "",
+                                    description: "",
                                     imageUrl: "",
                                     averageRate: 0,
                                     genreId: ""

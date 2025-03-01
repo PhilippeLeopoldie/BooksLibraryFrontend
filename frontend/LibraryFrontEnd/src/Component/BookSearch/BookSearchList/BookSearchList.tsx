@@ -10,6 +10,7 @@ type BooksType = {
         title: string;
         author: string;
         averageRate: number;
+        description: string;
     };
 };
 

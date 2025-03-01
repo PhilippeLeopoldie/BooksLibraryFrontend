@@ -19,6 +19,7 @@ const book :BookType = {
   id:1,
   title:"title 1",
     author: "author 1",
+    description: "description 1",
     averageRate:5
 }
 
