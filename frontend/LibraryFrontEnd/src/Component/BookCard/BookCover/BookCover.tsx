@@ -1,5 +1,6 @@
 import "./BookCover.css";
 import { BookType } from "../../../constants/types";
+import Flip from "../../../media/flip.svg";
 import { ThemeContext } from "../../../App/App";
 import { useContext,useState } from "react";
 
@@ -24,9 +25,17 @@ export const BookCover = ({ book }: { book:BookType }) => {
             ) : (
                 <div
                     className="bookcard__Description"
-                    onClick={toggleDescription}
+                    
                     >
-                        <h2 className={`bookcard__DescriptionTitle--${theme}` }>Description</h2>
+                        <div className="bookcard__Description bookcard__DescriptionHearder">
+                            <img
+                                className={`OpinionList--${theme} OpinionList__header__flip`}
+                                src={Flip}
+                                onClick={toggleDescription}
+                                alt="Back"
+                            />
+                            <h2 className={`bookcard__DescriptionTitle--${theme}`}>Description</h2>
+                        </div>
                         <p className={`bookcard__Description bookcard__Description--${theme}`}>{book.description || "No description available"}</p>
                     </div>
                 )}
