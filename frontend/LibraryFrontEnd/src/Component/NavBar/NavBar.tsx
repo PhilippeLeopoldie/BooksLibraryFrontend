@@ -87,7 +87,7 @@ export const NavBar = ({ theme, handleTheme }: NavBarType) => {
                         A.I. Story
                     </figcaption>
                 </Link>
-                <Link
+                {/*<Link
                     className="nav-link nav__addBook--flex"
                     to="/addBook"
                     onClick={() => {
@@ -113,7 +113,7 @@ export const NavBar = ({ theme, handleTheme }: NavBarType) => {
                     >
                         Add Book
                     </figcaption>
-                </Link>
+                </Link>*/}
             </nav>
         </>
     );
