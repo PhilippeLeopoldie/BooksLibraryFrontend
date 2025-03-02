@@ -12,6 +12,7 @@
 .bookcard__DescriptionHearder {
     display: grid;
     grid-template-columns: 1fr 4fr;
+    border-bottom: gray 1px solid;
 }
 
 .bookcard__DescriptionTitle--black {
