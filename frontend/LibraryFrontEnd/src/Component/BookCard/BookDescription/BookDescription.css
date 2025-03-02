@@ -1,0 +1,54 @@
+.bookcard__DescriptionHearder {
+    background-color: transparent;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    border-bottom: gray 1px solid;
+}
+
+.bookcard__DescriptionTitle {
+    background-color: transparent;
+    font-family: var(--fontfamily);
+    margin-right: 4.5rem;
+}
+
+.bookcard__DescriptionTitle--black {
+    color: var(--fontcolor-dark);
+}
+
+.bookcard__DescriptionFlipImage {
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.bookcard__DescriptionTitle--natural {
+    color: var(--fontcolor-light);
+}
+
+.bookcard__DescriptionContainer, .bookcard__Description {
+    background-color: transparent;
+}
+
+.bookcard__Description {
+    text-align: justify;
+    margin-left: 0.5rem;
+    font-family: var(--fontfamily);
+    max-height: 75%;
+    overflow-y: auto;
+    padding: 0 0.5rem 0 0.5rem;
+    margin-top: 0;
+    font-size: 1.2rem;
+}
+
+.bookcard__Description--black {
+    color: var(--fontcolor-dark);
+}
+
+.bookcard__Description--natural {
+    color: var(--fontcolor-light);
+}
+
+.bookcard__header {
+    border-top-right-radius: 5%;
+    border-top-left-radius: 5%;
+    background-color: transparent;
+}
