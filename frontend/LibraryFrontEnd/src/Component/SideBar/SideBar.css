@@ -6,6 +6,7 @@
 
 .SideBar_container--activated {
     background-color: transparent;
+    width:0rem;
 }
 
 .SideBar_container--inactivated {
