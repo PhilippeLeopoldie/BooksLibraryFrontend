@@ -21,7 +21,7 @@ export const ReadingRange = (readingTimeHandler: HandleReadingTimeType) => {
                     </label>
                     <input
                         className="Reading_time_slider"
-                        type="range" min="0" max="20" step="5"
+                        type="range" min="1" max="20" step="5"
                         value={rangeValue}
                         onChange={handleRangeValue}
                     >
