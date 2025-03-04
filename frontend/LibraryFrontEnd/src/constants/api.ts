@@ -7,7 +7,8 @@ export const BOOK_BY_TITLE_OR_AUTHOR_URL : string = BOOK_URL+"/TitleOrAuthor?tit
 export const BOOKS_BY_GENRESId_URL: string = `${BOOK_URL}/genre?genresId=`
 export const OPINION_URL: string = API_URL+"Opinions/";
 export const OPINION_BY_BOOKID_URL : string = OPINION_URL+"BookId=";
-export const GENRES_LIST_URL: string = API_URL+"Genres";
+export const GENRES_LIST_URL: string = API_URL + "Genres";
+export const AI_STORY_URL: string = `${API_URL}Story/AI`;
 
 
 
