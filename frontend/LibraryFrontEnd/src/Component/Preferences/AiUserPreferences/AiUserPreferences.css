@@ -2,6 +2,10 @@
     background-color:inherit;
 }
 
+.story_section {
+    background-color: transparent;
+}
+
 .AiGenres {
     background-color: inherit;
     display: flex;
