@@ -2,12 +2,17 @@ import "./ReadingRange.css"
 import  { ChangeEvent,useContext,useState } from "react";
 import { ThemeContext } from "../../../App/App";
 
-export const ReadingRange = () => {
+type HandleReadingTimeType = {
+    readingTime: (readingTime: string) => void;
+}
+
+export const ReadingRange = (readingTimeHandler: HandleReadingTimeType) => {
     const theme = useContext(ThemeContext);
     const [rangeValue, setRangeValue] = useState<string>("5");
 
     const handleRangeValue = (event: ChangeEvent<HTMLInputElement>) => {
         setRangeValue(event.target.value);
+        readingTimeHandler.readingTime(event.target.value);
     }
         return (
             <>

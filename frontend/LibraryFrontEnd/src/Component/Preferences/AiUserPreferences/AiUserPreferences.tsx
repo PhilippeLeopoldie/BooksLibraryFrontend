@@ -3,6 +3,13 @@ import { ThemeContext, genresCacheContext } from "../../../App/App";
 import { GenreButton } from "../../GenreButton/GenreButton";
 import { ReadingRange } from "../ReadingRange/ReadingRange";
 import "./AiUserPreferences.css";
+import { AiStory } from "../../Story/AiStory/AiStory";
+
+type AiStorySettingsType = {
+    language: "English" | "French" | "Swedish" | "Spanish",
+    genreName: string,
+    readingTime: string
+}
 
 export const AiUserPreferences = () => {
     const theme = useContext(ThemeContext);
@@ -10,11 +17,20 @@ export const AiUserPreferences = () => {
     const listOfGenres = listOfGenresContext?.genresCache?.genres || [];
     const [userGenreIdPreference, setUserGenreIdPreferences] = useState<string>(
         sessionStorage.getItem("userGenreIdPreference") || "");
-    
+    const defaultSettings: AiStorySettingsType = { language: "English", genreName: "", readingTime: "5" };
+    const [aiStorySettings, setAiStorySettings] = useState<AiStorySettingsType>(defaultSettings);
+
     const handleGenreSelection = (genreId: string) => {
         sessionStorage.setItem("userGenreIdPreference", genreId);
         setUserGenreIdPreferences(genreId);
+        const genreName = listOfGenres.find((genre) => genre.id === genreId)?.name || "";
+        setAiStorySettings({ ...aiStorySettings, genreName });
     }
+
+    const readingTimeHandler = (readingTime: string) => {
+        setAiStorySettings({ ...aiStorySettings, readingTime });
+    }
+
 
     useEffect(() => {
         console.log(userGenreIdPreference);
@@ -32,8 +48,12 @@ export const AiUserPreferences = () => {
                         sessionStorageName= 'userGenreIdPreference'
                     />
                     )}
-                </section>
-                <ReadingRange/>
+            </section>
+            <ReadingRange readingTime={readingTimeHandler } />
+            <section className="story_section">
+                <AiStory aiStorySettings={aiStorySettings} />
+            </section>
         </section>
+
     )
 }
