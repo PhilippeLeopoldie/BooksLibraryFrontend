@@ -3,16 +3,17 @@ import  { ChangeEvent,useContext,useState } from "react";
 import { ThemeContext } from "../../../App/App";
 
 type HandleReadingTimeType = {
-    readingTime: (readingTime: string) => void;
+    readingTimeHandler: (readingTime: string) => void;
 }
 
-export const ReadingRange = (readingTimeHandler: HandleReadingTimeType) => {
+export const ReadingRange = ({ readingTimeHandler }: HandleReadingTimeType) => {
     const defaultReadingTime = "6";
     const theme = useContext(ThemeContext);
     const [rangeValue, setRangeValue] = useState<string>(defaultReadingTime);
+
     const handleRangeValue = (event: ChangeEvent<HTMLInputElement>) => {
         setRangeValue(event.target.value);
-        readingTimeHandler.readingTime(event.target.value);
+        readingTimeHandler(event.target.value);
     }
         return (
             <>
