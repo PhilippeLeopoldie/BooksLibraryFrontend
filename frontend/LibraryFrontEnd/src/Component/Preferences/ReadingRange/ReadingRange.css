@@ -12,6 +12,7 @@
 
 .RangeLabel {
     margin-top: 1rem;
+    margin-bottom: 0.5rem;
     background-color: inherit;
     color: var(--forminputcolor);
     font-weight: bold;
