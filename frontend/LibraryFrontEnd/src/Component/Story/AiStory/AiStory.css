@@ -1,6 +1,7 @@
-.AiStory {
+.AiStoryElement {
     background-color:transparent;
 }
+
 
 .AiStory--black {
     color: var(--fontcolor-dark);
@@ -15,7 +16,8 @@
 }
 
 .AiStory__activated--true {
-    display:contents;
+    display: contents;
+    
 }
 
 .AiStoryButton {
@@ -28,4 +30,9 @@
 
 .AiStoryButton--natural {
     color: var(--fontcolor-light);
+}
+
+.AiStoryTextContainer {
+    margin: 1rem;
+    text-align: justify;
 }
