@@ -38,22 +38,22 @@ export const AiUserPreferences = () => {
 
     return (
         <section className={`AiUserPreferences_container AiUserPreferences_container--${theme}`}>
-                <section className='AiGenres'>
+            <p className={`instructions instructions--${theme}` } >Choose your genre:</p>
+            <section className='AiGenres'>
                 {listOfGenres.map((genre) =>
                     <GenreButton
                         key={genre.id}
                         genre={genre}
                         handleGenres={handleGenreSelection}
                         typeOfChoice='single'
-                        sessionStorageName= 'userGenreIdPreference'
+                        sessionStorageName='userGenreIdPreference'
                     />
-                    )}
+                )}
             </section>
-            <ReadingRange readingTimeHandler={readingTimeHandler } />
+            <ReadingRange readingTimeHandler={readingTimeHandler} />
             <section className="story_section">
                 <AiStory aiStorySettings={aiStorySettings} />
             </section>
         </section>
-
     )
 }
