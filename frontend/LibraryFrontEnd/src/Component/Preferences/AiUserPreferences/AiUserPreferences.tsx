@@ -49,7 +49,7 @@ export const AiUserPreferences = () => {
                     />
                     )}
             </section>
-            <ReadingRange readingTime={readingTimeHandler } />
+            <ReadingRange readingTimeHandler={readingTimeHandler } />
             <section className="story_section">
                 <AiStory aiStorySettings={aiStorySettings} />
             </section>
