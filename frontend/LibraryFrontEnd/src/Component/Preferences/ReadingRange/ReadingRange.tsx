@@ -7,17 +7,23 @@ type HandleReadingTimeType = {
 }
 
 export const ReadingRange = ({ readingTimeHandler }: HandleReadingTimeType) => {
-    const defaultReadingTime = "6";
+    const defaultReadingTime = "1";
     const theme = useContext(ThemeContext);
     const [rangeValue, setRangeValue] = useState<string>(defaultReadingTime);
-
+    const allowedvalues = [1, 5, 10, 15, 20];
     const handleRangeValue = (event: ChangeEvent<HTMLInputElement>) => {
-        setRangeValue(event.target.value);
-        readingTimeHandler(event.target.value);
+        const rawvalue = Number(event.target.value);
+
+        const closestValue = allowedvalues.reduce((prev, curr) => 
+            Math.abs(curr - rawvalue) < Math.abs(prev - rawvalue) ? curr : prev);
+
+        setRangeValue(closestValue.toString());
+        readingTimeHandler(closestValue.toString());
     }
         return (
             <>
-                <section className={`ReadingRange--flex ReadingRange--flex--${theme}`}> Reading time:
+                <section className={`ReadingRange--flex ReadingRange--flex--${theme}`}>
+                    <p className={`instructions instructions--${theme}`}>Adjust the slider to choose your reading time:</p>
                     <label className="RangeLabel" htmlFor="Reading_time_slider">{`${rangeValue} min`}
                     </label>
                     <input
