@@ -3,19 +3,21 @@
     flex-direction: column;
     font-size: 1.2rem;
     background-color: inherit;
+    margin-top: 1rem;
 }
 
-.ReadingRange--flex--black, .ReadingRange--flex--black .RangeLabel {
-    color: #ffffff;
-    background-color: inherit;
-    gap:1rem;
+.ReadingRange--flex--black {
+    background-color: transparent;
 }
 
 .RangeLabel {
     margin-top: 1rem;
     background-color: inherit;
+    color: var(--forminputcolor);
+    font-weight: bold;
 }
 
 .Reading_time_slider {
     cursor:grab;
+    margin-top:0;
 }
