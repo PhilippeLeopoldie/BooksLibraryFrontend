@@ -1,9 +1,10 @@
-.StoryCard_container, .StoryCard_container > * {
-    background-color: inherit;
-    margin-top: 2rem;
-}
-
-.StoryCard_header--black, .AiUserPreferences_section {
+.StoryCard_container--flex {
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+}   
+    
+.StoryCard_header--black {
     background-color: inherit;
     color: #ffffff;
 }

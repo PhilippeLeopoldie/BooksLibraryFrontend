@@ -6,8 +6,8 @@ import "./StoryCard.css"
 export const StoryCard = () => {
     const theme = useContext(ThemeContext);
     return (
-        <section className={`StoryCard_container StoryCard_container--${theme}`}>
-                <h2 className={`StoryCard_header--${theme}`}>Generate your own A.I. Short Story</h2>
+        <section className={`StoryCard_container--flex StoryCard_container--${theme}`}>
+            <h2 className={`StoryCard_header StoryCard_header--${theme}`}>Generate your own A.I. Short Story</h2>
                 <AiUserPreferences />
         </section>
     );
