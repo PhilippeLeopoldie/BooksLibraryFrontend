@@ -38,16 +38,27 @@ input, select, option {
   border-radius: 5px;
 }
 
-button {
-  border-radius: 2rem;
-  border: 2px solid transparent;
-  cursor: pointer;
-  transition: border-color 0.25s;
-  color: var(--button-fontcolor);
-  background-color:var(--button-backgroundcolor);
-  padding:0 1.2rem;
-  white-space:nowrap;
+.instructions {
+    background-color: transparent;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin: 0;
 }
+
+.instructions--black {
+    color: var(--fontcolor-dark);
+}
+
+    button {
+        border-radius: 2rem;
+        border: 2px solid transparent;
+        cursor: pointer;
+        transition: border-color 0.25s;
+        color: var(--button-fontcolor);
+        background-color: var(--button-backgroundcolor);
+        padding: 0 1.2rem;
+        white-space: nowrap;
+    }
 
     button:hover, button:focus {
         border: var(--buttonhover-border) 2px solid;
