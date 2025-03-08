@@ -17,11 +17,11 @@
 
 .AiStory__activated--true {
     display: contents;
-    
 }
 
-.AiStoryButton {
+.AiStoryButton, .AiStoryButton>* {
     border-color: orange;
+    cursor: pointer;
 }
 
 .AiStoryButton--black {
