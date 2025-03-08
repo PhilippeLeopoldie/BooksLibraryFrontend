@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { ThemeContext } from "../../App/App";
 import "./About.css";
+import openAiSvg from "../../media/openai.svg";
 
 export const About = () => {
     const theme = useContext(ThemeContext);
@@ -9,13 +10,10 @@ export const About = () => {
             <section className={`About About--${theme} About_container`}>
                 <h2 className={`About About--${theme} About_title`}>ReadSphere</h2>
                 <article className={`About About--${theme} About_article`}>
-                    Your Personalized Short Stories and Book Library Platform
-
-                    ReadSphere is designed to help you explore, organize,
-                    and track your reading journey with ease.<br /> 
+                    Your Personalized Short Stories and Book Library Platform<br /> 
                     <br/>
                     Featuring a sleek interface, curated book recommendations,
-                    and an exciting upcoming integration with OpenAI to generate your own short stories,
+                    and an exciting integration with OpenAI <img src={openAiSvg} alt="openAiImage"/> to generate your own short stories,
                     <br/>
                     ReadSphere makes it effortless to discover books and stories tailored to your unique interests.<br/>
                     <br/>
