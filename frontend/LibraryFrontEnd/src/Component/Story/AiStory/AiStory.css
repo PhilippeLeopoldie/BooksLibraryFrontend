@@ -33,6 +33,10 @@
 }
 
 .AiStoryTextContainer {
+    display: -webkit-box; /* For older Safari */
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
     margin: 1rem;
     text-align: justify;
 }
