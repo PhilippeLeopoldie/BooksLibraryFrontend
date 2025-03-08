@@ -22,6 +22,7 @@ export const AiStory = ({ aiStorySettings }: {aiStorySettings :AiStorySettingsTy
      
 
     const GenerateAiStory = async () => {
+        setDisplayedContent(<>{waitingMessage}</>);
         activateStory(true);
         try {
             const requestOptions = {
@@ -39,10 +40,8 @@ export const AiStory = ({ aiStorySettings }: {aiStorySettings :AiStorySettingsTy
             if (storyResponse.status === 201) {
                 const body = await storyResponse.json();
                 setDisplayedContent(<>{body.story}</>);
-                activateStory(true);
             } else if (storyResponse.status === 404) {
                 setDisplayedContent(<>{errorMessage}</>);
-                activateStory(true);
             }
         } catch (error) {
             console.error(`Error generating story`,error);
@@ -54,7 +53,7 @@ export const AiStory = ({ aiStorySettings }: {aiStorySettings :AiStorySettingsTy
                 className={`AiStoryButton AiStoryButton--${theme} AiStoryElement`}
                 onClick={async () => { await GenerateAiStory() }}
             >
-                <h1 className={`instructions instructions--${theme}`}>Generate Story</h1>
+                <label className={`instructions instructions--${theme}`}>Generate Story</label>
             </button>
             <section className={`AiStory--${theme} AiStoryElement AiStoryTextContainer`}>
                 <h3 className={`AiStory--${theme} AiStory__activated--${activated}`}>
