@@ -1,24 +1,16 @@
-.About {
-    background-color:transparent;
-}
-
 .About_container {
-    padding: 0 10% 0 10%;
-    
+    padding: 2rem;
 }
 
 .About_article {
    width:100%;
-   font-size:1.2rem;
 }
 
-.About--black {
-    color: var(--fontcolor-dark);
-    font-family: var(--fontfamily);
+.OpenAiLink {
+    -webkit-text-decoration: inherit;
+    text-decoration: inherit;
 }
 
-@media screen and (min-width: 700px) {
-    .About_article {
-        font-size:1.5rem;
-    }
+.OpenAiText {
+    color: var(--iconeFontColor);
 }
