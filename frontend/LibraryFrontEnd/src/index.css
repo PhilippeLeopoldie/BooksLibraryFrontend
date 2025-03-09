@@ -20,6 +20,7 @@
     --forminputcolor: #6495ED;
     --cardbordercolor_dark: #ffffff;
     --cardbordercolor_light: #000000;
+    --iconeFontColor: #067eff;
     background-color: var(--backgroundcolor-darkmode);
 }
 
@@ -65,7 +66,8 @@ input, select, option {
     }
 
 .icone {
-  background-color: transparent;
+    background-color: transparent;
+    color: var(--iconeFontColor);
 }
 
 body {
