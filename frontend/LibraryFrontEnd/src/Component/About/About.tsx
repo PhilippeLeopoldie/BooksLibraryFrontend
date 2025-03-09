@@ -17,7 +17,7 @@ export const About = () => {
                     and an exciting integration with {' '}
                     <Link className={`instructions instructions--${theme} OpenAiLink`} to="https://openai.com/">
                         <span className={`instructions OpenAiText`} >OpenAI
-                            <img className="icone openAiIcine" src={openAiSvg} alt="openAiImage" />
+                            <img className="icone" src={openAiSvg} alt="openAiImage" />
                         </span> 
                     </Link>
                     {' '}to generate your own short stories.<br />
