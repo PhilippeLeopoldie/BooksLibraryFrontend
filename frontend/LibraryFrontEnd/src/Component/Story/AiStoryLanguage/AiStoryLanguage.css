@@ -1,0 +1,19 @@
+.AiStoryLanguage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+}
+
+.AiStoryLanguage__select--black {
+    background-color: var(--backgroundcolor-darkmode);
+    color: var(--fontcolor-dark);
+}
+
+.AiStoryLanguage__select {
+    width:100%;
+    max-width:12rem;
+}

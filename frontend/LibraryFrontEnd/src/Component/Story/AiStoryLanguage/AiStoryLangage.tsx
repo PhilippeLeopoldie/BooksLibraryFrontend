@@ -1,4 +1,5 @@
 import { AiStoryLanguageType } from "../../../constants/types";
+import "./AiStoryLanguage.css";
 import { useContext, useState } from "react";
 import { ThemeContext } from "../../../App/App";
 
@@ -17,7 +18,7 @@ export const AiStoryLanguage = ({ languageHandler }: HandleLanguageType) => {
 
     return (
         <>
-            <section className={`AiStoryLanguage AiStoryLanguage--${theme}` }>
+            <section className={ `AiStoryLanguage` }>
                 <p className={`instructions instructions--${theme}`}>Choose your language:</p>
                 <select
                     className={`AiStoryLanguage__select AiStoryLanguage__select--${theme}`}
