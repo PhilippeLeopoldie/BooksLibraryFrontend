@@ -37,3 +37,5 @@ export type PaginationType = {
     page: string,
     pageSize: string
 }
+
+export type AiStoryLanguageType = "English" | "French" | "Swedish" | "Spanish";
