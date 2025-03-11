@@ -28,8 +28,6 @@ export const AiUserPreferences = () => {
     const handleGenreSelection = (genreId: string) => {
         sessionStorage.setItem("userGenreIdPreference", genreId);
         setUserGenreIdPreferences(genreId);
-        const genreName = genreNamefromGenreId(userGenreIdPreference);
-        setAiStorySettings({ ...aiStorySettings, genreName });
     }
 
     const readingTimeHandler = (readingTime: string) => {
@@ -41,7 +39,10 @@ export const AiUserPreferences = () => {
     }
 
     useEffect(() => {
-        console.log(userGenreIdPreference);
+        if (userGenreIdPreference) {
+            const genreName = genreNamefromGenreId(userGenreIdPreference);
+            setAiStorySettings({ ...aiStorySettings, genreName });
+        }
     }, [userGenreIdPreference]);
 
     return (
