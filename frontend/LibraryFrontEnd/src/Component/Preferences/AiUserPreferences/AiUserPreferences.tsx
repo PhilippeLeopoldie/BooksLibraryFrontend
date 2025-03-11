@@ -4,9 +4,11 @@ import { GenreButton } from "../../GenreButton/GenreButton";
 import { ReadingRange } from "../ReadingRange/ReadingRange";
 import "./AiUserPreferences.css";
 import { AiStory } from "../../Story/AiStory/AiStory";
+import { AiStoryLanguage } from "../../Story/AiStoryLanguage/AiStoryLangage";
+import { AiStoryLanguageType } from "../../../constants/types"; 
 
 type AiStorySettingsType = {
-    language: "English" | "French" | "Swedish" | "Spanish",
+    language: AiStoryLanguageType,
     genreName: string,
     readingTime: string
 }
@@ -31,6 +33,9 @@ export const AiUserPreferences = () => {
         setAiStorySettings({ ...aiStorySettings, readingTime });
     }
 
+    const languageHandler = (language: AiStoryLanguageType) => {
+        setAiStorySettings({ ...aiStorySettings, language });
+    }
 
     useEffect(() => {
         console.log(userGenreIdPreference);
@@ -51,6 +56,7 @@ export const AiUserPreferences = () => {
                 )}
             </section>
             <ReadingRange readingTimeHandler={readingTimeHandler} />
+            <AiStoryLanguage languageHandler={languageHandler} />
             <section className="story_section">
                 <AiStory aiStorySettings={aiStorySettings} />
             </section>
