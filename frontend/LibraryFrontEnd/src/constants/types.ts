@@ -12,6 +12,7 @@ export type BookType = {
 export type GenreType = {
     id: string,
     name: string,
+    isForStoryGeneration: boolean,
     books?: BookType[]
 };
 
