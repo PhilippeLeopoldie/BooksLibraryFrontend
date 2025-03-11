@@ -19,13 +19,16 @@ export const AiUserPreferences = () => {
     const listOfGenres = listOfGenresContext?.genresCache?.genres || [];
     const [userGenreIdPreference, setUserGenreIdPreferences] = useState<string>(
         sessionStorage.getItem("userGenreIdPreference") || "");
-    const defaultSettings: AiStorySettingsType = { language: "English", genreName: "", readingTime: "1" };
-    const [aiStorySettings, setAiStorySettings] = useState<AiStorySettingsType>(defaultSettings);
+    const [aiStorySettings, setAiStorySettings] = useState<AiStorySettingsType>({ language: "English", genreName: "", readingTime: "1" });
+
+    const genreNamefromGenreId = (genreId: string) => {
+        return listOfGenres.find((genre) => genre.id.toString() === genreId)?.name || "";;
+    }
 
     const handleGenreSelection = (genreId: string) => {
         sessionStorage.setItem("userGenreIdPreference", genreId);
         setUserGenreIdPreferences(genreId);
-        const genreName = listOfGenres.find((genre) => genre.id === genreId)?.name || "";
+        const genreName = genreNamefromGenreId(userGenreIdPreference);
         setAiStorySettings({ ...aiStorySettings, genreName });
     }
 
