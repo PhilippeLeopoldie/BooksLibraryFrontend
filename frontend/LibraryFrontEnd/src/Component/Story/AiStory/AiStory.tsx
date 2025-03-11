@@ -2,11 +2,11 @@ import "./AiStory.css";
 import { ThemeContext } from "../../../App/App";
 import { useContext, useState } from "react";
 import { AI_STORY_URL } from "../../../constants/api";
-import { act } from "react-dom/test-utils";
+import { AiStoryLanguageType } from "../../../constants/types"; 
 
 
 type AiStorySettingsType = {
-    language: "English" | "French" | "Swedish" | "Spanish",
+    language: AiStoryLanguageType,
     genreName: string,
     readingTime: string
 }
