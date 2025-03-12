@@ -2,7 +2,9 @@ import "./AiStory.css";
 import { ThemeContext } from "../../../App/App";
 import { useContext, useEffect, useRef, useState } from "react";
 import { AI_STORY_URL } from "../../../constants/api";
-import { AiStoryLanguageType } from "../../../constants/types"; 
+import { AiStoryForm } from "./AiStoryForm";
+import { AiStoryLanguageType } from "../../../constants/types";
+import { UseAiStoryFormat } from "./UseAiStoryFormat";
 
 
 type AiStorySettingsType = {
@@ -10,6 +12,12 @@ type AiStorySettingsType = {
     genreName: string,
     readingTime: string
 }
+type AiStoryFormatType = {
+    title: string,
+    story: string,
+    author: string
+}
+
 export const AiStory = ({ aiStorySettings }: {aiStorySettings :AiStorySettingsType }) => {
     const theme = useContext(ThemeContext);
     const waitingMessage = "Generating story...";
@@ -41,7 +49,8 @@ export const AiStory = ({ aiStorySettings }: {aiStorySettings :AiStorySettingsTy
             const storyResponse: Response = await fetch(AI_STORY_URL, requestOptions);
             if (storyResponse.status === 201) {
                 const body = await storyResponse.json();
-                setDisplayedContent(<>{body.story}</>);
+                const formatedGeneratedStory: AiStoryFormatType = UseAiStoryFormat(body.story);
+                setDisplayedContent(<AiStoryForm generatedStory={formatedGeneratedStory} />);
             } else if (storyResponse.status === 404) {
                 setDisplayedContent(<>{errorMessage}</>);
             }
