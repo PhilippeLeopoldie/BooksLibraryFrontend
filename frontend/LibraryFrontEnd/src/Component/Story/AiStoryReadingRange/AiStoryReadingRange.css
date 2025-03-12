@@ -16,6 +16,7 @@
     background-color: inherit;
     color: var(--forminputcolor);
     font-weight: bold;
+    font-size: 1.3rem;
 }
 
 .Reading_time_slider {
