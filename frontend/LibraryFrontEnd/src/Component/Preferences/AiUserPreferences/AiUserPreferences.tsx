@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { ThemeContext, genresCacheContext } from "../../../App/App";
 import { GenreButton } from "../../GenreButton/GenreButton";
-import { ReadingRange } from "../ReadingRange/ReadingRange";
+import { AiStoryReadingRange } from "../../Story/AiStoryReadingRange/AiStoryReadingRange";
 import "./AiUserPreferences.css";
 import { AiStory } from "../../Story/AiStory/AiStory";
 import { AiStoryLanguage } from "../../Story/AiStoryLanguage/AiStoryLangage";
@@ -59,7 +59,7 @@ export const AiUserPreferences = () => {
                     />
                 )}
             </section>
-            <ReadingRange readingTimeHandler={readingTimeHandler} />
+            <AiStoryReadingRange readingTimeHandler={readingTimeHandler} />
             <AiStoryLanguage languageHandler={languageHandler} />
             <section className="story_section">
                 <AiStory aiStorySettings={aiStorySettings} />

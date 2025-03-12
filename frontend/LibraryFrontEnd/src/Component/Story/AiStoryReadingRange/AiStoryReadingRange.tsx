@@ -1,4 +1,4 @@
-import "./ReadingRange.css"
+import "./AiStoryReadingRange.css"
 import { ChangeEvent, useContext, useState } from "react";
 import { ThemeContext } from "../../../App/App";
 
@@ -6,7 +6,7 @@ type HandleReadingTimeType = {
     readingTimeHandler: (readingTime: string) => void;
 }
 
-export const ReadingRange = ({ readingTimeHandler }: HandleReadingTimeType) => {
+export const AiStoryReadingRange = ({ readingTimeHandler }: HandleReadingTimeType) => {
     const defaultReadingTime = "1";
     const theme = useContext(ThemeContext);
     const [rangeValue, setRangeValue] = useState<string>(defaultReadingTime);
