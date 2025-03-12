@@ -10,7 +10,7 @@
 
 .AiStoryLanguage__select--black {
     background-color: var(--backgroundcolor-darkmode);
-    color: var(--fontcolor-dark);
+    color: var(--forminputcolor);
 }
 
 .AiStoryLanguage__select {
