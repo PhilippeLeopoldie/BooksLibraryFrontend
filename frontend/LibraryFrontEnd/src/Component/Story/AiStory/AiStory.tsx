@@ -1,6 +1,6 @@
 import "./AiStory.css";
 import { ThemeContext } from "../../../App/App";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { AI_STORY_URL } from "../../../constants/api";
 import { AiStoryLanguageType } from "../../../constants/types"; 
 
@@ -14,16 +14,18 @@ export const AiStory = ({ aiStorySettings }: {aiStorySettings :AiStorySettingsTy
     const theme = useContext(ThemeContext);
     const waitingMessage = "Generating story...";
     const errorMessage = "Something went wrong! please try later...";
+    const storyRef = useRef<HTMLDivElement | null>(null);
     const [activated, setActivated] = useState<Boolean>(false);
-    const [displayedContent, setDisplayedContent] = useState<JSX.Element>(<>{waitingMessage}</>);
+    const [displayedContent, setDisplayedContent] = useState<JSX.Element>(<></>);
     const activateStory = (boolean: boolean) => {
         setActivated(boolean);
     }
      
 
     const GenerateAiStory = async () => {
-        setDisplayedContent(<>{waitingMessage}</>);
         activateStory(true);
+        setDisplayedContent(<>{waitingMessage}</>);
+        
         try {
             const requestOptions = {
                 method: "POST",
@@ -47,6 +49,14 @@ export const AiStory = ({ aiStorySettings }: {aiStorySettings :AiStorySettingsTy
             console.error(`Error generating story`,error);
         };
     }
+
+    useEffect(() => {
+        if (activated && storyRef.current) {
+            storyRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+    }, [displayedContent]);
+
+
     return (
         <>
             <button
@@ -55,7 +65,7 @@ export const AiStory = ({ aiStorySettings }: {aiStorySettings :AiStorySettingsTy
             >
                 <label className={`AiStoryButton__label AiStoryButton__label--${theme}`}>Generate Story</label>
             </button>
-            <section className={`AiStory--${theme} AiStoryElement AiStoryTextContainer`}>
+            <section ref={storyRef} className={`AiStory--${theme} AiStoryElement AiStoryTextContainer`}>
                 <h3 className={`AiStory--${theme} AiStory__activated--${activated}`}>
                     {displayedContent}
                 </h3>
