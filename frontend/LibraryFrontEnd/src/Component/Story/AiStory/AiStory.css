@@ -19,6 +19,10 @@
     display: contents;
 }
 
+.AiStoryButton {
+    margin-top: 1rem;
+}
+
 .AiStoryButton, .AiStoryButton > * {
     border-color: orange;
     cursor: pointer;
