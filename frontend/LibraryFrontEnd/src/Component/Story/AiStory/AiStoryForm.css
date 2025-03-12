@@ -1,0 +1,12 @@
+.aiStoryFormat__container, .aiStoryFormat__container * {
+    background-color: transparent;
+    text-align: justify;
+}
+
+.aiStoryFormat__container--black * {
+    color: var(--fontcolor-dark);
+}
+
+.aiStoryFormat__title >* {
+    margin-top:0;
+}
