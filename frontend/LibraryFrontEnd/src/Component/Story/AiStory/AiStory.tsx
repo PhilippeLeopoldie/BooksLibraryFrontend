@@ -53,7 +53,7 @@ export const AiStory = ({ aiStorySettings }: {aiStorySettings :AiStorySettingsTy
                 className={`AiStoryButton AiStoryButton--${theme} AiStoryElement`}
                 onClick={async () => { await GenerateAiStory() }}
             >
-                <label className={`instructions instructions--${theme}`}>Generate Story</label>
+                <label className={`AiStoryButton__label AiStoryButton__label--${theme}`}>Generate Story</label>
             </button>
             <section className={`AiStory--${theme} AiStoryElement AiStoryTextContainer`}>
                 <h3 className={`AiStory--${theme} AiStory__activated--${activated}`}>

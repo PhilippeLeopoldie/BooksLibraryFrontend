@@ -23,7 +23,7 @@ export const ReadingRange = ({ readingTimeHandler }: HandleReadingTimeType) => {
     return (
         <>
             <section className={`ReadingRange--flex ReadingRange--flex--${theme}`}>
-                <p className={`instructions instructions--${theme}`}>Adjust the slider to choose your reading time:</p>
+                <p className={`instructions instructions--${theme}`}>2. Adjust the slider to a reading time:</p>
                 <label className="RangeLabel" htmlFor="Reading_time_slider">{`${rangeValue} min`}
                 </label>
                 <input

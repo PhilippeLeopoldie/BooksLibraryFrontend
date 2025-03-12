@@ -47,7 +47,7 @@ export const AiUserPreferences = () => {
 
     return (
         <section className={`AiUserPreferences_container AiUserPreferences_container--${theme}`}>
-            <p className={`instructions instructions--${theme}` } >Choose your genre:</p>
+            <p className={`instructions instructions--${theme}` } >1. Choose a genre:</p>
             <section className='AiGenres'>
                 {listOfGenres.filter(genre => genre.isForStoryGeneration).map((genre) =>
                     <GenreButton

@@ -19,7 +19,7 @@ export const AiStoryLanguage = ({ languageHandler }: HandleLanguageType) => {
     return (
         <>
             <section className={ `AiStoryLanguage` }>
-                <p className={`instructions instructions--${theme}`}>Choose your language:</p>
+                <p className={`instructions instructions--${theme}`}>3. Choose your language:</p>
                 <select
                     className={`AiStoryLanguage__select AiStoryLanguage__select--${theme}`}
                     value={language}

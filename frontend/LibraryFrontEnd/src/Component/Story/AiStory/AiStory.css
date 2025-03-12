@@ -19,17 +19,20 @@
     display: contents;
 }
 
-.AiStoryButton, .AiStoryButton>* {
+.AiStoryButton, .AiStoryButton > * {
     border-color: orange;
     cursor: pointer;
+    width: 100%;
+    max-width: 14rem;
 }
 
-.AiStoryButton--black {
+.AiStoryButton__label {
+    background-color: transparent;
+    font-size: 1.5rem;
+}
+
+.AiStoryButton__label--black {
     color: var(--fontcolor-dark);
-}
-
-.AiStoryButton--natural {
-    color: var(--fontcolor-light);
 }
 
 .AiStoryTextContainer {
