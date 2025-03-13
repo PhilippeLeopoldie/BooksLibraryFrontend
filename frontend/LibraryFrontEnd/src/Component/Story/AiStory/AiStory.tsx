@@ -4,7 +4,9 @@ import { useContext, useEffect, useRef, useState } from "react";
 import { AI_STORY_URL } from "../../../constants/api";
 import { AiStoryForm } from "./AiStoryForm";
 import { AiStoryLanguageType } from "../../../constants/types";
+import openAiSvg from "../../../media/openAi.svg";
 import { UseAiStoryFormat } from "./UseAiStoryFormat";
+import { WaitingImage } from "../../../constants/WaitingImage/WaitingImage";
 
 
 type AiStorySettingsType = {
@@ -20,7 +22,6 @@ type AiStoryFormatType = {
 
 export const AiStory = ({ aiStorySettings }: {aiStorySettings :AiStorySettingsType }) => {
     const theme = useContext(ThemeContext);
-    const waitingMessage = "Generating story...";
     const errorMessage = "Something went wrong! please try later...";
     const storyRef = useRef<HTMLDivElement | null>(null);
     const [activated, setActivated] = useState<Boolean>(false);
@@ -32,7 +33,7 @@ export const AiStory = ({ aiStorySettings }: {aiStorySettings :AiStorySettingsTy
 
     const GenerateAiStory = async () => {
         activateStory(true);
-        setDisplayedContent(<>{waitingMessage}</>);
+        setDisplayedContent(<WaitingImage waitingImage={openAiSvg}/>);
         
         try {
             const requestOptions = {
