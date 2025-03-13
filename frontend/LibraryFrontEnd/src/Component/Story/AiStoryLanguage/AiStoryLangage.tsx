@@ -9,6 +9,7 @@ type HandleLanguageType = {
 
 export const AiStoryLanguage = ({ languageHandler }: HandleLanguageType) => {
     const theme = useContext(ThemeContext);
+    const languages = ["English", "French", "Swedish", "Spanish", "Italian", "Turkish"];
     const [language, setLanguage] = useState<AiStoryLanguageType>("English");
 
     const handleLanguage = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -28,10 +29,9 @@ export const AiStoryLanguage = ({ languageHandler }: HandleLanguageType) => {
                     }}
                 >
                     <option className={`AiStoryLanguage__select AiStoryLanguage__select--${theme}`} value="" disabled>Choose a language</option>
-                    <option className={`AiStoryLanguage__select AiStoryLanguage__select--${theme}`} value="English">English</option>
-                    <option className={`AiStoryLanguage__select AiStoryLanguage__select--${theme}`} value="French">French</option>
-                    <option className={`AiStoryLanguage__select AiStoryLanguage__select--${theme}`} value="Swedish">Swedish</option>
-                    <option className={`AiStoryLanguage__select AiStoryLanguage__select--${theme}`} value="Spanish">Spanish</option>
+                    {languages.sort().map((language) => (
+                    <option key={language} className={`AiStoryLanguage__select AiStoryLanguage__select--${theme}`} value={language}>{language}</option>
+                ))}
                 </select>
             </section>
         </>
