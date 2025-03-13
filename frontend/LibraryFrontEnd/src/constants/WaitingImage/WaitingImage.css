@@ -11,4 +11,5 @@
 .waitingImage {
     animation: rotate 3s linear infinite;
     width: 48px;
+    height: 48px;
 }
