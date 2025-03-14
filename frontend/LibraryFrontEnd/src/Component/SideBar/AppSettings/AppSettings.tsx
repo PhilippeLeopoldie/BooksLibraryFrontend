@@ -1,9 +1,9 @@
 import "./AppSettings.css";
-import { AppUserPreferences } from "../Preferences/AppUserPreferences/AppUserPreferences";
-import darkMode from "../../media/dark-mode48px.svg";
-import githubDarkMode from "../../media/github-DarkMode.svg";
-import githubLightMode from "../../media/github-LightMode.svg";
-import lightMode from "../../media/light-mode48px.svg";
+import { AppUserPreferences } from "./AppUserPreferences/AppUserPreferences";
+import darkMode from "../../../media/dark-mode48px.svg";
+import githubDarkMode from "../../../media/github-DarkMode.svg";
+import githubLightMode from "../../../media/github-LightMode.svg";
+import lightMode from "../../../media/light-mode48px.svg";
 import { Link } from "react-router-dom";
 
 type SettingsType = {

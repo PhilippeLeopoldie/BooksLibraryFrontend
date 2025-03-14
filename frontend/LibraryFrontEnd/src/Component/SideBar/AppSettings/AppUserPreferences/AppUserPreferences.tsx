@@ -1,7 +1,7 @@
 ﻿import { useContext, useEffect, useState } from "react";
-import { ThemeContext,genresCacheContext } from "../../../App/App";
+import { ThemeContext,genresCacheContext } from "../../../../App/App";
 import "./AppUserPreferences.css";
-import { GenreButton } from "../../GenreButton/GenreButton";
+import { GenreButton } from "../../../GenreButton/GenreButton";
 //import { genres } from "../../../constants/genres"
 
 export const AppUserPreferences = () => {
