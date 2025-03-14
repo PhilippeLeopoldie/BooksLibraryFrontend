@@ -1,6 +1,6 @@
 import { Context, useContext } from "react";
 import { ThemeContext } from "../../App/App";
-import { AiUserPreferences } from "../Preferences/AiUserPreferences/AiUserPreferences";
+import { AiUserPreferences } from "./AiUserPreferences/AiUserPreferences";
 import "./StoryCard.css"
 
 export const StoryCard = () => {
