@@ -1,15 +1,15 @@
 import "./App.css";
-import { About } from "../Component/About/About";
-import { BookCreate } from "../Component/BookCreate/BookCreate";
+import { About } from "../components/About/About";
+import { BookCreate } from "../components/BookCreate/BookCreate";
 import { BookType, GenreType, PaginatedBookType } from "../constants/types";
 import { GENRES_LIST_URL } from "../constants/api";
-import { HomePage } from "../Component/HomePage/HomePage";
+import { HomePage } from "../components/HomePage/HomePage";
 import { Routes, BrowserRouter, Route } from "react-router-dom";
-import { BookSearch } from "../Component/BookSearch/BookSearch";
+import { BookSearch } from "../components/BookSearch/BookSearch";
 import { createContext, useEffect, useState } from "react";
-import { NavBar } from "../Component/NavBar/NavBar";
-import { SideBar } from "../Component/SideBar/SideBar"
-import { StoryCard } from "../Component/Story/StoryCard";
+import { NavBar } from "../components/NavBar/NavBar";
+import { SideBar } from "../components/SideBar/SideBar"
+import { StoryCard } from "../components/Story/StoryCard";
 
 type GenreResponseType = {
     genres: GenreType[],
