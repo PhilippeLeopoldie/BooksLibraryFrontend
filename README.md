@@ -7,7 +7,7 @@ ReadSphere: Your Personalized Short Stories and Book Library Platform
 
 ReadSphere is designed to help you explore, organize, and track your reading journey with ease. 
 
-Featuring a sleek interface, curated book recommendations, and an exciting upcoming integration with OpenAI to generate your own short stories,
+Featuring a sleek interface, curated book recommendations, and an exciting integration with [OpenAI](https://openai.com/) ![openAi_Image](./frontend/LibraryFrontEnd/src/media/openAi.svg) to generate your own short stories,
 ReadSphere makes it effortless to discover books and stories tailored to your unique interests. 
 
 Whether you're searching by title, author, or genre, or exploring top-rated reads, ReadSphere is your ultimate companion for all things reading.
