@@ -1,4 +1,5 @@
 import { AiStoryLanguageType } from "../../../constants/types";
+import { languagesArray } from "../../../constants/types";
 import "./AiStoryLanguage.css";
 import { useContext, useState } from "react";
 import { ThemeContext } from "../../../App/App";
@@ -9,7 +10,6 @@ type HandleLanguageType = {
 
 export const AiStoryLanguage = ({ languageHandler }: HandleLanguageType) => {
     const theme = useContext(ThemeContext);
-    const languages = ["English", "French", "Swedish", "Spanish", "Italian", "Turkish"];
     const [language, setLanguage] = useState<AiStoryLanguageType>("English");
 
     const handleLanguage = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -29,7 +29,7 @@ export const AiStoryLanguage = ({ languageHandler }: HandleLanguageType) => {
                     }}
                 >
                     <option className={`AiStoryLanguage__select AiStoryLanguage__select--${theme}`} value="" disabled>Choose a language</option>
-                    {languages.sort().map((language) => (
+                    {languagesArray.map((language) => (
                     <option key={language} className={`AiStoryLanguage__select AiStoryLanguage__select--${theme}`} value={language}>{language}</option>
                 ))}
                 </select>
