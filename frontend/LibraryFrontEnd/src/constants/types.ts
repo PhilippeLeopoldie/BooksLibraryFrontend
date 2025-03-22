@@ -41,4 +41,4 @@ export type PaginationType = {
 export type AiStoryLanguageType = typeof languages[number];
 
 const languages = ["English", "French", "Swedish", "Spanish", "Italian", "Turkish"];
-export const languagesArray = languages.toSorted();
+export const languagesArray = languages.sort();
