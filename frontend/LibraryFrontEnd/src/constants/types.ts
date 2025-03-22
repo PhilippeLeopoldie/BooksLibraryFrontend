@@ -37,5 +37,7 @@ export type PaginationType = {
     page: string,
     pageSize: string
 }
+//Dynamically infer AistoryLanguageType from languages values
+export type AiStoryLanguageType = typeof languages[number];
 
-export type AiStoryLanguageType = "English" | "French" | "Swedish" | "Spanish";
+ const languages = ["English", "French", "Swedish", "Spanish", "Italian", "Turkish"];
