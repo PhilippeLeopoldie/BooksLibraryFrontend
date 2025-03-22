@@ -40,5 +40,5 @@ export type PaginationType = {
 //Dynamically infer AistoryLanguageType from languages values
 export type AiStoryLanguageType = typeof languages[number];
 
-const languages = ["English", "French", "Swedish", "Spanish", "Italian", "Turkish"] as const;
+const languages = ["English", "French", "Swedish", "Spanish", "Italian", "Turkish"];
 export const languagesArray = languages.toSorted();
