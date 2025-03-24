@@ -9,14 +9,14 @@ import { FilteredGenreContext, ThemeContext} from "../../App/App";
 export const HomePage = () => {
     const theme = useContext(ThemeContext);
     const genreContext = useContext(FilteredGenreContext);
-    const [numberOfBooks, setNumberOfBooks] = useState<number>(3);
+    const numberOfPopularBooks = 6;
     const [displayedContent, setDisplayedContent] = useState<JSX.Element>(<></>);
 
 
     useEffect(() => {
         if (genreContext?.genreFilter === 'Popular') {
             setDisplayedContent(
-                <PopularBooks maxNumBooks={`${numberOfBooks}`} />
+                <PopularBooks maxNumBooks={`${numberOfPopularBooks}`} />
             );
         }
         else if (genreContext?.genreFilter !== 'Recent') {
