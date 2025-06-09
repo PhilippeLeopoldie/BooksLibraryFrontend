@@ -24,6 +24,10 @@
   .navbar--black {
     background-color:inherit;
   }
+  .footer, .footer *{
+  background-color: transparent;
+  color: var(--fontcolor-dark);
+  }
 }
 
 @media screen and (min-width: 700px) {

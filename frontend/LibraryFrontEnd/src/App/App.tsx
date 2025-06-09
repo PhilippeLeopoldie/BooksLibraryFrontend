@@ -100,6 +100,9 @@ export const App = () => {
                                             <Route path="/createStory" element={<StoryCard />} />
                                         </Routes>
                                     </section>
+                                    <section className="footer">
+                                        <p>&copy; Philippe Leopoldie</p>
+                                    </section>
                                 </div>
                                 </BrowserRouter>
                             </genresCacheContext.Provider>
