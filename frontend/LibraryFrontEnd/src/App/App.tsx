@@ -72,14 +72,12 @@ export const App = () => {
     useEffect(() => {
         if (!genresCache) fetchGenres();
     }, []);
+    useEffect(() => {
+    rootElement.style.backgroundColor = theme === "black" ? "#1e1e1e" : "#F5F5F5";
+    }, [theme]);
     
     return (
-        <div className={`App App--${theme}`}>
-            <script>
-                {theme === "black"
-                    ? (rootElement.style.backgroundColor = "#1e1e1e")
-                    : (rootElement.style.backgroundColor = "#F5F5F5")}
-            </script>
+        <div className={`App App--${theme}`}>          
             <ThemeContext.Provider value={theme}>
                 <FilteredGenreContext.Provider value={{ genreFilter, setGenreFilter }}>
                     <paginatedBooksCacheContext.Provider value={{ paginatedBooks, setPaginatedBooks}}>
